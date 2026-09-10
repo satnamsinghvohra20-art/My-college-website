@@ -23,6 +23,7 @@
       links: [
         { label: '📊 Board Pitch Deck', url: 'pitch-deck.html' },
         { label: '📄 Commercial Proposal', url: 'PROPOSAL.md' },
+        { label: '🎯 NEP 2020 Matrix', url: 'curriculum-planner.html' },
         { label: '⚖️ SGRC & Grievance', url: 'grievance.html' },
         { label: '🏛️ Governance & CDC', url: 'governance.html' },
         { label: '📈 NAAC IQAC Radar', url: 'naac-iqac.html' }
@@ -39,6 +40,7 @@
       description: 'Full student lifecycle: 86.4% attendance gauge, 3D flip smart ID, NEP timetable matrix, and digital railway pass.',
       links: [
         { label: '🎓 Student Portal ERP', url: 'portal.html' },
+        { label: '🎯 NEP Degree Planner', url: 'curriculum-planner.html' },
         { label: '🚆 Central Railway Pass', url: 'railway-concession.html' },
         { label: '💳 Dynamic UPI Fees', url: 'fee-payment.html' },
         { label: '📝 Semester Exams & Marks', url: 'exams.html' },
@@ -72,6 +74,7 @@
       description: 'Smartboard Rotating QR Projector HUD (zero proxies), NEP 2020 Bloom question generator, and Ph.D. research desk.',
       links: [
         { label: '📱 Smartboard QR Projector', url: 'portal.html#facultyHud' },
+        { label: '📋 NEP Credit Architecture', url: 'curriculum-planner.html' },
         { label: '🧠 Bloom CO-PO Generator', url: 'assessment-tools.html' },
         { label: '🔬 Research & Patents', url: 'research.html' },
         { label: '👨‍🏫 Faculty Directory', url: 'faculty.html' }

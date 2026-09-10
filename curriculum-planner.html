@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="NEP 2020 Curriculum Architecture, Academic Bank of Credits (ABC / APAAR ID) & Multi-Disciplinary Degree Pathway Planner - Smt. CHM College, Ulhasnagar.">
+  <title>NEP 2020 Curriculum & Credit Planner | Smt. CHM College Ulhasnagar</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/theme.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    .nep-hero {
+      background: linear-gradient(135deg, rgba(7, 21, 41, 0.96), rgba(15, 118, 110, 0.92)), url('assets/images/slide-campus-3.jpg') center/cover no-repeat;
+      padding: 55px 0 45px;
+      color: #fff;
+      text-align: center;
+    }
+
+    .nep-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 14px;
+      padding: 26px;
+      box-shadow: var(--shadow-sm);
+      margin-bottom: 30px;
+    }
+
+    .pathway-selector-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 16px;
+      margin-top: 20px;
+    }
+
+    .credit-meter-card {
+      background: linear-gradient(135deg, #071529 0%, #0f233d 100%);
+      color: #fff;
+      border: 1px solid rgba(212, 175, 55, 0.35);
+      border-radius: 14px;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .credit-pill {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 20px;
+      padding: 4px 12px;
+      font-size: 0.78rem;
+      font-family: var(--font-mono);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .exit-level-card {
+      border: 1px solid var(--border-color);
+      border-radius: 10px;
+      padding: 16px;
+      background: var(--bg-card);
+      transition: all 0.2s ease;
+      position: relative;
+    }
+
+    .exit-level-card.active {
+      border-color: #0d9488;
+      background: rgba(13, 148, 136, 0.04);
+      box-shadow: 0 4px 15px rgba(13, 148, 136, 0.15);
+    }
+
+    /* APAAR Digital ID Card */
+    .apaar-card {
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+      border: 2px solid var(--chm-gold);
+      border-radius: 16px;
+      color: #fff;
+      padding: 24px;
+      max-width: 480px;
+      margin: 0 auto;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .apaar-card::after {
+      content: 'APAAR / ABC';
+      position: absolute;
+      right: -20px;
+      bottom: -15px;
+      font-size: 4.5rem;
+      font-weight: 900;
+      color: rgba(255, 255, 255, 0.03);
+      letter-spacing: 2px;
+      pointer-events: none;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- TOP BAR -->
+  <aside class="top-utility-bar">
+    <div class="container utility-inner">
+      <div class="utility-left">
+        <span class="utility-item">
+          <strong>NEP 2020 Mandate:</strong> Academic Bank of Credits (ABC) & APAAR ID (Automated Permanent Academic Account Registry)
+        </span>
+      </div>
+      <div class="utility-right">
+        <a href="portal.html" class="portal-direct-btn">🔐 Student ERP</a>
+        <a href="pitch-deck.html" class="portal-direct-btn" style="background: linear-gradient(135deg, #d4af37, #aa8010); color: #071529; font-weight: 800;">📊 Board Deck</a>
+      </div>
+    </div>
+  </aside>
+
+  <!-- SITE HEADER -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand-wrapper">
+        <img src="assets/images/logo.png" alt="Smt. CHM College Crest" class="brand-logo-img">
+        <div class="brand-meta">
+          <span class="board-name">Hyderabad (Sind) National Collegiate Board</span>
+          <h1 class="college-title">Smt. Chandibhai Himathmal Mansukhani College</h1>
+          <p class="college-subtitle">National Education Policy (NEP 2020) Multi-Disciplinary Curriculum Center</p>
+        </div>
+      </a>
+      <div class="header-badges">
+        <div class="naac-badge-pill" style="border-color: #0d9488;">
+          <span class="naac-label" style="color: #0d9488;">NEP 2020</span>
+          <span class="naac-grade">4-YEAR FYUP</span>
+          <span class="naac-sub">Multiple Exit Matrix</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- NAVIGATION -->
+  <nav class="main-navigation">
+    <div class="container nav-container">
+      <ul class="nav-menu">
+        <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+        <li class="nav-item"><a href="curriculum-planner.html" class="nav-link active" style="color: var(--chm-gold-bright);">NEP Planner</a></li>
+        <li class="nav-item"><a href="portal.html" class="nav-link">Student ERP</a></li>
+        <li class="nav-item"><a href="railway-concession.html" class="nav-link">Railway Pass</a></li>
+        <li class="nav-item"><a href="assessment-tools.html" class="nav-link">Bloom's Tools</a></li>
+        <li class="nav-item"><a href="research.html" class="nav-link">Research & IIC</a></li>
+        <li class="nav-item"><a href="pitch-deck.html" class="nav-link">Executive Deck</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="nep-hero">
+    <div class="container">
+      <div style="display: inline-flex; align-items: center; gap: 8px; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.25); padding: 6px 16px; border-radius: 20px; font-size: 0.85rem; margin-bottom: 15px;">
+        <i class="fas fa-graduation-cap"></i> University of Mumbai NEP 2020 Credit Framework
+      </div>
+      <h2 style="font-family: var(--font-heading); font-size: 2.3rem; margin-bottom: 12px;">NEP 2020 Degree Pathway & Credit Simulator</h2>
+      <p style="max-width: 750px; margin: 0 auto 20px; font-size: 1.05rem; opacity: 0.9;">
+        Customize your multi-disciplinary degree with Major, Minor, Vocational Skill, Open Elective, and Indian Knowledge System (IKS) courses. Real-time APAAR Academic Bank of Credits tracking.
+      </p>
+      <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
+        <a href="#planner" class="btn-primary" style="padding: 10px 22px;">
+          <i class="fas fa-sliders-h"></i> Launch Course Selector
+        </a>
+        <a href="#apaar" class="btn-secondary" style="padding: 10px 22px; color: #fff; border-color: #fff;">
+          <i class="fas fa-id-card"></i> View APAAR / ABC Card
+        </a>
+        <a href="#exits" class="btn-secondary" style="padding: 10px 22px; color: #fff; border-color: #fff;">
+          <i class="fas fa-door-open"></i> Explore 4-Year Exit Options
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- MAIN CONTAINER -->
+  <main class="container" style="padding: 40px 15px;">
+
+    <!-- SECTION 1: 4-YEAR FYUP MULTIPLE EXIT OPTIONS -->
+    <section id="exits" style="margin-bottom: 40px;">
+      <h3 style="font-size: 1.35rem; color: var(--primary-navy); margin-bottom: 8px;">
+        <i class="fas fa-sitemap text-warning"></i> 4-Year Undergraduate Program (FYUP) Multiple Entry-Exit Architecture
+      </h3>
+      <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 20px;">
+        Per Mumbai University NEP 2020 guidelines, students can pause or graduate with recognized credentials at each stage.
+      </p>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px;">
+        <div class="exit-level-card">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+            <strong style="color: #071529; font-size: 1rem;">YEAR 1 (Sem I & II)</strong>
+            <span class="credit-pill" style="color: #0d9488; border-color: #0d9488;">40-44 Credits</span>
+          </div>
+          <div style="font-weight: 700; color: var(--primary-navy); margin-bottom: 6px;">Undergraduate Certificate</div>
+          <p style="font-size: 0.82rem; color: #64748b; line-height: 1.4;">
+            Foundational Major courses, Basic Science/Commerce skills, 4-credit summer vocational internship.
+          </p>
+        </div>
+
+        <div class="exit-level-card">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+            <strong style="color: #071529; font-size: 1rem;">YEAR 2 (Sem III & IV)</strong>
+            <span class="credit-pill" style="color: #0d9488; border-color: #0d9488;">80-88 Credits</span>
+          </div>
+          <div style="font-weight: 700; color: var(--primary-navy); margin-bottom: 6px;">Undergraduate Diploma</div>
+          <p style="font-size: 0.82rem; color: #64748b; line-height: 1.4;">
+            Core Major specializations, Minor discipline initiation, Skill Enhancement (SEC), and Community Engagement.
+          </p>
+        </div>
+
+        <div class="exit-level-card active">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+            <strong style="color: #0d9488; font-size: 1rem;">YEAR 3 (Sem V & VI)</strong>
+            <span class="credit-pill" style="background: #0d9488; color: #fff;">120-132 Credits</span>
+          </div>
+          <div style="font-weight: 700; color: #0d9488; margin-bottom: 6px;">Bachelor's Degree (Standard)</div>
+          <p style="font-size: 0.82rem; color: #64748b; line-height: 1.4;">
+            Advanced Major mastery, Minor completion, Capstone industrial project. Eligible for state & national civil services.
+          </p>
+        </div>
+
+        <div class="exit-level-card">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+            <strong style="color: #071529; font-size: 1rem;">YEAR 4 (Sem VII & VIII)</strong>
+            <span class="credit-pill" style="color: #d4af37; border-color: #d4af37;">160-176 Credits</span>
+          </div>
+          <div style="font-weight: 700; color: var(--primary-navy); margin-bottom: 6px;">Bachelor's Degree (Honors / Research)</div>
+          <p style="font-size: 0.82rem; color: #64748b; line-height: 1.4;">
+            Ph.D.-track Dissertation, Research Publications, Advanced Seminars. Direct entry into 1-Year Master's or Ph.D. programs.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 2: INTERACTIVE NEP COURSE SELECTOR -->
+    <section id="planner" class="nep-card">
+      <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border-color); padding-bottom: 15px; margin-bottom: 20px;">
+        <div>
+          <h3 style="font-size: 1.35rem; color: var(--primary-navy); margin-bottom: 4px;">
+            <i class="fas fa-compass text-primary"></i> Multi-Disciplinary Course & Credit Basket Builder
+          </h3>
+          <p style="font-size: 0.88rem; color: var(--text-muted);">
+            Assemble your custom curriculum matrix. Credits automatically calculate toward your semester quota (Target: 22 Credits).
+          </p>
+        </div>
+        <span class="badge" style="background: #ccfbf1; color: #0f766e; font-weight: 700; padding: 6px 14px; border-radius: 20px;">
+          Semester VI Selection
+        </span>
+      </div>
+
+      <div class="pathway-selector-grid">
+        <div class="form-group">
+          <label class="form-label" for="nep-major"><strong>1. Major Discipline (12 Credits) *</strong></label>
+          <select id="nep-major" class="form-select" onchange="updateCredits()">
+            <option value="IT" data-cr="12" selected>B.Sc. IT: Cloud Computing & Microservices (12 Cr)</option>
+            <option value="CS" data-cr="12">B.Sc. CS: Deep Learning & Autonomous Systems (12 Cr)</option>
+            <option value="Chemistry" data-cr="12">B.Sc. Chemistry: Green Synthesis & Spectroscopy (12 Cr)</option>
+            <option value="Commerce" data-cr="12">B.Com: Financial Derivatives & Taxation (12 Cr)</option>
+            <option value="Management" data-cr="12">BMS: Strategic Global Brand Marketing (12 Cr)</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="nep-minor"><strong>2. Minor Stream (4 Credits) *</strong></label>
+          <select id="nep-minor" class="form-select" onchange="updateCredits()">
+            <option value="Data-Analytics" data-cr="4" selected>Minor in Business Data Analytics (4 Cr)</option>
+            <option value="Cyber-Law" data-cr="4">Minor in Cyber Law & Digital Ethics (4 Cr)</option>
+            <option value="Finance" data-cr="4">Minor in Personal Wealth Management (4 Cr)</option>
+            <option value="Psychology" data-cr="4">Minor in Organizational Psychology (4 Cr)</option>
+            <option value="Environmental" data-cr="4">Minor in Environmental Impact Assessment (4 Cr)</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="nep-oe"><strong>3. Open Elective / Multidisciplinary (2 Credits) *</strong></label>
+          <select id="nep-oe" class="form-select" onchange="updateCredits()">
+            <option value="AI-Ethics" data-cr="2" selected>AI Ethics, Society & Human Rights (2 Cr)</option>
+            <option value="Sindhi-Heritage" data-cr="2">Sindhi Sufism, History & Cultural Diaspora (2 Cr)</option>
+            <option value="Creative-Writing" data-cr="2">Digital Storytelling & Creative Copywriting (2 Cr)</option>
+            <option value="Yoga" data-cr="2">Yoga, Mindfulness & Stress Neurophysiology (2 Cr)</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="nep-vsc"><strong>4. Vocational Skill Course / VSC (2 Credits) *</strong></label>
+          <select id="nep-vsc" class="form-select" onchange="updateCredits()">
+            <option value="Docker-Kubernetes" data-cr="2" selected>DevOps, Containerization & CI/CD (2 Cr)</option>
+            <option value="Digital-Marketing" data-cr="2">Performance SEO & Social Media Ads (2 Cr)</option>
+            <option value="Lab-Instrumentation" data-cr="2">HPLC & Analytical Chemistry Instrumentation (2 Cr)</option>
+            <option value="Financial-Modeling" data-cr="2">Excel Advanced Financial Valuation (2 Cr)</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="nep-iks"><strong>5. Indian Knowledge System / IKS (2 Credits) *</strong></label>
+          <select id="nep-iks" class="form-select" onchange="updateCredits()">
+            <option value="Vedic-Maths" data-cr="2" selected>Vedic Mathematics & Computational Algorithms (2 Cr)</option>
+            <option value="Ayurveda-Nutrition" data-cr="2">Traditional Dietary Systems & Ethnobotany (2 Cr)</option>
+            <option value="Architecture-Heritage" data-cr="2">Ancient Indian Water Harvesting Architecture (2 Cr)</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Live Credit Tally Box -->
+      <div class="credit-meter-card" style="margin-top: 25px;">
+        <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(255,255,255,0.15); padding-bottom: 12px; margin-bottom: 12px;">
+          <div>
+            <div style="font-size: 0.85rem; color: #94a3b8; text-transform: uppercase;">SEMESTER VI CREDIT ALLOCATION</div>
+            <h4 style="font-size: 1.25rem; color: #fff; margin-top: 2px;">NEP 2020 Balanced Basket (Major + Minor + OE + VSC + IKS)</h4>
+          </div>
+          <div style="text-align: right;">
+            <span style="font-size: 0.8rem; color: #94a3b8;">TOTAL CREDITS</span>
+            <div id="totalCreditDisplay" style="font-size: 2.2rem; font-family: var(--font-mono); font-weight: 800; color: #00f5a0;">22 / 22</div>
+          </div>
+        </div>
+
+        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
+          <div style="font-size: 0.88rem; color: #cbd5e1;">
+            <i class="fas fa-check-circle text-success"></i> Mumbai University Ordinance Mandate: <strong>100% Compliant</strong>. Eligible for Semester End Exams.
+          </div>
+          <button type="button" onclick="syncWithApaar()" class="btn-primary" style="padding: 8px 20px; font-size: 0.85rem; background: linear-gradient(135deg, #fce089, #d4af37); color: #071529; font-weight: 700;">
+            <i class="fas fa-cloud-upload-alt"></i> Push to APAAR Academic Bank of Credits
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3: APAAR / ABC DIGITAL IDENTITY CARD -->
+    <section id="apaar" style="margin-bottom: 40px;">
+      <div style="text-align: center; margin-bottom: 25px;">
+        <h3 style="font-size: 1.35rem; color: var(--primary-navy); margin-bottom: 6px;">
+          <i class="fas fa-id-card text-warning"></i> National Academic Bank of Credits (ABC) Digital Card
+        </h3>
+        <p style="font-size: 0.9rem; color: var(--text-muted);">
+          Government of India Ministry of Education • DigiLocker & Mumbai University Unified APAAR Registry
+        </p>
+      </div>
+
+      <div class="apaar-card">
+        <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(255,255,255,0.15); padding-bottom: 12px; margin-bottom: 15px;">
+          <div>
+            <div style="font-size: 0.75rem; color: var(--chm-gold); letter-spacing: 1px; text-transform: uppercase;">MINISTRY OF EDUCATION • GOVT OF INDIA</div>
+            <div style="font-size: 1rem; font-weight: 800;">ACADEMIC BANK OF CREDITS</div>
+          </div>
+          <img src="assets/images/logo.png" alt="CHM Crest" style="width: 38px; height: 38px; border-radius: 50%; background: #fff; padding: 2px;">
+        </div>
+
+        <div style="display: flex; justify-content: space-between; margin-bottom: 15px;">
+          <div>
+            <div style="font-size: 0.75rem; color: #94a3b8;">STUDENT NAME</div>
+            <div style="font-size: 1.1rem; font-weight: 700;">Satnam Singh</div>
+            <div style="font-size: 0.8rem; color: #cbd5e1; margin-top: 2px;">TY B.Sc. Information Technology</div>
+          </div>
+          <div style="text-align: right;">
+            <div style="font-size: 0.75rem; color: #94a3b8;">INSTITUTION</div>
+            <div style="font-size: 0.9rem; font-weight: 700; color: var(--chm-gold);">Smt. CHM College</div>
+            <div style="font-size: 0.75rem; color: #94a3b8;">Univ. of Mumbai (Code: 217)</div>
+          </div>
+        </div>
+
+        <div style="background: rgba(0,0,0,0.3); padding: 12px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); margin-bottom: 15px;">
+          <div style="display: flex; justify-content: space-between; align-items: center;">
+            <div>
+              <div style="font-size: 0.7rem; color: #94a3b8; text-transform: uppercase;">12-DIGIT APAAR ID</div>
+              <div style="font-family: var(--font-mono); font-size: 1.15rem; font-weight: 800; color: #00d2ff; letter-spacing: 1px;">
+                9182 4022 7109
+              </div>
+            </div>
+            <div style="text-align: right;">
+              <div style="font-size: 0.7rem; color: #94a3b8; text-transform: uppercase;">CUMULATIVE CREDITS</div>
+              <div style="font-family: var(--font-mono); font-size: 1.25rem; font-weight: 800; color: #00f5a0;">
+                132 Cr
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div style="display: flex; justify-content: space-between; align-items: center; font-size: 0.75rem; color: #94a3b8;">
+          <div>ABC Account Status: <strong style="color: #00f5a0;">ACTIVE & VERIFIED</strong></div>
+          <div>DigiLocker Linked</div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container footer-content">
+      <div class="footer-col">
+        <h4 class="footer-heading">NEP 2020 Quality Assurance</h4>
+        <p style="color: rgba(255,255,255,0.7); font-size: 0.9rem; line-height: 1.6;">
+          Curriculum pathways designed in accordance with the National Credit Framework (NCrF) and Mumbai University Academic Council resolutions for four-year undergraduate programs.
+        </p>
+      </div>
+      <div class="footer-col">
+        <h4 class="footer-heading">Academic Links</h4>
+        <ul class="footer-links">
+          <li><a href="portal.html">Student ERP Portal</a></li>
+          <li><a href="assessment-tools.html">Bloom's Taxonomy CO-PO Tools</a></li>
+          <li><a href="question-bank.html">University Question Bank</a></li>
+          <li><a href="pitch-deck.html">Executive Boardroom Deck</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4 class="footer-heading">Academic Council Desk</h4>
+        <p style="color: rgba(255,255,255,0.7); font-size: 0.9rem;">
+          Dean of Academic Affairs<br>
+          Smt. CHM College, Ulhasnagar - 421003<br>
+          Email: nep@chmcollege.in
+        </p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container footer-bottom-inner">
+        <p>© 2026 Smt. CHM College, Ulhasnagar. All Rights Reserved.</p>
+        <p>National Credit Framework (NCrF) Compliant</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/app.js"></script>
+  <script src="js/persona-switcher.js"></script>
+  <script>
+    function updateCredits() {
+      const majorCr = parseInt(document.getElementById('nep-major').selectedOptions[0].dataset.cr) || 12;
+      const minorCr = parseInt(document.getElementById('nep-minor').selectedOptions[0].dataset.cr) || 4;
+      const oeCr = parseInt(document.getElementById('nep-oe').selectedOptions[0].dataset.cr) || 2;
+      const vscCr = parseInt(document.getElementById('nep-vsc').selectedOptions[0].dataset.cr) || 2;
+      const iksCr = parseInt(document.getElementById('nep-iks').selectedOptions[0].dataset.cr) || 2;
+
+      const total = majorCr + minorCr + oeCr + vscCr + iksCr;
+      document.getElementById('totalCreditDisplay').textContent = `${total} / 22`;
+    }
+
+    function syncWithApaar() {
+      const major = document.getElementById('nep-major').selectedOptions[0].text;
+      const minor = document.getElementById('nep-minor').selectedOptions[0].text;
+      const total = document.getElementById('totalCreditDisplay').textContent;
+
+      alert(`✅ Academic Bank of Credits (ABC / APAAR) Synchronization Complete!\n\nAPAAR ID: 9182 4022 7109\nStudent: Satnam Singh\nMajor Discipline: ${major}\nMinor Stream: ${minor}\nAllocated Credits: ${total}\nStatus: Cryptographically logged to DigiLocker Master Ledger.`);
+    }
+
+    document.addEventListener('DOMContentLoaded', updateCredits);
+  </script>
+</body>
+</html>
