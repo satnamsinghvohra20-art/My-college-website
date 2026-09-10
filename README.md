@@ -93,6 +93,21 @@ An ultra-modern, enterprise-grade digital campus ecosystem and self-service stud
     - Filter by Faculty (Science, Commerce, Arts, IT/CS, Management), Semester, and Session.
     - Quick paper blueprint preview modal and 1-click verified PDF download simulator.
 
+16. **Campus Fests & Cultural Conclaves (`events.html`)**:
+    - Event showcases for **Chandi Utsav** (Youth Cultural Fest), **Aakash Sports Meet**, **TechMorphosis Hackathon**, and **ChemiShine Symposium**.
+    - Live campus event timeline and calendar.
+    - Interactive Inter-Collegiate Contingent & Delegate Entry Pass generator with QR pass issuance.
+
+17. **Central Digital Library & E-Resource Gateway (`digital-library.html`)**:
+    - Direct access portals to INFLIBNET N-LIST (1,99,500+ e-books), NDLI, Shodhganga Ph.D. theses, and DELNET.
+    - Student & Faculty Book Acquisition Recommendation and requisition form.
+    - Real-time digital reading hall footfall tracker.
+
+18. **NEP 2020 Bloom's Taxonomy Assessment Generator (`assessment-tools.html`)**:
+    - Cognitive level distribution radar (L1 Remember to L6 Create).
+    - Automated Course Outcome (CO1-CO4) mapping and NBA/NAAC Criterion 2.6 compliance.
+    - 1-click official examination question paper and marking scheme generator.
+
 ---
 
 ### 📂 File Structure
