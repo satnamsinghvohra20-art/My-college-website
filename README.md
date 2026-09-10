@@ -78,6 +78,21 @@ An ultra-modern, enterprise-grade digital campus ecosystem and self-service stud
     - Online Student Grievance Redressal Cell (SGRC) with automated Token Generator.
     - Right to Information (RTI Act 2005) public disclosure with PIO & APIO directory.
 
+13. **Virtual 360° Campus Tour & Audio Walkthrough (`campus-tour.html`)**:
+    - Interactive 360-degree panoramic viewport with clickable facility hotspot pins.
+    - Voice-guided campus audio tour with Web Speech Synthesis narrator.
+    - High-definition virtual views of the Central Library, Science Research Wings, Kundnani Auditorium, Cloud Computing Center, and Sports Pavilion.
+
+14. **Scholarships & MahaDBT Assistance Portal (`scholarships.html`)**:
+    - Smart Eligibility Engine matching students with MahaDBT, NSP, and HSNC Trust schemes.
+    - Fee concession calculators for SC/ST, VJNT/OBC, EBC (Rajarshi Shahu Maharaj), and Minority students.
+    - Scrutiny document checklist generator for administrative counter approval.
+
+15. **Question Paper Bank & Academic Syllabi Vault (`question-bank.html`)**:
+    - Searchable repository of previous years' University of Mumbai question papers (2020-2025).
+    - Filter by Faculty (Science, Commerce, Arts, IT/CS, Management), Semester, and Session.
+    - Quick paper blueprint preview modal and 1-click verified PDF download simulator.
+
 ---
 
 ### 📂 File Structure
