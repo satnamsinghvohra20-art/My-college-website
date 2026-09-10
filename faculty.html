@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Faculty Directory & Digital Academic Profile Hub - Smt. Chandibhai Himathmal Mansukhani College, Ulhasnagar.">
+  <title>Faculty Directory & Academic Profiles | Smt. CHM College Ulhasnagar</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/theme.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <style>
+    .faculty-hero {
+      background: linear-gradient(135deg, rgba(10,38,71,0.95), rgba(20,82,40,0.92)), url('assets/images/infrastructure.jpg') center/cover no-repeat;
+      padding: 55px 0 45px;
+      color: var(--white);
+      text-align: center;
+    }
+    .filter-pills {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin: 30px 0;
+    }
+    .pill-btn {
+      padding: 8px 18px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 25px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--text-color);
+      cursor: pointer;
+      transition: all var(--transition-fast);
+    }
+    .pill-btn:hover, .pill-btn.active {
+      background: var(--primary-emerald);
+      color: white;
+      border-color: var(--primary-emerald);
+      transform: translateY(-2px);
+    }
+    .faculty-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 24px;
+    }
+    .faculty-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 24px;
+      text-align: center;
+      box-shadow: var(--shadow-sm);
+      transition: all var(--transition-normal);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .faculty-card:hover {
+      box-shadow: var(--shadow-lg);
+      transform: translateY(-6px);
+      border-color: var(--accent-gold);
+    }
+    .faculty-avatar {
+      width: 96px;
+      height: 96px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--primary-emerald), var(--primary-navy));
+      color: white;
+      font-size: 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      margin-bottom: 16px;
+      border: 3px solid var(--accent-gold);
+      box-shadow: var(--shadow-sm);
+    }
+    .faculty-name {
+      font-family: var(--font-heading);
+      font-size: 1.2rem;
+      color: var(--primary-navy);
+      margin-bottom: 4px;
+    }
+    .faculty-role {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--primary-emerald);
+      margin-bottom: 6px;
+    }
+    .faculty-dept {
+      font-size: 0.8rem;
+      background: var(--bg-light);
+      padding: 3px 10px;
+      border-radius: 15px;
+      color: var(--text-muted);
+      margin-bottom: 12px;
+    }
+    .faculty-meta {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      width: 100%;
+      border-top: 1px dashed var(--border-color);
+      padding-top: 12px;
+      margin-bottom: 16px;
+      text-align: left;
+      line-height: 1.6;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Bar -->
+  <aside class="top-bar">
+    <div class="container top-bar__inner">
+      <div class="top-bar__left">
+        <span>📍 Ulhasnagar - 421003, Maharashtra, India</span>
+        <span class="divider">|</span>
+        <span>📞 <a href="tel:+912512734940">+91 (0251) 273 4940</a></span>
+      </div>
+      <div class="top-bar__right">
+        <span class="badge badge-gold">NAAC 'A' Grade (3.12 CGPA)</span>
+        <div class="accessibility-ctrls">
+          <button id="font-decrease">A-</button>
+          <button id="font-reset">A</button>
+          <button id="font-increase">A+</button>
+          <button id="theme-toggle">🌓 Mode</button>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="container header__inner">
+      <div class="header__brand">
+        <img src="assets/images/logo.png" alt="Smt. CHM College Emblem" class="header__logo">
+        <div class="header__titles">
+          <span class="header__subtitle">Hyderabad (Sind) National Collegiate Board, Mumbai</span>
+          <h1 class="header__title">Smt. Chandibhai Himathmal Mansukhani College</h1>
+          <p class="header__affiliation">Affiliated to University of Mumbai • Recognized UGC 2(f) & 12(B)</p>
+        </div>
+      </div>
+      <div class="header__actions">
+        <a href="portal.html" class="btn btn-secondary">Student & Faculty ERP</a>
+        <a href="admission.html" class="btn btn-primary pulse-btn">Admissions 2026</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="container navbar__inner">
+      <button class="navbar__toggle" id="nav-toggle">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="navbar__menu" id="nav-menu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="portal.html">ERP Portal</a></li>
+        <li><a href="admission.html">Admissions</a></li>
+        <li><a href="fee-payment.html">Fee Desk</a></li>
+        <li><a href="exams.html">Exams & Results</a></li>
+        <li><a href="naac-iqac.html">NAAC & IQAC</a></li>
+        <li><a href="placement.html">Placements</a></li>
+        <li><a href="research.html">Research & IIC</a></li>
+        <li><a href="faculty.html" class="active">Faculty</a></li>
+        <li><a href="parent-portal.html">Parent Desk</a></li>
+        <li><a href="governance.html">Governance & RTI</a></li>
+        <li><a href="alumni.html">Alumni</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="faculty-hero">
+    <div class="container">
+      <span class="badge badge-gold" style="font-size: 0.9rem; margin-bottom: 12px; display: inline-block;">SCHOLARSHIP & MENTORSHIP</span>
+      <h2 style="font-family: var(--font-heading); font-size: 2.5rem; margin-bottom: 12px;">Distinguished Faculty Directory</h2>
+      <p style="max-width: 750px; margin: 0 auto 20px; font-size: 1.05rem; line-height: 1.6;">
+        Meet our eminent academicians, doctoral supervisors, and industry practitioners dedicated to fostering excellence across Science, Commerce, Arts, and Management.
+      </p>
+      <div style="max-width: 500px; margin: 0 auto;">
+        <input type="text" id="faculty-search" placeholder="🔍 Search faculty by name, department, or specialization..." style="width: 100%; padding: 12px 20px; border-radius: 30px; border: none; font-size: 0.95rem; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
+      </div>
+    </div>
+  </section>
+
+  <!-- Content -->
+  <main class="container" style="padding: 30px 15px 60px;">
+    
+    <!-- Filter Pills -->
+    <div class="filter-pills">
+      <button class="pill-btn active" data-filter="all">All Departments (145+)</button>
+      <button class="pill-btn" data-filter="Science">Sciences (B.Sc / M.Sc)</button>
+      <button class="pill-btn" data-filter="Commerce">Commerce & Accountancy</button>
+      <button class="pill-btn" data-filter="IT-CS">Computer Science & IT</button>
+      <button class="pill-btn" data-filter="Management">BMS & Management</button>
+      <button class="pill-btn" data-filter="Arts">Arts & Humanities</button>
+    </div>
+
+    <!-- Faculty Cards Grid -->
+    <div class="faculty-grid" id="faculty-list">
+      
+      <!-- Faculty 1: Principal -->
+      <div class="faculty-card" data-category="Commerce" data-name="Dr. Kishori Bhagat" data-dept="Department of Commerce" data-qual="M.Com, M.Phil, Ph.D." data-exp="32 Years" data-specialization="Banking, Finance & Strategic Educational Leadership" data-room="Principal's Office, Ground Floor">
+        <div class="faculty-avatar" style="background-image: url('assets/images/principal.jpg'); background-size: cover; background-position: center;"></div>
+        <h3 class="faculty-name">Dr. Kishori Bhagat</h3>
+        <span class="faculty-role">Principal & Research Guide</span>
+        <span class="faculty-dept">Commerce & Banking</span>
+        <div class="faculty-meta">
+          <div>🎓 <strong>Qual:</strong> M.Com, M.Phil, Ph.D.</div>
+          <div>⏳ <strong>Exp:</strong> 32+ Years Academic Leadership</div>
+          <div>📚 <strong>Pubs:</strong> 28+ Research Papers & Books</div>
+        </div>
+        <div style="display: flex; gap: 8px; width: 100%;">
+          <button class="btn btn-secondary" style="flex: 1; padding: 6px 10px; font-size: 0.8rem;" onclick="viewFacultyBio(this.closest('.faculty-card'))">Full Profile</button>
+          <button class="btn btn-primary" style="flex: 1; padding: 6px 10px; font-size: 0.8rem;" onclick="bookOfficeHours('Dr. Kishori Bhagat', 'Commerce')">Book Slot</button>
+        </div>
+      </div>
+
+      <!-- Faculty 2: Chemistry HOD -->
+      <div class="faculty-card" data-category="Science" data-name="Dr. V. S. Acharya" data-dept="Department of Chemistry" data-qual="M.Sc., Ph.D., Post-Doc (CSIR)" data-exp="24 Years" data-specialization="Green Nanotechnology, Organic Synthesis & Catalysis" data-room="Science Building, Room 204">
+        <div class="faculty-avatar">VA</div>
+        <h3 class="faculty-name">Dr. V. S. Acharya</h3>
+        <span class="faculty-role">Associate Professor & HOD</span>
+        <span class="faculty-dept">Chemistry (Ph.D. Guide)</span>
+        <div class="faculty-meta">
+          <div>🎓 <strong>Qual:</strong> M.Sc, Ph.D. (CSIR Fellow)</div>
+          <div>⏳ <strong>Exp:</strong> 24 Years Research & Teaching</div>
+          <div>📚 <strong>Pubs:</strong> 42 Scopus Papers, 2 Patents</div>
+        </div>
+        <div style="display: flex; gap: 8px; width: 100%;">
+          <button class="btn btn-secondary" style="flex: 1; padding: 6px 10px; font-size: 0.8rem;" onclick="viewFacultyBio(this.closest('.faculty-card'))">Full Profile</button>
+          <button class="btn btn-primary" style="flex: 1; padding: 6px 10px; font-size: 0.8rem;" onclick="bookOfficeHours('Dr. V. S. Acharya', 'Chemistry')">Book Slot</button>
+        </div>
+      </div>
+
+      <!-- Faculty 3: CS / IT HOD -->
+      <div class="faculty-card" data-category="IT-CS" data-name="Prof. Sunil K. Makhija" data-dept="Department of Computer Science & IT" data-qual="M.C.A., M.Tech (CS), UGC-NET" data-exp="18 Years" data-specialization="Machine Learning, Cloud Architecture & Cyber Security" data-room="IT Wing, 3rd Floor, Lab 4">
+        <div class="faculty-avatar">SM</div>
+        <h3 class="faculty-name">Prof. Sunil K. Makhija</h3>
+        <span class="faculty-role">Assistant Professor & Program Coord.</span>
+        <span class="faculty-dept">Computer Science & IT</span>
+        <div class="faculty-meta">
+          <div>🎓 <strong>Qual:</strong> M.Tech (CS), M.C.A, UGC-NET</div>
+          <div>⏳ <strong>Exp:</strong> 18 Years Industry & Academia</div>
+          <div>📚 <strong>Pubs:</strong> 16 IEEE / Springer Papers</div>
+        </div>
+        <div style="display: flex; gap: 8px; width: 100%;">
+          <button class="btn btn-secondary" style="flex: 1; padding: 6px 10px; font-size: 0.8rem;" onclick="viewFacultyBio(this.closest('.faculty-card'))">Full Profile</button>
+          <button class="btn btn-primary" style="flex: 1; padding: 6px 10px; font-size: 0.8rem;" onclick="bookOfficeHours('Prof. Sunil K. Makhija', 'CS/IT')">Book Slot</button>
+        </div>
+      </div>
+
+      <!-- Faculty 4: Microbiology HOD -->
+      <div class="faculty-card" data-category="Science" data-name="Dr. Pratibha Deshpande" data-dept="Department of Microbiology" data-qual="M.Sc., Ph.D., SET" data-exp="21 Years" data-specialization="Microbial Bioremediation, Probiotics & Food Quality Control" data-room="Science Building, Room 108">
+        <div class="faculty-avatar">PD</div>
+        <h3 class="faculty-name">Dr. Pratibha Deshpande</h3>
+        <span class="faculty-role">Associate Professor & HOD</span>
+        <span class="faculty-dept">Microbiology (Ph.D. Guide)</span>
+        <div class="faculty-meta">
+          <div>🎓 <strong>Qual:</strong> M.Sc, Ph.D, SET</div>
+          <div>⏳ <strong>Exp:</strong> 21 Years PG & Doctoral Guide</div>
+          <div>📚 <strong>Pubs:</strong> 22 WoS Papers, 1 Book</div>
+        </div>
+        <div style="display: flex; gap: 8px; width: 100%;">
+          <button class="btn btn-secondary" style="flex: 1; padding: 6px 10px; font-size: 0.8rem;" onclick="viewFacultyBio(this.closest('.faculty-card'))">Full Profile</button>
+          <button class="btn btn-primary" style="flex: 1; padding: 6px 10px; font-size: 0.8rem;" onclick="bookOfficeHours('Dr. Pratibha Deshpande', 'Microbiology')">Book Slot</button>
+        </div>
+      </div>
+
+      <!-- Faculty 5: BMS / Management Coordinator -->
+      <div class="faculty-card" data-category="Management" data-name="Dr. Meenakshi S. Lalwani" data-dept="Department of Management Studies (BMS)" data-qual="M.B.A. (HRM), Ph.D. (Mgmt), UGC-NET" data-exp="15 Years" data-specialization="Organizational Behavior, Strategic HRM & Corporate Ethics" data-room="Management Block, 1st Floor">
+        <div class="faculty-avatar">ML</div>
+        <h3 class="faculty-name">Dr. Meenakshi Lalwani</h3>
+        <span class="faculty-role">Coordinator - BMS & BAF</span>
+        <span class="faculty-dept">Management Studies</span>
+        <div class="faculty-meta">
+          <div>🎓 <strong>Qual:</strong> MBA, Ph.D, UGC-NET (JRF)</div>
+          <div>⏳ <strong>Exp:</strong> 15 Years Corporate & Teaching</div>
+          <div>📚 <strong>Pubs:</strong> 18 Peer Reviewed Articles</div>
+        </div>
+        <div style="display: flex; gap: 8px; width: 100%;">
+          <button class="btn btn-secondary" style="flex: 1; padding: 6px 10px; font-size: 0.8rem;" onclick="viewFacultyBio(this.closest('.faculty-card'))">Full Profile</button>
+          <button class="btn btn-primary" style="flex: 1; padding: 6px 10px; font-size: 0.8rem;" onclick="bookOfficeHours('Dr. Meenakshi Lalwani', 'Management')">Book Slot</button>
+        </div>
+      </div>
+
+      <!-- Faculty 6: Accountancy & Commerce -->
+      <div class="faculty-card" data-category="Commerce" data-name="Prof. Rajesh K. Vazirani" data-dept="Department of Accountancy & Financial Markets" data-qual="M.Com, F.C.A. (Chartered Accountant), SET" data-exp="20 Years" data-specialization="Corporate Auditing, Ind AS, GST & Security Analysis" data-room="Main Building, Room 112">
+        <div class="faculty-avatar">RV</div>
+        <h3 class="faculty-name">Prof. Rajesh Vazirani</h3>
+        <span class="faculty-role">Assistant Professor & CA</span>
+        <span class="faculty-dept">Accountancy & Finance</span>
+        <div class="faculty-meta">
+          <div>🎓 <strong>Qual:</strong> FCA, M.Com, SET</div>
+          <div>⏳ <strong>Exp:</strong> 20 Years Practicing CA & Faculty</div>
+          <div>📚 <strong>Pubs:</strong> 3 Textbooks for Mumbai Univ</div>
+        </div>
+        <div style="display: flex; gap: 8px; width: 100%;">
+          <button class="btn btn-secondary" style="flex: 1; padding: 6px 10px; font-size: 0.8rem;" onclick="viewFacultyBio(this.closest('.faculty-card'))">Full Profile</button>
+          <button class="btn btn-primary" style="flex: 1; padding: 6px 10px; font-size: 0.8rem;" onclick="bookOfficeHours('Prof. Rajesh Vazirani', 'Accountancy')">Book Slot</button>
+        </div>
+      </div>
+
+      <!-- Faculty 7: English & Humanities -->
+      <div class="faculty-card" data-category="Arts" data-name="Dr. Deepa K. Hingorani" data-dept="Department of English & Communication Studies" data-qual="M.A. (English), M.Phil., Ph.D., SET" data-exp="19 Years" data-specialization="Post-Colonial Literature, Sindhi Diaspora Studies & Business English" data-room="Arts Wing, 2nd Floor, Room 215">
+        <div class="faculty-avatar">DH</div>
+        <h3 class="faculty-name">Dr. Deepa Hingorani</h3>
+        <span class="faculty-role">Associate Professor & HOD</span>
+        <span class="faculty-dept">English (Ph.D. Guide)</span>
+        <div class="faculty-meta">
+          <div>🎓 <strong>Qual:</strong> M.A., M.Phil., Ph.D., SET</div>
+          <div>⏳ <strong>Exp:</strong> 19 Years Literary Research</div>
+          <div>📚 <strong>Pubs:</strong> 2 Monographs, 14 Papers</div>
+        </div>
+        <div style="display: flex; gap: 8px; width: 100%;">
+          <button class="btn btn-secondary" style="flex: 1; padding: 6px 10px; font-size: 0.8rem;" onclick="viewFacultyBio(this.closest('.faculty-card'))">Full Profile</button>
+          <button class="btn btn-primary" style="flex: 1; padding: 6px 10px; font-size: 0.8rem;" onclick="bookOfficeHours('Dr. Deepa Hingorani', 'English')">Book Slot</button>
+        </div>
+      </div>
+
+      <!-- Faculty 8: Botany & Plant Sciences -->
+      <div class="faculty-card" data-category="Science" data-name="Dr. Sandeep J. Nemade" data-dept="Department of Botany & Environmental Science" data-qual="M.Sc., Ph.D., NET-JRF" data-exp="16 Years" data-specialization="Medicinal Plants, Phytochemical Screening & Biodiversity Conservation" data-room="Botanical Research Lab, Ground Floor">
+        <div class="faculty-avatar">SN</div>
+        <h3 class="faculty-name">Dr. Sandeep Nemade</h3>
+        <span class="faculty-role">Assistant Professor & Curator</span>
+        <span class="faculty-dept">Botany & Herbarium</span>
+        <div class="faculty-meta">
+          <div>🎓 <strong>Qual:</strong> M.Sc, Ph.D, NET-JRF</div>
+          <div>⏳ <strong>Exp:</strong> 16 Years Field & Taxonomical Work</div>
+          <div>📚 <strong>Pubs:</strong> 19 Scopus Papers, 1 Patent</div>
+        </div>
+        <div style="display: flex; gap: 8px; width: 100%;">
+          <button class="btn btn-secondary" style="flex: 1; padding: 6px 10px; font-size: 0.8rem;" onclick="viewFacultyBio(this.closest('.faculty-card'))">Full Profile</button>
+          <button class="btn btn-primary" style="flex: 1; padding: 6px 10px; font-size: 0.8rem;" onclick="bookOfficeHours('Dr. Sandeep Nemade', 'Botany')">Book Slot</button>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Faculty Bio Modal -->
+  <div id="bio-modal" style="display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.7); z-index: 9999; align-items: center; justify-content: center; padding: 20px;">
+    <div style="background: var(--bg-card); max-width: 600px; width: 100%; border-radius: 12px; padding: 30px; position: relative; max-height: 85vh; overflow-y: auto;">
+      <button onclick="closeBioModal()" style="position: absolute; top: 15px; right: 15px; border: none; background: none; font-size: 1.5rem; cursor: pointer; color: var(--text-color);">&times;</button>
+      <h3 id="modal-bio-name" style="font-family: var(--font-heading); color: var(--primary-navy); margin-bottom: 4px;">Faculty Name</h3>
+      <p id="modal-bio-dept" style="color: var(--primary-emerald); font-weight: 600; font-size: 0.9rem; margin-bottom: 15px;">Department</p>
+      
+      <div style="background: var(--bg-light); border-radius: 8px; padding: 15px; margin-bottom: 20px; font-size: 0.9rem; line-height: 1.8;">
+        <div>🎓 <strong>Qualifications:</strong> <span id="modal-bio-qual"></span></div>
+        <div>⏳ <strong>Experience:</strong> <span id="modal-bio-exp"></span></div>
+        <div>🔬 <strong>Specialization:</strong> <span id="modal-bio-spec"></span></div>
+        <div>📍 <strong>Cabin / Room Location:</strong> <span id="modal-bio-room"></span></div>
+      </div>
+
+      <h4 style="font-size: 0.95rem; color: var(--primary-navy); margin-bottom: 8px;">Key Responsibilities & Administrative Portfolios</h4>
+      <ul style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.6; padding-left: 20px; margin-bottom: 20px;">
+        <li>Member, College Academic Council & Board of Studies</li>
+        <li>Supervisor for Mumbai University M.Sc / Ph.D. Research Dissertations</li>
+        <li>Student Mentor for NAAC Criterion 2 Student Support System</li>
+      </ul>
+
+      <button onclick="closeBioModal()" class="btn btn-secondary" style="width: 100%;">Close Profile</button>
+    </div>
+  </div>
+
+  <!-- Mentorship / Office Hours Booking Modal -->
+  <div id="booking-modal" style="display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.7); z-index: 9999; align-items: center; justify-content: center; padding: 20px;">
+    <div style="background: var(--bg-card); max-width: 500px; width: 100%; border-radius: 12px; padding: 30px; position: relative;">
+      <button onclick="closeBookingModal()" style="position: absolute; top: 15px; right: 15px; border: none; background: none; font-size: 1.5rem; cursor: pointer; color: var(--text-color);">&times;</button>
+      <h3 style="font-family: var(--font-heading); color: var(--primary-navy); margin-bottom: 4px;">Book 1-on-1 Academic Counseling</h3>
+      <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 18px;">Schedule an appointment with <strong id="book-target-name" style="color: var(--primary-emerald);"></strong></p>
+
+      <form onsubmit="handleBookingSubmit(event)">
+        <div style="margin-bottom: 12px;">
+          <label style="display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 4px;">Student Name & Roll No.</label>
+          <input type="text" placeholder="e.g. Satnam Singh (TYBSc-IT-04)" required style="width: 100%; padding: 8px 12px; border: 1px solid var(--border-color); border-radius: 6px;">
+        </div>
+        <div style="margin-bottom: 12px;">
+          <label style="display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 4px;">Counseling Topic</label>
+          <select style="width: 100%; padding: 8px 12px; border: 1px solid var(--border-color); border-radius: 6px;" required>
+            <option value="project">Project / Research Paper Guidance</option>
+            <option value="exam">Syllabus Doubt / Examination Strategy</option>
+            <option value="career">Career / Higher Education Pathway</option>
+            <option value="attendance">Attendance / Medical Leave Advisory</option>
+          </select>
+        </div>
+        <div style="margin-bottom: 12px;">
+          <label style="display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 4px;">Preferred Day & Slot</label>
+          <select style="width: 100%; padding: 8px 12px; border: 1px solid var(--border-color); border-radius: 6px;" required>
+            <option value="mon-11am">Monday • 11:30 AM - 12:15 PM</option>
+            <option value="wed-12pm">Wednesday • 12:15 PM - 01:00 PM</option>
+            <option value="fri-10am">Friday • 10:30 AM - 11:15 AM</option>
+          </select>
+        </div>
+        <div style="margin-bottom: 20px;">
+          <label style="display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 4px;">Brief Query Note</label>
+          <textarea rows="2" placeholder="Describe what you would like to discuss..." style="width: 100%; padding: 8px 12px; border: 1px solid var(--border-color); border-radius: 6px;"></textarea>
+        </div>
+        <div style="display: flex; gap: 10px; justify-content: flex-end;">
+          <button type="button" onclick="closeBookingModal()" class="btn btn-secondary">Cancel</button>
+          <button type="submit" class="btn btn-primary">Confirm Appointment</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Global Footer -->
+  <footer class="footer">
+    <div class="container footer__grid">
+      <div class="footer__col">
+        <img src="assets/images/logo.png" alt="CHM College Emblem" style="max-height: 55px; margin-bottom: 15px; filter: brightness(0) invert(1);">
+        <p style="color: rgba(255,255,255,0.7); font-size: 0.9rem; line-height: 1.6;">
+          Smt. Chandibhai Himathmal Mansukhani College is premier higher education institution governed by Hyderabad (Sind) National Collegiate Board, Mumbai.
+        </p>
+      </div>
+      <div class="footer__col">
+        <h4>Academic Portals</h4>
+        <ul class="footer__links">
+          <li><a href="portal.html">Student ERP & Attendance</a></li>
+          <li><a href="admission.html">Paperless Online Admissions</a></li>
+          <li><a href="fee-payment.html">Voucher Payment & Receipts</a></li>
+          <li><a href="exams.html">University Examination Desk</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>Accreditation & Research</h4>
+        <ul class="footer__links">
+          <li><a href="naac-iqac.html">NAAC SSR & IQAC Cell</a></li>
+          <li><a href="research.html">Ph.D. Centers & Patents</a></li>
+          <li><a href="faculty.html">Faculty Directory</a></li>
+          <li><a href="alumni.html">Global Alumni Network</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>Campus Helpline</h4>
+        <p style="color: rgba(255,255,255,0.7); font-size: 0.9rem; margin-bottom: 10px;">Opp. Railway Station, Smt. Chandibhai Himathmal Mansukhani Road, Ulhasnagar - 421003.</p>
+        <p style="color: var(--accent-gold); font-size: 0.9rem;">Email: <a href="mailto:faculty@chmcollege.in">faculty@chmcollege.in</a></p>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <div class="container footer__bottom-inner">
+        <p>© 2026 Smt. CHM College, Ulhasnagar. All Rights Reserved. Maintained by IT & IQAC Center.</p>
+        <p>Enterprise Institutional Cloud Portal</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/app.js"></script>
+  <script src="js/ai-bot.js"></script>
+  <script>
+    // Search and Filter Logic
+    const searchInput = document.getElementById('faculty-search');
+    const pillButtons = document.querySelectorAll('.pill-btn');
+    const facultyCards = document.querySelectorAll('.faculty-card');
+
+    let activeFilter = 'all';
+
+    function applyFilter() {
+      const q = searchInput.value.toLowerCase().trim();
+
+      facultyCards.forEach(card => {
+        const name = card.getAttribute('data-name').toLowerCase();
+        const dept = card.getAttribute('data-dept').toLowerCase();
+        const spec = card.getAttribute('data-specialization').toLowerCase();
+        const cat = card.getAttribute('data-category');
+
+        const matchesQuery = !q || name.includes(q) || dept.includes(q) || spec.includes(q);
+        const matchesCategory = activeFilter === 'all' || cat === activeFilter;
+
+        if (matchesQuery && matchesCategory) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+
+    pillButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        pillButtons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        activeFilter = btn.getAttribute('data-filter');
+        applyFilter();
+      });
+    });
+
+    if (searchInput) {
+      searchInput.addEventListener('input', applyFilter);
+    }
+
+    // Modal Details
+    function viewFacultyBio(card) {
+      document.getElementById('modal-bio-name').innerText = card.getAttribute('data-name');
+      document.getElementById('modal-bio-dept').innerText = card.getAttribute('data-dept');
+      document.getElementById('modal-bio-qual').innerText = card.getAttribute('data-qual');
+      document.getElementById('modal-bio-exp').innerText = card.getAttribute('data-exp');
+      document.getElementById('modal-bio-spec').innerText = card.getAttribute('data-specialization');
+      document.getElementById('modal-bio-room').innerText = card.getAttribute('data-room');
+      document.getElementById('bio-modal').style.display = 'flex';
+    }
+
+    function closeBioModal() {
+      document.getElementById('bio-modal').style.display = 'none';
+    }
+
+    // Booking Slots
+    let currentFacultyTarget = '';
+    function bookOfficeHours(facultyName, dept) {
+      currentFacultyTarget = facultyName;
+      document.getElementById('book-target-name').innerText = `${facultyName} (${dept})`;
+      document.getElementById('booking-modal').style.display = 'flex';
+    }
+
+    function closeBookingModal() {
+      document.getElementById('booking-modal').style.display = 'none';
+    }
+
+    function handleBookingSubmit(e) {
+      e.preventDefault();
+      const token = 'CHM-MENTOR-' + Math.floor(1000 + Math.random() * 9000);
+      alert(`✅ Academic Mentorship Slot Confirmed!\n\nFaculty: ${currentFacultyTarget}\nBooking Pass ID: ${token}\nAn official calendar confirmation has been dispatched to your institutional student email.`);
+      closeBookingModal();
+    }
+  </script>
+</body>
+</html>

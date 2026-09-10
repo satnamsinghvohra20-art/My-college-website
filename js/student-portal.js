@@ -241,10 +241,93 @@
     qrInterval = setInterval(refreshQR, 10000);
   };
 
-  window.closeProjectorAttendance = function () {
-    const hud = document.getElementById('qr-attendance-hud');
-    if (hud) hud.style.display = 'none';
-    if (qrInterval) clearInterval(qrInterval);
+    // 3. Dynamic NEP 2020 Lecture Timetable Switcher
+    const TIMETABLE_DATA = {
+      bsit: {
+        streamName: 'B.Sc. Information Technology',
+        schedule: [
+          { time: '07:15 AM - 08:05 AM', code: 'USIT601', subject: 'Software Quality Assurance', faculty: 'Prof. Sunil K. Makhija', room: 'Room 402 (Science Wing)', credits: '2.0', status: 'COMPLETED', statusBg: '#dcfce7', statusCol: '#15803d' },
+          { time: '08:05 AM - 08:55 AM', code: 'USIT602', subject: 'Security in Computing', faculty: 'Dr. V. S. Acharya', room: 'Room 402 (Science Wing)', credits: '2.0', status: 'COMPLETED', statusBg: '#dcfce7', statusCol: '#15803d' },
+          { recess: true, text: '☕ 08:55 AM - 09:15 AM — Morning Academic Recess (Canteen & Central Lawn)' },
+          { time: '09:15 AM - 10:05 AM', code: 'USIT603', subject: 'Business Intelligence & Cloud', faculty: 'Prof. R. Vazirani', room: 'Room 402 (Science Wing)', credits: '2.0', status: 'IN SESSION', statusBg: '#fee2e2', statusCol: '#b91c1c' },
+          { time: '10:05 AM - 10:55 AM', code: 'USIT604', subject: 'Principles of GIS', faculty: 'Dr. Pratibha Deshpande', room: 'Room 402 (Science Wing)', credits: '2.0', status: 'UPCOMING', statusBg: '#e0f2fe', statusCol: '#0369a1' },
+          { time: '11:05 AM - 01:05 PM', code: 'USIT6P1', subject: 'Advanced Practical Batch A / B', faculty: 'Prof. S. Makhija & Lab Staff', room: 'IT Lab 3 (3rd Floor)', credits: '2.0', status: 'UPCOMING', statusBg: '#e0f2fe', statusCol: '#0369a1' }
+        ]
+      },
+      bscs: {
+        streamName: 'B.Sc. Computer Science',
+        schedule: [
+          { time: '07:15 AM - 08:05 AM', code: 'USCS601', subject: 'Cloud Computing & Distributed Systems', faculty: 'Dr. R. M. Sharma', room: 'CS Lab 2', credits: '2.0', status: 'COMPLETED', statusBg: '#dcfce7', statusCol: '#15803d' },
+          { time: '08:05 AM - 08:55 AM', code: 'USCS602', subject: 'Cyber Forensics & Information Security', faculty: 'Prof. Anjali Advani', room: 'CS Lab 2', credits: '2.0', status: 'COMPLETED', statusBg: '#dcfce7', statusCol: '#15803d' },
+          { recess: true, text: '☕ 08:55 AM - 09:15 AM — Morning Academic Recess' },
+          { time: '09:15 AM - 10:05 AM', code: 'USCS603', subject: 'Information Retrieval & NLP', faculty: 'Prof. Sunil Makhija', room: 'CS Lab 2', credits: '2.0', status: 'IN SESSION', statusBg: '#fee2e2', statusCol: '#b91c1c' },
+          { time: '10:05 AM - 10:55 AM', code: 'USCS604', subject: 'Data Science with Python', faculty: 'Dr. Sandeep Nemade', room: 'CS Lab 1', credits: '2.0', status: 'UPCOMING', statusBg: '#e0f2fe', statusCol: '#0369a1' },
+          { time: '11:05 AM - 01:05 PM', code: 'USCSP6', subject: 'Capstone Project Implementation', faculty: 'Dept Guides', room: 'CS Project Lab', credits: '2.0', status: 'UPCOMING', statusBg: '#e0f2fe', statusCol: '#0369a1' }
+        ]
+      },
+      bcom: {
+        streamName: 'B.Com (Commerce)',
+        schedule: [
+          { time: '07:15 AM - 08:05 AM', code: 'UBCOM601', subject: 'Financial Accounting & Auditing IX', faculty: 'Prof. Rajesh Vazirani', room: 'Room 105 (Main Wing)', credits: '3.0', status: 'COMPLETED', statusBg: '#dcfce7', statusCol: '#15803d' },
+          { time: '08:05 AM - 08:55 AM', code: 'UBCOM602', subject: 'Cost Accounting & Management X', faculty: 'Dr. Kishori Bhagat', room: 'Room 105 (Main Wing)', credits: '3.0', status: 'COMPLETED', statusBg: '#dcfce7', statusCol: '#15803d' },
+          { recess: true, text: '☕ 08:55 AM - 09:15 AM — Morning Academic Recess' },
+          { time: '09:15 AM - 10:05 AM', code: 'UBCOM603', subject: 'Business Economics VI (International Trade)', faculty: 'Dr. M. G. Chhabria', room: 'Room 105 (Main Wing)', credits: '3.0', status: 'IN SESSION', statusBg: '#fee2e2', statusCol: '#b91c1c' },
+          { time: '10:05 AM - 10:55 AM', code: 'UBCOM604', subject: 'Direct & Indirect Taxes (GST)', faculty: 'Prof. Sanjay Tekchandani', room: 'Room 105 (Main Wing)', credits: '3.0', status: 'UPCOMING', statusBg: '#e0f2fe', statusCol: '#0369a1' }
+        ]
+      },
+      bms: {
+        streamName: 'B.M.S. (Management Studies)',
+        schedule: [
+          { time: '07:15 AM - 08:05 AM', code: 'UBMS601', subject: 'Strategic Financial Management', faculty: 'Dr. Meenakshi Lalwani', room: 'Mgmt Hall A', credits: '3.0', status: 'COMPLETED', statusBg: '#dcfce7', statusCol: '#15803d' },
+          { time: '08:05 AM - 08:55 AM', code: 'UBMS602', subject: 'International Marketing & Retail', faculty: 'Prof. Deepa Hingorani', room: 'Mgmt Hall A', credits: '3.0', status: 'COMPLETED', statusBg: '#dcfce7', statusCol: '#15803d' },
+          { recess: true, text: '☕ 08:55 AM - 09:15 AM — Morning Academic Recess' },
+          { time: '09:15 AM - 10:05 AM', code: 'UBMS603', subject: 'Organizational Development & Change', faculty: 'Dr. Meenakshi Lalwani', room: 'Mgmt Hall A', credits: '3.0', status: 'IN SESSION', statusBg: '#fee2e2', statusCol: '#b91c1c' },
+          { time: '10:05 AM - 10:55 AM', code: 'UBMS604', subject: 'Media Planning & Management', faculty: 'Guest Corporate Expert', room: 'Mgmt Hall A', credits: '3.0', status: 'UPCOMING', statusBg: '#e0f2fe', statusCol: '#0369a1' }
+        ]
+      },
+      bschem: {
+        streamName: 'B.Sc. Chemistry',
+        schedule: [
+          { time: '07:15 AM - 08:05 AM', code: 'USCH601', subject: 'Physical Chemistry & Quantum Mech', faculty: 'Dr. V. S. Acharya', room: 'Chem Hall 204', credits: '2.5', status: 'COMPLETED', statusBg: '#dcfce7', statusCol: '#15803d' },
+          { time: '08:05 AM - 08:55 AM', code: 'USCH602', subject: 'Inorganic Chemistry & Coordination', faculty: 'Dr. R. M. Patil', room: 'Chem Hall 204', credits: '2.5', status: 'COMPLETED', statusBg: '#dcfce7', statusCol: '#15803d' },
+          { recess: true, text: '☕ 08:55 AM - 09:15 AM — Morning Academic Recess' },
+          { time: '09:15 AM - 10:05 AM', code: 'USCH603', subject: 'Organic Chemistry & Stereochemistry', faculty: 'Dr. S. N. Sharma', room: 'Chem Hall 204', credits: '2.5', status: 'IN SESSION', statusBg: '#fee2e2', statusCol: '#b91c1c' },
+          { time: '10:15 AM - 01:15 PM', code: 'USCHP6', subject: 'Analytical & Gravimetric Lab', faculty: 'Faculty & Lab Supervisors', room: 'Physical Chemistry Lab', credits: '3.0', status: 'UPCOMING', statusBg: '#e0f2fe', statusCol: '#0369a1' }
+        ]
+      }
+    };
+
+    window.updateTimetableGrid = function () {
+      const streamSelect = document.getElementById('tt-stream');
+      const tbody = document.getElementById('timetable-tbody');
+      if (!streamSelect || !tbody) return;
+
+      const streamKey = streamSelect.value || 'bsit';
+      const streamData = TIMETABLE_DATA[streamKey] || TIMETABLE_DATA['bsit'];
+
+      tbody.innerHTML = streamData.schedule.map(item => {
+        if (item.recess) {
+          return `
+            <tr style="background: var(--bg-alt); border-bottom: 1px solid var(--border-color); font-style: italic;">
+              <td style="padding: 0.5rem 1rem; font-weight: 600; color: var(--text-muted);" colspan="6">
+                ${item.text}
+              </td>
+            </tr>
+          `;
+        }
+        return `
+          <tr style="border-bottom: 1px solid var(--border-color);">
+            <td style="padding: 0.75rem 1rem; font-weight: 700; color: var(--chm-emerald);">${item.time}</td>
+            <td style="padding: 0.75rem 1rem;"><strong>${item.code}:</strong> ${item.subject}</td>
+            <td style="padding: 0.75rem 1rem;">${item.faculty}</td>
+            <td style="padding: 0.75rem 1rem;">${item.room}</td>
+            <td style="padding: 0.75rem 1rem;">${item.credits}</td>
+            <td style="padding: 0.75rem 1rem;"><span class="ticker-tag" style="background:${item.statusBg}; color:${item.statusCol};">${item.status}</span></td>
+          </tr>
+        `;
+      }).join('');
+    };
   };
 })();
+
 

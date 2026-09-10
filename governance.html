@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Institutional Governance, Statutory Committees, RTI Act Portal, and Online Grievance Redressal Cell - Smt. Chandibhai Himathmal Mansukhani College, Ulhasnagar.">
+  <title>Governance, Statutory Cells & RTI | Smt. CHM College Ulhasnagar</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/theme.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <style>
+    .gov-hero {
+      background: linear-gradient(135deg, rgba(10,38,71,0.96), rgba(20,82,40,0.92)), url('assets/images/infrastructure.jpg') center/cover no-repeat;
+      padding: 55px 0 45px;
+      color: var(--white);
+      text-align: center;
+    }
+    .gov-nav-tabs {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin: 30px 0;
+    }
+    .gov-tab-btn {
+      padding: 10px 20px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--text-color);
+      cursor: pointer;
+      transition: all var(--transition-fast);
+    }
+    .gov-tab-btn:hover, .gov-tab-btn.active {
+      background: var(--primary-navy);
+      color: white;
+      border-color: var(--primary-navy);
+    }
+    .committee-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 15px;
+      font-size: 0.9rem;
+    }
+    .committee-table th, .committee-table td {
+      padding: 12px 16px;
+      text-align: left;
+      border-bottom: 1px solid var(--border-color);
+    }
+    .committee-table th {
+      background: var(--bg-light);
+      color: var(--primary-navy);
+      font-weight: 700;
+    }
+    .stat-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 24px;
+      box-shadow: var(--shadow-sm);
+      margin-bottom: 25px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Utilities Bar -->
+  <aside class="top-bar">
+    <div class="container top-bar__inner">
+      <div class="top-bar__left">
+        <span>📍 Ulhasnagar - 421003, Maharashtra, India</span>
+        <span class="divider">|</span>
+        <span>📞 <a href="tel:+912512734940">+91 (0251) 273 4940</a></span>
+      </div>
+      <div class="top-bar__right">
+        <span class="badge badge-gold">NAAC 'A' Grade (3.12 CGPA)</span>
+        <div class="accessibility-ctrls">
+          <button id="font-decrease">A-</button>
+          <button id="font-reset">A</button>
+          <button id="font-increase">A+</button>
+          <button id="theme-toggle">🌓 Mode</button>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="container header__inner">
+      <div class="header__brand">
+        <img src="assets/images/logo.png" alt="Smt. CHM College Emblem" class="header__logo">
+        <div class="header__titles">
+          <span class="header__subtitle">Hyderabad (Sind) National Collegiate Board, Mumbai</span>
+          <h1 class="header__title">Smt. Chandibhai Himathmal Mansukhani College</h1>
+          <p class="header__affiliation">Affiliated to University of Mumbai • Recognized UGC 2(f) & 12(B)</p>
+        </div>
+      </div>
+      <div class="header__actions">
+        <a href="portal.html" class="btn btn-secondary">Student & Faculty ERP</a>
+        <a href="admission.html" class="btn btn-primary pulse-btn">Admissions 2026</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="container navbar__inner">
+      <button class="navbar__toggle" id="nav-toggle">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="navbar__menu" id="nav-menu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="portal.html">ERP Portal</a></li>
+        <li><a href="admission.html">Admissions</a></li>
+        <li><a href="fee-payment.html">Fee Desk</a></li>
+        <li><a href="exams.html">Exams & Results</a></li>
+        <li><a href="naac-iqac.html">NAAC & IQAC</a></li>
+        <li><a href="placement.html">Placements</a></li>
+        <li><a href="research.html">Research & IIC</a></li>
+        <li><a href="faculty.html">Faculty</a></li>
+        <li><a href="parent-portal.html">Parent Desk</a></li>
+        <li><a href="governance.html" class="active">Governance & RTI</a></li>
+        <li><a href="alumni.html">Alumni</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="gov-hero">
+    <div class="container">
+      <span class="badge badge-gold" style="font-size: 0.9rem; margin-bottom: 12px; display: inline-block;">STATUTORY COMPLIANCE & TRANSPARENCY</span>
+      <h2 style="font-family: var(--font-heading); font-size: 2.4rem; margin-bottom: 12px;">Institutional Governance & RTI Cell</h2>
+      <p style="max-width: 750px; margin: 0 auto; font-size: 1.05rem; line-height: 1.6;">
+        Upholding statutory compliance under UGC, Maharashtra Public Universities Act 2016, and the Right to Information Act 2005. Complete grievance redressal mechanism with token tracking.
+      </p>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <main class="container" style="padding: 20px 15px 60px;">
+    
+    <!-- Tab Controls -->
+    <div class="gov-nav-tabs">
+      <button class="gov-tab-btn active" onclick="switchGovTab('cdc', this)">College Development Committee (CDC)</button>
+      <button class="gov-tab-btn" onclick="switchGovTab('icc', this)">Internal Complaints Committee (ICC/POSH)</button>
+      <button class="gov-tab-btn" onclick="switchGovTab('antirag', this)">Anti-Ragging Squad & Cell</button>
+      <button class="gov-tab-btn" onclick="switchGovTab('sgrc', this)">Student Grievance Redressal (SGRC)</button>
+      <button class="gov-tab-btn" onclick="switchGovTab('rti', this)">Right to Information (RTI Act)</button>
+    </div>
+
+    <!-- TAB 1: CDC -->
+    <div id="tab-cdc" class="gov-content-pane">
+      <div class="stat-card">
+        <h3 style="font-family: var(--font-heading); color: var(--primary-navy); margin-bottom: 8px;">College Development Committee (CDC)</h3>
+        <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 20px;">
+          Constituted under Section 97 of the Maharashtra Public Universities Act, 2016, to prepare comprehensive development plans for academic, administrative, and infrastructural growth.
+        </p>
+
+        <table class="committee-table">
+          <thead>
+            <tr>
+              <th>Sr.</th>
+              <th>Name of Member</th>
+              <th>Designation</th>
+              <th>Category / Representation</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td><strong>Shri Kishu H. Mansukhani</strong></td>
+              <td>Trustee / President, HSNC Board</td>
+              <td>Chairman of the Management</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td><strong>Dr. Niranjan Hiranandani</strong></td>
+              <td>Trustee, HSNC Board & Provost</td>
+              <td>Management Representative / Industry Expert</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td><strong>Dr. Kishori Bhagat</strong></td>
+              <td>Principal, Smt. CHM College</td>
+              <td>Member Secretary (Ex-Officio)</td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td><strong>Dr. V. S. Acharya</strong></td>
+              <td>Associate Professor & HOD Chemistry</td>
+              <td>Teacher Representative</td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td><strong>Prof. Sunil K. Makhija</strong></td>
+              <td>Assistant Professor, CS/IT</td>
+              <td>Teacher Representative</td>
+            </tr>
+            <tr>
+              <td>6</td>
+              <td><strong>Shri Ashok Lalwani</strong></td>
+              <td>Registrar / Office Superintendent</td>
+              <td>Non-Teaching Staff Representative</td>
+            </tr>
+            <tr>
+              <td>7</td>
+              <td><strong>General Secretary (Student Council)</strong></td>
+              <td>Elected Student Representative</td>
+              <td>Student Representative</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- TAB 2: ICC / POSH -->
+    <div id="tab-icc" class="gov-content-pane" style="display: none;">
+      <div class="stat-card">
+        <h3 style="font-family: var(--font-heading); color: var(--primary-navy); margin-bottom: 8px;">Internal Complaints Committee (ICC / POSH Cell)</h3>
+        <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 20px;">
+          Constituted under the Sexual Harassment of Women at Workplace (Prevention, Prohibition and Redressal) Act, 2013 and UGC Regulations 2015.
+        </p>
+
+        <div style="background: #fff3e0; border-left: 4px solid #f57c00; padding: 15px; border-radius: 6px; margin-bottom: 20px; font-size: 0.9rem;">
+          <strong>Zero Tolerance Policy:</strong> CHM College ensures a safe, dignified, and inclusive learning atmosphere. Complaints are investigated with utmost confidentiality within 90 days.
+        </div>
+
+        <table class="committee-table">
+          <thead>
+            <tr>
+              <th>Role</th>
+              <th>Designated Official</th>
+              <th>Department / Contact</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Presiding Officer</strong></td>
+              <td>Dr. Pratibha Deshpande</td>
+              <td>Dept of Microbiology | <a href="mailto:icc@chmcollege.in">icc@chmcollege.in</a></td>
+            </tr>
+            <tr>
+              <td><strong>Faculty Member</strong></td>
+              <td>Dr. Deepa Hingorani</td>
+              <td>Dept of English</td>
+            </tr>
+            <tr>
+              <td><strong>Faculty Member</strong></td>
+              <td>Dr. Meenakshi Lalwani</td>
+              <td>Dept of Management Studies</td>
+            </tr>
+            <tr>
+              <td><strong>External NGO Member</strong></td>
+              <td>Adv. Sunita K. Motwani</td>
+              <td>High Court Legal Aid Services</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- TAB 3: Anti-Ragging Squad -->
+    <div id="tab-antirag" class="gov-content-pane" style="display: none;">
+      <div class="stat-card">
+        <h3 style="font-family: var(--font-heading); color: var(--primary-navy); margin-bottom: 8px;">Anti-Ragging Squad & 24x7 Helpline</h3>
+        <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 20px;">
+          In accordance with UGC Regulations on Curbing the Menace of Ragging in Higher Educational Institutions, 2009. Ragging in any form is strictly banned on campus.
+        </p>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 18px; margin-bottom: 25px;">
+          <div style="background: #ffebee; border: 1px solid #ef5350; border-radius: 8px; padding: 18px;">
+            <h4 style="color: #c62828; margin-top: 0;">National Anti-Ragging Toll Free</h4>
+            <p style="font-size: 1.4rem; font-weight: 800; color: #b71c1c; margin: 6px 0;">1800-180-5522</p>
+            <p style="font-size: 0.85rem; color: var(--text-muted); margin: 0;">24/7 National Emergency Helpline</p>
+          </div>
+          <div style="background: #e8f5e9; border: 1px solid #66bb6a; border-radius: 8px; padding: 18px;">
+            <h4 style="color: #2e7d32; margin-top: 0;">CHM Campus Anti-Ragging Desk</h4>
+            <p style="font-size: 1.4rem; font-weight: 800; color: #1b5e20; margin: 6px 0;">+91 251 273 4940</p>
+            <p style="font-size: 0.85rem; color: var(--text-muted); margin: 0;">Squad Convener: Dr. V. S. Acharya</p>
+          </div>
+        </div>
+
+        <button class="btn btn-secondary" onclick="alert('UGC Mandatory Undertaking:\nEvery student and parent must submit an online anti-ragging affidavit at www.antiragging.in or www.amanmovement.org during admission confirmation.')">Submit Online Anti-Ragging Undertaking</button>
+      </div>
+    </div>
+
+    <!-- TAB 4: SGRC (Grievance Redressal Form) -->
+    <div id="tab-sgrc" class="gov-content-pane" style="display: none;">
+      <div class="stat-card">
+        <h3 style="font-family: var(--font-heading); color: var(--primary-navy); margin-bottom: 8px;">Online Student Grievance Redressal Cell (SGRC)</h3>
+        <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 20px;">
+          Submit your academic, infrastructure, examination, or administrative grievances directly to the Principal and Grievance Committee. Real-time token issued upon submission.
+        </p>
+
+        <form id="grievance-form" onsubmit="handleGrievanceSubmit(event)" style="max-width: 650px;">
+          <div style="margin-bottom: 12px;">
+            <label style="display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 4px;">Student Full Name</label>
+            <input type="text" placeholder="e.g. Priyanshu Sharma" required style="width: 100%; padding: 8px 12px; border: 1px solid var(--border-color); border-radius: 6px;">
+          </div>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 12px;">
+            <div>
+              <label style="display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 4px;">PRN / Roll Number</label>
+              <input type="text" placeholder="e.g. 2024016400984321" required style="width: 100%; padding: 8px 12px; border: 1px solid var(--border-color); border-radius: 6px;">
+            </div>
+            <div>
+              <label style="display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 4px;">Grievance Category</label>
+              <select style="width: 100%; padding: 8px 12px; border: 1px solid var(--border-color); border-radius: 6px;" required>
+                <option value="academic">Academic / Timetable Issue</option>
+                <option value="exam">Examination / Revaluation / Marks</option>
+                <option value="fee">Fee Voucher / Refund / Scholarship</option>
+                <option value="infra">Campus Facility / Library / Lab</option>
+                <option value="other">General Administrative Request</option>
+              </select>
+            </div>
+          </div>
+          <div style="margin-bottom: 16px;">
+            <label style="display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 4px;">Detailed Statement of Grievance</label>
+            <textarea rows="4" placeholder="Clearly outline the issue, dates, and redressal sought..." required style="width: 100%; padding: 8px 12px; border: 1px solid var(--border-color); border-radius: 6px;"></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">File Grievance & Generate Token</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- TAB 5: RTI Act Portal -->
+    <div id="tab-rti" class="gov-content-pane" style="display: none;">
+      <div class="stat-card">
+        <h3 style="font-family: var(--font-heading); color: var(--primary-navy); margin-bottom: 8px;">Right to Information (RTI Act 2005) Portal</h3>
+        <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 20px;">
+          Statutory disclosure under Section 4(1)(b) of the Right to Information Act, 2005 for aided sections of Smt. CHM College.
+        </p>
+
+        <table class="committee-table" style="margin-bottom: 25px;">
+          <thead>
+            <tr>
+              <th>Designation under RTI</th>
+              <th>Officer Name & Role</th>
+              <th>Contact Details</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Public Information Officer (PIO)</strong></td>
+              <td>Shri Ashok Lalwani<br><span style="font-size: 0.85rem; color: var(--text-muted);">Registrar / Office Superintendent</span></td>
+              <td>Email: <a href="mailto:pio@chmcollege.in">pio@chmcollege.in</a><br>Phone: +91 251 273 4940</td>
+            </tr>
+            <tr>
+              <td><strong>Assistant Public Information Officer (APIO)</strong></td>
+              <td>Shri Sanjay Tekchandani<br><span style="font-size: 0.85rem; color: var(--text-muted);">Head Clerk (Administration)</span></td>
+              <td>Email: <a href="mailto:apio@chmcollege.in">apio@chmcollege.in</a></td>
+            </tr>
+            <tr>
+              <td><strong>First Appellate Authority</strong></td>
+              <td>Dr. Kishori Bhagat<br><span style="font-size: 0.85rem; color: var(--text-muted);">Principal, Smt. CHM College</span></td>
+              <td>Email: <a href="mailto:principal@chmcollege.in">principal@chmcollege.in</a></td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div style="background: var(--bg-light); border-radius: 8px; padding: 18px; font-size: 0.9rem; line-height: 1.7;">
+          <h4 style="color: var(--primary-navy); margin-top: 0;">Procedure to File RTI:</h4>
+          <ol style="padding-left: 20px; margin-bottom: 15px;">
+            <li>Draft your application on plain paper specifying information required under the RTI Act, 2005.</li>
+            <li>Enclose prescribed court fee stamp of ₹10/- or Demand Draft in favor of <em>"The Principal, Smt. CHM College"</em>.</li>
+            <li>Submit at the Administrative Dispatch Counter (Counter No. 3) or dispatch via Registered Post.</li>
+          </ol>
+          <a href="mailto:pio@chmcollege.in?subject=RTI Application Submission" class="btn btn-secondary">Submit Electronic RTI Inquiry</a>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Global Footer -->
+  <footer class="footer">
+    <div class="container footer__grid">
+      <div class="footer__col">
+        <img src="assets/images/logo.png" alt="CHM College Emblem" style="max-height: 55px; margin-bottom: 15px; filter: brightness(0) invert(1);">
+        <p style="color: rgba(255,255,255,0.7); font-size: 0.9rem; line-height: 1.6;">
+          Smt. Chandibhai Himathmal Mansukhani College is premier higher education institution governed by Hyderabad (Sind) National Collegiate Board, Mumbai.
+        </p>
+      </div>
+      <div class="footer__col">
+        <h4>Academic Portals</h4>
+        <ul class="footer__links">
+          <li><a href="portal.html">Student ERP & Attendance</a></li>
+          <li><a href="admission.html">Paperless Online Admissions</a></li>
+          <li><a href="fee-payment.html">Voucher Payment & Receipts</a></li>
+          <li><a href="exams.html">University Examination Desk</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>Accreditation & Research</h4>
+        <ul class="footer__links">
+          <li><a href="naac-iqac.html">NAAC SSR & IQAC Cell</a></li>
+          <li><a href="research.html">Ph.D. Centers & Patents</a></li>
+          <li><a href="faculty.html">Faculty Directory</a></li>
+          <li><a href="governance.html">Governance & RTI Cell</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>Campus Helpline</h4>
+        <p style="color: rgba(255,255,255,0.7); font-size: 0.9rem; margin-bottom: 10px;">Opp. Railway Station, Smt. Chandibhai Himathmal Mansukhani Road, Ulhasnagar - 421003.</p>
+        <p style="color: var(--accent-gold); font-size: 0.9rem;">Email: <a href="mailto:grievance@chmcollege.in">grievance@chmcollege.in</a></p>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <div class="container footer__bottom-inner">
+        <p>© 2026 Smt. CHM College, Ulhasnagar. All Rights Reserved. Maintained by IT & IQAC Center.</p>
+        <p>Enterprise Institutional Cloud Portal</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/app.js"></script>
+  <script src="js/ai-bot.js"></script>
+  <script>
+    function switchGovTab(tabId, btn) {
+      document.querySelectorAll('.gov-tab-btn').forEach(b => b.classList.remove('active'));
+      document.querySelectorAll('.gov-content-pane').forEach(p => p.style.display = 'none');
+      btn.classList.add('active');
+      document.getElementById('tab-' + tabId).style.display = 'block';
+    }
+
+    function handleGrievanceSubmit(e) {
+      e.preventDefault();
+      const token = 'CHM-SGRC-2026-' + Math.floor(1000 + Math.random() * 9000);
+      alert(`🛡️ Grievance Form Lodged Successfully!\n\nTracking Token: ${token}\nYour representation has been logged with the Student Grievance Redressal Committee (SGRC). An acknowledgment receipt has been sent to your registered email.`);
+      e.target.reset();
+    }
+  </script>
+</body>
+</html>

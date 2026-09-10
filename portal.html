@@ -386,6 +386,165 @@
             <p style="font-size: 0.85rem; color: var(--text-secondary); margin: 0;">Students appearing for Semester VI regular exams can now download their authenticated hall tickets.</p>
           </div>
         </div>
+    <!-- NEP 2020 Dynamic Lecture Timetable & Slot Matrix -->
+    <div style="background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: var(--radius-xl); padding: 2.25rem; box-shadow: var(--shadow-md); margin-bottom: 2.5rem;">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; flex-wrap: wrap; gap: 1rem;">
+        <div>
+          <span class="section-eyebrow">ACADEMIC SCHEDULE MATRIX</span>
+          <h3 style="color: var(--text-primary); font-size: 1.4rem; margin: 2px 0;">NEP 2020 Interactive Lecture Timetable</h3>
+          <p style="font-size: 0.85rem; color: var(--text-muted); margin:0;">
+            Filter live class schedules, faculty allocations, and room locations across all undergraduate and postgraduate streams.
+          </p>
+        </div>
+        <div style="display: flex; gap: 0.5rem;">
+          <button type="button" onclick="alert('Downloading verified weekly timetable PDF for TYBSc-IT Div A...')" class="btn-secondary" style="padding: 0.5rem 1rem; font-size: 0.85rem;">
+            📥 Download Schedule PDF
+          </button>
+        </div>
+      </div>
+
+      <!-- Filter Controls -->
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1rem; margin-bottom: 1.5rem; background: var(--bg-alt); padding: 1.25rem; border-radius: 8px;">
+        <div class="form-group" style="margin: 0;">
+          <label style="font-size: 0.8rem; font-weight: 600;">Program / Stream</label>
+          <select id="tt-stream" class="form-control" onchange="updateTimetableGrid()">
+            <option value="bsit">B.Sc. Information Technology</option>
+            <option value="bscs">B.Sc. Computer Science</option>
+            <option value="bcom">B.Com (Commerce)</option>
+            <option value="bms">B.M.S. (Management)</option>
+            <option value="bschem">B.Sc. Chemistry</option>
+          </select>
+        </div>
+        <div class="form-group" style="margin: 0;">
+          <label style="font-size: 0.8rem; font-weight: 600;">Class / Year</label>
+          <select id="tt-year" class="form-control" onchange="updateTimetableGrid()">
+            <option value="ty">T.Y. (Semester VI)</option>
+            <option value="sy">S.Y. (Semester IV)</option>
+            <option value="fy">F.Y. (Semester II)</option>
+          </select>
+        </div>
+        <div class="form-group" style="margin: 0;">
+          <label style="font-size: 0.8rem; font-weight: 600;">Division</label>
+          <select id="tt-div" class="form-control" onchange="updateTimetableGrid()">
+            <option value="a">Division A</option>
+            <option value="b">Division B</option>
+          </select>
+        </div>
+        <div class="form-group" style="margin: 0;">
+          <label style="font-size: 0.8rem; font-weight: 600;">Day of Week</label>
+          <select id="tt-day" class="form-control" onchange="updateTimetableGrid()">
+            <option value="today">Today (Active Schedule)</option>
+            <option value="mon">Monday</option>
+            <option value="tue">Tuesday</option>
+            <option value="wed">Wednesday</option>
+            <option value="thu">Thursday</option>
+            <option value="fri">Friday</option>
+            <option value="sat">Saturday</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Timetable Slot Grid -->
+      <div id="timetable-slots-container">
+        <div style="overflow-x: auto;">
+          <table style="width: 100%; border-collapse: collapse; font-size: 0.88rem;">
+            <thead>
+              <tr style="background: var(--chm-emerald-dark); color: #fff; text-align: left;">
+                <th style="padding: 0.75rem 1rem;">Time Window</th>
+                <th style="padding: 0.75rem 1rem;">Course Code & Subject</th>
+                <th style="padding: 0.75rem 1rem;">Faculty In-Charge</th>
+                <th style="padding: 0.75rem 1rem;">Classroom / Lab</th>
+                <th style="padding: 0.75rem 1rem;">Credits</th>
+                <th style="padding: 0.75rem 1rem;">Session Status</th>
+              </tr>
+            </thead>
+            <tbody id="timetable-tbody">
+              <tr style="border-bottom: 1px solid var(--border-color);">
+                <td style="padding: 0.75rem 1rem; font-weight: 700; color: var(--chm-emerald);">07:15 AM - 08:05 AM</td>
+                <td style="padding: 0.75rem 1rem;"><strong>USIT601:</strong> Software Quality Assurance</td>
+                <td style="padding: 0.75rem 1rem;">Prof. Sunil K. Makhija</td>
+                <td style="padding: 0.75rem 1rem;">Room 402 (Science Wing)</td>
+                <td style="padding: 0.75rem 1rem;">2.0</td>
+                <td style="padding: 0.75rem 1rem;"><span class="ticker-tag" style="background:#dcfce7; color:#15803d;">COMPLETED</span></td>
+              </tr>
+              <tr style="border-bottom: 1px solid var(--border-color);">
+                <td style="padding: 0.75rem 1rem; font-weight: 700; color: var(--chm-emerald);">08:05 AM - 08:55 AM</td>
+                <td style="padding: 0.75rem 1rem;"><strong>USIT602:</strong> Security in Computing</td>
+                <td style="padding: 0.75rem 1rem;">Dr. V. S. Acharya</td>
+                <td style="padding: 0.75rem 1rem;">Room 402 (Science Wing)</td>
+                <td style="padding: 0.75rem 1rem;">2.0</td>
+                <td style="padding: 0.75rem 1rem;"><span class="ticker-tag" style="background:#dcfce7; color:#15803d;">COMPLETED</span></td>
+              </tr>
+              <tr style="background: var(--bg-alt); border-bottom: 1px solid var(--border-color); font-style: italic;">
+                <td style="padding: 0.5rem 1rem; font-weight: 600; color: var(--text-muted);" colspan="6">
+                  ☕ 08:55 AM - 09:15 AM — Morning Academic Recess (Canteen & Central Lawn)
+                </td>
+              </tr>
+              <tr style="border-bottom: 1px solid var(--border-color);">
+                <td style="padding: 0.75rem 1rem; font-weight: 700; color: var(--chm-emerald);">09:15 AM - 10:05 AM</td>
+                <td style="padding: 0.75rem 1rem;"><strong>USIT603:</strong> Business Intelligence & Cloud</td>
+                <td style="padding: 0.75rem 1rem;">Prof. R. Vazirani</td>
+                <td style="padding: 0.75rem 1rem;">Room 402 (Science Wing)</td>
+                <td style="padding: 0.75rem 1rem;">2.0</td>
+                <td style="padding: 0.75rem 1rem;"><span class="ticker-tag urgent">IN SESSION</span></td>
+              </tr>
+              <tr style="border-bottom: 1px solid var(--border-color);">
+                <td style="padding: 0.75rem 1rem; font-weight: 700; color: var(--chm-emerald);">10:05 AM - 10:55 AM</td>
+                <td style="padding: 0.75rem 1rem;"><strong>USIT604:</strong> Principles of GIS</td>
+                <td style="padding: 0.75rem 1rem;">Dr. Pratibha Deshpande</td>
+                <td style="padding: 0.75rem 1rem;">Room 402 (Science Wing)</td>
+                <td style="padding: 0.75rem 1rem;">2.0</td>
+                <td style="padding: 0.75rem 1rem;"><span class="ticker-tag" style="background:#e0f2fe; color:#0369a1;">UPCOMING</span></td>
+              </tr>
+              <tr style="border-bottom: 1px solid var(--border-color);">
+                <td style="padding: 0.75rem 1rem; font-weight: 700; color: var(--chm-emerald);">11:05 AM - 01:05 PM</td>
+                <td style="padding: 0.75rem 1rem;"><strong>USIT6P1:</strong> Advanced Practical Batch A / B</td>
+                <td style="padding: 0.75rem 1rem;">Prof. S. Makhija & Lab Staff</td>
+                <td style="padding: 0.75rem 1rem;">IT Lab 3 (3rd Floor)</td>
+                <td style="padding: 0.75rem 1rem;">2.0</td>
+                <td style="padding: 0.75rem 1rem;"><span class="ticker-tag" style="background:#e0f2fe; color:#0369a1;">UPCOMING</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- Institutional Ecosystem Quick Access Ribbon -->
+    <div style="background: linear-gradient(135deg, var(--chm-emerald-dark), #0a2647); border-radius: var(--radius-xl); padding: 2rem; color: #fff; margin-bottom: 2rem;">
+      <h3 style="color: var(--chm-gold); font-size: 1.3rem; margin-top: 0; margin-bottom: 0.5rem;">Explore Institutional Ecosystem</h3>
+      <p style="font-size: 0.88rem; color: rgba(255,255,255,0.85); margin-bottom: 1.5rem;">Seamlessly access all interconnected services of the CHM Higher Education suite.</p>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1rem;">
+        <a href="research.html" style="background: rgba(255,255,255,0.1); padding: 1rem; border-radius: 8px; border: 1px solid rgba(255,255,255,0.2); text-decoration: none; color: #fff; text-align: center; transition: background 0.2s;">
+          <div style="font-size: 1.5rem; margin-bottom: 4px;">🔬</div>
+          <strong style="font-size: 0.9rem; display: block;">Research & IIC</strong>
+          <span style="font-size: 0.75rem; opacity: 0.8;">Ph.D. & Patents</span>
+        </a>
+        <a href="faculty.html" style="background: rgba(255,255,255,0.1); padding: 1rem; border-radius: 8px; border: 1px solid rgba(255,255,255,0.2); text-decoration: none; color: #fff; text-align: center; transition: background 0.2s;">
+          <div style="font-size: 1.5rem; margin-bottom: 4px;">👨‍🏫</div>
+          <strong style="font-size: 0.9rem; display: block;">Faculty Directory</strong>
+          <span style="font-size: 0.75rem; opacity: 0.8;">Profiles & Mentors</span>
+        </a>
+        <a href="placement.html" style="background: rgba(255,255,255,0.1); padding: 1rem; border-radius: 8px; border: 1px solid rgba(255,255,255,0.2); text-decoration: none; color: #fff; text-align: center; transition: background 0.2s;">
+          <div style="font-size: 1.5rem; margin-bottom: 4px;">💼</div>
+          <strong style="font-size: 0.9rem; display: block;">Career Placements</strong>
+          <span style="font-size: 0.75rem; opacity: 0.8;">Live Campus Drives</span>
+        </a>
+        <a href="parent-portal.html" style="background: rgba(255,255,255,0.1); padding: 1rem; border-radius: 8px; border: 1px solid rgba(255,255,255,0.2); text-decoration: none; color: #fff; text-align: center; transition: background 0.2s;">
+          <div style="font-size: 1.5rem; margin-bottom: 4px;">👪</div>
+          <strong style="font-size: 0.9rem; display: block;">Parent Desk</strong>
+          <span style="font-size: 0.75rem; opacity: 0.8;">Attendance Radar</span>
+        </a>
+        <a href="governance.html" style="background: rgba(255,255,255,0.1); padding: 1rem; border-radius: 8px; border: 1px solid rgba(255,255,255,0.2); text-decoration: none; color: #fff; text-align: center; transition: background 0.2s;">
+          <div style="font-size: 1.5rem; margin-bottom: 4px;">🏛️</div>
+          <strong style="font-size: 0.9rem; display: block;">Governance & RTI</strong>
+          <span style="font-size: 0.75rem; opacity: 0.8;">CDC, ICC & SGRC</span>
+        </a>
+        <a href="alumni.html" style="background: rgba(255,255,255,0.1); padding: 1rem; border-radius: 8px; border: 1px solid rgba(255,255,255,0.2); text-decoration: none; color: #fff; text-align: center; transition: background 0.2s;">
+          <div style="font-size: 1.5rem; margin-bottom: 4px;">🌐</div>
+          <strong style="font-size: 0.9rem; display: block;">Global Alumni</strong>
+          <span style="font-size: 0.75rem; opacity: 0.8;">Wall of Fame</span>
+        </a>
       </div>
     </div>
   </main>
