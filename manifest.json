@@ -1,0 +1,55 @@
+{
+  "name": "Smt. CHM College Ulhasnagar",
+  "short_name": "CHM College",
+  "description": "Enterprise Digital Campus & Student ERP Portal - Smt. Chandibhai Himathmal Mansukhani College, HSNC Board",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "background_color": "#0a2647",
+  "theme_color": "#145a32",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "assets/images/logo.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "assets/images/logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Student ERP",
+      "short_name": "ERP",
+      "description": "Open Student & Faculty ERP Dashboard",
+      "url": "/portal.html",
+      "icons": [{ "src": "assets/images/logo.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Admissions",
+      "short_name": "Admissions",
+      "description": "Online Admission Desk",
+      "url": "/admission.html",
+      "icons": [{ "src": "assets/images/logo.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Exam Desk",
+      "short_name": "Exams",
+      "description": "Examination Timetables & Results",
+      "url": "/exams.html",
+      "icons": [{ "src": "assets/images/logo.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "ChandiBot AI",
+      "short_name": "AI Bot",
+      "description": "Voice & Text AI Campus Concierge",
+      "url": "/index.html#chandibot",
+      "icons": [{ "src": "assets/images/logo.png", "sizes": "192x192" }]
+    }
+  ],
+  "categories": ["education", "productivity"]
+}

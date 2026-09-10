@@ -111,6 +111,21 @@ An ultra-modern, enterprise-grade digital campus ecosystem and self-service stud
     - Interactive **120-Hour Social Credit Milestone Tracker** for Mumbai University Ordinance 0.229 (10 Grace Marks eligibility).
     - Digital Volunteer Registration & blood donor registry.
 
+20. **Alumni Job Board & Career Referral Exchange (`alumni-jobs.html`)**:
+    - Exclusive corporate vacancies and internship referrals posted by CHM graduates at Google, Morgan Stanley, Deloitte, TCS, and Cipla.
+    - Interactive "Request Alumni Referral" system connecting graduating students directly with senior alumni leaders.
+    - Dedicated vacancy submission portal for alumni hiring managers.
+
+21. **Green Campus & Sustainability Telemetry Dashboard (`green-campus.html`)**:
+    - Real-time environmental metrics: **150 kW Solar Array** (340 MWh generated), **1,20,000 L Rainwater Harvesting**, and **180 kg/day Organic Composting**.
+    - Carbon footprint accounting (278 Tonnes CO2 offset).
+    - ISO 14001 Green Audit & Energy Audit statutory documentation for NAAC Criterion 7.1.
+    - Interactive "Campus Tree Adoption & Green Pledge" system.
+
+22. **Progressive Web App (PWA) Offline Engine**:
+    - Native mobile & desktop installation via `manifest.json`.
+    - High-speed caching Service Worker (`sw.js`) enabling offline access to student ID cards, timetables, and emergency campus contacts with zero internet.
+
 ---
 
 ### 🧠 System Architecture & AI Intelligence Specs
