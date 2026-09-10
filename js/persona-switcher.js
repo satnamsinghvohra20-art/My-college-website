@@ -23,6 +23,7 @@
       links: [
         { label: '📊 Board Pitch Deck', url: 'pitch-deck.html' },
         { label: '📄 Commercial Proposal', url: 'PROPOSAL.md' },
+        { label: '⚖️ SGRC & Grievance', url: 'grievance.html' },
         { label: '🏛️ Governance & CDC', url: 'governance.html' },
         { label: '📈 NAAC IQAC Radar', url: 'naac-iqac.html' }
       ]
@@ -38,9 +39,10 @@
       description: 'Full student lifecycle: 86.4% attendance gauge, 3D flip smart ID, NEP timetable matrix, and digital railway pass.',
       links: [
         { label: '🎓 Student Portal ERP', url: 'portal.html' },
+        { label: '🚆 Central Railway Pass', url: 'railway-concession.html' },
         { label: '💳 Dynamic UPI Fees', url: 'fee-payment.html' },
         { label: '📝 Semester Exams & Marks', url: 'exams.html' },
-        { label: '📚 Digital Library N-LIST', url: 'digital-library.html' }
+        { label: '⚖️ Grievance Redressal', url: 'grievance.html' }
       ]
     },
     {
@@ -55,7 +57,8 @@
       links: [
         { label: '👪 Parent ERP Desk', url: 'parent-portal.html' },
         { label: '⚠️ Ordinance 0.119 Defaulter', url: 'parent-portal.html#defaulterSection' },
-        { label: '🗓️ Book Mentor Meeting', url: 'parent-portal.html#ptaModal' }
+        { label: '🗓️ Book Mentor Meeting', url: 'parent-portal.html#ptaModal' },
+        { label: '⚖️ SGRC Grievance Desk', url: 'grievance.html' }
       ]
     },
     {
