@@ -1,30 +1,82 @@
 # Smt. Chandibhai Himathmal Mansukhani College (CHM College)
-## Enterprise Web Portal & Campus Management Suite (Next-Gen Edition)
+## Enterprise Digital Campus & Management Ecosystem (Next-Gen Edition)
 
-An enterprise-grade, high-performance web portal and self-service student ERP suite designed specifically for **Smt. Chandibhai Himathmal Mansukhani College (CHM College)**, Ulhasnagar, under the **Hyderabad (Sind) National Collegiate (HSNC) Board**, affiliated with the **University of Mumbai** and re-accredited with **'A' Grade by NAAC**.
+An ultra-modern, enterprise-grade digital campus ecosystem and self-service student/faculty ERP suite engineered specifically for **Smt. Chandibhai Himathmal Mansukhani College (CHM College)**, Ulhasnagar, under the **Hyderabad (Sind) National Collegiate (HSNC) Board**, affiliated with the **University of Mumbai** and re-accredited with **'A' Grade by NAAC (CGPA 3.12)**.
 
 ---
 
-### 🌟 Key Enterprise Features
+### 🌟 12 Fully Integrated Institutional Modules
 
-1. **Authentic Institutional Branding**: High-resolution official crest, NAAC 'A' Grade CGPA 3.12 badge, HSNC Board roots, and address from Principal Dr. Kishori Bhagat.
-2. **Dual Language Toggle (`English` / `मराठी`)**: 1-click switcher for regional language compliance (*मराठी भाषा संवर्धन*) as mandated by the Maharashtra Higher Education Department and University of Mumbai.
-3. **Interactive Campus Hotspot Canvas**: Floor-by-floor blueprint map of the Ulhasnagar campus with clickable pins for Admin Block, Science Laboratories, Central Library, Kundnani Auditorium, IT & Cloud Labs, and Sports Pavilion.
-4. **Voice-Enabled AI Campus Concierge ("ChandiBot")**: 
-   - Speech Synthesis (Audio text-to-speech `🔊`)
-   - Speech Recognition Microphone (`🎤`)
-   - 24/7 intelligent answering for cutoffs, Sindhi minority 50% quota rules, admissions, fees, and syllabi.
-5. **Interactive Cutoff & Merit Calculator**: Real-time qualification predictor benchmarking student marks against historical CHM merit lists.
-6. **4-Step Paperless Online Admission Desk**: Complete student profile, academic records, document upload simulator, and instant printable acknowledgment slip (`CHM-2026-XXXX`).
-7. **Smart Fee Payment & Verified E-Receipt**: Itemized fee breakdown with UPI QR code simulator and print-ready official receipt with verification QR code.
-8. **Student & Faculty ERP Suite**:
-   - Circular SVG Attendance Gauge (86.4% Good Standing)
-   - 3D Flip Digital Student Smart ID Card with library barcode
-   - Printable Semester Hall Ticket with timetable
-   - Central Railway Student Concession & Bonafide Certificate Generator
-   - Classroom Dynamic QR Attendance Projector HUD (Anti-proxy real-time check-in counter)
-9. **Examination & Result Portal**: Instant PRN/Seat lookup for Semester Statements of Marks and downloadable exam timetables.
-10. **Central Library OPAC**: Real-time search across 60,000+ catalog titles with shelf locations and availability.
+1. **Flagship College Homepage (`index.html`)**:
+   - Institutional branding, official crest, and NAAC 'A' Grade CGPA 3.12 badge.
+   - Dual Language Toggle (`English` / `मराठी`) for regional language compliance (*मराठी भाषा संवर्धन*).
+   - Interactive Campus Hotspot Canvas with floor-by-floor blueprint maps.
+   - Voice-Enabled AI Campus Concierge (**ChandiBot**) with Text-To-Speech `🔊` and Voice Input `🎤`.
+   - Interactive Cutoff & Merit Calculator for FYJC & Degree admissions.
+   - Central Library OPAC search across 60,000+ catalog titles.
+
+2. **Unified Student & Faculty ERP (`portal.html`)**:
+   - Circular SVG Live Attendance Gauge (86.4% Good Standing).
+   - 3D Flip Digital Student Smart ID Card with barcode scanner support.
+   - Printable Examination Hall Ticket with seat number and exam center verification.
+   - Central Railway Student Concession & Bonafide Certificate Generator.
+   - Classroom Dynamic QR Attendance Projector HUD (Anti-proxy real-time check-in counter).
+   - **NEP 2020 Dynamic Lecture Timetable Matrix**: Filter by Stream (B.Sc IT, CS, B.Com, BMS, Chemistry), Class (FY, SY, TY), Division, and Day of the Week.
+
+3. **Paperless Online Admissions Desk (`admission.html`)**:
+   - 4-Step digital admission wizard (Profile -> Academic Record -> Document Upload Simulator -> Instant Verification).
+   - Auto-generated Printable Acknowledgment Slip (`CHM-2026-XXXX`).
+
+4. **Smart Fee Payment & E-Receipt Desk (`fee-payment.html`)**:
+   - Itemized voucher breakdown (Tuition, Lab, Library, Gymkhana, Examination).
+   - Dynamic UPI QR Code Simulator & NetBanking payment flows.
+   - Official print-ready verified digital receipt with cryptographic verification stamp.
+
+5. **University Examination & Results Portal (`exams.html`)**:
+   - Instant PRN / Seat Number lookup.
+   - Verified Semester Statement of Marks & Grades generator.
+   - Official active timetables & revaluation desk.
+
+6. **NAAC & IQAC Quality Compliance Hub (`naac-iqac.html`)**:
+   - NAAC 7-Criteria Compliance Radar (Criterion 1 to 7 with live metrics).
+   - Student Satisfaction Survey (SSS) analytics with interactive rating distributions.
+   - Executive Self-Study Report (SSR) Summary PDF generator.
+
+7. **Career Progression & Placement Center (`placement.html`)**:
+   - Placement statistics (Highest: ₹12.5 LPA, Average: ₹4.85 LPA, 850+ Offers).
+   - Live Campus Drives (TCS, Deloitte, ICICI Bank) with 1-click PRN application.
+   - Corporate Recruiter Registration & Campus Visit Booking Desk.
+
+8. **Global Alumni Network & Endowment Fund (`alumni.html`)**:
+   - 50,000+ Global Alumni Directory with searchable chapters (Mumbai, Dubai, UK, US).
+   - Wall of Fame featuring prominent judges, corporate leaders, and entrepreneurs.
+   - 1-on-1 Alumni Mentorship Booking.
+   - Student Endowment & 80G Tax Exemption Donation Receipt Generator.
+
+9. **Research, Patents & Startup Incubation Hub (`research.html`)**:
+   - 5 Recognized Ph.D. Research Centers (Chemistry, Microbiology, Botany, Commerce, English).
+   - Peer-reviewed Publications Explorer (Scopus, Web of Science, UGC-CARE Group I/II) with DOI & citations.
+   - Patents Filed & Granted Showcase (Indian Patent Office).
+   - CHM-EDC & IIC Startup Incubation Center (CampusEco, SindhCraft, KalyanTech) with HSNC Seed Money Grant Application form.
+
+10. **Distinguished Faculty Directory (`faculty.html`)**:
+    - Complete departmental directory (Sciences, Commerce, IT/CS, BMS, Arts).
+    - Faculty profile cards with qualifications, research experience, and publications.
+    - Interactive 1-on-1 Academic Counseling & Office Hours Booking Modal with confirmation token.
+
+11. **Parent & Guardian ERP Desk (`parent-portal.html`)**:
+    - 2-Factor OTP simulation for parents.
+    - Live Attendance Watchdog with Mumbai University Ordinance 0.119 compliance indicator.
+    - Subject-wise attendance record (Lectures held vs attended).
+    - Semester internal marks and grade standings.
+    - Parent-Teacher Association (PTA) consultation scheduler.
+
+12. **Statutory Governance, RTI & Grievance Cell (`governance.html`)**:
+    - College Development Committee (CDC) composition under Maharashtra Public Universities Act 2016.
+    - Internal Complaints Committee (ICC / POSH Cell) and zero-tolerance policy.
+    - Anti-Ragging Squad & 24/7 National Emergency Helpline.
+    - Online Student Grievance Redressal Cell (SGRC) with automated Token Generator.
+    - Right to Information (RTI Act 2005) public disclosure with PIO & APIO directory.
 
 ---
 
@@ -32,10 +84,17 @@ An enterprise-grade, high-performance web portal and self-service student ERP su
 
 ```
 ├── index.html              # Master College Homepage & Comprehensive Portal
+├── portal.html             # Student & Faculty ERP Dashboard, ID Card & Timetable
 ├── admission.html          # 4-Step Online Admission Wizard & Confirmation Slip
 ├── fee-payment.html        # Fee Payment Gateway Simulator & Print-Ready Receipt
-├── portal.html             # Student & Faculty ERP Dashboard (ID Card, Hall Ticket, QR Projector)
 ├── exams.html              # Examination Results Search, Timetables & Marksheet
+├── naac-iqac.html          # NAAC 7-Criteria Compliance & SSS Analytics Dashboard
+├── placement.html          # Corporate Campus Placement & Recruitment Portal
+├── alumni.html             # Global Alumni Network & Endowment Fund
+├── research.html           # Ph.D. Research Centers, Patents & Startup Incubation
+├── faculty.html            # Faculty Directory & Office Hours Booking Hub
+├── parent-portal.html      # Parent / Guardian Desk & Attendance Radar
+├── governance.html         # Statutory Governance, ICC, Anti-Ragging & RTI
 ├── css/
 │   ├── theme.css           # Institutional color tokens (Emerald, Gold, Dark Mode)
 │   ├── components.css      # Reusable UI cards, tickers, modals, ChandiBot window
@@ -45,7 +104,7 @@ An enterprise-grade, high-performance web portal and self-service student ERP su
 │   ├── ai-bot.js           # ChandiBot AI Campus Assistant with Web Speech Synthesis & Recognition
 │   ├── admission.js        # Cutoff probability calculator & admission wizard
 │   ├── fee-system.js       # Fee schedule calculator, UPI simulator, receipt generator
-│   ├── student-portal.js   # Student ERP state, attendance chart, 3D card flip, bonafide & QR HUD
+│   ├── student-portal.js   # Student ERP state, attendance chart, dynamic timetable & QR HUD
 │   └── exam-portal.js      # Statement of grades & exam result search
 └── assets/
     └── images/             # Authentic CHM logo, campus slides, facilities, and principal portrait
@@ -53,25 +112,15 @@ An enterprise-grade, high-performance web portal and self-service student ERP su
 
 ---
 
-### 🚀 How to Run Locally
+### 🚀 Running the Project
 
-You can run this project using any local HTTP server:
-
-#### Option A: Python
 ```bash
+# In the project root:
 python -m http.server 8080
 ```
-Open [http://localhost:8080](http://localhost:8080) in your browser.
-
-#### Option B: Node.js / npx serve
-```bash
-npx serve .
-```
-
-#### Option C: VS Code Live Server
-Right-click on `index.html` and select **"Open with Live Server"**.
+Then visit [http://localhost:8080](http://localhost:8080) in any modern web browser.
 
 ---
 
-### 📜 Licensing & Rights
-Developed for commercial pitch and institutional adoption by Smt. Chandibhai Himathmal Mansukhani College & HSNC Board. All rights reserved © 2026.
+### 💼 Commercial Value & Presentation Pitch
+Built specifically to present to **Principal Dr. Kishori Bhagat** and the **HSNC Board Trustees** as a turn-key modern campus software replacement, drastically cutting administrative friction, boosting NAAC Criterion scores, and enhancing student satisfaction.
