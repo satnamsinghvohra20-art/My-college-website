@@ -1,0 +1,158 @@
+/* ==========================================================================
+   CHM COLLEGE RESPONSIVE & ADAPTIVE STYLES
+   ========================================================================== */
+
+@media (max-width: 1200px) {
+  .hero-title {
+    font-size: 2.35rem;
+  }
+  .principal-grid {
+    grid-template-columns: 320px 1fr;
+    gap: 2.5rem;
+  }
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem;
+  }
+}
+
+@media (max-width: 992px) {
+  .mobile-menu-toggle {
+    display: flex;
+  }
+
+  .nav-menu {
+    position: fixed;
+    top: calc(var(--header-height) + 40px);
+    left: 0;
+    width: 100%;
+    height: calc(100vh - 120px);
+    background: var(--bg-surface-elevated);
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1.5rem;
+    overflow-y: auto;
+    display: none;
+    box-shadow: var(--shadow-xl);
+    border-top: 2px solid var(--chm-gold);
+    z-index: 999;
+  }
+
+  .nav-menu.open {
+    display: flex;
+  }
+
+  .nav-link {
+    color: var(--text-primary);
+    width: 100%;
+    padding: 0.85rem 0;
+    border-bottom: 1px solid var(--border-light);
+  }
+
+  .dropdown-menu {
+    position: static;
+    box-shadow: none;
+    border-top: none;
+    border-left: 2px solid var(--chm-gold);
+    margin-left: 1rem;
+    padding: 0.25rem 0;
+    background: transparent;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    display: none;
+  }
+
+  .nav-item.open-sub .dropdown-menu {
+    display: block;
+  }
+
+  .principal-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .principal-media-card {
+    max-width: 400px;
+    margin: 0 auto;
+  }
+
+  .quick-services-bar {
+    margin-top: -2rem;
+  }
+
+  .header-badges {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .topbar-left, .topbar-right {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .brand-logo-img {
+    height: 60px;
+  }
+
+  .college-title {
+    font-size: 1.15rem;
+  }
+
+  .hero-title {
+    font-size: 1.85rem;
+  }
+
+  .hero-content {
+    padding: 2.5rem 0;
+  }
+
+  .hero-desc {
+    font-size: 0.95rem;
+  }
+
+  .calculator-card {
+    padding: 1.5rem;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .chandibot-window {
+    width: calc(100vw - 20px);
+    right: 10px;
+    bottom: 80px;
+    height: 500px;
+  }
+
+  .chandibot-widget {
+    bottom: 15px;
+    right: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-buttons {
+    flex-direction: column;
+    width: 100%;
+  }
+  .btn-primary, .btn-secondary {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* Print Friendly Styles for Certificates & Receipts */
+@media print {
+  .topbar, .site-header, .main-navigation, .ticker-bar, .site-footer, .chandibot-widget, .no-print {
+    display: none !important;
+  }
+  body {
+    background: #ffffff !important;
+    color: #000000 !important;
+  }
+  .print-only {
+    display: block !important;
+  }
+}

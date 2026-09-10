@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smart Online Fee Payment Portal | Smt. CHM College</title>
+  <link rel="shortcut icon" href="assets/images/logo.png" type="image/png">
+  <link rel="stylesheet" href="css/theme.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <!-- Top bar -->
+  <aside class="topbar">
+    <div class="container topbar-inner">
+      <div class="topbar-left">
+        <a href="index.html" style="color:#e2e8f0; font-weight:700;">← Back to College Homepage</a>
+        <span style="color:rgba(255,255,255,0.3);">|</span>
+        <span class="helpline-badge">ACCOUNTS & FEE DESK</span>
+      </div>
+      <div class="topbar-right">
+        <button type="button" id="theme-toggle-btn" class="theme-toggle-btn">🌙 Dark</button>
+        <a href="portal.html" class="portal-direct-btn">Student ERP</a>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand-wrapper">
+        <img src="assets/images/logo.png" alt="CHM Crest" class="brand-logo-img">
+        <div class="brand-meta">
+          <span class="board-name">Hyderabad (Sind) National Collegiate Board</span>
+          <h1 class="college-title">Smt. Chandibhai Himathmal Mansukhani College</h1>
+          <p class="college-subtitle">Secure Academic Fees Payment & Verified E-Receipt Gateway</p>
+        </div>
+      </a>
+      <div class="header-badges">
+        <div class="naac-badge-pill">
+          <span class="naac-label">NAAC</span>
+          <span class="naac-grade">'A' GRADE</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container" style="padding: 3rem 1.5rem; max-width: 950px;">
+    <div style="text-align: center; margin-bottom: 2.5rem;">
+      <span class="section-eyebrow">ACADEMIC YEAR 2026-27</span>
+      <h2 style="font-family: var(--font-display); font-size: 2rem; color: var(--text-primary);">
+        Online Admission & Term Fee Gateway
+      </h2>
+      <p style="font-size: 0.95rem; color: var(--text-muted); margin-top: 0.25rem;">
+        Enter your Student ID / Roll Number or choose your program to view the itemized fee voucher and simulate instant payment.
+      </p>
+    </div>
+
+    <!-- Search / Select Card -->
+    <div style="background: var(--bg-surface); border: 1px solid var(--border-light); border-radius: var(--radius-xl); padding: 2rem; box-shadow: var(--shadow-lg); margin-bottom: 2.5rem;">
+      <form onsubmit="lookupStudentFee(event)">
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+          <div class="form-group">
+            <label for="fee-student-id">Enter Student ID / Application ID / PRN</label>
+            <input type="text" id="fee-student-id" class="form-control" placeholder="e.g. 20240101 or CHM-2026-XXXX" value="20240101">
+            <small style="color: var(--text-muted);">Demo IDs: 20240101 (Rahul), 20240102 (Pooja), 20240103 (Kunal)</small>
+          </div>
+
+          <div class="form-group">
+            <label for="fee-course-select">Or Select Academic Course directly</label>
+            <select id="fee-course-select" class="form-control">
+              <option value="fybsc-it">FY B.Sc (Information Technology) [SFC] - ₹26,500</option>
+              <option value="fybms">FY Bachelor of Management Studies (BMS) [SFC] - ₹21,500</option>
+              <option value="fybaf">FY B.Com (Accounting & Finance - BAF) - ₹20,300</option>
+              <option value="fybammc">FY BA in Multimedia & Mass Comm (BAMMC) - ₹21,500</option>
+              <option value="fybcom">FY B.Com (Commerce - Aided) - ₹6,700</option>
+              <option value="fybsc">FY B.Sc (Science - Aided) - ₹8,800</option>
+              <option value="fyba">FY B.A. (Arts - Aided) - ₹6,500</option>
+              <option value="msc-it">M.Sc Information Technology (Part I) - ₹38,000</option>
+              <option value="fyjc-sci">FYJC XI Science (Junior College) - ₹4,000</option>
+              <option value="fyjc-com">FYJC XI Commerce (Junior College) - ₹3,000</option>
+            </select>
+          </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 1.5rem;">
+          <button type="submit" class="btn-primary" style="padding: 0.85rem 2.5rem;">
+            🔍 Fetch Official Fee Voucher
+          </button>
+        </div>
+      </form>
+    </div>
+
+    <!-- Fee Details & Payment Output Container -->
+    <div id="fee-details-card"></div>
+  </main>
+
+  <script src="js/app.js"></script>
+  <script src="js/fee-system.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Auto-trigger default lookup for great initial view
+      window.lookupStudentFee();
+    });
+  </script>
+</body>
+</html>

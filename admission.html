@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Online Admission Portal 2026-27 | Smt. CHM College</title>
+  <link rel="shortcut icon" href="assets/images/logo.png" type="image/png">
+  <link rel="stylesheet" href="css/theme.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <style>
+    .wizard-steps-nav {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 2.5rem;
+      position: relative;
+    }
+    .wizard-steps-nav::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: var(--border-light);
+      z-index: 1;
+      transform: translateY(-50%);
+    }
+    .step-indicator-item {
+      position: relative;
+      z-index: 2;
+      background: var(--bg-surface);
+      border: 2px solid var(--border-strong);
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      color: var(--text-muted);
+      transition: all var(--transition-normal);
+    }
+    .step-indicator-item.active {
+      border-color: var(--chm-emerald);
+      background: var(--chm-emerald);
+      color: #ffffff;
+      box-shadow: 0 0 0 5px var(--chm-emerald-glow);
+    }
+    .step-indicator-item.completed {
+      border-color: var(--chm-gold);
+      background: var(--chm-gold);
+      color: #0a351d;
+    }
+    .wizard-step {
+      display: none;
+    }
+    .wizard-step.active {
+      display: block;
+      animation: fadeIn 0.4s ease;
+    }
+    .step-nav-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 2rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border-light);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top bar -->
+  <aside class="topbar">
+    <div class="container topbar-inner">
+      <div class="topbar-left">
+        <a href="index.html" style="color:#e2e8f0; font-weight:700;">← Back to College Homepage</a>
+        <span style="color:rgba(255,255,255,0.3);">|</span>
+        <span class="helpline-badge">ADMISSION DESK: +91 7385687818</span>
+      </div>
+      <div class="topbar-right">
+        <button type="button" id="theme-toggle-btn" class="theme-toggle-btn">🌙 Dark</button>
+        <a href="portal.html" class="portal-direct-btn">Student ERP</a>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand-wrapper">
+        <img src="assets/images/logo.png" alt="CHM Crest" class="brand-logo-img">
+        <div class="brand-meta">
+          <span class="board-name">Hyderabad (Sind) National Collegiate Board</span>
+          <h1 class="college-title">Smt. Chandibhai Himathmal Mansukhani College</h1>
+          <p class="college-subtitle">Centralized Online Admission & Verification Desk (A.Y. 2026-27)</p>
+        </div>
+      </a>
+      <div class="header-badges">
+        <div class="naac-badge-pill">
+          <span class="naac-label">NAAC</span>
+          <span class="naac-grade">'A' GRADE</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container" style="padding: 3rem 1.5rem; max-width: 900px;">
+    <div style="text-align: center; margin-bottom: 2rem;">
+      <span class="section-eyebrow">DIGITIZED ADMISSION APPLICATION</span>
+      <h2 style="font-family: var(--font-display); font-size: 2rem; color: var(--text-primary);">
+        Degree & Junior College Application Form
+      </h2>
+      <p style="font-size: 0.92rem; color: var(--text-muted); margin-top: 0.25rem;">
+        Complete the 4-step digital application. Your application ID and instant verification slip will be generated upon completion.
+      </p>
+    </div>
+
+    <!-- Wizard Steps Indicator -->
+    <div class="wizard-steps-nav">
+      <div class="step-indicator-item active" id="ind-1">1</div>
+      <div class="step-indicator-item" id="ind-2">2</div>
+      <div class="step-indicator-item" id="ind-3">3</div>
+      <div class="step-indicator-item" id="ind-4">4</div>
+    </div>
+
+    <div style="background: var(--bg-surface); border: 1px solid var(--border-light); border-radius: var(--radius-xl); padding: 2.5rem; box-shadow: var(--shadow-xl);">
+      
+      <!-- STEP 1: Personal & Guardian Details -->
+      <div class="wizard-step active" id="step-1">
+        <h3 style="color: var(--chm-emerald); margin-bottom: 1.25rem; font-size: 1.25rem;">
+          Step 1: Student & Guardian Profile
+        </h3>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem;">
+          <div class="form-group" style="grid-column: span 2;">
+            <label for="app-fullname">Full Name (As per 10th / 12th Marksheet) *</label>
+            <input type="text" id="app-fullname" class="form-control" placeholder="SURNAME FIRSTNAME FATHERNAME MOTHERNAME" value="Sharma Aditya Mahesh Sunita" required>
+          </div>
+
+          <div class="form-group">
+            <label for="app-email">Email Address *</label>
+            <input type="email" id="app-email" class="form-control" placeholder="name@example.com" value="aditya.sharma26@gmail.com" required>
+          </div>
+
+          <div class="form-group">
+            <label for="app-phone">Student Mobile Number *</label>
+            <input type="tel" id="app-phone" class="form-control" placeholder="10-digit Mobile Number" value="9823456789" required>
+          </div>
+
+          <div class="form-group">
+            <label for="app-dob">Date of Birth *</label>
+            <input type="date" id="app-dob" class="form-control" value="2007-04-15" required>
+          </div>
+
+          <div class="form-group">
+            <label for="app-gender">Gender *</label>
+            <select id="app-gender" class="form-control" required>
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="app-category">Reservation / Quota Category *</label>
+            <select id="app-category" class="form-control" required>
+              <option value="Open General">Open / General Merit</option>
+              <option value="Sindhi Linguistic Minority">Sindhi Linguistic Minority (50% Quota)</option>
+              <option value="OBC">OBC</option>
+              <option value="SC">SC</option>
+              <option value="ST">ST</option>
+              <option value="EWS">EWS</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="app-guardian">Guardian / Father's Mobile</label>
+            <input type="tel" id="app-guardian" class="form-control" placeholder="Guardian Phone" value="9820011223">
+          </div>
+        </div>
+
+        <div class="step-nav-footer">
+          <div></div>
+          <button type="button" class="btn-primary wizard-next">Proceed to Academic Record →</button>
+        </div>
+      </div>
+
+      <!-- STEP 2: Academic Record & Stream Selection -->
+      <div class="wizard-step" id="step-2">
+        <h3 style="color: var(--chm-emerald); margin-bottom: 1.25rem; font-size: 1.25rem;">
+          Step 2: Academic Qualifications & Course
+        </h3>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem;">
+          <div class="form-group" style="grid-column: span 2;">
+            <label for="app-course">Select Program Applying For *</label>
+            <select id="app-course" class="form-control" required>
+              <option value="B.Sc Information Technology (B.Sc IT)">B.Sc Information Technology (B.Sc IT) [SFC]</option>
+              <option value="Bachelor of Management Studies (BMS)">Bachelor of Management Studies (BMS) [SFC]</option>
+              <option value="B.Com (Accounting & Finance - BAF)">B.Com (Accounting & Finance - BAF) [SFC]</option>
+              <option value="B.Com (Banking & Insurance - BBI)">B.Com (Banking & Insurance - BBI) [SFC]</option>
+              <option value="BA in Multimedia & Mass Comm (BAMMC)">BA in Multimedia & Mass Comm (BAMMC) [SFC]</option>
+              <option value="Bachelor of Commerce (B.Com - Aided)">Bachelor of Commerce (B.Com - Aided)</option>
+              <option value="Bachelor of Science (B.Sc - Aided)">Bachelor of Science (B.Sc - Aided)</option>
+              <option value="Bachelor of Arts (B.A. - Aided)">Bachelor of Arts (B.A. - Aided)</option>
+              <option value="FYJC Science (11th Standard)">FYJC Science (11th Standard)</option>
+              <option value="FYJC Commerce (11th Standard)">FYJC Commerce (11th Standard)</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="app-board">Qualifying Examination Board *</label>
+            <select id="app-board" class="form-control">
+              <option value="maharashtra">Maharashtra State Board (HSC/SSC)</option>
+              <option value="cbse">CBSE</option>
+              <option value="icse">ICSE / ISC</option>
+              <option value="other">Other State Board</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="app-seat">Board Examination Seat / Roll No *</label>
+            <input type="text" id="app-seat" class="form-control" placeholder="e.g. M098231" value="M098231" required>
+          </div>
+
+          <div class="form-group">
+            <label for="app-percentage">Total Aggregate Percentage (%) *</label>
+            <input type="number" id="app-percentage" class="form-control" placeholder="e.g. 84.50" step="0.01" value="84.50" required>
+          </div>
+
+          <div class="form-group">
+            <label for="app-maths">Mathematics Marks (If applying for IT/BMS)</label>
+            <input type="number" id="app-maths" class="form-control" placeholder="Marks out of 100" value="82">
+          </div>
+        </div>
+
+        <div class="step-nav-footer">
+          <button type="button" class="btn-secondary wizard-prev">← Previous</button>
+          <button type="button" class="btn-primary wizard-next">Proceed to Document Upload →</button>
+        </div>
+      </div>
+
+      <!-- STEP 3: Document Upload Simulator -->
+      <div class="wizard-step" id="step-3">
+        <h3 style="color: var(--chm-emerald); margin-bottom: 1.25rem; font-size: 1.25rem;">
+          Step 3: Document Verification Upload
+        </h3>
+
+        <div style="display: flex; flex-direction: column; gap: 1rem;">
+          <div style="border: 2px dashed var(--border-strong); border-radius: 8px; padding: 1.25rem; background: var(--bg-alt); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem;">
+            <div>
+              <div style="font-weight: 700; color: var(--text-primary);">📄 12th HSC Marksheet (or 10th SSC for Junior College) *</div>
+              <div style="font-size: 0.78rem; color: var(--text-muted);">Self-attested scan copy (PDF or JPG, Max 2MB)</div>
+            </div>
+            <span style="background: #dcfce7; color: #15803d; font-size: 0.75rem; font-weight: 700; padding: 3px 10px; border-radius: 20px;">✓ Marks_HSC_Verified.pdf</span>
+          </div>
+
+          <div style="border: 2px dashed var(--border-strong); border-radius: 8px; padding: 1.25rem; background: var(--bg-alt); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem;">
+            <div>
+              <div style="font-weight: 700; color: var(--text-primary);">🏫 School / Junior College Leaving Certificate (LC) *</div>
+              <div style="font-size: 0.78rem; color: var(--text-muted);">Required for proof of date of birth & nationality</div>
+            </div>
+            <span style="background: #dcfce7; color: #15803d; font-size: 0.75rem; font-weight: 700; padding: 3px 10px; border-radius: 20px;">✓ Leaving_Cert_Scan.pdf</span>
+          </div>
+
+          <div style="border: 2px dashed var(--border-strong); border-radius: 8px; padding: 1.25rem; background: var(--bg-alt); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem;">
+            <div>
+              <div style="font-weight: 700; color: var(--text-primary);">🖼️ Candidate Passport Photo & Signature *</div>
+              <div style="font-size: 0.78rem; color: var(--text-muted);">High resolution on plain white background</div>
+            </div>
+            <span style="background: #dcfce7; color: #15803d; font-size: 0.75rem; font-weight: 700; padding: 3px 10px; border-radius: 20px;">✓ Photo_Sign_Uploaded.jpg</span>
+          </div>
+
+          <div style="border: 2px dashed var(--border-strong); border-radius: 8px; padding: 1.25rem; background: var(--bg-alt); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem;">
+            <div>
+              <div style="font-weight: 700; color: var(--text-primary);">📜 Sindhi Minority Affidavit / Caste Certificate</div>
+              <div style="font-size: 0.78rem; color: var(--text-muted);">Mandatory only if claiming quota benefits</div>
+            </div>
+            <span style="background: #e2e8f0; color: #475569; font-size: 0.75rem; font-weight: 700; padding: 3px 10px; border-radius: 20px;">Optional for Open</span>
+          </div>
+        </div>
+
+        <div class="step-nav-footer">
+          <button type="button" class="btn-secondary wizard-prev">← Previous</button>
+          <button type="button" class="btn-primary wizard-next">Submit & Generate Acknowledgment →</button>
+        </div>
+      </div>
+
+      <!-- STEP 4: Application Confirmation & Printable Slip -->
+      <div class="wizard-step" id="step-4">
+        <div id="confirmation-slip-content"></div>
+        <div style="text-align: center; margin-top: 1.5rem;">
+          <a href="fee-payment.html" class="btn-primary" style="padding: 0.85rem 2rem;">
+            Proceed to Online Fee Payment Desk →
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <script src="js/app.js"></script>
+  <script src="js/admission.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      initAdmissionWizard();
+    });
+  </script>
+</body>
+</html>

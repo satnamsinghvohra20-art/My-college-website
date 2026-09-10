@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Examination & Results Portal | Smt. CHM College</title>
+  <link rel="shortcut icon" href="assets/images/logo.png" type="image/png">
+  <link rel="stylesheet" href="css/theme.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <!-- Top bar -->
+  <aside class="topbar">
+    <div class="container topbar-inner">
+      <div class="topbar-left">
+        <a href="index.html" style="color:#e2e8f0; font-weight:700;">← Back to College Homepage</a>
+        <span style="color:rgba(255,255,255,0.3);">|</span>
+        <span class="helpline-badge">EXAM CONTROLLER DESK (CODE: 217)</span>
+      </div>
+      <div class="topbar-right">
+        <button type="button" id="theme-toggle-btn" class="theme-toggle-btn">🌙 Dark</button>
+        <a href="portal.html" class="portal-direct-btn">Student ERP</a>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand-wrapper">
+        <img src="assets/images/logo.png" alt="CHM Crest" class="brand-logo-img">
+        <div class="brand-meta">
+          <span class="board-name">Hyderabad (Sind) National Collegiate Board</span>
+          <h1 class="college-title">Smt. Chandibhai Himathmal Mansukhani College</h1>
+          <p class="college-subtitle">Examination, Hall Tickets & University Result Services</p>
+        </div>
+      </a>
+      <div class="header-badges">
+        <div class="naac-badge-pill">
+          <span class="naac-label">NAAC</span>
+          <span class="naac-grade">'A' GRADE</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container" style="padding: 3rem 1.5rem; max-width: 950px;">
+    
+    <!-- Hero / Intro -->
+    <div style="text-align: center; margin-bottom: 2.5rem;" id="results">
+      <span class="section-eyebrow">SEMESTER EXAMINATIONS & EVALUATIONS</span>
+      <h2 style="font-family: var(--font-display); font-size: 2rem; color: var(--text-primary);">
+        Semester Results & Marksheet Search
+      </h2>
+      <p style="font-size: 0.95rem; color: var(--text-muted); margin-top: 0.25rem;">
+        Enter your 16-digit Permanent Registration Number (PRN) or 7-digit Examination Seat Number to retrieve your verified statement of grades.
+      </p>
+    </div>
+
+    <!-- Search Box -->
+    <div style="background: var(--bg-surface); border: 2px solid var(--chm-gold); border-radius: var(--radius-xl); padding: 2.25rem; box-shadow: var(--shadow-lg); margin-bottom: 2.5rem;">
+      <form onsubmit="searchExamResult(event)">
+        <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 1.25rem; align-items: flex-end;">
+          <div class="form-group">
+            <label for="result-prn-input">Student PRN or Examination Seat No *</label>
+            <input type="text" id="result-prn-input" class="form-control" placeholder="e.g. 2024016400329104" value="2024016400329104" required>
+            <small style="color: var(--text-muted);">Demo PRNs: 2024016400329104 (Aakash), 2024016400987123 (Rahul)</small>
+          </div>
+          <div>
+            <button type="submit" class="btn-primary" style="width: 100%; justify-content: center; padding: 0.85rem 1.5rem;">
+              🔍 Fetch Marksheet
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <!-- Marksheet Display -->
+    <div id="exam-result-display"></div>
+
+    <!-- Examination Timetable Section -->
+    <div style="background: var(--bg-surface); border: 1px solid var(--border-light); border-radius: var(--radius-xl); padding: 2.5rem; margin-top: 3rem; box-shadow: var(--shadow-sm);" id="timetable">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; flex-wrap: wrap; gap: 1rem;">
+        <div>
+          <h3 style="color: var(--text-primary); margin:0;">Active Examination Timetables</h3>
+          <p style="font-size: 0.85rem; color: var(--text-muted); margin:0;">Download official timetables released by Examination Committee.</p>
+        </div>
+        <span class="ticker-tag exams">SESSION 2026</span>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 0.85rem;">
+        <div style="display: flex; justify-content: space-between; align-items: center; border: 1px solid var(--border-light); padding: 1rem 1.25rem; border-radius: 8px; background: var(--bg-alt);">
+          <div>
+            <div style="font-weight: 700; color: var(--text-primary);">T.Y. B.Sc. IT & Computer Science (Sem VI Regular)</div>
+            <div style="font-size: 0.8rem; color: var(--text-muted);">Commencing: 18th June 2026 | Session: Morning 10:30 AM</div>
+          </div>
+          <button type="button" onclick="alert('Downloading Timetable PDF...')" class="btn-secondary" style="font-size: 0.8rem; padding: 0.4rem 0.9rem; color: var(--text-primary); border-color: var(--border-strong);">
+            ⬇️ Download PDF
+          </button>
+        </div>
+
+        <div style="display: flex; justify-content: space-between; align-items: center; border: 1px solid var(--border-light); padding: 1rem 1.25rem; border-radius: 8px; background: var(--bg-alt);">
+          <div>
+            <div style="font-weight: 700; color: var(--text-primary);">T.Y. BMS & BAF (Semester VI Regular)</div>
+            <div style="font-size: 0.8rem; color: var(--text-muted);">Commencing: 19th June 2026 | Session: Afternoon 02:30 PM</div>
+          </div>
+          <button type="button" onclick="alert('Downloading Timetable PDF...')" class="btn-secondary" style="font-size: 0.8rem; padding: 0.4rem 0.9rem; color: var(--text-primary); border-color: var(--border-strong);">
+            ⬇️ Download PDF
+          </button>
+        </div>
+
+        <div style="display: flex; justify-content: space-between; align-items: center; border: 1px solid var(--border-light); padding: 1rem 1.25rem; border-radius: 8px; background: var(--bg-alt);">
+          <div>
+            <div style="font-weight: 700; color: var(--text-primary);">F.Y. & S.Y. BA, B.Com, B.Sc. (ATKT Examinations)</div>
+            <div style="font-size: 0.8rem; color: var(--text-muted);">Commencing: 25th June 2026 | Session: Morning 10:30 AM</div>
+          </div>
+          <button type="button" onclick="alert('Downloading Timetable PDF...')" class="btn-secondary" style="font-size: 0.8rem; padding: 0.4rem 0.9rem; color: var(--text-primary); border-color: var(--border-strong);">
+            ⬇️ Download PDF
+          </button>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <script src="js/app.js"></script>
+  <script src="js/exam-portal.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Auto-display default mark sheet
+      window.searchExamResult();
+    });
+  </script>
+</body>
+</html>

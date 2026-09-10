@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student & Faculty ERP Portal | Smt. CHM College</title>
+  <link rel="shortcut icon" href="assets/images/logo.png" type="image/png">
+  <link rel="stylesheet" href="css/theme.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <style>
+    /* 3D Flip Student ID Card Styles */
+    .id-card-wrapper {
+      perspective: 1000px;
+      width: 340px;
+      height: 480px;
+      margin: 0 auto;
+      cursor: pointer;
+    }
+    .id-card-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      text-align: center;
+      transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+      transform-style: preserve-3d;
+      border-radius: 16px;
+      box-shadow: var(--shadow-xl);
+    }
+    .id-card-wrapper.flipped .id-card-inner {
+      transform: rotateY(180deg);
+    }
+    .id-card-front, .id-card-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      -webkit-backface-visibility: hidden;
+      backface-visibility: hidden;
+      border-radius: 16px;
+      padding: 1.5rem;
+      border: 2px solid var(--chm-gold);
+      background: #ffffff;
+      color: #0f172a;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .id-card-back {
+      transform: rotateY(180deg);
+      background: #f8fafc;
+    }
+    /* Modal styles for Hall Ticket */
+    .modal-backdrop {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.7);
+      z-index: 2000;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top bar -->
+  <aside class="topbar">
+    <div class="container topbar-inner">
+      <div class="topbar-left">
+        <a href="index.html" style="color:#e2e8f0; font-weight:700;">← Back to College Homepage</a>
+        <span style="color:rgba(255,255,255,0.3);">|</span>
+        <span class="helpline-badge">CAMPUS ERP SYSTEM v4.2</span>
+      </div>
+      <div class="topbar-right">
+        <button type="button" id="theme-toggle-btn" class="theme-toggle-btn">🌙 Dark</button>
+        <span style="font-size:0.8rem; color:#a7f3d0;">Logged in as: Aakash Lalwani</span>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand-wrapper">
+        <img src="assets/images/logo.png" alt="CHM Crest" class="brand-logo-img">
+        <div class="brand-meta">
+          <span class="board-name">Hyderabad (Sind) National Collegiate Board</span>
+          <h1 class="college-title">Smt. Chandibhai Himathmal Mansukhani College</h1>
+          <p class="college-subtitle">Integrated Student Information & Campus Administration Suite</p>
+        </div>
+      </a>
+      <div class="header-badges">
+        <div class="naac-badge-pill">
+          <span class="naac-label">STATUS</span>
+          <span class="naac-grade" style="color:#15803d; font-size:1rem;">ACTIVE</span>
+          <span class="naac-sub">A.Y. 2026-27</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container" style="padding: 3rem 1.5rem;">
+    <!-- Welcome Header Card -->
+    <div style="background: linear-gradient(135deg, var(--chm-emerald-dark) 0%, #0d3820 100%); color: #fff; border-radius: var(--radius-xl); padding: 2.25rem; margin-bottom: 2.5rem; box-shadow: var(--shadow-xl); border: 2px solid var(--chm-gold); position: relative; overflow: hidden;">
+      <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1.5rem; position: relative; z-index: 2;">
+        <div style="display: flex; align-items: center; gap: 1.5rem;">
+          <div style="width: 75px; height: 75px; border-radius: 50%; background: var(--chm-gold); color: #0a351d; font-size: 2rem; font-weight: 800; display: flex; align-items: center; justify-content: center; border: 3px solid #fff;">
+            AL
+          </div>
+          <div>
+            <span class="ticker-tag admissions" style="margin-bottom: 0.35rem; display: inline-block;">STUDENT ERP PROFILE</span>
+            <h2 style="color: #fff; font-size: 1.8rem; margin: 0 0 4px 0;">Aakash Suresh Lalwani</h2>
+            <p style="font-size: 0.9rem; color: #e2e8f0; margin: 0;">
+              T.Y. B.Sc. (Information Technology) | Roll: <strong>TYIT-028</strong> | PRN: <strong>2024016400329104</strong>
+            </p>
+          </div>
+        </div>
+
+        <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+          <button type="button" onclick="generateHallTicketModal()" class="btn-primary" style="padding: 0.75rem 1.25rem;">
+            🎫 Hall Ticket
+          </button>
+          <button type="button" onclick="generateBonafideModal('railway')" class="btn-secondary" style="padding: 0.75rem 1.25rem; color:#fef08a; border-color:var(--chm-gold);">
+            🚆 Railway Concession
+          </button>
+          <button type="button" onclick="generateBonafideModal('general')" class="btn-secondary" style="padding: 0.75rem 1.25rem;">
+            📜 Bonafide Cert
+          </button>
+          <a href="fee-payment.html" class="btn-secondary" style="padding: 0.75rem 1.25rem;">
+            💳 Fee Ledger
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Quick Stats Grid -->
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; margin-bottom: 2.5rem;">
+      <div style="background: var(--bg-surface); border: 1px solid var(--border-light); border-radius: var(--radius-lg); padding: 1.5rem; box-shadow: var(--shadow-sm);">
+        <div style="font-size: 0.82rem; color: var(--text-muted); font-weight: 700; text-transform: uppercase;">Overall Attendance</div>
+        <div style="font-size: 2rem; font-weight: 800; color: #10b981; margin: 4px 0;">86.4%</div>
+        <div style="font-size: 0.75rem; color: #059669;">✓ Above 75% MU Requirement</div>
+      </div>
+
+      <div style="background: var(--bg-surface); border: 1px solid var(--border-light); border-radius: var(--radius-lg); padding: 1.5rem; box-shadow: var(--shadow-sm);">
+        <div style="font-size: 0.82rem; color: var(--text-muted); font-weight: 700; text-transform: uppercase;">Cumulative GPA (CGPA)</div>
+        <div style="font-size: 2rem; font-weight: 800; color: var(--chm-gold); margin: 4px 0;">8.92 / 10</div>
+        <div style="font-size: 0.75rem; color: var(--text-muted);">Grade: 'O' Outstanding</div>
+      </div>
+
+      <div style="background: var(--bg-surface); border: 1px solid var(--border-light); border-radius: var(--radius-lg); padding: 1.5rem; box-shadow: var(--shadow-sm);">
+        <div style="font-size: 0.82rem; color: var(--text-muted); font-weight: 700; text-transform: uppercase;">Term Fee Status</div>
+        <div style="font-size: 1.8rem; font-weight: 800; color: #16a34a; margin: 4px 0;">CLEARED</div>
+        <div style="font-size: 0.75rem; color: var(--text-muted);">Receipt: CHM-REC-992104</div>
+      </div>
+
+      <div style="background: var(--bg-surface); border: 1px solid var(--border-light); border-radius: var(--radius-lg); padding: 1.5rem; box-shadow: var(--shadow-sm);">
+        <div style="font-size: 0.82rem; color: var(--text-muted); font-weight: 700; text-transform: uppercase;">Library Access</div>
+        <div style="font-size: 1.8rem; font-weight: 800; color: var(--chm-accent-blue); margin: 4px 0;">VALID</div>
+        <div style="font-size: 0.75rem; color: var(--text-muted);">0 Overdue Books</div>
+      </div>
+    </div>
+
+    <!-- Main Content: Attendance & ID Card -->
+    <div style="display: grid; grid-template-columns: 1.4fr 1fr; gap: 2.5rem; margin-bottom: 3rem;">
+      
+      <!-- Left Column: Attendance Breakdown & Internal Marks -->
+      <div style="background: var(--bg-surface); border: 1px solid var(--border-light); border-radius: var(--radius-xl); padding: 2rem; box-shadow: var(--shadow-sm);">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+          <h3 style="color: var(--text-primary); font-size: 1.25rem; margin: 0;">Course Attendance & Internal Marks</h3>
+          <span class="ticker-tag admissions">Semester VI (Final Year)</span>
+        </div>
+
+        <table style="width: 100%; border-collapse: collapse; font-size: 0.9rem;">
+          <thead>
+            <tr style="background: var(--bg-alt); text-align: left; border-bottom: 2px solid var(--border-strong);">
+              <th style="padding: 0.65rem 1rem;">Code</th>
+              <th style="padding: 0.65rem 1rem;">Subject Title</th>
+              <th style="padding: 0.65rem 1rem; text-align: center;">Attendance</th>
+              <th style="padding: 0.65rem 1rem; text-align: right;">Internal Marks</th>
+            </tr>
+          </thead>
+          <tbody id="student-subjects-body"></tbody>
+        </table>
+      </div>
+
+      <!-- Right Column: Interactive 3D Digital Student ID Card -->
+      <div style="background: var(--bg-surface); border: 1px solid var(--border-light); border-radius: var(--radius-xl); padding: 2rem; box-shadow: var(--shadow-sm); text-align: center;">
+        <h3 style="color: var(--text-primary); font-size: 1.25rem; margin-bottom: 0.25rem;">Digital Student Smart Card</h3>
+        <p style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 1.25rem;">(Click card below to flip between front & library barcode)</p>
+
+        <div class="id-card-wrapper" id="student-digital-id-card">
+          <div class="id-card-inner">
+            
+            <!-- FRONT OF CARD -->
+            <div class="id-card-front">
+              <div>
+                <div style="font-size: 0.65rem; font-weight: 800; color: #b45309; text-transform: uppercase;">HSNC BOARD MUMBAI</div>
+                <div style="font-family: var(--font-display); font-size: 0.92rem; font-weight: 700; color: #145a32; line-height: 1.2; margin-top: 2px;">
+                  SMT. CHM COLLEGE, ULHASNAGAR
+                </div>
+                <div style="font-size: 0.62rem; color: #64748b;">NAAC RE-ACCREDITED 'A' GRADE</div>
+              </div>
+
+              <div>
+                <div style="width: 100px; height: 110px; border: 2px solid #145a32; border-radius: 8px; margin: 0 auto; background: #e2e8f0; display: flex; align-items: center; justify-content: center; font-size: 2.5rem; color: #145a32; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+                  👨‍🎓
+                </div>
+                <h4 style="margin: 8px 0 2px 0; font-size: 1.05rem; color: #0f172a;">Aakash Suresh Lalwani</h4>
+                <div style="font-weight: 700; color: #145a32; font-size: 0.85rem;">T.Y. B.Sc. (Information Technology)</div>
+              </div>
+
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; text-align: left; font-size: 0.75rem; background: #f8fafc; padding: 0.6rem; border-radius: 6px; border: 1px solid #e2e8f0;">
+                <div>Roll: <strong>TYIT-028</strong></div>
+                <div>Blood Grp: <strong>O+</strong></div>
+                <div>PRN: <strong>...9104</strong></div>
+                <div>Valid: <strong>2023-2026</strong></div>
+              </div>
+
+              <div style="font-size: 0.65rem; color: #64748b;">
+                Tap to view Library & Emergency Data ⟳
+              </div>
+            </div>
+
+            <!-- BACK OF CARD -->
+            <div class="id-card-back">
+              <div>
+                <h4 style="font-size: 0.95rem; color: #145a32;">STUDENT SMART PASS</h4>
+                <div style="font-size: 0.72rem; color: #64748b;">Central Library & Laboratory ID</div>
+              </div>
+
+              <!-- Barcode SVG -->
+              <div style="margin: 1.5rem 0;">
+                <svg viewBox="0 0 200 60" style="width: 80%; height: auto; margin: 0 auto; display:block;">
+                  <rect x="10" y="5" width="4" height="50" fill="#000" />
+                  <rect x="18" y="5" width="2" height="50" fill="#000" />
+                  <rect x="24" y="5" width="6" height="50" fill="#000" />
+                  <rect x="34" y="5" width="2" height="50" fill="#000" />
+                  <rect x="40" y="5" width="8" height="50" fill="#000" />
+                  <rect x="52" y="5" width="4" height="50" fill="#000" />
+                  <rect x="60" y="5" width="2" height="50" fill="#000" />
+                  <rect x="68" y="5" width="6" height="50" fill="#000" />
+                  <rect x="80" y="5" width="4" height="50" fill="#000" />
+                  <rect x="90" y="5" width="8" height="50" fill="#000" />
+                  <rect x="104" y="5" width="3" height="50" fill="#000" />
+                  <rect x="112" y="5" width="5" height="50" fill="#000" />
+                  <rect x="122" y="5" width="2" height="50" fill="#000" />
+                  <rect x="130" y="5" width="7" height="50" fill="#000" />
+                  <rect x="144" y="5" width="3" height="50" fill="#000" />
+                  <rect x="154" y="5" width="5" height="50" fill="#000" />
+                  <rect x="166" y="5" width="2" height="50" fill="#000" />
+                  <rect x="174" y="5" width="6" height="50" fill="#000" />
+                </svg>
+                <div style="font-family: monospace; font-size: 0.85rem; font-weight: 700; margin-top: 4px;">*2024016400329104*</div>
+              </div>
+
+              <div style="text-align: left; font-size: 0.72rem; color: #475569; line-height: 1.5;">
+                • This card must be carried at all times on college premises.<br>
+                • Loss of card must be immediately reported to the library.<br>
+                • Emergency Contact: +91 9820011223 (Father).
+              </div>
+
+              <div style="font-size: 0.7rem; font-weight: 700; color: #145a32; border-top: 1px solid #cbd5e1; padding-top: 0.5rem;">
+                Principal & Registrar, Smt. CHM College
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Faculty Live Announcement Broadcaster Simulator -->
+    <div style="background: var(--bg-surface); border: 2px solid var(--chm-gold); border-radius: var(--radius-xl); padding: 2.25rem; box-shadow: var(--shadow-md); margin-bottom: 2.5rem;">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.25rem; flex-wrap: wrap; gap: 1rem;">
+        <div>
+          <span class="section-eyebrow">FACULTY & ADMINISTRATION DEMO TOOL</span>
+          <h3 style="color: var(--text-primary); font-size: 1.4rem; margin: 2px 0;">Instant Campus Notice Broadcaster</h3>
+          <p style="font-size: 0.85rem; color: var(--text-muted); margin:0;">
+            Faculty can type a bulletin here to simulate push notification directly to the live feed below.
+          </p>
+        </div>
+        <span class="ticker-tag urgent">ADMIN PRIVILEGES</span>
+      </div>
+
+      <form onsubmit="broadcastNotice(event)">
+        <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 1rem; margin-bottom: 1rem;">
+          <div class="form-group">
+            <label for="faculty-notice-title">Notice Title *</label>
+            <input type="text" id="faculty-notice-title" class="form-control" placeholder="e.g. Project Submission Deadline Extended for Sem VI" required>
+          </div>
+          <div class="form-group">
+            <label for="faculty-notice-cat">Notice Category</label>
+            <select id="faculty-notice-cat" class="form-control">
+              <option value="urgent">URGENT ALERT</option>
+              <option value="admissions">ADMISSIONS</option>
+              <option value="exams">EXAMINATION</option>
+              <option value="pg">CAMPUS EVENT</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group" style="margin-bottom: 1rem;">
+          <label for="faculty-notice-desc">Notice Details *</label>
+          <textarea id="faculty-notice-desc" class="form-control" rows="2" placeholder="Enter instructions for students..." required></textarea>
+        </div>
+        <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+          <button type="submit" class="btn-primary" style="padding: 0.75rem 2rem;">
+            📢 Broadcast Notice to Student Feeds
+          </button>
+          <button type="button" onclick="launchProjectorAttendance()" class="btn-secondary" style="padding: 0.75rem 1.5rem; background:#0284c7; color:#fff; border:none;">
+            🖥️ Launch Dynamic QR Attendance Session (Projector HUD)
+          </button>
+        </div>
+      </form>
+
+      <!-- DYNAMIC QR CLASSROOM PROJECTOR HUD (HIDDEN BY DEFAULT) -->
+      <div id="qr-attendance-hud" class="qr-attendance-hud" style="display: none; margin-top: 2rem;">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1.5rem;">
+          <div>
+            <span class="ticker-tag urgent" style="margin-bottom: 0.5rem; display: inline-block;">LIVE CLASSROOM PROJECTOR MODE</span>
+            <h3 style="color: #fff; font-size: 1.6rem; margin:0;">USIT601 - Software Quality Assurance | Lecture #24</h3>
+            <p style="font-size: 0.9rem; color: #a7f3d0; margin: 4px 0 0 0;">Faculty: Dr. Kishori Bhagat | Room 402, Science Wing | Time: 10:30 AM</p>
+          </div>
+          <button type="button" onclick="closeProjectorAttendance()" class="btn-secondary" style="color:#fff; border-color:rgba(255,255,255,0.4); padding: 0.4rem 1rem;">
+            ✕ End Session
+          </button>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: center;">
+          <div style="text-align: center;">
+            <div class="qr-code-box-live">
+              <div class="qr-scanline"></div>
+              <svg viewBox="0 0 100 100" style="width: 190px; height: 190px;">
+                <rect width="100" height="100" fill="#fff" />
+                <rect x="5" y="5" width="25" height="25" fill="#000" />
+                <rect x="10" y="10" width="15" height="15" fill="#fff" />
+                <rect x="13" y="13" width="9" height="9" fill="#000" />
+
+                <rect x="70" y="5" width="25" height="25" fill="#000" />
+                <rect x="75" y="10" width="15" height="15" fill="#fff" />
+                <rect x="78" y="13" width="9" height="9" fill="#000" />
+
+                <rect x="5" y="70" width="25" height="25" fill="#000" />
+                <rect x="10" y="75" width="15" height="15" fill="#fff" />
+                <rect x="13" y="78" width="9" height="9" fill="#000" />
+
+                <rect x="40" y="15" width="12" height="12" fill="#145a32" />
+                <rect x="40" y="45" width="20" height="20" fill="#000" />
+                <rect x="70" y="45" width="15" height="40" fill="#000" />
+              </svg>
+            </div>
+            <div style="font-size: 0.8rem; color: #fef08a; margin-top: 0.75rem;">
+              Auto-refreshes every 10s | Dynamic Token: <strong id="live-qr-token" style="font-family: monospace;">CHM-882104-921</strong>
+            </div>
+          </div>
+
+          <div>
+            <div style="background: rgba(255, 255, 255, 0.08); border-radius: 12px; padding: 1.5rem; border: 1px solid rgba(255,255,255,0.15);">
+              <div style="font-size: 0.85rem; color: #cbd5e1; text-transform: uppercase; font-weight: 700;">Live Attendance Feed</div>
+              <div style="font-size: 3rem; font-weight: 900; color: #10b981; line-height: 1.1; margin: 0.5rem 0;">
+                <span id="live-checkin-count">42</span> / 60
+              </div>
+              <div style="font-size: 0.85rem; color: #e2e8f0; margin-bottom: 1rem;">Students Verified Present in Classroom</div>
+              
+              <div style="font-size: 0.78rem; color: #a7f3d0; line-height: 1.6;">
+                🔒 <strong>Anti-Proxy Geo-Lock Enabled:</strong> Scans outside the 50-meter radius of Ulhasnagar Campus are automatically flagged and rejected.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Live Notices Feed -->
+      <div style="margin-top: 2rem;">
+        <h4 style="font-size: 1rem; margin-bottom: 0.75rem;">Current Live Notices Broadcast:</h4>
+        <div id="live-notices-feed">
+          <div class="notice-card-item" style="background: var(--bg-alt); border-left: 4px solid var(--chm-emerald); border-radius: 8px; padding: 1rem; margin-bottom: 0.75rem;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.35rem;">
+              <span class="ticker-tag exams">EXAMS</span>
+              <span style="font-size: 0.75rem; color: var(--text-muted);">Today, 10:15 AM</span>
+            </div>
+            <h4 style="font-size: 0.95rem; margin-bottom: 0.25rem; color: var(--text-primary);">Summer Session 2026 Hall Tickets Available</h4>
+            <p style="font-size: 0.85rem; color: var(--text-secondary); margin: 0;">Students appearing for Semester VI regular exams can now download their authenticated hall tickets.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- HALL TICKET MODAL -->
+  <div class="modal-backdrop" id="hall-ticket-modal">
+    <div style="background: #ffffff; color: #0f172a; border: 2px solid #145a32; border-radius: 12px; padding: 2.5rem; max-width: 780px; width: 100%; max-height: 90vh; overflow-y: auto; box-shadow: var(--shadow-xl); position: relative;">
+      
+      <div style="text-align: center; border-bottom: 2px solid #145a32; padding-bottom: 1rem; margin-bottom: 1.5rem;">
+        <div style="font-size: 0.75rem; font-weight: 700; color: #c59b27;">UNIVERSITY OF MUMBAI & SMT. CHM COLLEGE</div>
+        <h2 style="font-family: var(--font-display); color: #145a32; font-size: 1.5rem; margin: 4px 0;">
+          EXAMINATION HALL TICKET (SUMMER SESSION 2026)
+        </h2>
+        <div style="font-size: 0.8rem; color: #64748b;">T.Y. B.Sc. (Information Technology) (Semester VI) (CBCS)</div>
+      </div>
+
+      <div style="display: grid; grid-template-columns: 1fr 120px; gap: 1rem; margin-bottom: 1.5rem; background: #f8fafc; padding: 1rem; border-radius: 8px;">
+        <div style="font-size: 0.88rem; display: flex; flex-direction: column; gap: 0.4rem;">
+          <div><strong>Candidate Name:</strong> Lalwani Aakash Suresh Sunita</div>
+          <div><strong>Seat Number:</strong> <span style="color: #145a32; font-weight: 800; font-size: 1.05rem;">M266011</span></div>
+          <div><strong>PRN:</strong> 2024016400329104</div>
+          <div><strong>College / Center:</strong> Smt. CHM College, Ulhasnagar (Code: 217)</div>
+          <div><strong>Exam Hall:</strong> Room No. 402, 4th Floor, Science Wing</div>
+        </div>
+        <div style="width: 110px; height: 120px; border: 1px solid #cbd5e1; background: #e2e8f0; display: flex; align-items: center; justify-content: center; font-size: 2rem;">
+          👨‍🎓
+        </div>
+      </div>
+
+      <table style="width: 100%; border-collapse: collapse; font-size: 0.85rem; margin-bottom: 1.5rem;">
+        <thead>
+          <tr style="background: #e2e8f0; text-align: left;">
+            <th style="padding: 0.5rem 0.75rem;">Date</th>
+            <th style="padding: 0.5rem 0.75rem;">Paper Code</th>
+            <th style="padding: 0.5rem 0.75rem;">Subject Name</th>
+            <th style="padding: 0.5rem 0.75rem;">Time</th>
+            <th style="padding: 0.5rem 0.75rem;">Jr. Supervisor Sign</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="border-bottom: 1px solid #e2e8f0;">
+            <td style="padding: 0.5rem 0.75rem;">18/06/2026</td>
+            <td style="padding: 0.5rem 0.75rem;">USIT601</td>
+            <td style="padding: 0.5rem 0.75rem; font-weight: 600;">Software Quality Assurance</td>
+            <td style="padding: 0.5rem 0.75rem;">10:30 AM - 01:00 PM</td>
+            <td style="padding: 0.5rem 0.75rem; border-left: 1px dashed #cbd5e1;"></td>
+          </tr>
+          <tr style="border-bottom: 1px solid #e2e8f0;">
+            <td style="padding: 0.5rem 0.75rem;">20/06/2026</td>
+            <td style="padding: 0.5rem 0.75rem;">USIT602</td>
+            <td style="padding: 0.5rem 0.75rem; font-weight: 600;">Security in Computing</td>
+            <td style="padding: 0.5rem 0.75rem;">10:30 AM - 01:00 PM</td>
+            <td style="padding: 0.5rem 0.75rem; border-left: 1px dashed #cbd5e1;"></td>
+          </tr>
+          <tr style="border-bottom: 1px solid #e2e8f0;">
+            <td style="padding: 0.5rem 0.75rem;">23/06/2026</td>
+            <td style="padding: 0.5rem 0.75rem;">USIT603</td>
+            <td style="padding: 0.5rem 0.75rem; font-weight: 600;">Business Intelligence & Cloud</td>
+            <td style="padding: 0.5rem 0.75rem;">10:30 AM - 01:00 PM</td>
+            <td style="padding: 0.5rem 0.75rem; border-left: 1px dashed #cbd5e1;"></td>
+          </tr>
+          <tr style="border-bottom: 1px solid #e2e8f0;">
+            <td style="padding: 0.5rem 0.75rem;">25/06/2026</td>
+            <td style="padding: 0.5rem 0.75rem;">USIT604</td>
+            <td style="padding: 0.5rem 0.75rem; font-weight: 600;">Geographic Info Systems</td>
+            <td style="padding: 0.5rem 0.75rem;">10:30 AM - 01:00 PM</td>
+            <td style="padding: 0.5rem 0.75rem; border-left: 1px dashed #cbd5e1;"></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px dashed #cbd5e1; padding-top: 1rem;">
+        <button type="button" onclick="closeHallTicketModal()" class="btn-secondary" style="color:#0f172a; border-color:#cbd5e1;">
+          ✕ Close
+        </button>
+        <button type="button" onclick="window.print()" class="btn-primary" style="padding: 0.6rem 1.5rem;">
+          🖨️ Print Official Hall Ticket
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- BONAFIDE CERTIFICATE MODAL -->
+  <div class="modal-backdrop" id="bonafide-modal">
+    <div id="bonafide-modal-content" style="max-width: 850px; width: 100%; max-height: 90vh; overflow-y: auto;"></div>
+  </div>
+
+  <script src="js/app.js"></script>
+  <script src="js/student-portal.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      initStudentPortal();
+    });
+  </script>
+</body>
+</html>
