@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Gymkhana Sports Hub, Aakash Sports Meet Fixtures, Mumbai University Ordinance 0.229 10-Point Grace Mark Certificate and Digital Sports Pass - Smt. CHM College Ulhasnagar.">
+  <title>Sports & Gymkhana Hub | Smt. CHM College Ulhasnagar</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/theme.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <style>
+    .gym-hero {
+      background: linear-gradient(135deg, rgba(15, 23, 42, 0.95), rgba(4, 120, 87, 0.9)), url('assets/images/campus.jpg') center/cover no-repeat;
+      padding: 55px 0 45px;
+      color: #ffffff;
+      text-align: center;
+      position: relative;
+    }
+    .sports-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 14px;
+      padding: 24px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+      transition: all 0.2s ease;
+    }
+    .sports-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 28px rgba(0,0,0,0.1);
+      border-color: var(--accent-gold);
+    }
+    .score-ticker {
+      background: #0f172a;
+      border-radius: 12px;
+      padding: 20px;
+      color: #ffffff;
+      margin-bottom: 30px;
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      gap: 15px;
+      border: 1px solid rgba(255,255,255,0.15);
+    }
+    .ticker-item {
+      text-align: center;
+      min-width: 140px;
+    }
+    .ticker-item .sport {
+      font-size: 0.75rem;
+      color: var(--accent-gold);
+      text-transform: uppercase;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+    .ticker-item .score {
+      font-size: 1.25rem;
+      font-weight: 800;
+      margin: 4px 0;
+      font-family: 'JetBrains Mono', monospace;
+    }
+    .ticker-item .match {
+      font-size: 0.8rem;
+      color: #94a3b8;
+    }
+    .cert-box {
+      background: #fafaf9;
+      border: 3px double #d4af37;
+      border-radius: 12px;
+      padding: 30px;
+      position: relative;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Utilities Bar -->
+  <aside class="top-bar">
+    <div class="container top-bar__inner">
+      <div class="top-bar__left">
+        <span>📍 Ulhasnagar - 421003, Maharashtra, India</span>
+        <span class="divider">|</span>
+        <span>📞 <a href="tel:+912512734940">+91 (0251) 273 4940</a></span>
+      </div>
+      <div class="top-bar__right">
+        <span class="badge badge-gold">Mumbai University Champions 2025-26</span>
+        <div class="accessibility-ctrls">
+          <button id="font-decrease">A-</button>
+          <button id="font-reset">A</button>
+          <button id="font-increase">A+</button>
+          <button id="theme-toggle">🌓 Mode</button>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="container header__inner">
+      <div class="header__brand">
+        <img src="assets/images/logo.png" alt="Smt. CHM College Emblem" class="header__logo">
+        <div class="header__titles">
+          <span class="header__subtitle">Hyderabad (Sind) National Collegiate Board, Mumbai</span>
+          <h1 class="header__title">Smt. Chandibhai Himathmal Mansukhani College</h1>
+          <p class="header__affiliation">Department of Physical Education & Sports Gymkhana</p>
+        </div>
+      </div>
+      <div class="header__actions">
+        <a href="events.html" class="btn btn-secondary">Aakash Meet</a>
+        <a href="portal.html" class="btn btn-primary">Student ERP</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="container navbar__inner">
+      <button class="navbar__toggle" id="nav-toggle">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="navbar__menu" id="nav-menu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="portal.html">ERP Portal</a></li>
+        <li><a href="admission.html">Admissions</a></li>
+        <li><a href="gymkhana.html" class="active">Gymkhana & Sports</a></li>
+        <li><a href="events.html">Aakash Sports Meet</a></li>
+        <li><a href="clubs.html">NSS & NCC</a></li>
+        <li><a href="exams.html">Exams</a></li>
+        <li><a href="digital-library.html">E-Library</a></li>
+        <li><a href="library-kiosk.html">Library Kiosk</a></li>
+        <li><a href="sindhi-heritage.html">Sindhi Heritage</a></li>
+        <li><a href="alumni.html">Alumni</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero Banner -->
+  <section class="gym-hero">
+    <div class="container">
+      <span class="badge badge-gold" style="font-size: 0.85rem; margin-bottom: 12px; display: inline-block;">DEPARTMENT OF PHYSICAL EDUCATION</span>
+      <h2 style="font-family: var(--font-heading); font-size: 2.3rem; margin-bottom: 10px;">Sports & Gymkhana Performance Center</h2>
+      <p style="max-width: 760px; margin: 0 auto 15px; font-size: 1.05rem; line-height: 1.6; opacity: 0.95;">
+        Home of the legendary inter-collegiate <strong>Aakash Sports Meet</strong>, modern indoor sports arena, cricket pavilion, and Mumbai University Ordinance 0.229 10-point academic sports concession desk.
+      </p>
+      <div style="display: inline-flex; align-items: center; gap: 8px; background: rgba(0,0,0,0.4); padding: 8px 20px; border-radius: 30px; font-size: 0.85rem; border: 1px solid rgba(255,255,255,0.15);">
+        <span style="color: #4ade80;">●</span> 14 Inter-Collegiate Trophies Won in 2025-26 • <strong>42 University Representatives</strong>
+      </div>
+    </div>
+  </section>
+
+  <!-- Content Section -->
+  <main class="container" style="padding: 40px 15px 80px;">
+
+    <!-- Live Match Ticker -->
+    <div class="score-ticker">
+      <div class="ticker-item">
+        <div class="sport">🏏 Cricket Final</div>
+        <div class="score">CHM 164/5 (20)</div>
+        <div class="match">vs Birla College (142/9) • WON BY 22 RUNS</div>
+      </div>
+      <div class="ticker-item">
+        <div class="sport">⚽ Football Semi-Final</div>
+        <div class="score">CHM 3 - 1 BNN</div>
+        <div class="match">Aakash Inter-Collegiate Trophy</div>
+      </div>
+      <div class="ticker-item">
+        <div class="sport">🏸 Badminton Doubles</div>
+        <div class="score">21-18, 21-15</div>
+        <div class="match">Gold Medal: CHM pair vs RKT</div>
+      </div>
+      <div class="ticker-item">
+        <div class="sport">♟️ Inter-Univ Chess</div>
+        <div class="score">Round 5 Active</div>
+        <div class="match">Table 1: Satnam Singh (TY IT)</div>
+      </div>
+    </div>
+
+    <!-- Sports Sections Tabs -->
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; margin-bottom: 40px;">
+      
+      <!-- Feature 1: Digital Gymkhana Pass -->
+      <div class="sports-card">
+        <span class="badge" style="background: #e0f2fe; color: #0369a1; font-weight: 700;">ATHLETE IDENTITY</span>
+        <h3 style="color: var(--primary-navy); margin: 8px 0 10px; font-size: 1.25rem;">Digital Gymkhana Pass</h3>
+        <p style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 15px;">
+          Access the Gymnasium, Badminton Court, Table Tennis arena, and sports medicine dispensary with instant QR check-in.
+        </p>
+        <div style="background: #f8fafc; border: 1px dashed var(--border-color); border-radius: 8px; padding: 12px; margin-bottom: 15px;">
+          <div style="font-size: 0.85rem;"><strong>STUDENT:</strong> Satnam Singh (TY B.Sc. IT)</div>
+          <div style="font-size: 0.85rem;"><strong>PASS ID:</strong> CHM-GYM-2026-4022</div>
+          <div style="font-size: 0.85rem; color: var(--primary-emerald);"><strong>STATUS:</strong> Active (Full Access)</div>
+        </div>
+        <button class="btn btn-secondary" onclick="alert('🪪 Digital Gymkhana NFC Pass Activated on Phone NFC Wallet!')" style="width: 100%;">View Gymkhana Smart Pass</button>
+      </div>
+
+      <!-- Feature 2: Equipment Loan Desk -->
+      <div class="sports-card">
+        <span class="badge" style="background: #fef08a; color: #854d0e; font-weight: 700;">INVENTORY AUTOMATION</span>
+        <h3 style="color: var(--primary-navy); margin: 8px 0 10px; font-size: 1.25rem;">Sports Gear Loan Desk</h3>
+        <p style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 15px;">
+          Check out premium sports kits, cricket pads, badminton racquets, and basketballs with automated return countdowns.
+        </p>
+        <div style="display: flex; gap: 8px; margin-bottom: 12px;">
+          <select id="gearSelect" style="flex: 1; padding: 8px; border: 1px solid var(--border-color); border-radius: 6px; font-size: 0.85rem;">
+            <option>Yonex Carbonex Badminton Racquet</option>
+            <option>SG English Willow Cricket Bat</option>
+            <option>Nivia Shining Star Football (Size 5)</option>
+            <option>Stag 4-Star Table Tennis Bat & Balls</option>
+          </select>
+        </div>
+        <button class="btn btn-primary" onclick="alert('✅ Equipment Checkout Confirmed!\nItem logged to PRN 2024016400984512.\nReturn duration: 2 Hours.')" style="width: 100%;">Check Out Gear</button>
+      </div>
+
+      <!-- Feature 3: Aakash Meet Fixtures -->
+      <div class="sports-card">
+        <span class="badge" style="background: #fce7f3; color: #9d174d; font-weight: 700;">ANNUAL FEST</span>
+        <h3 style="color: var(--primary-navy); margin: 8px 0 10px; font-size: 1.25rem;">Aakash Sports Meet 2026</h3>
+        <p style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 15px;">
+          Over 64 participating colleges across Mumbai, Thane, and Navi Mumbai competing across 18 athletic disciplines.
+        </p>
+        <a href="events.html" class="btn btn-secondary" style="width: 100%; text-align: center; display: block;">View Fixtures & Brackets ↗</a>
+      </div>
+    </div>
+
+    <!-- Ordinance 0.229 10-Point Grace Mark Certificate Section -->
+    <div style="margin-top: 50px;">
+      <div class="section-title">
+        <span class="sub">MUMBAI UNIVERSITY STATUTORY ORDINANCE</span>
+        <h2>Ordinance 0.229 10-Point Sports Grace Mark Generator</h2>
+        <div class="title-underline"></div>
+      </div>
+
+      <div style="display: grid; grid-template-columns: 1fr 1.3fr; gap: 30px; margin-top: 30px;">
+        <!-- Input Form -->
+        <div class="sports-card">
+          <h3 style="color: var(--primary-navy); margin-bottom: 15px; font-size: 1.25rem;">Verify Sports Representation</h3>
+          
+          <div style="margin-bottom: 15px;">
+            <label style="display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 5px;">Student PRN</label>
+            <input type="text" id="sportsPrn" value="2024016400984512" style="width: 100%; padding: 10px; border: 1px solid var(--border-color); border-radius: 6px; font-family: 'JetBrains Mono', monospace;">
+          </div>
+
+          <div style="margin-bottom: 15px;">
+            <label style="display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 5px;">Tournament Level Achieved</label>
+            <select id="tournLevel" onchange="updateGraceMarks()" style="width: 100%; padding: 10px; border: 1px solid var(--border-color); border-radius: 6px;">
+              <option value="10">All-India Inter-University / National Representation (10 Grace Marks)</option>
+              <option value="8">State Championship / Ashwamedh Sports Meet (8 Grace Marks)</option>
+              <option value="5">Mumbai University Inter-Collegiate Zonal Podium (5 Grace Marks)</option>
+            </select>
+          </div>
+
+          <div style="margin-bottom: 20px;">
+            <label style="display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 5px;">Sporting Discipline</label>
+            <input type="text" id="sportDiscipline" value="Inter-Collegiate Chess / Cricket Team" style="width: 100%; padding: 10px; border: 1px solid var(--border-color); border-radius: 6px;">
+          </div>
+
+          <button class="btn btn-primary" onclick="generateGraceCertificate()" style="width: 100%; padding: 12px; font-weight: 700;">
+            Generate Authenticated Ordinance 0.229 Certificate
+          </button>
+        </div>
+
+        <!-- Official Certificate Box -->
+        <div class="cert-box" id="certBox">
+          <div style="text-align: center; border-bottom: 2px solid #d4af37; padding-bottom: 15px; margin-bottom: 15px;">
+            <strong style="font-size: 1.2rem; color: #0a2647; font-family: 'Cinzel', serif; display: block;">
+              UNIVERSITY OF MUMBAI • SMT. CHM COLLEGE
+            </strong>
+            <span style="font-size: 0.8rem; color: #64748b;">DEPARTMENT OF PHYSICAL EDUCATION & SPORTS</span>
+            <div style="font-size: 0.85rem; font-weight: 700; color: #b45309; margin-top: 6px;">
+              CERTIFICATE OF ELIGIBILITY UNDER ORDINANCE 0.229 (SPORTS)
+            </div>
+          </div>
+
+          <div style="font-size: 0.88rem; line-height: 1.7; color: #1e293b;">
+            <p>
+              This is to officially certify that <strong>SATNAM SINGH</strong>, PRN: <strong>2024016400984512</strong>, student of <strong>TY B.Sc. (Information Tech)</strong> has successfully represented Smt. CHM College in the sporting discipline of <span id="dispSport">Inter-Collegiate Chess / Cricket Team</span> during the academic year 2025–26.
+            </p>
+            <p>
+              Under <strong>Mumbai University Ordinance 0.229</strong>, the candidate is entitled to a concession of <strong id="dispMarks" style="color: #15803d; font-size: 1rem;">10 GRACE MARKS</strong> to be added across Semester End Examination heads.
+            </p>
+            <div style="background: #f1f5f9; padding: 8px 12px; border-radius: 6px; font-size: 0.8rem; margin: 12px 0;">
+              <strong>DISPATCH TOKEN:</strong> CHM-ORD-0.229-2026-7841 • Verified with Sports Board Archive
+            </div>
+          </div>
+
+          <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-top: 25px; padding-top: 15px; border-top: 1px dashed #cbd5e1;">
+            <div style="text-align: center;">
+              <div style="font-size: 0.8rem; font-weight: 700; color: #0a2647;">Director of Physical Education</div>
+              <div style="font-size: 0.75rem; color: #64748b;">Gymkhana Sports Board</div>
+            </div>
+            <div style="text-align: center;">
+              <div style="font-size: 0.8rem; font-weight: 700; color: #0a2647;">Dr. Kishori Bhagat</div>
+              <div style="font-size: 0.75rem; color: #64748b;">Principal, Smt. CHM College</div>
+            </div>
+          </div>
+
+          <div style="text-align: center; margin-top: 20px;">
+            <button class="btn btn-secondary" onclick="window.print()" style="font-size: 0.8rem; padding: 6px 18px;">🖨️ Print Statutory Certificate</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__col">
+        <h3 class="footer__title">Smt. CHM College</h3>
+        <p class="footer__text">
+          Opp. Ulhasnagar Railway Station, Ulhasnagar - 421003, Dist. Thane, Maharashtra.<br>
+          Run by Hyderabad (Sind) National Collegiate (HSNC) Board.
+        </p>
+      </div>
+      <div class="footer__col">
+        <h4 class="footer__heading">Sports & Campus</h4>
+        <ul class="footer__links">
+          <li><a href="events.html">Aakash Sports Meet 2026</a></li>
+          <li><a href="clubs.html">NSS & NCC Extension</a></li>
+          <li><a href="green-campus.html">Green Campus (NAAC 7.1)</a></li>
+          <li><a href="alumni.html">Athletics Wall of Champions</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4 class="footer__heading">Quick Portals</h4>
+        <ul class="footer__links">
+          <li><a href="portal.html">Student ERP</a></li>
+          <li><a href="railway-concession.html">Railway Concession Desk</a></li>
+          <li><a href="curriculum-planner.html">NEP 2020 Matrix</a></li>
+          <li><a href="governance.html">CDC & Governance</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <div class="container footer__bottom-inner">
+        <p>© 2026 Smt. Chandibhai Himathmal Mansukhani College. Gymkhana Sports Board.</p>
+        <p>Affiliated to University of Mumbai • Re-Accredited NAAC 'A' Grade (CGPA 3.12)</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/persona-switcher.js"></script>
+  <script>
+    function updateGraceMarks() {
+      const marks = document.getElementById('tournLevel').value;
+      document.getElementById('dispMarks').textContent = marks + " GRACE MARKS";
+    }
+
+    function generateGraceCertificate() {
+      const sport = document.getElementById('sportDiscipline').value;
+      document.getElementById('dispSport').textContent = sport;
+      updateGraceMarks();
+      alert("🏆 Certificate of Eligibility Generated!\nOrdinance 0.229 Sports Concession verified and forwarded to Mumbai University Examination Board.");
+    }
+
+    // Accessibility & Navigation Toggles
+    const navToggle = document.getElementById('nav-toggle');
+    const navMenu = document.getElementById('nav-menu');
+    if (navToggle && navMenu) {
+      navToggle.addEventListener('click', () => {
+        navMenu.classList.toggle('active');
+        navToggle.classList.toggle('active');
+      });
+    }
+
+    let fontSize = 100;
+    const fontInc = document.getElementById('font-increase');
+    const fontDec = document.getElementById('font-decrease');
+    const fontRes = document.getElementById('font-reset');
+    if (fontInc) fontInc.onclick = () => { fontSize = Math.min(fontSize + 10, 130); document.body.style.fontSize = fontSize + '%'; };
+    if (fontDec) fontDec.onclick = () => { fontSize = Math.max(fontSize - 10, 80); document.body.style.fontSize = fontSize + '%'; };
+    if (fontRes) fontRes.onclick = () => { fontSize = 100; document.body.style.fontSize = '100%'; };
+
+    const themeToggle = document.getElementById('theme-toggle');
+    if (themeToggle) {
+      themeToggle.onclick = () => {
+        document.body.classList.toggle('dark-theme');
+        localStorage.setItem('chm_theme', document.body.classList.contains('dark-theme') ? 'dark' : 'light');
+      };
+      if (localStorage.getItem('chm_theme') === 'dark') {
+        document.body.classList.add('dark-theme');
+      }
+    }
+  </script>
+</body>
+</html>

@@ -2,7 +2,7 @@
    SMT. CHM COLLEGE - PROGRESSIVE WEB APP SERVICE WORKER (v6.0.0)
    ============================================================================== */
 
-const CACHE_NAME = 'chm-college-cache-v6';
+const CACHE_NAME = 'chm-college-cache-v7';
 const PRECACHE_ASSETS = [
   './',
   'index.html',
@@ -11,6 +11,9 @@ const PRECACHE_ASSETS = [
   'curriculum-planner.html',
   'railway-concession.html',
   'grievance.html',
+  'library-kiosk.html',
+  'sindhi-heritage.html',
+  'gymkhana.html',
   'admission.html',
   'fee-payment.html',
   'exams.html',
