@@ -241,6 +241,12 @@
     qrInterval = setInterval(refreshQR, 10000);
   };
 
+  window.closeProjectorAttendance = function () {
+    const hud = document.getElementById('qr-attendance-hud');
+    if (hud) hud.style.display = 'none';
+    if (qrInterval) clearInterval(qrInterval);
+  };
+
     // 3. Dynamic NEP 2020 Lecture Timetable Switcher
     const TIMETABLE_DATA = {
       bsit: {
@@ -327,7 +333,6 @@
         `;
       }).join('');
     };
-  };
-})();
+  })();
 
 

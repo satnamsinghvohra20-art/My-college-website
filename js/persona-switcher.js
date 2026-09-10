@@ -59,7 +59,7 @@
       links: [
         { label: '👪 Parent ERP Desk', url: 'parent-portal.html' },
         { label: '⚠️ Ordinance 0.119 Defaulter', url: 'parent-portal.html#defaulterSection' },
-        { label: '🗓️ Book Mentor Meeting', url: 'parent-portal.html#ptaModal' },
+        { label: '🗓️ Book Mentor Meeting', url: 'parent-portal.html#pta-modal' },
         { label: '⚖️ SGRC Grievance Desk', url: 'grievance.html' }
       ]
     },
@@ -73,7 +73,7 @@
       primaryTarget: 'portal.html',
       description: 'Smartboard Rotating QR Projector HUD (zero proxies), NEP 2020 Bloom question generator, and Ph.D. research desk.',
       links: [
-        { label: '📱 Smartboard QR Projector', url: 'portal.html#facultyHud' },
+        { label: '📱 Smartboard QR Projector', url: 'portal.html#qr-attendance-hud' },
         { label: '📋 NEP Credit Architecture', url: 'curriculum-planner.html' },
         { label: '🧠 Bloom CO-PO Generator', url: 'assessment-tools.html' },
         { label: '🔬 Research & Patents', url: 'research.html' },

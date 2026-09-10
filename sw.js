@@ -1,37 +1,47 @@
 /* ==============================================================================
-   SMT. CHM COLLEGE - PROGRESSIVE WEB APP SERVICE WORKER (v5.0.0)
+   SMT. CHM COLLEGE - PROGRESSIVE WEB APP SERVICE WORKER (v6.0.0)
    ============================================================================== */
 
-const CACHE_NAME = 'chm-college-cache-v5';
+const CACHE_NAME = 'chm-college-cache-v6';
 const PRECACHE_ASSETS = [
-  '/',
-  '/index.html',
-  '/portal.html',
-  '/admission.html',
-  '/fee-payment.html',
-  '/exams.html',
-  '/naac-iqac.html',
-  '/placement.html',
-  '/alumni.html',
-  '/research.html',
-  '/faculty.html',
-  '/parent-portal.html',
-  '/governance.html',
-  '/campus-tour.html',
-  '/scholarships.html',
-  '/question-bank.html',
-  '/events.html',
-  '/digital-library.html',
-  '/assessment-tools.html',
-  '/clubs.html',
-  '/css/theme.css',
-  '/css/components.css',
-  '/css/responsive.css',
-  '/js/app.js',
-  '/js/ai-bot.js',
-  '/js/student-portal.js',
-  '/assets/images/logo.png',
-  '/manifest.json'
+  './',
+  'index.html',
+  'portal.html',
+  'pitch-deck.html',
+  'curriculum-planner.html',
+  'railway-concession.html',
+  'grievance.html',
+  'admission.html',
+  'fee-payment.html',
+  'exams.html',
+  'naac-iqac.html',
+  'placement.html',
+  'alumni.html',
+  'alumni-jobs.html',
+  'research.html',
+  'faculty.html',
+  'parent-portal.html',
+  'governance.html',
+  'campus-tour.html',
+  'scholarships.html',
+  'question-bank.html',
+  'events.html',
+  'digital-library.html',
+  'assessment-tools.html',
+  'clubs.html',
+  'green-campus.html',
+  'css/theme.css',
+  'css/components.css',
+  'css/responsive.css',
+  'js/app.js',
+  'js/ai-bot.js',
+  'js/student-portal.js',
+  'js/persona-switcher.js',
+  'js/admission.js',
+  'js/fee-system.js',
+  'js/exam-portal.js',
+  'assets/images/logo.png',
+  'manifest.json'
 ];
 
 // 1. Install Event: Pre-cache critical core shell
@@ -64,20 +74,36 @@ self.addEventListener('fetch', event => {
 
   event.respondWith(
     caches.match(event.request).then(cachedResponse => {
-      const fetchPromise = fetch(event.request).then(networkResponse => {
-        if (networkResponse && networkResponse.status === 200) {
-          const responseClone = networkResponse.clone();
-          caches.open(CACHE_NAME).then(cache => {
-            cache.put(event.request, responseClone);
-          });
+      if (cachedResponse) {
+        // Revalidate in background
+        fetch(event.request).then(networkResponse => {
+          if (networkResponse && networkResponse.status === 200) {
+            caches.open(CACHE_NAME).then(cache => {
+              cache.put(event.request, networkResponse);
+            });
+          }
+        }).catch(() => {});
+        return cachedResponse;
+      }
+
+      // Not cached - fetch from network and cache
+      return fetch(event.request).then(networkResponse => {
+        if (!networkResponse || networkResponse.status !== 200 || networkResponse.type !== 'basic') {
+          return networkResponse;
         }
+
+        const responseToCache = networkResponse.clone();
+        caches.open(CACHE_NAME).then(cache => {
+          cache.put(event.request, responseToCache);
+        });
+
         return networkResponse;
       }).catch(() => {
-        // Fallback to cached version if offline
-        return cachedResponse;
+        // Offline fallback for navigation requests
+        if (event.request.headers.get('accept').includes('text/html')) {
+          return caches.match('index.html');
+        }
       });
-
-      return cachedResponse || fetchPromise;
     })
   );
 });

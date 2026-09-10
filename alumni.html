@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="CHM College Global Alumni Network & Mentorship Cell. Connecting 50,000+ alumni worldwide, endowment giving, career guidance, and Wall of Fame.">
   <title>Global Alumni Network & Mentorship Cell | Smt. CHM College</title>
   <link rel="shortcut icon" href="assets/images/logo.png" type="image/png">
   <link rel="stylesheet" href="css/theme.css">
@@ -200,7 +201,7 @@
           </div>
         </div>
 
-        <div style="background: #ffffff; color: #0f172a; padding: 2rem; border-radius: var(--radius-lg); box-shadow: var(--shadow-xl);">
+        <div id="endowment-section" style="background: #ffffff; color: #0f172a; padding: 2rem; border-radius: var(--radius-lg); box-shadow: var(--shadow-xl);">
           <h4 style="margin-bottom: 1rem; color: #145a32;">Make an Endowment Donation</h4>
           <div class="form-group" style="margin-bottom: 1rem;">
             <label for="don-name">Donor Full Name / Entity *</label>
@@ -282,6 +283,15 @@
 
   <script src="js/app.js"></script>
   <script>
+    function openDonateModal() {
+      const section = document.getElementById('endowment-section');
+      if (section) {
+        section.scrollIntoView({ behavior: 'smooth' });
+        const nameInput = document.getElementById('don-name');
+        if (nameInput) nameInput.focus();
+      }
+    }
+
     function bookMentorship(name) {
       const email = prompt('Enter your student email or PRN to schedule a 1-on-1 career mentorship session with ' + name + ':', 'aakash.lalwani@chm.edu.in');
       if (email) {

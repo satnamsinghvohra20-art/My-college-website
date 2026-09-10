@@ -353,9 +353,9 @@
   </section>
 
   <!-- 8. PRINCIPAL'S DESK & HERITAGE SHOWCASE -->
-  <section class="principal-section" id="principal">
+  <section class="principal-section" id="about">
     <div class="container">
-      <div class="principal-grid">
+      <div class="principal-grid" id="principal">
         <div class="principal-media-card">
           <img src="assets/images/principal.jpg" alt="Principal Dr. Kishori Bhagat" class="principal-img">
           <div class="principal-badge-float">
@@ -386,10 +386,13 @@
           </p>
 
           <div class="history-callout" id="history">
-            <h4 style="color: var(--chm-emerald); margin-bottom: 0.5rem;">The HSNC Board Legacy</h4>
+            <h4 style="color: var(--chm-emerald); margin-bottom: 0.5rem;" id="management">The HSNC Board Legacy & Management</h4>
             <p style="font-size: 0.88rem; color: var(--text-secondary); margin: 0; line-height: 1.6;">
               After being displaced from Sindh during Partition in 1947, <strong>Principal K. M. Kundnani</strong> and <strong>Barrister H.G. Advani</strong> arrived in Mumbai with a mission to resurrect higher education. Today, the HSNC Board oversees over 25 prestigious institutions across Mumbai and Thane, with Smt. CHM College being its crown jewel in Ulhasnagar.
             </p>
+            <div id="vision" style="margin-top: 10px; font-size: 0.85rem; color: var(--text-muted); border-top: 1px dashed var(--border-light); padding-top: 8px;">
+              <strong>Vision & Mission:</strong> Nurturing global excellence grounded in Sindhi cultural heritage and universal human values.
+            </div>
           </div>
         </div>
       </div>
@@ -455,6 +458,25 @@
 
       <!-- Prediction Output Container -->
       <div id="calc-result-box" class="calc-result-box"></div>
+
+      <!-- Quick Admission Documents & Merit Lists Desk -->
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem; margin-top: 2rem; border-top: 1px solid var(--border-light); padding-top: 1.5rem;">
+        <div id="merit-lists" style="background: var(--bg-alt); padding: 1.2rem; border-radius: 8px; border: 1px solid var(--border-light);">
+          <strong style="color: var(--text-primary); display: block; margin-bottom: 4px;">📋 Merit Lists 2026-27</strong>
+          <p style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 8px;">View University 1st, 2nd & 3rd Round Merit Cutoffs.</p>
+          <a href="admission.html#merit" class="service-action-link" style="font-size: 0.82rem;">Download Merit PDF →</a>
+        </div>
+        <div id="prospectus" style="background: var(--bg-alt); padding: 1.2rem; border-radius: 8px; border: 1px solid var(--border-light);">
+          <strong style="color: var(--text-primary); display: block; margin-bottom: 4px;">📖 Official Prospectus</strong>
+          <p style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 8px;">Detailed syllabus, fee structure & ordinance rules.</p>
+          <a href="javascript:void(0)" onclick="alert('Downloading CHM College Prospectus 2026-27 (PDF)...')" class="service-action-link" style="font-size: 0.82rem;">Download Prospectus (PDF) →</a>
+        </div>
+        <div id="academic-calendar" style="background: var(--bg-alt); padding: 1.2rem; border-radius: 8px; border: 1px solid var(--border-light);">
+          <strong style="color: var(--text-primary); display: block; margin-bottom: 4px;">🗓️ Academic Calendar</strong>
+          <p style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 8px;">Semester term dates, exam schedules & holidays.</p>
+          <a href="curriculum-planner.html" class="service-action-link" style="font-size: 0.82rem;">View Term Schedule →</a>
+        </div>
+      </div>
     </div>
   </section>
 
