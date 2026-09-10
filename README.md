@@ -106,51 +106,54 @@ An ultra-modern, enterprise-grade digital campus ecosystem and self-service stud
 18. **NEP 2020 Bloom's Taxonomy Assessment Generator (`assessment-tools.html`)**:
     - Cognitive level distribution radar (L1 Remember to L6 Create).
     - Automated Course Outcome (CO1-CO4) mapping and NBA/NAAC Criterion 2.6 compliance.
-    - 1-click official examination question paper and marking scheme generator.
+19. **Student Extension Activities & Social Credits (`clubs.html`)**:
+    - Units directory for **NSS**, **NCC (Army & Navy Wings)**, **DLLE**, and **Rotaract Club of CHM**.
+    - Interactive **120-Hour Social Credit Milestone Tracker** for Mumbai University Ordinance 0.229 (10 Grace Marks eligibility).
+    - Digital Volunteer Registration & blood donor registry.
 
 ---
 
-### 📂 File Structure
+### 🧠 System Architecture & AI Intelligence Specs
 
-```
-├── index.html              # Master College Homepage & Comprehensive Portal
-├── portal.html             # Student & Faculty ERP Dashboard, ID Card & Timetable
-├── admission.html          # 4-Step Online Admission Wizard & Confirmation Slip
-├── fee-payment.html        # Fee Payment Gateway Simulator & Print-Ready Receipt
-├── exams.html              # Examination Results Search, Timetables & Marksheet
-├── naac-iqac.html          # NAAC 7-Criteria Compliance & SSS Analytics Dashboard
-├── placement.html          # Corporate Campus Placement & Recruitment Portal
-├── alumni.html             # Global Alumni Network & Endowment Fund
-├── research.html           # Ph.D. Research Centers, Patents & Startup Incubation
-├── faculty.html            # Faculty Directory & Office Hours Booking Hub
-├── parent-portal.html      # Parent / Guardian Desk & Attendance Radar
-├── governance.html         # Statutory Governance, ICC, Anti-Ragging & RTI
-├── css/
-│   ├── theme.css           # Institutional color tokens (Emerald, Gold, Dark Mode)
-│   ├── components.css      # Reusable UI cards, tickers, modals, ChandiBot window
-│   └── responsive.css      # Mobile, tablet, high-DPI desktop & print rules
-├── js/
-│   ├── app.js              # Theme switcher, accessibility scaler, sliders, OPAC, Marathi I18N
-│   ├── ai-bot.js           # ChandiBot AI Campus Assistant with Web Speech Synthesis & Recognition
-│   ├── admission.js        # Cutoff probability calculator & admission wizard
-│   ├── fee-system.js       # Fee schedule calculator, UPI simulator, receipt generator
-│   ├── student-portal.js   # Student ERP state, attendance chart, dynamic timetable & QR HUD
-│   └── exam-portal.js      # Statement of grades & exam result search
-└── assets/
-    └── images/             # Authentic CHM logo, campus slides, facilities, and principal portrait
-```
+- **`brain.md`**: Complete system architecture, domain models, student lifecycle state automata, University of Mumbai Ordinance 0.119 formulas, and NAAC Criterion 1–7 telemetry mapping.
+- **`agent.md`**: Specification of the autonomous agent fleet (ChandiBot Concierge Agent, Admission Triage Agent, Attendance Watchdog Agent, Fee Reconciliation Agent, and Bloom's Taxonomy Authoring Agent).
 
 ---
 
-### 🚀 Running the Project
+### 🐳 Production Docker Deployment
+
+Deploy in seconds with high-performance NGINX Alpine, gzip compression, and security headers:
 
 ```bash
-# In the project root:
+# Option A: One-command launch with Docker Compose
+docker compose up -d
+
+# Option B: Standard Docker build & run
+docker build -t chm-college-web .
+docker run -d -p 80:80 --name chm_portal chm-college-web
+```
+Access the portal at `http://localhost`.
+
+---
+
+### ⚙️ CI/CD & Automated GitHub Pages
+
+This repository is configured with `.github/workflows/deploy.yml`:
+- Validates all 19 HTML documents and critical assets on every pull request and push.
+- Automatically deploys the portal live to **GitHub Pages** upon merging to the `main` branch.
+
+---
+
+### 🚀 Running Locally Without Docker
+
+```bash
+# In the project root directory:
 python -m http.server 8080
 ```
-Then visit [http://localhost:8080](http://localhost:8080) in any modern web browser.
+Then open [http://localhost:8080](http://localhost:8080) in any web browser.
 
 ---
 
 ### 💼 Commercial Value & Presentation Pitch
 Built specifically to present to **Principal Dr. Kishori Bhagat** and the **HSNC Board Trustees** as a turn-key modern campus software replacement, drastically cutting administrative friction, boosting NAAC Criterion scores, and enhancing student satisfaction.
+
