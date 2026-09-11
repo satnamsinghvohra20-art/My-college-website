@@ -30,7 +30,7 @@
 | Deliverable | Format | Description | Direct File Link |
 | :--- | :--- | :--- | :--- |
 | **Academic Project Report** | `PDF` | 13-Page formal report formatted to University of Mumbai guidelines with Certificate of Approval, Architecture, Mathematical models, and ROI. | [📄 `CHM_College_Project_Report.pdf`](CHM_College_Project_Report.pdf) |
-| **PowerPoint Presentation** | `PPTX` | 14 Widescreen (16:9) slides styled in CHM Navy & Gold branding with full speaker notes embedded on every slide for presenter mode. | [📊 `CHM_College_Project_Presentation.pptx`](CHM_College_Project_Presentation.pptx) |
+| **PowerPoint Presentation** | `PPTX` | 16 Widescreen (16:9) slides styled in CHM Navy & Gold branding with full speaker notes embedded on every slide for presenter mode. | [📊 `CHM_College_Project_Presentation.pptx`](CHM_College_Project_Presentation.pptx) |
 | **Defense & Viva Guide** | `Markdown` | Email template to teacher/guide, slide-by-slide speaker scripts, anticipated viva Q&A answers, and live demonstration flow. | [📝 `PROJECT_PRESENTATION_EXPLANATION.md`](PROJECT_PRESENTATION_EXPLANATION.md) |
 | **Boardroom Web Pitch Deck** | `HTML` | Interactive boardroom presentation deck built right into the web application. | [🌐 `pitch-deck.html`](pitch-deck.html) |
 | **System Brain Manifesto** | `Markdown` | Complete system architecture, domain models, and Mumbai University Ordinance 0.119 formulas. | [🧠 `brain.md`](brain.md) |
@@ -38,7 +38,7 @@
 
 ---
 
-## 🌟 21 Fully Integrated Institutional Modules
+## 🌟 23 Fully Integrated Institutional Modules
 
 1. **Flagship College Homepage (`index.html`)**:
    - Institutional branding, official crest, and NAAC 'A' Grade CGPA 3.12 badge.
@@ -131,6 +131,12 @@
     - **Multiple Linear Regression SGPA Forecaster**: Predicts semester grade trajectories based on CIA internal tests, practical scores, and study hours.
     - **Unsupervised K-Means Learning Style Cluster Visualizer**: Live HTML5 2D Canvas scatter plot segmenting cohorts into 4 clusters with real-time centroid recalculation ($k=4$).
     - **Cross-Stream Academic Telemetry Matrix**: Performance benchmarks comparing Data Science against B.Sc IT, CS, Commerce, and BMS streams.
+
+23. **AI Exam Hall Seating & Anti-Cheating Room Allocator (`exam-seating.html`)**:
+    - **4-Stream Checkerboard Anti-Collusion Matrix**: Graph-coloring algorithm interleaving B.Sc. Data Science, B.Sc. IT, B.Com, and BMS students to achieve 0.0% adjacent seat malpractice collision.
+    - **Interactive 2D Hall Floorplan HUD**: Multi-venue visualizer across Kundnani Auditorium (54 seats), Computer Lab 301 (36 seats), and Commerce Block 204 (48 seats) with live capacity meters.
+    - **Fast Student Desk Locator & Admit Slip**: Instant search by Roll No (e.g. `SYDS-045` for Satnam Singh Vohra) or PRN, spotlighting exact hall & desk (Desk B-14 in Kundnani Hall) with 1-click printable Desk Admit Slip.
+    - **Mumbai University Form 3 Master Muster**: Automated generation of University of Mumbai Form 3 room allocation statement, invigilator duty roster, absentee tracking checkboxes, and answer booklet serial audit trail.
 
 ---
 

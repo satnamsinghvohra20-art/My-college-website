@@ -172,7 +172,7 @@ def create_presentation():
     pt2.font.name = "Arial"
 
     pt3 = t_tf.add_paragraph()
-    pt3.text = "A modern, NEP 2020 & NAAC-compliant 22-module institutional web platform engineered with Vanilla Web Technologies, Client-side AI Concierge, and Offline PWA architecture."
+    pt3.text = "A modern, NEP 2020 & NAAC-compliant 23-module institutional web platform engineered with Vanilla Web Technologies, Client-side AI Concierge, and Offline PWA architecture."
     pt3.font.size = Pt(13)
     pt3.font.color.rgb = RGBColor(226, 232, 240)
     pt3.font.name = "Calibri"
@@ -221,7 +221,7 @@ def create_presentation():
         "academic, and administrative bottlenecks currently experienced by students, faculty, and administrators "
         "at our very own Smt. CHM College under the HSNC Board and University of Mumbai.\n\n"
         "In this presentation, I will walk you through the problem statement, system architecture, "
-        "the 22 fully functional interactive modules, novel technical innovations like anti-proxy dynamic QR attendance, "
+        "the 23 fully functional interactive modules, novel technical innovations like anti-proxy dynamic QR attendance, "
         "our client-side voice AI concierge, and the quantifiable benefits to the institution."
     )
 
@@ -396,7 +396,7 @@ def create_presentation():
     p.font.color.rgb = NAVY_DARK
 
     obj_list = [
-        ("1. Deliver a Unified 22-Module Campus Web Ecosystem: ",
+        ("1. Deliver a Unified 23-Module Campus Web Ecosystem: ",
          "Eliminate disparate portals by consolidating admissions, examinations, student ERP, fee management, alumni, placements, and governance under a cohesive user interface."),
         
         ("2. Engineer Anti-Proxy Dynamic QR Attendance (Projector HUD): ",
@@ -432,7 +432,7 @@ def create_presentation():
     set_notes(s4, 
         "SPEAKER SCRIPT FOR SLIDE 4:\n"
         "Respected Ma'am, here are our six defined core objectives:\n"
-        "First, to build a complete suite of 22 institutional modules instead of a simple 2-page mockup.\n"
+        "First, to build a complete suite of 23 institutional modules instead of a simple 2-page mockup.\n"
         "Second, to tackle the proxy problem head-on using a rotating QR HUD projected in classrooms.\n"
         "Third, to empower students with instant generation of essential documents like Railway Concessions and Hall Tickets.\n"
         "Fourth, to support NEP 2020 with Bloom's Taxonomy cognitive level mapping for faculty.\n"
@@ -449,7 +449,7 @@ def create_presentation():
     # 3 Column Cards for Tech Layers
     layers = [
         ("Frontend & UI Design", NAVY_LIGHT, [
-            ("HTML5 Semantic Architecture: ", "Clean, accessible DOM structure across 22 pages with OpenGraph & SEO tags."),
+            ("HTML5 Semantic Architecture: ", "Clean, accessible DOM structure across 23 pages with OpenGraph & SEO tags."),
             ("Vanilla CSS3 Tokens: ", "Custom property design system with dark navy glassmorphism, responsive CSS grid, and flexbox."),
             ("Typography: ", "Google Fonts ('Cinzel' for heritage branding, 'Plus Jakarta Sans' for readable UI, 'JetBrains Mono' for codes)."),
             ("Vector Assets: ", "Font Awesome 6.4.0 icons and inline scalable vector graphics (SVG) for attendance dials.")
@@ -464,7 +464,7 @@ def create_presentation():
             ("Service Worker (`sw.js`): ", "Offline caching with Cache-First & Stale-While-Revalidate strategies for static assets."),
             ("Web App Manifest (`manifest.json`): ", "Full installability on Android, iOS, Windows, and macOS with native app feel."),
             ("Docker & NGINX Alpine: ", "Production containerization with multi-stage build, gzip compression, and security headers."),
-            ("Automated CI/CD: ", "GitHub Actions workflow validating all 22 HTML files and pushing live to GitHub Pages.")
+            ("Automated CI/CD: ", "GitHub Actions workflow validating all 23 HTML files and pushing live to GitHub Pages.")
         ])
     ]
 
@@ -972,17 +972,92 @@ def create_presentation():
     )
 
     # ==========================================
-    # SLIDE 12: TECHNICAL INNOVATION & SECURITY
+    # SLIDE 12: AI EXAM HALL SEATING & ANTI-CHEATING ROOM ALLOCATION ENGINE (exam-seating.html)
     # ==========================================
     s12 = prs.slides.add_slide(blank_layout)
-    create_header(s12, "Technical Innovations, Security & Architecture Novelty", "Engineering Excellence")
+    create_header(s12, "AI Exam Hall Seating & Anti-Cheating Room Allocation Engine (`exam-seating.html`)", "Automated Seating Algorithms & Invigilator Operations")
 
-    add_card(s12, 0.8, 1.45, 11.733, 5.4, CARD_BG_LIGHT)
-    s12_box = s12.shapes.add_textbox(Inches(1.1), Inches(1.65), Inches(11.1), Inches(5.0))
-    s12_tf = s12_box.text_frame
-    s12_tf.word_wrap = True
+    seating_grid = [
+        ("4-Stream Checkerboard Seating Matrix (Anti-Collusion)", ROSE, [
+            ("Checkerboard Constraint: ", "Adjacent seat distance D(S_i, S_j) >= 1 such that Subject(S_i) != Subject(S_j)."),
+            ("Cross-Stream Interleaving: ", "Interleaves B.Sc. Data Science, B.Sc. IT, B.Com, and BMS students across adjacent rows."),
+            ("Zero Malpractice Collision: ", "100% collision prevention eliminates peer peeking and unauthorized collusion in high-stakes exams.")
+        ]),
+        ("Interactive 2D Hall Floorplan HUD & Venue Topology", BLUE, [
+            ("3 Multi-Venue Layouts: ", "Interactive floorplans for Kundnani Auditorium (54 seats), Lab 301 (36 seats), and Block 204 (48 seats)."),
+            ("Real-Time Capacity Telemetry: ", "Displays live occupancy meters, available seats, attendance counters, and subject breakdowns."),
+            ("Visual Desk Inspection: ", "Click any desk to inspect student roll number, seat ID, branch, exam paper code, and check-in status.")
+        ]),
+        ("Fast Student Seat Locator & Printable Desk Slip", TEAL, [
+            ("Instant Roll/PRN Search: ", "Search by Roll No (e.g. SYDS-045) or PRN to instantly locate hall, row, and exact desk number."),
+            ("Satnam Singh Vohra (Roll 45): ", "Pre-mapped to Kundnani Auditorium, Desk B-14 with real-time glowing pulse highlight."),
+            ("1-Click Desk Admit Slip: ", "Generates printable student desk slip with student photo, barcode, and exam timing.")
+        ]),
+        ("Mumbai University Form 3 Invigilator Muster & Export", EMERALD, [
+            ("Form 3 Room Statement: ", "Automated compilation of University of Mumbai Form 3 room allocation statement and block summary."),
+            ("Chief Conductor Roster: ", "Invigilator duty assignment, absentee logging checkboxes, and answer booklet serial audit trail."),
+            ("Print-Optimized Layout: ", "Includes clean print stylesheet for physical exam hall noticeboards and supervisor desks.")
+        ])
+    ]
 
-    p = s12_tf.paragraphs[0]
+    coords_s12 = [(0.8, 1.45), (6.8, 1.45), (0.8, 4.3), (6.8, 4.3)]
+    for idx, (title, color, items) in enumerate(seating_grid):
+        x, y = coords_s12[idx]
+        add_card(s12, x, y, 5.7, 2.65, CARD_BG_LIGHT)
+        
+        c_strip = s12.shapes.add_shape(MSO_SHAPE.ROUNDED_RECTANGLE, Inches(x + 0.15), Inches(y + 0.15), Inches(0.12), Inches(2.35))
+        c_strip.fill.solid()
+        c_strip.fill.fore_color.rgb = color
+        c_strip.line.fill.background()
+
+        tbox = s12.shapes.add_textbox(Inches(x + 0.4), Inches(y + 0.15), Inches(5.1), Inches(2.35))
+        tf = tbox.text_frame
+        tf.word_wrap = True
+        p_t = tf.paragraphs[0]
+        p_t.text = title
+        p_t.font.size = Pt(12)
+        p_t.font.bold = True
+        p_t.font.color.rgb = NAVY_DARK
+        p_t.font.name = "Arial"
+
+        for b_pref, b_txt in items:
+            p = tf.add_paragraph()
+            p.text = f"• {b_pref}"
+            p.font.bold = True
+            p.font.size = Pt(9.5)
+            p.font.color.rgb = color
+            p.font.name = "Arial"
+
+            p_sub = tf.add_paragraph()
+            p_sub.text = f"   {b_txt}"
+            p_sub.font.size = Pt(9)
+            p_sub.font.color.rgb = TEXT_DARK
+            p_sub.font.name = "Calibri"
+
+    set_notes(s12, 
+        "SPEAKER SCRIPT FOR SLIDE 12:\n"
+        "Respected Ma'am, in response to real-world institutional examination challenges, we engineered Module 23: "
+        "The AI Exam Hall Seating & Anti-Cheating Room Allocation Engine (`exam-seating.html`).\n\n"
+        "During university examinations, allocating hundreds of students across auditoriums and classrooms while preventing students "
+        "of the same course from sitting next to each other has historically taken exam clerks 3 to 4 days of manual, error-prone paper planning.\n\n"
+        "Our engine implements an automated 4-stream checkerboard graph-coloring algorithm: it interleaves Data Science, IT, Commerce, "
+        "and BMS students so that adjacent seat collisions are mathematically reduced to zero.\n\n"
+        "Students can search by Roll Number (such as SYDS-045 for Satnam Singh Vohra) to immediately find their hall and desk (Desk B-14 in Kundnani Hall) "
+        "with an animated spotlight highlight, while the Chief Conductor can print the University of Mumbai Form 3 Master Muster with a single click."
+    )
+
+    # ==========================================
+    # SLIDE 13: TECHNICAL INNOVATION & SECURITY
+    # ==========================================
+    s13 = prs.slides.add_slide(blank_layout)
+    create_header(s13, "Technical Innovations, Security & Architecture Novelty", "Engineering Excellence")
+
+    add_card(s13, 0.8, 1.45, 11.733, 5.4, CARD_BG_LIGHT)
+    s13_box = s13.shapes.add_textbox(Inches(1.1), Inches(1.65), Inches(11.1), Inches(5.0))
+    s13_tf = s13_box.text_frame
+    s13_tf.word_wrap = True
+
+    p = s13_tf.paragraphs[0]
     p.text = "💡 4 Key Technical Innovations in this Implementation"
     p.font.bold = True
     p.font.size = Pt(15)
@@ -1003,21 +1078,21 @@ def create_presentation():
     ]
 
     for inno_title, inno_desc in tech_innovations:
-        p = s12_tf.add_paragraph()
+        p = s13_tf.add_paragraph()
         p.text = f"★ {inno_title}"
         p.font.bold = True
         p.font.size = Pt(11)
         p.font.color.rgb = BLUE
         p.font.name = "Arial"
 
-        p_desc = s12_tf.add_paragraph()
+        p_desc = s13_tf.add_paragraph()
         p_desc.text = f"    {inno_desc}"
         p_desc.font.size = Pt(10)
         p_desc.font.color.rgb = TEXT_DARK
         p_desc.font.name = "Calibri"
 
-    set_notes(s12, 
-        "SPEAKER SCRIPT FOR SLIDE 12:\n"
+    set_notes(s13, 
+        "SPEAKER SCRIPT FOR SLIDE 13:\n"
         "Respected Ma'am, if an external examiner asks 'What makes this project technically innovative and unique compared to standard college websites?', "
         "here are the four definitive technical points:\n"
         "First: Zero-Dependency Architecture. No node_modules in production. It is blisteringly fast and immune to third-party package vulnerabilities.\n"
@@ -1027,14 +1102,14 @@ def create_presentation():
     )
 
     # ==========================================
-    # SLIDE 13: FINANCIAL SAVINGS & ROI MATRIX
+    # SLIDE 14: FINANCIAL SAVINGS & ROI MATRIX
     # ==========================================
-    s13 = prs.slides.add_slide(blank_layout)
-    create_header(s13, "Institutional Impact & Return on Investment (ROI)", "Financial & Operational Gains")
+    s14 = prs.slides.add_slide(blank_layout)
+    create_header(s14, "Institutional Impact & Return on Investment (ROI)", "Financial & Operational Gains")
 
     # Left: Cost Savings Table
-    add_card(s13, 0.8, 1.45, 6.5, 5.4, CARD_BG_LIGHT)
-    t_box = s13.shapes.add_textbox(Inches(1.0), Inches(1.65), Inches(6.1), Inches(5.0))
+    add_card(s14, 0.8, 1.45, 6.5, 5.4, CARD_BG_LIGHT)
+    t_box = s14.shapes.add_textbox(Inches(1.0), Inches(1.65), Inches(6.1), Inches(5.0))
     t_tf = t_box.text_frame
     t_tf.word_wrap = True
 
@@ -1071,8 +1146,8 @@ def create_presentation():
     p_note.font.color.rgb = TEXT_MUTED
 
     # Right: Operational Metrics Card
-    add_card(s13, 7.5, 1.45, 5.0, 5.4, NAVY_CARD, GOLD)
-    m_box = s13.shapes.add_textbox(Inches(7.7), Inches(1.65), Inches(4.6), Inches(5.0))
+    add_card(s14, 7.5, 1.45, 5.0, 5.4, NAVY_CARD, GOLD)
+    m_box = s14.shapes.add_textbox(Inches(7.7), Inches(1.65), Inches(4.6), Inches(5.0))
     m_tf = m_box.text_frame
     m_tf.word_wrap = True
 
@@ -1102,8 +1177,8 @@ def create_presentation():
         p_d.font.color.rgb = WHITE
         p_d.font.name = "Calibri"
 
-    set_notes(s13, 
-        "SPEAKER SCRIPT FOR SLIDE 13:\n"
+    set_notes(s14, 
+        "SPEAKER SCRIPT FOR SLIDE 14:\n"
         "Respected Ma'am, every software system must justify its value proposition. Here is the concrete Return on Investment (ROI):\n"
         "By replacing expensive third-party ERP licenses, eliminating paper muster registers, stopping physical ID card outsourcing, "
         "and eliminating bulk SMS vendor fees, our college saves an estimated ₹18.5 Lakhs every single year.\n\n"
@@ -1112,16 +1187,16 @@ def create_presentation():
     )
 
     # ==========================================
-    # SLIDE 14: TESTING, PERFORMANCE & VERIFICATION
+    # SLIDE 15: TESTING, PERFORMANCE & VERIFICATION
     # ==========================================
-    s14 = prs.slides.add_slide(blank_layout)
-    create_header(s14, "System Verification, Quality Assurance & Deployment", "Validation & Delivery")
+    s15 = prs.slides.add_slide(blank_layout)
+    create_header(s15, "System Verification, Quality Assurance & Deployment", "Validation & Delivery")
 
     qa_columns = [
         ("Cross-Browser Testing", BLUE, [
             ("Tested Browsers: ", "Verified on Google Chrome 120+, Microsoft Edge, Mozilla Firefox, and Apple Safari."),
             ("Mobile Responsiveness: ", "Tested across Android (Chrome/Samsung Internet) and iOS (Safari) viewports (360px to 1440px)."),
-            ("CSS Grid & Flexbox: ", "Zero visual clipping across all 22 modular pages."),
+            ("CSS Grid & Flexbox: ", "Zero visual clipping across all 23 modular pages."),
             ("Print Stylesheets: ", "Custom `@media print` rules for Hall Tickets, Receipts, and Railway Concessions.")
         ]),
         ("Performance & Audit Metrics", EMERALD, [
@@ -1140,14 +1215,14 @@ def create_presentation():
 
     for idx, (title, col_color, items) in enumerate(qa_columns):
         x = 0.8 + idx * 4.0
-        add_card(s14, x, 1.45, 3.733, 5.4, CARD_BG_LIGHT)
+        add_card(s15, x, 1.45, 3.733, 5.4, CARD_BG_LIGHT)
         
-        card_h = s14.shapes.add_shape(MSO_SHAPE.RECTANGLE, Inches(x), Inches(1.45), Inches(3.733), Inches(0.6))
+        card_h = s15.shapes.add_shape(MSO_SHAPE.RECTANGLE, Inches(x), Inches(1.45), Inches(3.733), Inches(0.6))
         card_h.fill.solid()
         card_h.fill.fore_color.rgb = col_color
         card_h.line.fill.background()
 
-        h_box = s14.shapes.add_textbox(Inches(x), Inches(1.5), Inches(3.733), Inches(0.4))
+        h_box = s15.shapes.add_textbox(Inches(x), Inches(1.5), Inches(3.733), Inches(0.4))
         h_tf = h_box.text_frame
         h_tf.margin_left = h_tf.margin_right = h_tf.margin_top = h_tf.margin_bottom = 0
         p = h_tf.paragraphs[0]
@@ -1158,7 +1233,7 @@ def create_presentation():
         p.font.color.rgb = WHITE
         p.font.name = "Arial"
 
-        c_box = s14.shapes.add_textbox(Inches(x + 0.2), Inches(2.2), Inches(3.333), Inches(4.5))
+        c_box = s15.shapes.add_textbox(Inches(x + 0.2), Inches(2.2), Inches(3.333), Inches(4.5))
         c_tf = c_box.text_frame
         c_tf.word_wrap = True
         c_tf.margin_left = c_tf.margin_right = c_tf.margin_top = c_tf.margin_bottom = 0
@@ -1177,31 +1252,31 @@ def create_presentation():
             p_sub.font.color.rgb = TEXT_DARK
             p_sub.font.name = "Calibri"
 
-    set_notes(s14, 
-        "SPEAKER SCRIPT FOR SLIDE 14:\n"
+    set_notes(s15, 
+        "SPEAKER SCRIPT FOR SLIDE 15:\n"
         "Respected Ma'am, rigorous quality assurance was conducted throughout development:\n"
-        "We tested all 22 pages across desktop and mobile devices. In Google Lighthouse audits, the platform scores above 95 "
+        "We tested all 23 pages across desktop and mobile devices. In Google Lighthouse audits, the platform scores above 95 "
         "in performance, accessibility, best practices, and SEO.\n\n"
         "For deployment, the project is completely containerized with Docker and NGINX Alpine, featuring gzip compression. "
         "It can run either on a local campus server behind the college firewall, or hosted in the cloud via our automated GitHub Actions CI/CD pipeline."
     )
 
     # ==========================================
-    # SLIDE 15: CONCLUSION, FUTURE SCOPE & ACKNOWLEDGMENTS
+    # SLIDE 16: CONCLUSION, FUTURE SCOPE & ACKNOWLEDGMENTS
     # ==========================================
-    s15 = prs.slides.add_slide(blank_layout)
-    bg15 = s15.shapes.add_shape(MSO_SHAPE.RECTANGLE, Inches(0), Inches(0), Inches(13.333), Inches(7.5))
-    bg15.fill.solid()
-    bg15.fill.fore_color.rgb = NAVY_DARK
-    bg15.line.fill.background()
+    s16 = prs.slides.add_slide(blank_layout)
+    bg16 = s16.shapes.add_shape(MSO_SHAPE.RECTANGLE, Inches(0), Inches(0), Inches(13.333), Inches(7.5))
+    bg16.fill.solid()
+    bg16.fill.fore_color.rgb = NAVY_DARK
+    bg16.line.fill.background()
 
-    s15_line = s15.shapes.add_shape(MSO_SHAPE.RECTANGLE, Inches(0.8), Inches(1.1), Inches(11.733), Inches(0.04))
-    s15_line.fill.solid()
-    s15_line.fill.fore_color.rgb = GOLD
-    s15_line.line.fill.background()
+    s16_line = s16.shapes.add_shape(MSO_SHAPE.RECTANGLE, Inches(0.8), Inches(1.1), Inches(11.733), Inches(0.04))
+    s16_line.fill.solid()
+    s16_line.fill.fore_color.rgb = GOLD
+    s16_line.line.fill.background()
 
     # Title
-    c_tbox = s15.shapes.add_textbox(Inches(0.8), Inches(0.4), Inches(11.733), Inches(0.7))
+    c_tbox = s16.shapes.add_textbox(Inches(0.8), Inches(0.4), Inches(11.733), Inches(0.7))
     c_tf = c_tbox.text_frame
     p = c_tf.paragraphs[0]
     p.text = "Conclusion, Future Roadmap & Acknowledgments"
@@ -1212,8 +1287,8 @@ def create_presentation():
 
     # 3 Cards Grid
     # Card 1: Project Summary
-    add_card(s15, 0.8, 1.4, 3.733, 4.3, NAVY_CARD, GOLD)
-    c1_box = s15.shapes.add_textbox(Inches(1.0), Inches(1.55), Inches(3.333), Inches(4.0))
+    add_card(s16, 0.8, 1.4, 3.733, 4.3, NAVY_CARD, GOLD)
+    c1_box = s16.shapes.add_textbox(Inches(1.0), Inches(1.55), Inches(3.333), Inches(4.0))
     c1_tf = c1_box.text_frame
     c1_tf.word_wrap = True
     p = c1_tf.paragraphs[0]
@@ -1225,7 +1300,7 @@ def create_presentation():
 
     c1_points = [
         "Delivered a production-ready digital campus ecosystem for Smt. CHM College.",
-        "Integrated 22 responsive modules covering the complete student & faculty lifecycle.",
+        "Integrated 23 responsive modules covering the complete student & faculty lifecycle.",
         "Engineered innovative solutions for anti-proxy attendance, NEP 2020 Bloom's mapping, and offline PWA reliability.",
         "Proved substantial financial savings (₹18.5 Lakhs/year) and operational efficiencies."
     ]
@@ -1237,8 +1312,8 @@ def create_presentation():
         p.font.name = "Calibri"
 
     # Card 2: Future Scope
-    add_card(s15, 4.8, 1.4, 3.733, 4.3, NAVY_CARD, GOLD)
-    c2_box = s15.shapes.add_textbox(Inches(5.0), Inches(1.55), Inches(3.333), Inches(4.0))
+    add_card(s16, 4.8, 1.4, 3.733, 4.3, NAVY_CARD, GOLD)
+    c2_box = s16.shapes.add_textbox(Inches(5.0), Inches(1.55), Inches(3.333), Inches(4.0))
     c2_tf = c2_box.text_frame
     c2_tf.word_wrap = True
     p = c2_tf.paragraphs[0]
@@ -1262,8 +1337,8 @@ def create_presentation():
         p.font.name = "Calibri"
 
     # Card 3: Acknowledgments
-    add_card(s15, 8.8, 1.4, 3.733, 4.3, NAVY_CARD, GOLD)
-    c3_box = s15.shapes.add_textbox(Inches(9.0), Inches(1.55), Inches(3.333), Inches(4.0))
+    add_card(s16, 8.8, 1.4, 3.733, 4.3, NAVY_CARD, GOLD)
+    c3_box = s16.shapes.add_textbox(Inches(9.0), Inches(1.55), Inches(3.333), Inches(4.0))
     c3_tf = c3_box.text_frame
     c3_tf.word_wrap = True
     p = c3_tf.paragraphs[0]
@@ -1287,8 +1362,8 @@ def create_presentation():
         p.font.name = "Calibri"
 
     # Thank You Banner at bottom
-    add_card(s15, 0.8, 5.9, 11.733, 1.1, NAVY_LIGHT, GOLD)
-    thx_box = s15.shapes.add_textbox(Inches(1.0), Inches(6.0), Inches(11.333), Inches(0.9))
+    add_card(s16, 0.8, 5.9, 11.733, 1.1, NAVY_LIGHT, GOLD)
+    thx_box = s16.shapes.add_textbox(Inches(1.0), Inches(6.0), Inches(11.333), Inches(0.9))
     thx_tf = thx_box.text_frame
     thx_tf.word_wrap = True
     p_thx = thx_tf.paragraphs[0]
@@ -1306,10 +1381,10 @@ def create_presentation():
     p_thx_sub.font.color.rgb = WHITE
     p_thx_sub.font.name = "Calibri"
 
-    set_notes(s15, 
-        "SPEAKER SCRIPT FOR SLIDE 15:\n"
+    set_notes(s16, 
+        "SPEAKER SCRIPT FOR SLIDE 16:\n"
         "In conclusion, Respected Ma'am:\n"
-        "This project is not just a theoretical demonstration. It is a fully functional, production-ready, 22-module "
+        "This project is not just a theoretical demonstration. It is a fully functional, production-ready, 23-module "
         "digital campus ecosystem tailored precisely to Smt. CHM College's real-world needs under the HSNC Board and University of Mumbai.\n\n"
         "Looking forward, we have charted a clear roadmap to integrate Digilocker's Academic Bank of Credits (ABC) and IoT turnstiles.\n\n"
         "I would like to express my heartfelt gratitude to you, my Class Teacher and Project Guide, for your constant encouragement, "
