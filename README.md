@@ -32,8 +32,9 @@
 | Deliverable | Format | Description | Direct File Link |
 | :--- | :--- | :--- | :--- |
 | **Academic Project Report** | `PDF` | 13-Page formal report formatted to University of Mumbai guidelines with Certificate of Approval, Architecture, Mathematical models, and ROI. | [📄 `CHM_College_Project_Report.pdf`](CHM_College_Project_Report.pdf) |
-| **PowerPoint Presentation** | `PPTX` | 16 Widescreen (16:9) slides styled in CHM Navy & Gold branding with full speaker notes embedded on every slide for presenter mode. | [📊 `CHM_College_Project_Presentation.pptx`](CHM_College_Project_Presentation.pptx) |
+| **PowerPoint Presentation** | `PPTX` | 16 Widescreen (16:9) slides styled in CHM Navy & Gold branding with full speaker notes and embedded live demo QR code on Slide 16. | [📊 `CHM_College_Project_Presentation.pptx`](CHM_College_Project_Presentation.pptx) |
 | **Defense & Viva Guide** | `Markdown` | Email template to teacher/guide, slide-by-slide speaker scripts, anticipated viva Q&A answers, and live demonstration flow. | [📝 `docs/PROJECT_PRESENTATION_EXPLANATION.md`](docs/PROJECT_PRESENTATION_EXPLANATION.md) |
+| **Viva Executive Cheat Sheet** | `PDF` / `MD` | 1-Page rapid defense reference summarizing all mathematical formulas, statutory benchmarks, and rapid-fire viva answers. | [📄 `docs/VIVA_VOCE_EXECUTIVE_CHEAT_SHEET.pdf`](docs/VIVA_VOCE_EXECUTIVE_CHEAT_SHEET.pdf) |
 | **Boardroom Web Pitch Deck** | `HTML` | Interactive boardroom presentation deck built right into the web application. | [🌐 `pages/pitch-deck.html`](pages/pitch-deck.html) |
 | **System Brain Manifesto** | `Markdown` | Complete system architecture, domain models, and Mumbai University Ordinance 0.119 formulas. | [🧠 `docs/brain.md`](docs/brain.md) |
 | **Autonomous Agent Fleet** | `Markdown` | Specifications of ChandiBot, Attendance Watchdog, and Bloom's Taxonomy authoring agents. | [🤖 `docs/agent.md`](docs/agent.md) |
@@ -115,7 +116,7 @@ My-college-website/
 
 ---
 
-## 🌟 23 Fully Integrated Institutional Modules
+## 🌟 24 Fully Integrated Institutional Modules
 
 1. **Enterprise Campus Homepage (`index.html`)**: Interactive hero showcase, dynamic announcement ticker, quick-access portal launcher, academic stream spotlights, and NAAC accreditation credentials.
 2. **Student ERP & Digital ID Engine (`portal.html`)**: SVG attendance gauge, 3D flip smart ID card with barcode, hall ticket generator, Central Railway concession generator, and bonafide certificate generator.
@@ -140,14 +141,19 @@ My-college-website/
 21. **Sports & Gymkhana Complex (`gymkhana.html`)**: Indoor/outdoor sports facilities, university tournament achievements, gymkhana equipment requisition, and annual sports meet schedule.
 22. **Data Science & AI Predictive Analytics Hub (`analytics.html`)**:
     - **Flagship S.Y. Data Science Module**: Interactive machine learning suite featuring Mumbai University Ordinance 0.119 Defaulter Risk Forecaster (Logistic Sigmoid Classifier).
+    - **Confusion Matrix & Model Evaluation HUD**: Evaluated on $n=1,000$ test records (Accuracy: 98.3%, Precision: 92.2%, Recall: 96.6%, F1-Score: 0.943) with dynamic decision cutoff threshold slider ($\theta$).
     - **Multiple Linear Regression SGPA Forecaster**: Predicts semester grade trajectories based on CIA internal tests, practical scores, and study hours.
     - **Unsupervised K-Means Learning Style Cluster Visualizer**: Live HTML5 2D Canvas scatter plot segmenting cohorts into 4 clusters with real-time centroid recalculation ($k=4$).
-    - **Cross-Stream Academic Telemetry Matrix**: Performance benchmarks comparing Data Science against B.Sc IT, CS, Commerce, and BMS streams.
+    - **Cohort CSV Pipeline**: Ingestion for custom class attendance spreadsheets and instant export for model validation.
 23. **AI Exam Hall Seating & Anti-Cheating Room Allocator (`exam-seating.html`)**:
     - **4-Stream Checkerboard Anti-Collusion Matrix**: Graph-coloring algorithm interleaving B.Sc. Data Science, B.Sc. IT, B.Com, and BMS students to achieve 0.0% adjacent seat malpractice collision.
     - **Interactive 2D Hall Floorplan HUD**: Multi-venue visualizer across Kundnani Auditorium (54 seats), Computer Lab 301 (36 seats), and Commerce Block 204 (48 seats) with live capacity meters.
     - **Fast Student Desk Locator & Admit Slip**: Instant search by Roll No (e.g. `SYDS-045` for Satnam Singh Vohra) or PRN, spotlighting exact hall & desk (Desk B-14 in Kundnani Hall) with 1-click printable Desk Admit Slip.
     - **Mumbai University Form 3 Master Muster**: Automated generation of University of Mumbai Form 3 room allocation statement, invigilator duty roster, absentee tracking checkboxes, and answer booklet serial audit trail.
+24. **AI Placement & Corporate CTC Salary Package Forecaster (`placement.html`)**:
+    - **Multi-Variable Empirical Regression Model**: Forecasts anticipated campus recruitment compensation packages (₹3.5 LPA to ₹14.0 LPA) based on student CGPA, coding assessment score, industry certifications, and internship experience.
+    - **Dream Tier Eligibility Classifier**: Maps candidate credentials to Tier 1 Dream Offers (Barclays, Deloitte, Morgan Stanley), Tier 2 Core IT (Capgemini, LTI Mindtree), and Tier 3 Mass Recruiters (TCS, Wipro).
+    - **Prescriptive Skill Booster**: Actionable recommendations pinpointing specific certifications or coding milestones to maximize salary potential.
 
 ---
 

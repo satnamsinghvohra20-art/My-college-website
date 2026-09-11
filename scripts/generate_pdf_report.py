@@ -205,9 +205,31 @@ def build_pdf_report():
     sig_table = Table(sig_data, colWidths=[250, 250])
     sig_table.setStyle(TableStyle([
         ('VALIGN', (0, 0), (-1, -1), 'TOP'),
-        ('BOTTOMPADDING', (0, 0), (-1, -1), 10)
+        ('BOTTOMPADDING', (0, 0), (-1, -1), 6)
     ]))
     story.append(sig_table)
+
+    qr_img_path = os.path.join(base_dir, "assets", "images", "live_demo_qr.png")
+    qr_flowable = Image(qr_img_path, width=44, height=44) if os.path.exists(qr_img_path) else Paragraph("", style_td)
+    cert_meta = [
+        [
+            Paragraph("<font size=7 color='#64748b'><b>OFFICIAL DIGITAL VALIDATION & LIVE DEPLOYMENT</b><br/>"
+                      "University of Mumbai Center Code: <b>217</b> | HSNC Board Trust<br/>"
+                      "Cloud URL: <b>https://satnamsinghvohra20-art.github.io/My-college-website/</b><br/>"
+                      "Scan QR code with smartphone to verify live production application.</font>", style_td),
+            qr_flowable
+        ]
+    ]
+    cert_meta_table = Table(cert_meta, colWidths=[430, 70])
+    cert_meta_table.setStyle(TableStyle([
+        ('VALIGN', (0, 0), (-1, -1), 'MIDDLE'),
+        ('BOX', (0, 0), (-1, -1), 0.5, BORDER_COLOR),
+        ('BACKGROUND', (0, 0), (-1, -1), LIGHT_BG),
+        ('PADDING', (0, 0), (-1, -1), 3),
+        ('ALIGN', (1, 0), (1, 0), 'CENTER'),
+    ]))
+    story.append(Spacer(1, 4))
+    story.append(cert_meta_table)
 
     story.append(PageBreak())
 
@@ -332,7 +354,7 @@ def build_pdf_report():
     story.append(Paragraph("• <b>Exam Malpractice Risk:</b> Manual exam hall seating planning takes 3-4 days and risks placing same-subject students adjacent to each other.", style_bullet))
 
     story.append(Paragraph("1.3 Project Objectives & Scope", style_h2))
-    story.append(Paragraph("1. <b>Unified Platform:</b> Consolidate collegiate operations into a single-pane <b>23-module portal</b>, integrating predictive academic data science analytics.", style_bullet))
+    story.append(Paragraph("1. <b>Unified Platform:</b> Consolidate collegiate operations into a single-pane <b>24-module portal</b>, integrating predictive academic data science analytics.", style_bullet))
     story.append(Paragraph("2. <b>Dynamic QR HUD:</b> Implement an anti-proxy attendance projector with 10-second rotating cryptographic tokens.", style_bullet))
     story.append(Paragraph("3. <b>Self-Service Document Generation:</b> Automate Central Railway travel concessions, hall tickets, and 3D smart ID cards.", style_bullet))
     story.append(Paragraph("4. <b>NEP 2020 Pedagogical Authoring:</b> Deploy a Bloom's Taxonomy question generator with cognitive radar (L1–L6).", style_bullet))
@@ -494,7 +516,7 @@ def build_pdf_report():
     # ========================================================
     story.append(Paragraph("CHAPTER 5: DETAILED MODULE IMPLEMENTATION", style_h1))
     story.append(Paragraph("5.1 Overview of 23 Institutional Modules", style_h2))
-    story.append(Paragraph("The platform delivers a comprehensive suite of 23 functional workspaces:", style_body))
+    story.append(Paragraph("The platform delivers a comprehensive suite of 24 functional workspaces:", style_body))
 
     modules_data = [
         [Paragraph("<b>Module Name & Document</b>", style_th), Paragraph("<b>Key Capabilities & Novel Engineering Highlights</b>", style_th)],
@@ -541,13 +563,14 @@ def build_pdf_report():
         [Paragraph("<b>20. Sports & Gymkhana</b><br/><code>gymkhana.html</code>", style_td_bold), Paragraph("Indoor/outdoor sports facilities, university tournament achievements, gymkhana equipment booking, and annual sports meet schedule.", style_td)],
         [Paragraph("<b>21. Offline PWA Engine</b><br/><code>sw.js</code> &amp; <code>manifest.json</code>", style_td_bold), Paragraph("Service Worker intercepting network fetches, pre-caching static assets in <code>chm-cache-v1</code>, and providing offline access to student ID cards and schedules.", style_td)],
         [Paragraph("<b>22. Data Science AI Hub</b><br/><code>analytics.html</code>", style_td_bold), Paragraph("Data Science & AI predictive analytics hub with real-time Ordinance 0.119 Logistic Sigmoid defaulter predictor, OLS Multiple Linear Regression SGPA forecaster with 95% CI, and HTML5 Canvas K-Means cluster visualizer (k=4).", style_td)],
-        [Paragraph("<b>23. AI Exam Seating Engine</b><br/><code>exam-seating.html</code>", style_td_bold), Paragraph("Anti-cheating 4-stream checkerboard room allocation matrix, 2D hall floorplan HUD across 3 venues, fast seat finder for Satnam Singh Vohra (Roll 45, Desk B-14 in Kundnani Hall), and printable Mumbai University Form 3 muster.", style_td)]
+        [Paragraph("<b>23. AI Exam Seating Engine</b><br/><code>exam-seating.html</code>", style_td_bold), Paragraph("Anti-cheating 4-stream checkerboard room allocation matrix, 2D hall floorplan HUD across 3 venues, fast seat finder for Satnam Singh Vohra (Roll 45, Desk B-14 in Kundnani Hall), and printable Mumbai University Form 3 muster.", style_td)],
+        [Paragraph("<b>24. AI Placement CTC Forecaster</b><br/><code>placement.html</code>", style_td_bold), Paragraph("Multi-variable empirical regression model forecasting campus recruitment salary packages (LPA), dream tier eligibility (Barclays, Deloitte), and prescriptive skill gap guidance.", style_td)]
     ]
     mod_table2 = Table(mod_data_part2, colWidths=[140, 360])
     mod_table2.setStyle(TableStyle([
         ('BACKGROUND', (0, 0), (-1, 0), PRIMARY),
-        ('BOTTOMPADDING', (0, 0), (-1, -1), 1.8),
-        ('TOPPADDING', (0, 0), (-1, -1), 1.8),
+        ('BOTTOMPADDING', (0, 0), (-1, -1), 1.1),
+        ('TOPPADDING', (0, 0), (-1, -1), 1.1),
         ('GRID', (0, 0), (-1, -1), 0.5, BORDER_COLOR),
         ('ROWBACKGROUNDS', (0, 1), (-1, -1), [LIGHT_BG, colors.white])
     ]))
@@ -581,8 +604,8 @@ def build_pdf_report():
     test_table = Table(test_data, colWidths=[40, 120, 110, 185, 45])
     test_table.setStyle(TableStyle([
         ('BACKGROUND', (0, 0), (-1, 0), PRIMARY),
-        ('BOTTOMPADDING', (0, 0), (-1, -1), 1.8),
-        ('TOPPADDING', (0, 0), (-1, -1), 1.8),
+        ('BOTTOMPADDING', (0, 0), (-1, -1), 1.1),
+        ('TOPPADDING', (0, 0), (-1, -1), 1.1),
         ('GRID', (0, 0), (-1, -1), 0.5, BORDER_COLOR),
         ('ROWBACKGROUNDS', (0, 1), (-1, -1), [LIGHT_BG, colors.white])
     ]))
@@ -661,7 +684,7 @@ def build_pdf_report():
     story.append(Paragraph("8.1 Summary of Contributions", style_h2))
     conc_p1 = (
         "This capstone project has successfully engineered a production-ready, enterprise-grade digital campus operating system "
-        "tailored specifically for <b>Smt. CHM College</b>. Comprising 23 fully functional, interconnected modules, the platform "
+        "tailored specifically for <b>Smt. CHM College</b>. Comprising 24 fully functional, interconnected modules, the platform "
         "proves that institutional-grade educational software can be deployed with zero vendor lock-in using pure vanilla web standards. "
         "Key engineering triumphs include:<br/>"
         "1. Complete elimination of proxy attendance through dynamic rotating cryptographic QR tokens.<br/>"

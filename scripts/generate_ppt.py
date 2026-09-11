@@ -172,7 +172,7 @@ def create_presentation():
     pt2.font.name = "Arial"
 
     pt3 = t_tf.add_paragraph()
-    pt3.text = "A modern, NEP 2020 & NAAC-compliant 23-module institutional web platform engineered with Vanilla Web Technologies, Client-side AI Concierge, and Offline PWA architecture."
+    pt3.text = "A modern, NEP 2020 & NAAC-compliant 24-module institutional web platform engineered with Vanilla Web Technologies, Client-side AI Concierge, and Offline PWA architecture."
     pt3.font.size = Pt(13)
     pt3.font.color.rgb = RGBColor(226, 232, 240)
     pt3.font.name = "Calibri"
@@ -221,7 +221,7 @@ def create_presentation():
         "academic, and administrative bottlenecks currently experienced by students, faculty, and administrators "
         "at our very own Smt. CHM College under the HSNC Board and University of Mumbai.\n\n"
         "In this presentation, I will walk you through the problem statement, system architecture, "
-        "the 23 fully functional interactive modules, novel technical innovations like anti-proxy dynamic QR attendance, "
+        "the 24 fully functional interactive modules, novel technical innovations like anti-proxy dynamic QR attendance, "
         "our client-side voice AI concierge, and the quantifiable benefits to the institution."
     )
 
@@ -449,7 +449,7 @@ def create_presentation():
     # 3 Column Cards for Tech Layers
     layers = [
         ("Frontend & UI Design", NAVY_LIGHT, [
-            ("HTML5 Semantic Architecture: ", "Clean, accessible DOM structure across 23 pages with OpenGraph & SEO tags."),
+            ("HTML5 Semantic Architecture: ", "Clean, accessible DOM structure across 24 pages with OpenGraph & SEO tags."),
             ("Vanilla CSS3 Tokens: ", "Custom property design system with dark navy glassmorphism, responsive CSS grid, and flexbox."),
             ("Typography: ", "Google Fonts ('Cinzel' for heritage branding, 'Plus Jakarta Sans' for readable UI, 'JetBrains Mono' for codes)."),
             ("Vector Assets: ", "Font Awesome 6.4.0 icons and inline scalable vector graphics (SVG) for attendance dials.")
@@ -464,7 +464,7 @@ def create_presentation():
             ("Service Worker (`sw.js`): ", "Offline caching with Cache-First & Stale-While-Revalidate strategies for static assets."),
             ("Web App Manifest (`manifest.json`): ", "Full installability on Android, iOS, Windows, and macOS with native app feel."),
             ("Docker & NGINX Alpine: ", "Production containerization with multi-stage build, gzip compression, and security headers."),
-            ("Automated CI/CD: ", "GitHub Actions workflow validating all 23 HTML files and pushing live to GitHub Pages.")
+            ("Automated CI/CD: ", "GitHub Actions workflow validating all 24 HTML files and pushing live to GitHub Pages.")
         ])
     ]
 
@@ -1196,7 +1196,7 @@ def create_presentation():
         ("Cross-Browser Testing", BLUE, [
             ("Tested Browsers: ", "Verified on Google Chrome 120+, Microsoft Edge, Mozilla Firefox, and Apple Safari."),
             ("Mobile Responsiveness: ", "Tested across Android (Chrome/Samsung Internet) and iOS (Safari) viewports (360px to 1440px)."),
-            ("CSS Grid & Flexbox: ", "Zero visual clipping across all 23 modular pages."),
+            ("CSS Grid & Flexbox: ", "Zero visual clipping across all 24 modular pages."),
             ("Print Stylesheets: ", "Custom `@media print` rules for Hall Tickets, Receipts, and Railway Concessions.")
         ]),
         ("Performance & Audit Metrics", EMERALD, [
@@ -1255,7 +1255,7 @@ def create_presentation():
     set_notes(s15, 
         "SPEAKER SCRIPT FOR SLIDE 15:\n"
         "Respected Ma'am, rigorous quality assurance was conducted throughout development:\n"
-        "We tested all 23 pages across desktop and mobile devices. In Google Lighthouse audits, the platform scores above 95 "
+        "We tested all 24 pages across desktop and mobile devices. In Google Lighthouse audits, the platform scores above 95 "
         "in performance, accessibility, best practices, and SEO.\n\n"
         "For deployment, the project is completely containerized with Docker and NGINX Alpine, featuring gzip compression. "
         "It can run either on a local campus server behind the college firewall, or hosted in the cloud via our automated GitHub Actions CI/CD pipeline."
@@ -1300,7 +1300,7 @@ def create_presentation():
 
     c1_points = [
         "Delivered a production-ready digital campus ecosystem for Smt. CHM College.",
-        "Integrated 23 responsive modules covering the complete student & faculty lifecycle.",
+        "Integrated 24 responsive modules covering the complete student & faculty lifecycle.",
         "Engineered innovative solutions for anti-proxy attendance, NEP 2020 Bloom's mapping, and offline PWA reliability.",
         "Proved substantial financial savings (₹18.5 Lakhs/year) and operational efficiencies."
     ]
@@ -1361,35 +1361,52 @@ def create_presentation():
         p.font.color.rgb = WHITE
         p.font.name = "Calibri"
 
-    # Thank You Banner at bottom
-    add_card(s16, 0.8, 5.9, 11.733, 1.1, NAVY_LIGHT, GOLD)
-    thx_box = s16.shapes.add_textbox(Inches(1.0), Inches(6.0), Inches(11.333), Inches(0.9))
+    # Thank You Banner at bottom with Scannable QR Code
+    add_card(s16, 0.8, 5.8, 11.733, 1.45, NAVY_LIGHT, GOLD)
+    thx_box = s16.shapes.add_textbox(Inches(1.0), Inches(5.85), Inches(9.8), Inches(1.35))
     thx_tf = thx_box.text_frame
     thx_tf.word_wrap = True
     p_thx = thx_tf.paragraphs[0]
-    p_thx.alignment = PP_ALIGN.CENTER
     p_thx.text = "THANK YOU! QUESTIONS & LIVE DEMONSTRATION WELCOME"
     p_thx.font.bold = True
-    p_thx.font.size = Pt(16)
+    p_thx.font.size = Pt(15)
     p_thx.font.color.rgb = GOLD_LIGHT
     p_thx.font.name = "Arial"
 
     p_thx_sub = thx_tf.add_paragraph()
-    p_thx_sub.alignment = PP_ALIGN.CENTER
-    p_thx_sub.text = "Interactive Live Demo URL: http://localhost:8080 | GitHub Repository: satnamsinghvohra20-art/My-college-website"
-    p_thx_sub.font.size = Pt(11)
+    p_thx_sub.text = "Live Deployment: https://satnamsinghvohra20-art.github.io/My-college-website/"
+    p_thx_sub.font.size = Pt(10)
     p_thx_sub.font.color.rgb = WHITE
     p_thx_sub.font.name = "Calibri"
+
+    p_thx_author = thx_tf.add_paragraph()
+    p_thx_author.text = "Candidate: Satnam Singh Vohra (Roll 45, S.Y. B.Sc. Data Science) | Affiliated: University of Mumbai"
+    p_thx_author.font.size = Pt(9.5)
+    p_thx_author.font.color.rgb = GOLD
+    p_thx_author.font.name = "Calibri"
+
+    qr_path = os.path.join(base_dir, "assets", "images", "live_demo_qr.png")
+    if os.path.exists(qr_path):
+        s16.shapes.add_picture(qr_path, Inches(11.1), Inches(5.85), Inches(1.25), Inches(1.25))
+        lbl_box = s16.shapes.add_textbox(Inches(10.7), Inches(7.05), Inches(2.0), Inches(0.4))
+        lbl_tf = lbl_box.text_frame
+        p_lbl = lbl_tf.paragraphs[0]
+        p_lbl.text = "📱 Scan for Live Portal"
+        p_lbl.font.size = Pt(7.5)
+        p_lbl.font.bold = True
+        p_lbl.font.color.rgb = GOLD
+        p_lbl.alignment = PP_ALIGN.CENTER
 
     set_notes(s16, 
         "SPEAKER SCRIPT FOR SLIDE 16:\n"
         "In conclusion, Respected Ma'am:\n"
-        "This project is not just a theoretical demonstration. It is a fully functional, production-ready, 23-module "
-        "digital campus ecosystem tailored precisely to Smt. CHM College's real-world needs under the HSNC Board and University of Mumbai.\n\n"
-        "Looking forward, we have charted a clear roadmap to integrate Digilocker's Academic Bank of Credits (ABC) and IoT turnstiles.\n\n"
-        "I would like to express my heartfelt gratitude to you, my Class Teacher and Project Guide, for your constant encouragement, "
-        "and to our Principal Dr. Kishori Bhagat and Department faculty for their support.\n\n"
-        "I am now ready to present the live demonstration of the website and answer any questions. Thank you!"
+        "This capstone project is not just a theoretical prototype. It is a production-ready, 24-module "
+        "digital campus ecosystem tailored precisely to Smt. CHM College's statutory requirements under the HSNC Board and University of Mumbai.\n\n"
+        "As you can see on the bottom right of the screen, there is an active QR code that links straight to our live cloud deployment on GitHub Pages. "
+        "Ma'am, you or any faculty member can scan this QR code right now with your phone to experience the live portal in real time.\n\n"
+        "Looking forward, our roadmap includes integration with DigiLocker's Academic Bank of Credits (ABC) and IoT turnstiles.\n\n"
+        "I express my deepest gratitude to you, my Class Teacher, for your continuous guidance throughout this project, and to our HOD and Principal Dr. Kishori Bhagat.\n\n"
+        "I am now delighted to present the live demonstration of the website and answer any questions. Thank you, Ma'am!"
     )
 
     output_path = os.path.join(base_dir, "CHM_College_Project_Presentation.pptx")

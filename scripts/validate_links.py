@@ -47,7 +47,7 @@ def check_file(file_path, base_folder):
     # 4. Check anchor links
     for match in re.finditer(r'<a[^>]+href=[\'"]([^\'"]+)[\'"]', content, re.IGNORECASE):
         href = match.group(1).split('#')[0].split('?')[0]
-        if not href or href.startswith(('http:', 'https:', 'mailto:', 'tel:', 'javascript:')):
+        if not href or href.startswith(('http:', 'https:', 'mailto:', 'tel:', 'javascript:', '${')):
             continue
         checked_links += 1
         resolved = os.path.normpath(os.path.join(base_folder, href))
