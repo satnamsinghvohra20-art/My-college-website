@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Student Clubs, Extension Activities, NSS, NCC, DLLE and Social Credit Tracker - Smt. Chandibhai Himathmal Mansukhani College, Ulhasnagar.">
+  <title>Student Clubs & Extension Activities (NSS / NCC / DLLE) | Smt. CHM College Ulhasnagar</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/theme.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+  <style>
+    .clubs-hero {
+      background: linear-gradient(135deg, rgba(10,38,71,0.96), rgba(20,82,40,0.92)), url('assets/images/slide-campus-4.jpg') center/cover no-repeat;
+      padding: 55px 0 45px;
+      color: var(--white);
+      text-align: center;
+    }
+    .club-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 22px;
+      margin-top: 30px;
+    }
+    .club-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 24px;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: all var(--transition-fast);
+    }
+    .club-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-md);
+      border-color: var(--accent-gold);
+    }
+    .unit-tag {
+      display: inline-block;
+      padding: 4px 10px;
+      border-radius: 20px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+    .tag-nss { background: #fee2e2; color: #b91c1c; }
+    .tag-ncc { background: #e0f2fe; color: #0369a1; }
+    .tag-dlle { background: #fef9c3; color: #854d0e; }
+    .tag-rota { background: #f3e8ff; color: #6b21a8; }
+  </style>
+</head>
+<body>
+
+  <!-- Top Utilities Bar -->
+  <aside class="top-bar">
+    <div class="container top-bar__inner">
+      <div class="top-bar__left">
+        <span>📍 Ulhasnagar - 421003, Maharashtra, India</span>
+        <span class="divider">|</span>
+        <span>📞 <a href="tel:+912512734940">+91 (0251) 273 4940</a></span>
+      </div>
+      <div class="top-bar__right">
+        <span class="badge badge-gold">NAAC 'A' Grade (3.12 CGPA)</span>
+        <div class="accessibility-ctrls">
+          <button id="font-decrease">A-</button>
+          <button id="font-reset">A</button>
+          <button id="font-increase">A+</button>
+          <button id="theme-toggle">🌓 Mode</button>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="container header__inner">
+      <div class="header__brand">
+        <img src="../assets/images/logo.png" alt="Smt. CHM College Emblem" class="header__logo">
+        <div class="header__titles">
+          <span class="header__subtitle">Hyderabad (Sind) National Collegiate Board, Mumbai</span>
+          <h1 class="header__title">Smt. Chandibhai Himathmal Mansukhani College</h1>
+          <p class="header__affiliation">Affiliated to University of Mumbai • Recognized UGC 2(f) & 12(B)</p>
+        </div>
+      </div>
+      <div class="header__actions">
+        <a href="portal.html" class="btn btn-secondary">Student ERP</a>
+        <a href="admission.html" class="btn btn-primary pulse-btn">Admissions 2026</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="container navbar__inner">
+      <button class="navbar__toggle" id="nav-toggle">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="navbar__menu" id="nav-menu">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="portal.html">ERP Portal</a></li>
+        <li><a href="admission.html">Admissions</a></li>
+        <li><a href="fee-payment.html">Fee Desk</a></li>
+        <li><a href="exams.html">Exams & Results</a></li>
+        <li><a href="naac-iqac.html">NAAC & IQAC</a></li>
+        <li><a href="placement.html">Placements</a></li>
+        <li><a href="research.html">Research & IIC</a></li>
+        <li><a href="faculty.html">Faculty</a></li>
+        <li><a href="events.html">Fests & Events</a></li>
+        <li><a href="clubs.html" class="active">NSS & Clubs</a></li>
+        <li><a href="digital-library.html">E-Library</a></li>
+        <li><a href="assessment-tools.html">Bloom's Tools</a></li>
+        <li><a href="scholarships.html">Scholarships</a></li>
+        <li><a href="question-bank.html">PYQ Bank</a></li>
+        <li><a href="campus-tour.html">Virtual 360°</a></li>
+        <li><a href="alumni.html">Alumni</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="clubs-hero">
+    <div class="container">
+      <span class="badge badge-gold" style="font-size: 0.9rem; margin-bottom: 12px; display: inline-block;">COMMUNITY EXTENSION & LEADERSHIP</span>
+      <h2 style="font-family: var(--font-heading); font-size: 2.4rem; margin-bottom: 10px;">Student Clubs & Extension Activities</h2>
+      <p style="max-width: 750px; margin: 0 auto 20px; font-size: 1.05rem; line-height: 1.6;">
+        Fostering civic engagement, national discipline, and social responsibility. Serving under Mumbai University Ordinance 0.229 (10 Grace Marks for 120 Hours Community Service).
+      </p>
+      <button class="btn btn-primary" onclick="openEnrollModal()" style="font-size: 0.95rem; padding: 10px 22px;">
+        ✍️ Volunteer Enrollment for A.Y. 2026-27
+      </button>
+    </div>
+  </section>
+
+  <!-- Content -->
+  <main class="container" style="padding: 40px 15px 60px;">
+    
+    <!-- Social Credit Hours Radar -->
+    <div style="background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 12px; padding: 26px; margin-bottom: 40px; box-shadow: var(--shadow-sm);">
+      <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px;">
+        <div>
+          <span class="badge badge-emerald" style="margin-bottom: 6px; display: inline-block;">ORDINANCE 0.229 RADAR</span>
+          <h3 style="font-family: var(--font-heading); color: var(--primary-navy); margin: 0;">Volunteer Service Credit Checker</h3>
+          <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 4px;">Enter student PRN or Roll No to verify your logged community service hours.</p>
+        </div>
+        <div style="display: flex; gap: 10px;">
+          <input type="text" id="chk-vol-id" placeholder="e.g. TYIT-028" value="TYIT-028" style="padding: 8px 12px; border: 1px solid var(--border-color); border-radius: 6px;">
+          <button class="btn btn-primary" onclick="checkVolunteerHours()" style="padding: 8px 16px;">Verify Hours</button>
+        </div>
+      </div>
+
+      <!-- Result View -->
+      <div id="vol-res-box" style="margin-top: 20px; background: var(--bg-light); border-radius: 8px; padding: 18px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px;">
+        <div>
+          <div style="font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase; font-weight: 700;">Volunteer: Aakash Suresh Lalwani (NSS Unit)</div>
+          <div style="font-size: 1.4rem; font-weight: 800; color: var(--primary-emerald); margin: 2px 0;">
+            128.5 / 120 Hours Completed ✅
+          </div>
+          <p style="font-size: 0.82rem; color: var(--text-muted); margin: 0;">Blood Donation Camp (30h) • Titwala Rural Health Camp (48h) • Tree Plantation (24h) • Traffic Volunteering (26.5h)</p>
+        </div>
+        <div>
+          <button class="btn btn-secondary" onclick="alert('Downloading Mumbai University Ordinance 0.229 Social Service Grace Marks Certificate (10 Marks eligible)...')">
+            📜 Download Grace Marks Slip
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Active Units -->
+    <div class="section-title">
+      <span class="sub">ACTIVE EXTENSION BODIES</span>
+      <h2>NSS, NCC, DLLE & Social Cells</h2>
+      <div class="title-underline"></div>
+    </div>
+
+    <div class="club-grid">
+      
+      <!-- Unit 1: NSS -->
+      <div class="club-card">
+        <div>
+          <span class="unit-tag tag-nss">NATIONAL SERVICE SCHEME (NSS)</span>
+          <h3 style="color: var(--primary-navy); margin: 0 0 8px 0; font-size: 1.25rem;">NSS Unit (CHM College)</h3>
+          <p style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 12px;">
+            Recognized by University of Mumbai with 200 enrolled volunteers. Conducts 7-day residential rural camp, mega blood donation drives, anti-plastic campaigns, and health checkup drives.
+          </p>
+          <div style="font-size: 0.82rem; color: var(--text-muted);">
+            👨‍🏫 <strong>Program Officers:</strong> Prof. S. N. Sharma & Dr. D. Hingorani<br>
+            🎯 <strong>Motto:</strong> <em>"Not Me But You"</em>
+          </div>
+        </div>
+        <div style="border-top: 1px dashed var(--border-color); padding-top: 12px; margin-top: 15px;">
+          <button class="btn btn-primary" onclick="openEnrollModal('NSS Unit')" style="width: 100%; font-size: 0.85rem;">Enroll in NSS</button>
+        </div>
+      </div>
+
+      <!-- Unit 2: NCC -->
+      <div class="club-card">
+        <div>
+          <span class="unit-tag tag-ncc">NATIONAL CADET CORPS (NCC)</span>
+          <h3 style="color: var(--primary-navy); margin: 0 0 8px 0; font-size: 1.25rem;">NCC Army & Navy Wings</h3>
+          <p style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 12px;">
+            Affiliated to 1 Maharashtra Battalion NCC. Rigorous drill training, firing camps, weapon handling, national integration camps (NIC), and preparation for Combined Defence Services (CDS / NDA).
+          </p>
+          <div style="font-size: 0.82rem; color: var(--text-muted);">
+            🎖️ <strong>Associate NCC Officer:</strong> Capt. R. M. Patil<br>
+            🎯 <strong>Motto:</strong> <em>"Unity and Discipline"</em>
+          </div>
+        </div>
+        <div style="border-top: 1px dashed var(--border-color); padding-top: 12px; margin-top: 15px;">
+          <button class="btn btn-primary" onclick="openEnrollModal('NCC Wing')" style="width: 100%; font-size: 0.85rem;">Enroll in NCC</button>
+        </div>
+      </div>
+
+      <!-- Unit 3: DLLE -->
+      <div class="club-card">
+        <div>
+          <span class="unit-tag tag-dlle">DEPT OF LIFELONG LEARNING & EXTENSION</span>
+          <h3 style="color: var(--primary-navy); margin: 0 0 8px 0; font-size: 1.25rem;">DLLE Extension Cell</h3>
+          <p style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 12px;">
+            Statutory extension wing of University of Mumbai. Engages learners in Annapoorna Yojna (entrepreneurship food stalls), Career Guidance Project (CP), and Population Education Clubs (PEC).
+          </p>
+          <div style="font-size: 0.82rem; color: var(--text-muted);">
+            👩‍🏫 <strong>Teacher Convener:</strong> Dr. Meenakshi Lalwani<br>
+            🎯 <strong>Focus:</strong> Community Skill Transfer & 10 Grace Marks
+          </div>
+        </div>
+        <div style="border-top: 1px dashed var(--border-color); padding-top: 12px; margin-top: 15px;">
+          <button class="btn btn-primary" onclick="openEnrollModal('DLLE Cell')" style="width: 100%; font-size: 0.85rem;">Enroll in DLLE</button>
+        </div>
+      </div>
+
+      <!-- Unit 4: Rotaract -->
+      <div class="club-card">
+        <div>
+          <span class="unit-tag tag-rota">ROTARACT DISTRICT 3142</span>
+          <h3 style="color: var(--primary-navy); margin: 0 0 8px 0; font-size: 1.25rem;">Rotaract Club of CHM</h3>
+          <p style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 12px;">
+            Youth leadership wing of Rotary International. Organizes professional development summits, animal rescue camps, heritage cleanliness treks, and community literacy campaigns.
+          </p>
+          <div style="font-size: 0.82rem; color: var(--text-muted);">
+            🤝 <strong>Charter:</strong> Rotary Club of Ulhasnagar Midtown<br>
+            🎯 <strong>Motto:</strong> <em>"Fellowship Through Service"</em>
+          </div>
+        </div>
+        <div style="border-top: 1px dashed var(--border-color); padding-top: 12px; margin-top: 15px;">
+          <button class="btn btn-primary" onclick="openEnrollModal('Rotaract Club')" style="width: 100%; font-size: 0.85rem;">Join Rotaract</button>
+        </div>
+      </div>
+
+    </div>
+
+  </main>
+
+  <!-- Volunteer Enrollment Modal -->
+  <div id="enroll-modal" style="display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.7); z-index: 9999; align-items: center; justify-content: center; padding: 20px;">
+    <div style="background: var(--bg-card); max-width: 500px; width: 100%; border-radius: 12px; padding: 30px; position: relative;">
+      <button onclick="closeEnrollModal()" style="position: absolute; top: 15px; right: 15px; border: none; background: none; font-size: 1.5rem; cursor: pointer; color: var(--text-color);">&times;</button>
+      <h3 style="font-family: var(--font-heading); color: var(--primary-navy); margin-bottom: 4px;">Extension Volunteer Enrollment</h3>
+      <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 18px;">Register for Mumbai University Social Service Programs</p>
+
+      <form onsubmit="handleEnrollSubmit(event)">
+        <div style="margin-bottom: 12px;">
+          <label style="display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 4px;">Select Extension Unit</label>
+          <select id="enroll-target-unit" style="width: 100%; padding: 8px 12px; border: 1px solid var(--border-color); border-radius: 6px;">
+            <option value="NSS Unit">NSS Unit (National Service Scheme)</option>
+            <option value="NCC Wing">NCC Wing (Army / Navy)</option>
+            <option value="DLLE Cell">DLLE (Lifelong Learning & Extension)</option>
+            <option value="Rotaract Club">Rotaract Club of CHM College</option>
+          </select>
+        </div>
+        <div style="margin-bottom: 12px;">
+          <label style="display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 4px;">Student Name & Roll No.</label>
+          <input type="text" placeholder="e.g. Satnam Singh (TYBSc-IT-04)" required style="width: 100%; padding: 8px 12px; border: 1px solid var(--border-color); border-radius: 6px;">
+        </div>
+        <div style="margin-bottom: 12px;">
+          <label style="display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 4px;">Blood Group</label>
+          <select style="width: 100%; padding: 8px 12px; border: 1px solid var(--border-color); border-radius: 6px;" required>
+            <option value="O+">O Positive (O+)</option>
+            <option value="A+">A Positive (A+)</option>
+            <option value="B+">B Positive (B+)</option>
+            <option value="AB+">AB Positive (AB+)</option>
+            <option value="O-">O Negative (O-)</option>
+          </select>
+        </div>
+        <div style="display: flex; gap: 10px; justify-content: flex-end; margin-top: 15px;">
+          <button type="button" onclick="closeEnrollModal()" class="btn btn-secondary">Cancel</button>
+          <button type="submit" class="btn btn-primary">Confirm Registration</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Global Footer -->
+  <footer class="footer">
+    <div class="container footer__grid">
+      <div class="footer__col">
+        <img src="../assets/images/logo.png" alt="CHM College Emblem" style="max-height: 55px; margin-bottom: 15px; filter: brightness(0) invert(1);">
+        <p style="color: rgba(255,255,255,0.7); font-size: 0.9rem; line-height: 1.6;">
+          Smt. Chandibhai Himathmal Mansukhani College is premier higher education institution governed by Hyderabad (Sind) National Collegiate Board, Mumbai.
+        </p>
+      </div>
+      <div class="footer__col">
+        <h4>Academic Portals</h4>
+        <ul class="footer__links">
+          <li><a href="portal.html">Student ERP & Attendance</a></li>
+          <li><a href="admission.html">Paperless Online Admissions</a></li>
+          <li><a href="fee-payment.html">Voucher Payment & Receipts</a></li>
+          <li><a href="exams.html">University Examination Desk</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>Accreditation & Activities</h4>
+        <ul class="footer__links">
+          <li><a href="naac-iqac.html">NAAC SSR & IQAC Cell</a></li>
+          <li><a href="clubs.html">NSS & NCC Extension</a></li>
+          <li><a href="events.html">Chandi Utsav & Sports</a></li>
+          <li><a href="alumni.html">Global Alumni Network</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>NSS & NCC Office</h4>
+        <p style="color: rgba(255,255,255,0.7); font-size: 0.9rem; margin-bottom: 10px;">Gymkhana Block, Room 14, Smt. CHM College, Ulhasnagar - 421003.</p>
+        <p style="color: var(--accent-gold); font-size: 0.9rem;">Email: <a href="mailto:nss@chmcollege.in">nss@chmcollege.in</a></p>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <div class="container footer__bottom-inner">
+        <p>© 2026 Smt. CHM College, Ulhasnagar. All Rights Reserved. Maintained by IT & IQAC Center.</p>
+        <p>Enterprise Institutional Cloud Portal</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="../js/app.js"></script>
+  <script src="../js/ai-bot.js"></script>
+  <script>
+    function checkVolunteerHours() {
+      alert('Verification Successful: 128.5 volunteer hours validated for Ordinance 0.229 benefits.');
+    }
+
+    function openEnrollModal(unit) {
+      if (unit) {
+        document.getElementById('enroll-target-unit').value = unit;
+      }
+      document.getElementById('enroll-modal').style.display = 'flex';
+    }
+
+    function closeEnrollModal() {
+      document.getElementById('enroll-modal').style.display = 'none';
+    }
+
+    function handleEnrollSubmit(e) {
+      e.preventDefault();
+      const volId = 'CHM-VOL-2026-' + Math.floor(1000 + Math.random() * 9000);
+      alert(`✅ Enrollment Confirmed!\n\nVolunteer ID: ${volId}\nUnit: ${document.getElementById('enroll-target-unit').value}\nYour profile has been logged on the University of Mumbai NSS / DLLE portal.`);
+      closeEnrollModal();
+    }
+  </script>
+</body>
+</html>

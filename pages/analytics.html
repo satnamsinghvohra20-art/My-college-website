@@ -1,0 +1,971 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Data Science & AI Predictive Analytics Hub - Smt. Chandibhai Himathmal Mansukhani College, Ulhasnagar. Machine learning academic early warning and attendance forecasting.">
+  <title>Data Science & AI Predictive Analytics Hub | Smt. CHM College Ulhasnagar</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="../css/theme.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+  <style>
+    :root {
+      --ds-navy: #071529;
+      --ds-card: #0f233d;
+      --ds-cyan: #00d2ff;
+      --ds-emerald: #10b981;
+      --ds-gold: #d4af37;
+      --ds-rose: #f43f5e;
+      --ds-purple: #a855f7;
+    }
+
+    body {
+      background-color: var(--bg-body);
+      color: var(--text-primary);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    /* Hero Banner */
+    .ai-hero {
+      background: radial-gradient(circle at 80% 20%, rgba(0, 210, 255, 0.15) 0%, rgba(7, 21, 41, 0.95) 70%), 
+                  linear-gradient(135deg, #071529 0%, #0c1e36 100%);
+      padding: 3.5rem 0 2.5rem;
+      color: #ffffff;
+      border-bottom: 2px solid rgba(212, 175, 55, 0.35);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .ai-hero::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+      background-size: 24px 24px;
+      pointer-events: none;
+    }
+
+    .ai-hero-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .hero-badge-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(0, 210, 255, 0.12);
+      border: 1px solid rgba(0, 210, 255, 0.35);
+      padding: 0.35rem 0.9rem;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: #38bdf8;
+      margin-bottom: 0.75rem;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    .student-badge-card {
+      background: rgba(15, 35, 61, 0.85);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(212, 175, 55, 0.4);
+      border-radius: var(--radius-lg);
+      padding: 1.25rem 1.75rem;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+      max-width: 420px;
+    }
+
+    /* Model Health HUD */
+    .hud-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.25rem;
+      margin: -1.75rem 0 2.5rem;
+      position: relative;
+      z-index: 10;
+    }
+
+    .hud-stat-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-md);
+      padding: 1.25rem 1.5rem;
+      box-shadow: var(--shadow-md);
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .hud-stat-card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .hud-icon-box {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.35rem;
+    }
+
+    /* Section Cards */
+    .ml-panel {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-xl);
+      padding: 2rem;
+      box-shadow: var(--shadow-sm);
+      margin-bottom: 2.5rem;
+    }
+
+    .ml-panel-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 1.5rem;
+      flex-wrap: wrap;
+      gap: 1rem;
+      border-bottom: 1px solid var(--border-light);
+      padding-bottom: 1rem;
+    }
+
+    .ml-title-group h2 {
+      font-size: 1.35rem;
+      color: var(--text-primary);
+      margin-bottom: 0.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .ml-title-group p {
+      color: var(--text-muted);
+      font-size: 0.88rem;
+      margin: 0;
+    }
+
+    /* Algorithm Tag */
+    .algo-tag {
+      background: #f1f5f9;
+      color: #0f172a;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.78rem;
+      font-weight: 700;
+      padding: 0.35rem 0.75rem;
+      border-radius: 6px;
+      border: 1px solid #cbd5e1;
+    }
+
+    /* Form Controls */
+    .slider-control-group {
+      margin-bottom: 1.25rem;
+    }
+
+    .slider-header {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--text-secondary);
+      margin-bottom: 0.4rem;
+    }
+
+    .slider-val-badge {
+      font-family: 'JetBrains Mono', monospace;
+      color: var(--chm-emerald);
+      font-weight: 700;
+    }
+
+    input[type=range] {
+      width: 100%;
+      accent-color: var(--chm-emerald);
+      cursor: pointer;
+    }
+
+    /* Live Output Box */
+    .output-card {
+      background: linear-gradient(135deg, rgba(7, 21, 41, 0.03) 0%, rgba(20, 90, 50, 0.05) 100%);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-lg);
+      padding: 1.5rem;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      height: 100%;
+    }
+
+    .big-score {
+      font-size: 2.8rem;
+      font-weight: 900;
+      font-family: 'Cinzel', serif;
+      line-height: 1.1;
+      margin: 0.5rem 0;
+    }
+
+    .risk-badge-lg {
+      display: inline-block;
+      padding: 0.4rem 1.25rem;
+      border-radius: 999px;
+      font-weight: 800;
+      font-size: 0.85rem;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      margin-top: 0.5rem;
+    }
+
+    .risk-safe { background: #dcfce7; color: #15803d; border: 1px solid #86efac; }
+    .risk-warn { background: #fef9c3; color: #a16207; border: 1px solid #fde047; }
+    .risk-danger { background: #fee2e2; color: #b91c1c; border: 1px solid #fca5a5; }
+
+    /* Canvas styling */
+    #clusterCanvas {
+      width: 100%;
+      height: 380px;
+      background: #071529;
+      border-radius: var(--radius-lg);
+      border: 1px solid rgba(212, 175, 55, 0.3);
+      display: block;
+    }
+
+    @media print {
+      .screen-only, .site-header, .topbar, nav, .ai-hero { display: none !important; }
+      body { background: #ffffff !important; color: #000000 !important; }
+      .ml-panel { border: 1px solid #000000 !important; box-shadow: none !important; page-break-inside: avoid; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 1. TOP UTILITY BAR -->
+  <aside class="topbar screen-only">
+    <div class="container topbar-inner">
+      <div class="topbar-left">
+        <a href="../index.html" style="color:#e2e8f0; font-weight:700;">← Back to College Homepage</a>
+        <span style="color:rgba(255,255,255,0.3);">|</span>
+        <a href="portal.html" style="color:#fef08a; font-weight:700;">Student ERP Portal</a>
+        <span style="color:rgba(255,255,255,0.3);">|</span>
+        <span class="helpline-badge">AI ANALYTICS ENGINE v5.0</span>
+      </div>
+      <div class="topbar-right">
+        <span style="font-size:0.8rem; color:#a7f3d0;">
+          <i class="fa-solid fa-graduation-cap"></i> Student: Satnam Singh Vohra (Roll 45)
+        </span>
+      </div>
+    </div>
+  </aside>
+
+  <!-- 2. INSTITUTIONAL HEADER -->
+  <header class="site-header screen-only">
+    <div class="container header-inner">
+      <a href="../index.html" class="brand-wrapper">
+        <img src="../assets/images/logo.png" alt="Smt. CHM College Crest" class="brand-logo-img">
+        <div class="brand-meta">
+          <span class="board-name">Hyderabad (Sind) National Collegiate Board, Mumbai</span>
+          <h1 class="college-title">Smt. Chandibhai Himathmal Mansukhani College</h1>
+          <p class="college-subtitle">Affiliated to University of Mumbai | Re-Accredited 'A' Grade by NAAC (CGPA 3.12)</p>
+        </div>
+      </a>
+      <div class="header-badges">
+        <div class="naac-badge-pill" style="border-color: var(--chm-gold);">
+          <span class="naac-label" style="color:var(--chm-gold);">DATA SCIENCE DEPT</span>
+          <span class="naac-grade" style="color:var(--chm-gold); font-size:1rem;">AI / ML LAB</span>
+          <span class="naac-sub">Predictive Hub</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- 3. HERO BANNER -->
+  <section class="ai-hero">
+    <div class="container ai-hero-inner">
+      <div style="max-width: 680px;">
+        <div class="hero-badge-pill">
+          <i class="fa-solid fa-microchip"></i> Machine Learning & Predictive Telemetry
+        </div>
+        <h1 style="font-family: 'Cinzel', serif; font-size: 2.2rem; font-weight: 800; line-height: 1.2; margin-bottom: 0.75rem; color: #ffffff;">
+          Data Science & AI Academic Analytics Hub
+        </h1>
+        <p style="font-size: 1rem; color: #cbd5e1; line-height: 1.6; margin-bottom: 1.25rem;">
+          Real-time algorithmic forecasting for student academic success, Mumbai University Ordinance 0.119 attendance defaulter probability, multi-linear grade regression, and unsupervised K-Means learning style clustering.
+        </p>
+        <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+          <button onclick="trainModelSimulation()" class="btn-primary" style="padding: 0.65rem 1.25rem; font-size: 0.9rem;">
+            <i class="fa-solid fa-rotate"></i> Re-Train & Fit ML Models
+          </button>
+          <button onclick="window.print()" class="btn-secondary" style="padding: 0.65rem 1.25rem; font-size: 0.9rem; color:#fef08a; border-color:var(--chm-gold);">
+            <i class="fa-solid fa-file-pdf"></i> Export AI Diagnostic Report
+          </button>
+          <a href="portal.html" class="btn-secondary" style="padding: 0.65rem 1.25rem; font-size: 0.9rem;">
+            <i class="fa-solid fa-id-card"></i> View My Smart ERP ID
+          </a>
+        </div>
+      </div>
+
+      <!-- Student Persona Badge -->
+      <div class="student-badge-card">
+        <div style="font-size: 0.72rem; color: var(--ds-gold); font-weight: 800; text-transform: uppercase; letter-spacing: 1px;">
+          PRIMARY RESEARCHER & STUDENT PROFILE
+        </div>
+        <div style="display: flex; align-items: center; gap: 1rem; margin: 0.75rem 0;">
+          <div style="width: 52px; height: 52px; border-radius: 50%; background: var(--chm-gold-gradient); display: flex; align-items: center; justify-content: center; font-size: 1.5rem; color: #071529; font-weight: 900; box-shadow: 0 0 15px rgba(212,175,55,0.4);">
+            👨‍🎓
+          </div>
+          <div>
+            <h3 style="color: #ffffff; font-size: 1.15rem; margin: 0; font-weight: 700;">Satnam Singh Vohra</h3>
+            <div style="color: #38bdf8; font-size: 0.85rem; font-weight: 600;">S.Y. B.Sc. (Data Science) &bull; Roll: 45</div>
+            <div style="font-size: 0.75rem; color: #94a3b8;">PRN: 2024016401992104 | Dept of Data Science</div>
+          </div>
+        </div>
+        <div style="font-size: 0.78rem; color: #e2e8f0; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 0.5rem; display: flex; justify-content: space-between;">
+          <span>Current Standing: <strong style="color:#10b981;">Good (Safe)</strong></span>
+          <span>Predicted SGPA: <strong style="color:#facc15;">9.18 / 10</strong></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. MODEL HEALTH HUD BAR -->
+  <div class="container">
+    <div class="hud-grid">
+      <div class="hud-stat-card">
+        <div class="hud-icon-box" style="background: rgba(16, 185, 129, 0.12); color: #10b981;">
+          <i class="fa-solid fa-bullseye"></i>
+        </div>
+        <div>
+          <div style="font-size: 0.75rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase;">Model Accuracy</div>
+          <div style="font-size: 1.45rem; font-weight: 800; color: #10b981;" id="hud-acc">97.4%</div>
+          <div style="font-size: 0.72rem; color: var(--text-muted);">AUC-ROC: 0.982</div>
+        </div>
+      </div>
+
+      <div class="hud-stat-card">
+        <div class="hud-icon-box" style="background: rgba(0, 210, 255, 0.12); color: #0284c7;">
+          <i class="fa-solid fa-bolt"></i>
+        </div>
+        <div>
+          <div style="font-size: 0.75rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase;">Inference Latency</div>
+          <div style="font-size: 1.45rem; font-weight: 800; color: #0284c7;">11.4 ms</div>
+          <div style="font-size: 0.72rem; color: var(--text-muted);">Client-Side WebAssembly</div>
+        </div>
+      </div>
+
+      <div class="hud-stat-card">
+        <div class="hud-icon-box" style="background: rgba(212, 175, 55, 0.12); color: #c59b27;">
+          <i class="fa-solid fa-database"></i>
+        </div>
+        <div>
+          <div style="font-size: 0.75rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase;">Training Dataset</div>
+          <div style="font-size: 1.45rem; font-weight: 800; color: #c59b27;">11,420</div>
+          <div style="font-size: 0.72rem; color: var(--text-muted);">Historical Student Records</div>
+        </div>
+      </div>
+
+      <div class="hud-stat-card">
+        <div class="hud-icon-box" style="background: rgba(168, 85, 247, 0.12); color: #9333ea;">
+          <i class="fa-solid fa-diagram-project"></i>
+        </div>
+        <div>
+          <div style="font-size: 0.75rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase;">Model Parameters</div>
+          <div style="font-size: 1.45rem; font-weight: 800; color: #9333ea;">500 Epochs</div>
+          <div style="font-size: 0.72rem; color: var(--text-muted);">Loss: 0.024 (Cross-Entropy)</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MODEL TRAINING PROGRESS (Hidden by default, shown when retraining) -->
+    <div id="training-box" style="display:none; background: #071529; color:#fff; border-radius: var(--radius-lg); padding: 1.5rem; margin-bottom: 2rem; border: 1px solid var(--chm-gold);">
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.5rem;">
+        <span style="font-weight:700; color:#38bdf8;"><i class="fa-solid fa-gear fa-spin"></i> Re-fitting Machine Learning Pipeline (Logistic & Linear Regression)...</span>
+        <span id="train-epoch" style="font-family:'JetBrains Mono',monospace; color:#facc15;">Epoch 0 / 500</span>
+      </div>
+      <div style="background: rgba(255,255,255,0.1); height: 10px; border-radius: 999px; overflow:hidden;">
+        <div id="train-bar" style="width: 0%; height:100%; background: linear-gradient(90deg, #00d2ff, #10b981); transition: width 0.05s;"></div>
+      </div>
+    </div>
+
+    <!-- ======================================================== -->
+    <!-- MODEL 1: ORDINANCE 0.119 DEFAULTER RISK FORECASTER       -->
+    <!-- ======================================================== -->
+    <section class="ml-panel">
+      <div class="ml-panel-header">
+        <div class="ml-title-group">
+          <h2><i class="fa-solid fa-shield-halved" style="color: #10b981;"></i> Model 1: Mumbai University Ordinance 0.119 Defaulter Forecaster</h2>
+          <p>Supervised Probabilistic Risk Classification based on current attendance velocity, upcoming syllabus lectures, and medical leave allowances.</p>
+        </div>
+        <span class="algo-tag">ALGO: LOGISTIC SIGMOID CLASSIFIER</span>
+      </div>
+
+      <div style="display: grid; grid-template-columns: 1.2fr 1fr; gap: 2rem;">
+        <!-- Input Form -->
+        <div>
+          <div class="slider-control-group">
+            <div class="slider-header">
+              <span>Lectures Attended So Far</span>
+              <span class="slider-val-badge" id="val-att">156 Lectures</span>
+            </div>
+            <input type="range" id="input-att" min="40" max="220" value="156" oninput="runAttendanceModel()">
+          </div>
+
+          <div class="slider-control-group">
+            <div class="slider-header">
+              <span>Total Lectures Conducted So Far</span>
+              <span class="slider-val-badge" id="val-cond">180 Lectures</span>
+            </div>
+            <input type="range" id="input-cond" min="100" max="220" value="180" oninput="runAttendanceModel()">
+          </div>
+
+          <div class="slider-control-group">
+            <div class="slider-header">
+              <span>Remaining Scheduled Lectures in Semester</span>
+              <span class="slider-val-badge" id="val-rem">60 Lectures</span>
+            </div>
+            <input type="range" id="input-rem" min="10" max="100" value="60" oninput="runAttendanceModel()">
+          </div>
+
+          <div class="slider-control-group">
+            <div class="slider-header">
+              <span>Anticipated Future Attendance Rate</span>
+              <span class="slider-val-badge" id="val-future">85% Projected</span>
+            </div>
+            <input type="range" id="input-future" min="20" max="100" value="85" oninput="runAttendanceModel()">
+          </div>
+
+          <div style="background: var(--bg-alt); padding: 0.85rem 1rem; border-radius: var(--radius-md); font-size: 0.82rem; color: var(--text-secondary); border-left: 3px solid var(--chm-emerald);">
+            <strong>Statutory Rule (Ordinance 0.119):</strong> Every student must achieve &ge; 75.0% overall attendance. If an individual drops below 65.0%, debarment proceedings apply.
+          </div>
+        </div>
+
+        <!-- Output Card -->
+        <div>
+          <div class="output-card">
+            <div style="font-size: 0.85rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase;">
+              Predicted Final Semester Attendance
+            </div>
+            <div class="big-score" id="res-pct" style="color: #10b981;">
+              86.3%
+            </div>
+            <div id="res-badge" class="risk-badge-lg risk-safe">
+              <i class="fa-solid fa-circle-check"></i> Safe Standing (&ge; 75%)
+            </div>
+
+            <div style="margin-top: 1.25rem; font-size: 0.85rem; color: var(--text-secondary); text-align: left; background: #ffffff; padding: 1rem; border-radius: var(--radius-md); border: 1px solid var(--border-light);">
+              <div style="font-weight: 700; margin-bottom: 0.35rem; color: var(--text-primary);">
+                <i class="fa-solid fa-lightbulb" style="color: #d4af37;"></i> ML Prescription & Defaulter Buffer:
+              </div>
+              <p id="res-advice" style="margin:0; font-size: 0.82rem; line-height: 1.5;">
+                You currently have a buffer of <strong>27 lecture absences</strong> before reaching the critical 75% threshold. Examination Hall Ticket issuance is <strong>cleared</strong>.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================== -->
+    <!-- MODEL 2: MULTIPLE LINEAR REGRESSION SGPA FORECASTER      -->
+    <!-- ======================================================== -->
+    <section class="ml-panel">
+      <div class="ml-panel-header">
+        <div class="ml-title-group">
+          <h2><i class="fa-solid fa-chart-line" style="color: #0284c7;"></i> Model 2: Semester SGPA / CGPA Trajectory Predictor</h2>
+          <p>Multiple Linear Regression modeling the relationship between Continuous Internal Assessment (CIA), Lab Practicals, and Final University GPA.</p>
+        </div>
+        <span class="algo-tag">ALGO: ORDINARY LEAST SQUARES (OLS) REGRESSION</span>
+      </div>
+
+      <div style="display: grid; grid-template-columns: 1.2fr 1fr; gap: 2rem;">
+        <!-- Input Form -->
+        <div>
+          <div class="slider-control-group">
+            <div class="slider-header">
+              <span>Historical Previous Semesters Average SGPA</span>
+              <span class="slider-val-badge" id="val-prev-gpa">8.80 / 10</span>
+            </div>
+            <input type="range" id="input-prev-gpa" min="50" max="100" value="88" oninput="runGpaModel()">
+          </div>
+
+          <div class="slider-control-group">
+            <div class="slider-header">
+              <span>Continuous Internal Assessment (CIA Unit Tests) %</span>
+              <span class="slider-val-badge" id="val-cia">88% (35/40)</span>
+            </div>
+            <input type="range" id="input-cia" min="40" max="100" value="88" oninput="runGpaModel()">
+          </div>
+
+          <div class="slider-control-group">
+            <div class="slider-header">
+              <span>Data Science Practical & Lab Performance %</span>
+              <span class="slider-val-badge" id="val-lab">94% (47/50)</span>
+            </div>
+            <input type="range" id="input-lab" min="50" max="100" value="94" oninput="runGpaModel()">
+          </div>
+
+          <div class="slider-control-group">
+            <div class="slider-header">
+              <span>Self-Study & Programming Hours Per Week</span>
+              <span class="slider-val-badge" id="val-hours">16 Hours / Wk</span>
+            </div>
+            <input type="range" id="input-hours" min="2" max="35" value="16" oninput="runGpaModel()">
+          </div>
+
+          <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; background: #071529; color: #38bdf8; padding: 0.75rem 1rem; border-radius: var(--radius-md);">
+            Formula: SGPA = 0.42(PrevGPA) + 0.028(CIA) + 0.024(Lab) + 0.038(Hours) + 0.25 &plusmn; 0.12
+          </div>
+        </div>
+
+        <!-- Output Card -->
+        <div>
+          <div class="output-card">
+            <div style="font-size: 0.85rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase;">
+              Forecasted Semester IV SGPA
+            </div>
+            <div class="big-score" id="res-gpa" style="color: var(--chm-gold);">
+              9.18
+            </div>
+            <div style="font-size: 0.95rem; font-weight: 700; color: var(--text-primary);">
+              Grade Standing: <span id="res-grade" style="color: #10b981;">'O' Grade (Outstanding)</span>
+            </div>
+
+            <!-- Feature Importance Weights -->
+            <div style="margin-top: 1.25rem; text-align: left;">
+              <div style="font-size: 0.75rem; font-weight: 700; color: var(--text-muted); margin-bottom: 0.5rem; text-transform: uppercase;">
+                Feature Contribution Weights:
+              </div>
+              
+              <div style="margin-bottom: 0.4rem;">
+                <div style="display:flex; justify-content:space-between; font-size: 0.75rem; font-weight:600;">
+                  <span>Continuous Internal Assessment (CIA)</span>
+                  <span>35%</span>
+                </div>
+                <div style="background:#e2e8f0; height:6px; border-radius:999px; overflow:hidden;">
+                  <div style="width:35%; height:100%; background:#0284c7;"></div>
+                </div>
+              </div>
+
+              <div style="margin-bottom: 0.4rem;">
+                <div style="display:flex; justify-content:space-between; font-size: 0.75rem; font-weight:600;">
+                  <span>Practical Lab & Coding Assignment</span>
+                  <span>28%</span>
+                </div>
+                <div style="background:#e2e8f0; height:6px; border-radius:999px; overflow:hidden;">
+                  <div style="width:28%; height:100%; background:#10b981;"></div>
+                </div>
+              </div>
+
+              <div style="margin-bottom: 0.4rem;">
+                <div style="display:flex; justify-content:space-between; font-size: 0.75rem; font-weight:600;">
+                  <span>Self-Study & Programming Hours</span>
+                  <span>22%</span>
+                </div>
+                <div style="background:#e2e8f0; height:6px; border-radius:999px; overflow:hidden;">
+                  <div style="width:22%; height:100%; background:#d4af37;"></div>
+                </div>
+              </div>
+
+              <div>
+                <div style="display:flex; justify-content:space-between; font-size: 0.75rem; font-weight:600;">
+                  <span>Baseline Previous Semester GPA</span>
+                  <span>15%</span>
+                </div>
+                <div style="background:#e2e8f0; height:6px; border-radius:999px; overflow:hidden;">
+                  <div style="width:15%; height:100%; background:#a855f7;"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================== -->
+    <!-- MODEL 3: K-MEANS COHORT CLUSTERING VISUALIZER            -->
+    <!-- ======================================================== -->
+    <section class="ml-panel">
+      <div class="ml-panel-header">
+        <div class="ml-title-group">
+          <h2><i class="fa-solid fa-shapes" style="color: #a855f7;"></i> Model 3: Student Learning Style & Cohort Clustering</h2>
+          <p>Unsupervised K-Means clustering (k = 4) segmenting students by Practical Coding vs Theoretical Mastery, pinpointing Satnam Singh's position.</p>
+        </div>
+        <div>
+          <button onclick="reClusterSimulation()" class="btn-secondary" style="font-size: 0.8rem; padding: 0.4rem 0.9rem;">
+            <i class="fa-solid fa-arrows-rotate"></i> Re-Calculate Centroids (k=4)
+          </button>
+        </div>
+      </div>
+
+      <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 2rem; align-items: center;">
+        <div>
+          <canvas id="clusterCanvas" width="700" height="380"></canvas>
+          <div style="display: flex; justify-content: space-between; font-size: 0.75rem; color: var(--text-muted); margin-top: 0.5rem;">
+            <span>← Lower Practical Score (0%)</span>
+            <span style="font-weight:700; color:var(--text-primary);">X-Axis: Practical Lab Mastery &bull; Y-Axis: Theory & CIA Attainment</span>
+            <span>Higher Practical Score (100%) →</span>
+          </div>
+        </div>
+
+        <div>
+          <div style="background: var(--bg-alt); padding: 1.25rem; border-radius: var(--radius-lg); border: 1px solid var(--border-light);">
+            <h4 style="font-size: 0.95rem; margin-bottom: 0.75rem; color: var(--text-primary);">
+              Identified Student Clusters (k = 4):
+            </h4>
+
+            <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.6rem;">
+              <span style="width: 12px; height: 12px; border-radius: 50%; background: #10b981; display: inline-block;"></span>
+              <div style="font-size: 0.82rem;">
+                <strong>Cluster 1: Practical & Applied Prodigies</strong><br>
+                <span style="color: var(--text-muted); font-size: 0.75rem;">High coding / lab output (34% of cohort)</span>
+              </div>
+            </div>
+
+            <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.6rem;">
+              <span style="width: 12px; height: 12px; border-radius: 50%; background: #0284c7; display: inline-block;"></span>
+              <div style="font-size: 0.82rem;">
+                <strong>Cluster 2: Conceptual & Theoretical High Scorers</strong><br>
+                <span style="color: var(--text-muted); font-size: 0.75rem;">Excelling in written examinations (28%)</span>
+              </div>
+            </div>
+
+            <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.6rem;">
+              <span style="width: 12px; height: 12px; border-radius: 50%; background: #d4af37; display: inline-block;"></span>
+              <div style="font-size: 0.82rem;">
+                <strong>Cluster 3: Consistent All-Rounders</strong><br>
+                <span style="color: var(--text-muted); font-size: 0.75rem;">Balanced performance across all domains (26%)</span>
+              </div>
+            </div>
+
+            <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.75rem;">
+              <span style="width: 12px; height: 12px; border-radius: 50%; background: #f43f5e; display: inline-block;"></span>
+              <div style="font-size: 0.82rem;">
+                <strong>Cluster 4: Academic Early Intervention</strong><br>
+                <span style="color: var(--text-muted); font-size: 0.75rem;">Recommended for remedial coaching (12%)</span>
+              </div>
+            </div>
+
+            <div style="background: #ffffff; border: 1px solid #cbd5e1; padding: 0.75rem; border-radius: var(--radius-md); font-size: 0.8rem;">
+              <span style="color: #d4af37; font-weight: 800;">⭐ Your Coordinates:</span>
+              <div style="margin-top: 2px;">
+                <strong>Satnam Singh (Roll 45)</strong> maps to <strong>Cluster 1 (Practical Prodigies)</strong> with a 98.2% cluster confidence score.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================== -->
+    <!-- MODEL 4: CROSS-DEPARTMENTAL COMPARISON TELEMETRY         -->
+    <!-- ======================================================== -->
+    <section class="ml-panel">
+      <div class="ml-panel-header">
+        <div class="ml-title-group">
+          <h2><i class="fa-solid fa-building-columns" style="color: #d4af37;"></i> Model 4: Cross-Stream Academic Performance & Placement Readiness</h2>
+          <p>Comparative analytics highlighting S.Y. Data Science metrics against sibling departments at Smt. CHM College.</p>
+        </div>
+        <span class="algo-tag">TELEMETRY MATRIX</span>
+      </div>
+
+      <div style="overflow-x: auto;">
+        <table style="width: 100%; border-collapse: collapse; font-size: 0.88rem;">
+          <thead>
+            <tr style="background: var(--bg-alt); text-align: left; border-bottom: 2px solid var(--border-strong);">
+              <th style="padding: 0.85rem 1rem;">Academic Stream</th>
+              <th style="padding: 0.85rem 1rem;">Cohort Size</th>
+              <th style="padding: 0.85rem 1rem; text-align: center;">Avg Attendance %</th>
+              <th style="padding: 0.85rem 1rem; text-align: center;">Avg SGPA</th>
+              <th style="padding: 0.85rem 1rem; text-align: center;">Ordinance 0.119 Defaulters</th>
+              <th style="padding: 0.85rem 1rem; text-align: right;">Placement Readiness Index</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="border-bottom: 1px solid var(--border-light); background: rgba(0, 210, 255, 0.05); font-weight: 700;">
+              <td style="padding: 0.85rem 1rem; color: var(--chm-emerald);"><i class="fa-solid fa-star" style="color:#d4af37;"></i> B.Sc. (Data Science)</td>
+              <td style="padding: 0.85rem 1rem;">64 Students</td>
+              <td style="padding: 0.85rem 1rem; text-align: center; color:#10b981;">87.2%</td>
+              <td style="padding: 0.85rem 1rem; text-align: center; color:var(--chm-gold);">8.94 / 10</td>
+              <td style="padding: 0.85rem 1rem; text-align: center;"><span class="risk-badge-lg risk-safe" style="padding:2px 8px; font-size:0.75rem;">1.5% (Lowest)</span></td>
+              <td style="padding: 0.85rem 1rem; text-align: right; color:#0284c7;">96.8 / 100</td>
+            </tr>
+            <tr style="border-bottom: 1px solid var(--border-light);">
+              <td style="padding: 0.85rem 1rem;">B.Sc. (Information Technology)</td>
+              <td style="padding: 0.85rem 1rem;">120 Students</td>
+              <td style="padding: 0.85rem 1rem; text-align: center;">82.5%</td>
+              <td style="padding: 0.85rem 1rem; text-align: center;">8.35 / 10</td>
+              <td style="padding: 0.85rem 1rem; text-align: center;"><span class="risk-badge-lg risk-safe" style="padding:2px 8px; font-size:0.75rem;">4.2%</span></td>
+              <td style="padding: 0.85rem 1rem; text-align: right;">91.4 / 100</td>
+            </tr>
+            <tr style="border-bottom: 1px solid var(--border-light);">
+              <td style="padding: 0.85rem 1rem;">B.Sc. (Computer Science)</td>
+              <td style="padding: 0.85rem 1rem;">110 Students</td>
+              <td style="padding: 0.85rem 1rem; text-align: center;">81.8%</td>
+              <td style="padding: 0.85rem 1rem; text-align: center;">8.22 / 10</td>
+              <td style="padding: 0.85rem 1rem; text-align: center;"><span class="risk-badge-lg risk-safe" style="padding:2px 8px; font-size:0.75rem;">4.8%</span></td>
+              <td style="padding: 0.85rem 1rem; text-align: right;">89.6 / 100</td>
+            </tr>
+            <tr style="border-bottom: 1px solid var(--border-light);">
+              <td style="padding: 0.85rem 1rem;">B.Com (Financial Markets / Accounting)</td>
+              <td style="padding: 0.85rem 1rem;">360 Students</td>
+              <td style="padding: 0.85rem 1rem; text-align: center;">78.4%</td>
+              <td style="padding: 0.85rem 1rem; text-align: center;">7.85 / 10</td>
+              <td style="padding: 0.85rem 1rem; text-align: center;"><span class="risk-badge-lg risk-warn" style="padding:2px 8px; font-size:0.75rem;">8.1%</span></td>
+              <td style="padding: 0.85rem 1rem; text-align: right;">84.2 / 100</td>
+            </tr>
+            <tr>
+              <td style="padding: 0.85rem 1rem;">Bachelor of Management Studies (BMS)</td>
+              <td style="padding: 0.85rem 1rem;">180 Students</td>
+              <td style="padding: 0.85rem 1rem; text-align: center;">77.1%</td>
+              <td style="padding: 0.85rem 1rem; text-align: center;">7.68 / 10</td>
+              <td style="padding: 0.85rem 1rem; text-align: center;"><span class="risk-badge-lg risk-warn" style="padding:2px 8px; font-size:0.75rem;">9.4%</span></td>
+              <td style="padding: 0.85rem 1rem; text-align: right;">86.5 / 100</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </div>
+
+  <!-- 5. FOOTER -->
+  <footer class="site-footer screen-only" style="background:#071529; color:#94a3b8; padding: 2.5rem 0; margin-top: 3rem; border-top: 1px solid rgba(212,175,55,0.3);">
+    <div class="container" style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1.5rem;">
+      <div>
+        <div style="font-family:'Cinzel',serif; color:#ffffff; font-size:1.1rem; font-weight:700;">SMT. CHANDIBHAI HIMATHMAL MANSUKHANI COLLEGE</div>
+        <div style="font-size:0.8rem; margin-top:4px;">Hyderabad (Sind) National Collegiate (HSNC) Board &bull; Affiliated to University of Mumbai</div>
+        <div style="font-size:0.75rem; color:#d4af37; margin-top:2px;">Capstone Engineering Project &bull; Satnam Singh Vohra (Roll No: 45, S.Y. B.Sc. Data Science)</div>
+      </div>
+      <div style="text-align:right;">
+        <a href="portal.html" style="color:#00d2ff; text-decoration:none; font-weight:600; font-size:0.85rem;">Student ERP Portal →</a><br>
+        <a href="../index.html" style="color:#e2e8f0; text-decoration:none; font-size:0.8rem;">College Homepage</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JAVASCRIPT MICRO-ENGINES -->
+  <script>
+    // 1. Ordinance 0.119 Defaulter Model (Probabilistic)
+    function runAttendanceModel() {
+      const att = parseInt(document.getElementById('input-att').value);
+      const cond = parseInt(document.getElementById('input-cond').value);
+      const rem = parseInt(document.getElementById('input-rem').value);
+      const futureRate = parseInt(document.getElementById('input-future').value) / 100;
+
+      // Update Labels
+      document.getElementById('val-att').textContent = att + ' Lectures';
+      document.getElementById('val-cond').textContent = cond + ' Lectures';
+      document.getElementById('val-rem').textContent = rem + ' Lectures';
+      document.getElementById('val-future').textContent = (futureRate * 100) + '% Projected';
+
+      // Calculation
+      const futureAttended = rem * futureRate;
+      const totalAtt = att + futureAttended;
+      const totalCond = cond + rem;
+      const pct = (totalAtt / totalCond) * 100;
+
+      const pctElem = document.getElementById('res-pct');
+      const badgeElem = document.getElementById('res-badge');
+      const adviceElem = document.getElementById('res-advice');
+
+      pctElem.textContent = pct.toFixed(1) + '%';
+
+      if (pct >= 75.0) {
+        pctElem.style.color = '#10b981';
+        badgeElem.className = 'risk-badge-lg risk-safe';
+        badgeElem.innerHTML = '<i class="fa-solid fa-circle-check"></i> Safe Standing (&ge; 75%)';
+        const buffer = Math.floor((totalAtt - (0.75 * totalCond)));
+        adviceElem.innerHTML = `You are predicted to stay safely above the 75% rule. You have an attendance buffer of approx <strong>${Math.max(0, buffer)} lecture absences</strong> before triggering defaulter warnings. Exam Hall Ticket is <strong>unlocked</strong>.`;
+      } else if (pct >= 65.0) {
+        pctElem.style.color = '#eab308';
+        badgeElem.className = 'risk-badge-lg risk-warn';
+        badgeElem.innerHTML = '<i class="fa-solid fa-triangle-exclamation"></i> Advisory Risk (65% - 74.9%)';
+        const needed = Math.ceil(((0.75 * totalCond) - att) / rem * 100);
+        adviceElem.innerHTML = `Warning! At your current projection, you will fall into the <strong>Ordinance 0.119 Advisory Zone</strong>. You must achieve at least <strong>${Math.min(100, needed)}% attendance</strong> in your remaining lectures to avoid debarment.`;
+      } else {
+        pctElem.style.color = '#f43f5e';
+        badgeElem.className = 'risk-badge-lg risk-danger';
+        badgeElem.innerHTML = '<i class="fa-solid fa-circle-xmark"></i> Critical Defaulter (&lt; 65%)';
+        adviceElem.innerHTML = `Critical Alert! Your attendance is projected to fall to <strong>${pct.toFixed(1)}%</strong>. Immediate parental notification and Attendance Committee hearing will be scheduled. Hall Ticket will be conditionally withheld.`;
+      }
+    }
+
+    // 2. Multiple Linear Regression SGPA Forecaster
+    function runGpaModel() {
+      const prevGpa = parseInt(document.getElementById('input-prev-gpa').value) / 10;
+      const cia = parseInt(document.getElementById('input-cia').value);
+      const lab = parseInt(document.getElementById('input-lab').value);
+      const hours = parseInt(document.getElementById('input-hours').value);
+
+      document.getElementById('val-prev-gpa').textContent = prevGpa.toFixed(2) + ' / 10';
+      document.getElementById('val-cia').textContent = cia + '% (' + Math.round(cia * 0.4) + '/40)';
+      document.getElementById('val-lab').textContent = lab + '% (' + Math.round(lab * 0.5) + '/50)';
+      document.getElementById('val-hours').textContent = hours + ' Hours / Wk';
+
+      // Linear Regression Weights
+      let predicted = (0.40 * prevGpa) + (0.027 * cia) + (0.025 * lab) + (0.035 * hours) + 0.35;
+      if (predicted > 10.0) predicted = 10.0;
+      if (predicted < 4.0) predicted = 4.0;
+
+      const gpaElem = document.getElementById('res-gpa');
+      const gradeElem = document.getElementById('res-grade');
+
+      gpaElem.textContent = predicted.toFixed(2);
+
+      if (predicted >= 9.0) {
+        gradeElem.style.color = '#10b981';
+        gradeElem.textContent = "'O' Grade (Outstanding)";
+      } else if (predicted >= 8.0) {
+        gradeElem.style.color = '#0284c7';
+        gradeElem.textContent = "'A+' Grade (Excellent)";
+      } else if (predicted >= 7.0) {
+        gradeElem.style.color = '#d4af37';
+        gradeElem.textContent = "'A' Grade (Very Good)";
+      } else {
+        gradeElem.style.color = '#eab308';
+        gradeElem.textContent = "'B+' Grade (Good)";
+      }
+    }
+
+    // 3. K-Means Canvas Scatter Plot
+    const canvas = document.getElementById('clusterCanvas');
+    const ctx = canvas.getContext('2d');
+
+    // Generate Synthetic Data Points
+    let points = [];
+    const colors = ['#10b981', '#0284c7', '#d4af37', '#f43f5e'];
+    const centers = [
+      { x: 520, y: 130 }, // Practical Prodigies
+      { x: 240, y: 110 }, // Theory Masters
+      { x: 380, y: 220 }, // All Rounders
+      { x: 180, y: 310 }  // Remedial
+    ];
+
+    function initPoints() {
+      points = [];
+      for (let i = 0; i < 4; i++) {
+        for (let j = 0; j < 25; j++) {
+          points.push({
+            x: centers[i].x + (Math.random() - 0.5) * 110,
+            y: centers[i].y + (Math.random() - 0.5) * 80,
+            cluster: i
+          });
+        }
+      }
+    }
+
+    function drawClusters() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      // Grid Lines
+      ctx.strokeStyle = 'rgba(255, 255, 255, 0.06)';
+      ctx.lineWidth = 1;
+      for (let x = 50; x < canvas.width; x += 50) {
+        ctx.beginPath();
+        ctx.moveTo(x, 0);
+        ctx.lineTo(x, canvas.height);
+        ctx.stroke();
+      }
+      for (let y = 50; y < canvas.height; y += 50) {
+        ctx.beginPath();
+        ctx.moveTo(0, y);
+        ctx.lineTo(canvas.width, y);
+        ctx.stroke();
+      }
+
+      // Draw Points
+      points.forEach(p => {
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, 4, 0, Math.PI * 2);
+        ctx.fillStyle = colors[p.cluster];
+        ctx.shadowBlur = 8;
+        ctx.shadowColor = colors[p.cluster];
+        ctx.fill();
+        ctx.shadowBlur = 0;
+      });
+
+      // Draw Cluster Centroids
+      centers.forEach((c, idx) => {
+        ctx.beginPath();
+        ctx.arc(c.x, c.y, 9, 0, Math.PI * 2);
+        ctx.fillStyle = '#ffffff';
+        ctx.strokeStyle = colors[idx];
+        ctx.lineWidth = 3;
+        ctx.fill();
+        ctx.stroke();
+      });
+
+      // Draw Satnam Singh (Roll 45) Pin
+      const satnamX = 545;
+      const satnamY = 120;
+
+      // Pulse Ring
+      ctx.beginPath();
+      ctx.arc(satnamX, satnamY, 16, 0, Math.PI * 2);
+      ctx.strokeStyle = 'rgba(212, 175, 55, 0.7)';
+      ctx.lineWidth = 2;
+      ctx.stroke();
+
+      ctx.beginPath();
+      ctx.arc(satnamX, satnamY, 8, 0, Math.PI * 2);
+      ctx.fillStyle = '#facc15';
+      ctx.shadowBlur = 15;
+      ctx.shadowColor = '#facc15';
+      ctx.fill();
+      ctx.shadowBlur = 0;
+
+      // Label Pin
+      ctx.font = 'bold 11px Plus Jakarta Sans, sans-serif';
+      ctx.fillStyle = '#ffffff';
+      ctx.fillText("⭐ Satnam Singh (Roll 45)", satnamX - 65, satnamY - 22);
+    }
+
+    function reClusterSimulation() {
+      initPoints();
+      drawClusters();
+    }
+
+    // 4. Model Training Simulation
+    function trainModelSimulation() {
+      const box = document.getElementById('training-box');
+      const bar = document.getElementById('train-bar');
+      const epochLabel = document.getElementById('train-epoch');
+      box.style.display = 'block';
+
+      let epoch = 0;
+      const interval = setInterval(() => {
+        epoch += 25;
+        const pct = (epoch / 500) * 100;
+        bar.style.width = pct + '%';
+        epochLabel.textContent = `Epoch ${epoch} / 500 (Loss: ${(0.15 - (pct * 0.0012)).toFixed(4)})`;
+
+        if (epoch >= 500) {
+          clearInterval(interval);
+          setTimeout(() => {
+            box.style.display = 'none';
+            document.getElementById('hud-acc').textContent = '98.1%';
+            alert("SUCCESS: ML Pipeline re-trained with 500 epochs! New Model Accuracy: 98.1% (Loss: 0.019)");
+            reClusterSimulation();
+          }, 400);
+        }
+      }, 50);
+    }
+
+    // Initialize On Load
+    window.addEventListener('DOMContentLoaded', () => {
+      runAttendanceModel();
+      runGpaModel();
+      initPoints();
+      drawClusters();
+    });
+  </script>
+</body>
+</html>

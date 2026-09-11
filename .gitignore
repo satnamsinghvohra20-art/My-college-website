@@ -5,5 +5,6 @@ Thumbs.db
 node_modules/
 .vscode/
 .idea/
+.venv/
 __pycache__/
 *.pyc

@@ -2,13 +2,15 @@
 ## Enterprise Digital Campus & Management Ecosystem (Next-Gen Edition)
 ### A Unified Student-Faculty Self-Service ERP Suite & Academic Intelligence Operating System
 
-[![University of Mumbai](https://img.shields.io/badge/University_of_Mumbai-Affiliated-blue.svg)](https://mu.ac.in)
-[![NAAC Grade](https://img.shields.io/badge/NAAC_Accredited-'A'_Grade_(CGPA_3.12)-success.svg)](https://chmcollege.in)
-[![HSNC Board](https://img.shields.io/badge/Governed_by-HSNC_Board_Mumbai-gold.svg)](https://hsncboard.com)
-[![PWA](https://img.shields.io/badge/PWA-Offline_Ready-purple.svg)](sw.js)
-[![Docker](https://img.shields.io/badge/Docker-NGINX_Alpine-2496ED.svg)](Dockerfile)
-[![Student Credentials](https://img.shields.io/badge/Author-Satnam_Singh_Vohra_(Roll_45)-brightgreen.svg)](#-academic-submission-credentials)
-[![Class](https://img.shields.io/badge/Class-S.Y._B.Sc._(Data_Science)-orange.svg)](#-academic-submission-credentials)
+[![Live Demo GitHub Pages](https://img.shields.io/badge/Live%20Demo-GitHub%20Pages-2ea44f?style=flat-square&logo=github)](https://satnamsinghvohra20-art.github.io/My-college-website/)
+[![Deploy on Vercel](https://img.shields.io/badge/Deploy%20with-Vercel-000000?style=flat-square&logo=vercel)](https://vercel.com)
+[![University of Mumbai](https://img.shields.io/badge/University_of_Mumbai-Affiliated-blue.svg?style=flat-square)](https://mu.ac.in)
+[![NAAC Grade](https://img.shields.io/badge/NAAC_Accredited-'A'_Grade_(CGPA_3.12)-success.svg?style=flat-square)](https://chmcollege.in)
+[![Governed by HSNC Board](https://img.shields.io/badge/Governed_by-HSNC_Board_Mumbai-gold.svg?style=flat-square)](https://hsncboard.com)
+[![PWA](https://img.shields.io/badge/PWA-Offline_Ready-purple.svg?style=flat-square)](sw.js)
+[![Docker](https://img.shields.io/badge/Docker-NGINX_Alpine-2496ED.svg?style=flat-square)](Dockerfile)
+[![Author](https://img.shields.io/badge/Author-Satnam_Singh_Vohra_(Roll_45)-brightgreen.svg?style=flat-square)](#-academic-submission-credentials)
+[![Class](https://img.shields.io/badge/Class-S.Y._B.Sc._(Data_Science)-orange.svg?style=flat-square)](#-academic-submission-credentials)
 
 ---
 
@@ -25,113 +27,122 @@
 
 ---
 
-## 📂 Official Project Deliverables
+## 📦 Project Deliverables
 
 | Deliverable | Format | Description | Direct File Link |
 | :--- | :--- | :--- | :--- |
 | **Academic Project Report** | `PDF` | 13-Page formal report formatted to University of Mumbai guidelines with Certificate of Approval, Architecture, Mathematical models, and ROI. | [📄 `CHM_College_Project_Report.pdf`](CHM_College_Project_Report.pdf) |
 | **PowerPoint Presentation** | `PPTX` | 16 Widescreen (16:9) slides styled in CHM Navy & Gold branding with full speaker notes embedded on every slide for presenter mode. | [📊 `CHM_College_Project_Presentation.pptx`](CHM_College_Project_Presentation.pptx) |
-| **Defense & Viva Guide** | `Markdown` | Email template to teacher/guide, slide-by-slide speaker scripts, anticipated viva Q&A answers, and live demonstration flow. | [📝 `PROJECT_PRESENTATION_EXPLANATION.md`](PROJECT_PRESENTATION_EXPLANATION.md) |
-| **Boardroom Web Pitch Deck** | `HTML` | Interactive boardroom presentation deck built right into the web application. | [🌐 `pitch-deck.html`](pitch-deck.html) |
-| **System Brain Manifesto** | `Markdown` | Complete system architecture, domain models, and Mumbai University Ordinance 0.119 formulas. | [🧠 `brain.md`](brain.md) |
-| **Autonomous Agent Fleet** | `Markdown` | Specifications of ChandiBot, Attendance Watchdog, and Bloom's Taxonomy authoring agents. | [🤖 `agent.md`](agent.md) |
+| **Defense & Viva Guide** | `Markdown` | Email template to teacher/guide, slide-by-slide speaker scripts, anticipated viva Q&A answers, and live demonstration flow. | [📝 `docs/PROJECT_PRESENTATION_EXPLANATION.md`](docs/PROJECT_PRESENTATION_EXPLANATION.md) |
+| **Boardroom Web Pitch Deck** | `HTML` | Interactive boardroom presentation deck built right into the web application. | [🌐 `pages/pitch-deck.html`](pages/pitch-deck.html) |
+| **System Brain Manifesto** | `Markdown` | Complete system architecture, domain models, and Mumbai University Ordinance 0.119 formulas. | [🧠 `docs/brain.md`](docs/brain.md) |
+| **Autonomous Agent Fleet** | `Markdown` | Specifications of ChandiBot, Attendance Watchdog, and Bloom's Taxonomy authoring agents. | [🤖 `docs/agent.md`](docs/agent.md) |
+
+---
+
+## 🏗️ Project Architecture & Directory Structure
+
+```
+My-college-website/
+├── 📄 index.html                     # Flagship College Portal & AI Concierge Hub
+│
+├── 📂 pages/                         # Dedicated Secondary Application Pages
+│   ├── 📄 portal.html                # Unified Student & Faculty ERP Operating System
+│   ├── 📄 analytics.html             # Data Science & AI Predictive Analytics Hub
+│   ├── 📄 exam-seating.html          # AI Exam Hall Seating & Anti-Cheating Room Allocator
+│   ├── 📄 admission.html             # Paperless 4-Step Admission & Cutoff Predictor
+│   ├── 📄 fee-payment.html           # Digital Fee Desk, Receipt & Ledger Engine
+│   ├── 📄 railway-concession.html    # Central Railway Local Concession Portal
+│   ├── 📄 curriculum-planner.html    # NEP 2020 CBCS Major/Minor Credit Planner
+│   ├── 📄 exams.html                 # Examination Timetables & Hall Ticket Verification
+│   ├── 📄 question-bank.html         # Autonomous Bloom's Taxonomy Question Generator
+│   ├── 📄 assessment-tools.html      # Rubrics & OBE Assessment Matrix
+│   ├── 📄 naac-iqac.html             # NAAC Criterion 1–7 Compliance & AQAR Vault
+│   ├── 📄 research.html              # Institutional Research, Patents & Publication Hub
+│   ├── 📄 governance.html            # Statutory Bodies, CDC, RTI & IQAC Portals
+│   ├── 📄 campus-tour.html           # Interactive Campus Map & 360° Virtual Tour
+│   ├── 📄 digital-library.html       # 60,000+ Title Web OPAC & Institutional Repository
+│   ├── 📄 library-kiosk.html         # Self-Checkout Kiosk Simulator
+│   ├── 📄 scholarships.html          # DBT & Merit Government Scholarship Desk
+│   ├── 📄 placement.html             # Corporate Placement Cell & CTC Stats
+│   ├── 📄 alumni.html                # Global Alumni Directory & Mentorship Network
+│   ├── 📄 alumni-jobs.html           # Alumni Job Board & Opportunity Exchange
+│   ├── 📄 clubs.html                 # Cultural, DLLE, NSS, NCC & Student Societies
+│   ├── 📄 gymkhana.html              # Sports, Athletics & Intercollegiate Tournament Hub
+│   ├── 📄 green-campus.html          # Solar, Rainwater & ESG Sustainability Telemetry
+│   ├── 📄 grievance.html             # ICC, Anti-Ragging & WDC Grievance Escalation
+│   ├── 📄 sindhi-heritage.html       # Linguistic Minority & Sindhi Heritage Archives
+│   └── 📄 pitch-deck.html            # Interactive Boardroom Strategy & Pitch Deck
+│
+├── 📂 css/                           # Modular Design System
+│   ├── 🎨 theme.css                  # Color Tokens, Typography & CSS Variables
+│   ├── 🧩 components.css             # Glassmorphic Cards, Gauges & UI Controls
+│   └── 📱 responsive.css             # Mobile & Tablet Viewport Breakpoints
+│
+├── 📂 js/                            # Client-Side Application Controllers
+│   ├── ⚙️ app.js                     # Global Utilities, Nav, Audio & SW Registration
+│   ├── 🤖 ai-bot.js                  # ChandiBot Voice Assistant & NLP Engine
+│   ├── 📊 student-portal.js          # ERP Controllers, QR Rotator & Attendance Math
+│   ├── 👥 persona-switcher.js        # Multi-Role Simulator (Student/Faculty/Admin)
+│   ├── 📝 admission.js               # Admission Workflow & Merit Predictor
+│   ├── 💳 fee-system.js              # Fee Breakdown & Receipt Generator
+│   └── 🎓 exam-portal.js             # Grade Computation & Exam Hall Tickets
+│
+├── 📂 assets/                        # Static Media Assets
+│   └── 🖼️ images/logo.png            # Smt. CHM College Official Crest
+│
+├── 📂 docs/                          # Comprehensive Academic Documentation
+│   ├── 📝 PROJECT_PRESENTATION_EXPLANATION.md # 16-Slide Defense & Viva Scripts
+│   ├── 📋 PROPOSAL.md                # Formal Capstone Engineering Proposal
+│   ├── 🧠 brain.md                   # System Architecture & Ordinance 0.119 Specs
+│   └── 🤖 agent.md                   # Autonomous Agent Fleet Specifications
+│
+├── 📂 scripts/                       # Build & Generation Automation Tooling
+│   ├── 📊 generate_ppt.py            # Automated 16-Slide PPTX Generator (python-pptx)
+│   ├── 📄 generate_pdf_report.py     # Automated 13-Page Formal Report Generator (ReportLab)
+│   └── 📦 requirements.txt           # Python Dependency Manifest
+│
+├── ⚙️ manifest.json                  # PWA Progressive Web App Manifest
+├── ⚙️ sw.js                          # Service Worker (Stale-While-Revalidate Caching)
+├── ⚙️ vercel.json                    # Vercel Production Deployment Configuration
+├── ⚙️ package.json                   # Node.js NPM Scripts & Tooling Manifest
+├── ⚙️ Dockerfile                     # NGINX Alpine Production Containerization
+├── ⚙️ docker-compose.yml             # Container Orchestration
+├── ⚙️ nginx.conf                     # Production NGINX Caching & Security Config
+├── ⚙️ .editorconfig                  # Code Formatting Standards
+└── ⚙️ .prettierrc                    # Code Style Rules
+```
 
 ---
 
 ## 🌟 23 Fully Integrated Institutional Modules
 
-1. **Flagship College Homepage (`index.html`)**:
-   - Institutional branding, official crest, and NAAC 'A' Grade CGPA 3.12 badge.
-   - Dual Language Toggle (`English` / `मराठी`) for regional language compliance (*मराठी भाषा संवर्धन*).
-   - Interactive Campus Hotspot Canvas with floor-by-floor blueprint maps.
-   - Voice-Enabled AI Campus Concierge (**ChandiBot**) with Text-To-Speech `🔊` and Voice Input `🎤`.
-   - Central Library OPAC search across 60,000+ catalog titles.
-
-2. **Unified Student & Faculty ERP (`portal.html`)**:
-   - Circular SVG Live Attendance Gauge (86.4% Good Standing vs 75% Mumbai University Ordinance 0.119 threshold).
-   - 3D Flip Digital Student Smart ID Card with barcode scanner support.
-   - Printable Examination Hall Ticket with seat number and exam center verification.
-   - Central Railway Student Concession & Bonafide Certificate Generator.
-   - **Classroom Dynamic QR Attendance Projector HUD**: 10-second rotating cryptographic tokens completely eliminating proxy check-ins.
-   - **NEP 2020 Dynamic Timetable Matrix**: Filter by Stream (Data Science, B.Sc IT, CS, Commerce, BMS, Chemistry), Class, and Division.
-
-3. **Paperless Online Admissions Desk (`admission.html`)**:
-   - 4-Step digital admission wizard (Profile -> Academic Record -> Document Upload Simulator -> Instant Verification).
-   - Real-time FYJC & Degree Cutoff Predictor and printable verified Acknowledgment Slip (`CHM-2026-XXXX`).
-
-4. **Smart Fee Payment & E-Receipt Desk (`fee-payment.html`)**:
-   - Itemized voucher breakdown (Tuition, Lab, Library, Gymkhana, Examination).
-   - Dynamic UPI QR Code Simulator (Google Pay, PhonePe, Paytm) with verified digital receipt and transaction hash.
-
-5. **University Examination & Results Portal (`exams.html`)**:
-   - Instant PRN / Seat Number lookup.
-   - Verified Semester Statement of Marks & Grades generator with SGPA/CGPA calculations.
-
-6. **Question Paper Bank Vault (`question-bank.html`)**:
-   - Searchable repository of University of Mumbai Previous Year Question Papers (2020–2025).
-   - Filter by Faculty, Semester (Sem I to VI), and Session with in-browser blueprint modal preview.
-
-7. **NEP 2020 Bloom's Taxonomy Assessment Generator (`assessment-tools.html`)**:
-   - Cognitive level distribution radar assessing L1 (Remember) through L6 (Create).
-   - Automated Course Outcome (CO1–CO4) mapping compliant with NBA and NAAC Criterion 2.6.
-
-8. **NAAC & IQAC Quality Compliance Hub (`naac-iqac.html`)**:
-   - NAAC 7-Criteria Compliance Radar (Criterion 1 to 7 with live metrics).
-   - Student Satisfaction Survey (SSS) analytics with interactive rating distributions.
-   - Executive Self-Study Report (SSR) Summary generator targeting NAAC 'A++' Grade (3.60+ CGPA).
-
-9. **Green Campus & Sustainability Telemetry Dashboard (`green-campus.html`)**:
-   - Real-time environmental metrics: **150 kW Solar Array** (340 MWh generated), **1,20,000 L Rainwater Harvesting**, and **278 Tonnes CO2 offset** for ISO 14001 / NAAC Criterion 7.1.
-
-10. **Statutory Governance, RTI & Grievance Cell (`governance.html`)**:
-    - College Development Committee (CDC) composition under Maharashtra Public Universities Act 2016.
-    - Internal Complaints Committee (ICC / POSH Cell) and Anti-Ragging Squad emergency helpline.
-    - Online Student Grievance Redressal Cell (SGRC) with automated Token Generator.
-
-11. **Virtual 360° Campus Tour & Audio Walkthrough (`campus-tour.html`)**:
-    - Interactive 360-degree panoramic viewport with clickable facility hotspot pins.
-    - Voice-guided campus audio tour with Web Speech Synthesis narrator.
-
-12. **Career Progression & Placement Center (`placement.html`)**:
-    - Placement statistics (Highest: ₹12.5 LPA, Average: ₹4.85 LPA, 850+ Offers).
-    - Live campus recruitment drives (TCS, Deloitte, ICICI Bank) with 1-click PRN application.
-
-13. **Global Alumni Network & Endowment Fund (`alumni.html`)**:
-    - 50,000+ Global Alumni Directory with searchable chapters (Mumbai, Dubai, UK, US).
-    - 1-on-1 Alumni Mentorship Booking and 80G Tax Exemption Donation Receipt Generator.
-
-14. **Alumni Job Board & Referral Exchange (`alumni-jobs.html`)**:
-    - Exclusive corporate vacancies and internship referrals posted by CHM graduates at top tech & finance firms.
-
-15. **Scholarships & MahaDBT Assistance Portal (`scholarships.html`)**:
-    - Smart Eligibility Engine matching students with MahaDBT, NSP, and HSNC Trust schemes.
-    - Fee concession calculators for SC/ST, VJNT/OBC, EBC (Rajarshi Shahu Maharaj), and Minority students.
-
-16. **Ph.D. Research Centers & Incubation Hub (`research.html`)**:
-    - 5 Recognized Research Centers, peer-reviewed publications explorer (Scopus/UGC-CARE), and HSNC Seed Money Grant application desk.
-
-17. **Distinguished Faculty Directory (`faculty.html`)**:
-    - Complete departmental directory with faculty profiles, publications, and 1-on-1 counseling office hours scheduler.
-
-18. **Central Digital Library & E-Resource Gateway (`digital-library.html`)**:
-    - Direct access portals to INFLIBNET N-LIST (1,99,500+ e-books), NDLI, Shodhganga, and reading hall footfall tracker.
-
-19. **Student Extension Activities & Social Credits (`clubs.html`)**:
-    - Units directory for NSS, NCC (Army & Navy), DLLE, and Rotaract Club.
-    - Interactive 120-Hour Social Credit Milestone Tracker for Mumbai University Ordinance 0.229 (10 Grace Marks).
-
-20. **Campus Fests & Cultural Conclaves (`events.html`)**:
-    - Showcases for Chandi Utsav, Aakash Sports Meet, TechMorphosis Hackathon, and QR entry pass generator.
-
-21. **Sports & Gymkhana Complex (`gymkhana.html`)**:
-    - Indoor/outdoor sports facilities, university tournament achievements, gymkhana equipment requisition, and annual sports meet schedule.
-
+1. **Enterprise Campus Homepage (`index.html`)**: Interactive hero showcase, dynamic announcement ticker, quick-access portal launcher, academic stream spotlights, and NAAC accreditation credentials.
+2. **Student ERP & Digital ID Engine (`portal.html`)**: SVG attendance gauge, 3D flip smart ID card with barcode, hall ticket generator, Central Railway concession generator, and bonafide certificate generator.
+3. **Dynamic QR Attendance Projector HUD**: 10-second rotating cryptographic tokens eliminating proxy check-ins.
+4. **Digital Fee Payment Simulator (`fee-payment.html`)**: Semester tuition fee breakdown, fee waiver eligibility calculator, UPI QR payment generator, and printable fee receipts.
+5. **Central Railway Concession Portal (`railway-concession.html`)**: Pass period selectors (Monthly/Quarterly), route selector (CST to Karjat/Kasara), and printable verified concession passes.
+6. **Examination & Hall Ticket Desk (`exams.html`)**: PRN/Seat No search, verified semester marksheet renderer, semester exam timetables, and revaluation desk.
+7. **Paperless Online Admission Engine (`admission.html`)**: Multi-step admission wizard, document upload checklist, dynamic fee calculation, and real-time merit cutoff calculator.
+8. **Sindhi Linguistic Minority Archive (`sindhi-heritage.html`)**: Cultural showcase, digital preservation of historical documents, scholarship guidelines, and folk art exhibits.
+9. **NEP 2020 Curriculum Planner (`curriculum-planner.html`)**: Multidisciplinary CBCS course customizer, Major/Minor selection, vocational credits calculator, and Academic Bank of Credits (ABC) compliance.
+10. **Autonomous Bloom's Question Generator (`question-bank.html`)**: Cognitive level classification (L1–L6), dynamic question paper authoring, and balanced marks distribution.
+11. **Outcome-Based Assessment Tools (`assessment-tools.html`)**: Course Outcome (CO) and Program Outcome (PO) attainment calculators, rubric matrices, and continuous internal assessment trackers.
+12. **NAAC & IQAC Accreditation Vault (`naac-iqac.html`)**: Criterion 1 through 7 compliance metrics, AQAR annual reports, peer team review records, and green audit reports.
+13. **Central Digital Library & OPAC (`digital-library.html`)**: 60,000+ title searchable database, e-book access, research journal databases, and digital reading room reservation.
+14. **Self-Service Library Kiosk (`library-kiosk.html`)**: RFID barcode book scanning, automated checkout/return simulator, and fine calculation system.
+15. **Institutional Research & Patent Hub (`research.html`)**: Faculty publications repository, Ph.D. research guides, student research grants, and patent filing tracking.
+16. **Placement & Corporate Career Cell (`placement.html`)**: Top recruiting companies, salary CTC analytics, placement registration portal, and training schedule.
+17. **Global Alumni Mentorship Network (`alumni.html`)**: Distinguished alumni wall of fame, mentorship request forms, alumni chapter registrations, and reunion calendars.
+18. **Alumni Job Board & Opportunities (`alumni-jobs.html`)**: Job postings by alumni network, internship openings, referral requests, and corporate networking desk.
+19. **Statutory Governance & RTI Portal (`governance.html`)**: College Development Committee (CDC), Internal Complaints Committee (ICC), RTI proactively disclosed manuals, and audit reports.
+20. **Campus Fests & Cultural Conclaves (`events.html`)**: Showcases for Chandi Utsav, Aakash Sports Meet, TechMorphosis Hackathon, and QR entry pass generator.
+21. **Sports & Gymkhana Complex (`gymkhana.html`)**: Indoor/outdoor sports facilities, university tournament achievements, gymkhana equipment requisition, and annual sports meet schedule.
 22. **Data Science & AI Predictive Analytics Hub (`analytics.html`)**:
     - **Flagship S.Y. Data Science Module**: Interactive machine learning suite featuring Mumbai University Ordinance 0.119 Defaulter Risk Forecaster (Logistic Sigmoid Classifier).
     - **Multiple Linear Regression SGPA Forecaster**: Predicts semester grade trajectories based on CIA internal tests, practical scores, and study hours.
     - **Unsupervised K-Means Learning Style Cluster Visualizer**: Live HTML5 2D Canvas scatter plot segmenting cohorts into 4 clusters with real-time centroid recalculation ($k=4$).
     - **Cross-Stream Academic Telemetry Matrix**: Performance benchmarks comparing Data Science against B.Sc IT, CS, Commerce, and BMS streams.
-
 23. **AI Exam Hall Seating & Anti-Cheating Room Allocator (`exam-seating.html`)**:
     - **4-Stream Checkerboard Anti-Collusion Matrix**: Graph-coloring algorithm interleaving B.Sc. Data Science, B.Sc. IT, B.Com, and BMS students to achieve 0.0% adjacent seat malpractice collision.
     - **Interactive 2D Hall Floorplan HUD**: Multi-venue visualizer across Kundnani Auditorium (54 seats), Computer Lab 301 (36 seats), and Commerce Block 204 (48 seats) with live capacity meters.
@@ -140,83 +151,53 @@
 
 ---
 
-## ⚡ Technical Innovation Highlights
+## 🚀 Quick Start & Development
 
-1. **Zero-Dependency Vanilla Architecture**:
-   - Engineered with pure Semantic HTML5, CSS3 Custom Properties (Dark Navy Glassmorphism), and modular ES6+ JavaScript.
-   - Zero heavy framework runtime bloat (no React/Angular node_modules in production).
-   - **Google Lighthouse Score: Performance 96 | Accessibility 98 | Best Practices 100 | SEO 100**.
-   - Initial page load under **400 milliseconds**.
-
-2. **Anti-Proxy Dynamic QR Projector Protocol**:
-   - Employs time-synchronized 10-second token rotation on the Classroom Projector HUD:
-     $$\text{Token}(t) = \text{HMAC-SHA256}(\text{LectureID} \parallel \text{SecretKey}, \lfloor t / 10 \rfloor)$$
-   - Completely stops students from sharing static screenshots over messaging apps.
-
-3. **Offline-First Progressive Web App (PWA)**:
-   - Powered by a custom Service Worker (`sw.js`) and Web App Manifest (`manifest.json`).
-   - Students can install the portal as a native desktop/mobile app and access their Digital Smart ID card, timetables, and emergency contacts during network outages.
-
-4. **Client-Side Conversational Voice AI (ChandiBot)**:
-   - Uses the browser's native **Web Speech API** (`SpeechSynthesis` and `webkitSpeechRecognition`).
-   - Zero cloud API latency or recurring costs; supports bilingual voice assistance in English and Marathi (*मराठी भाषा संवर्धन*).
-
----
-
-## 💰 Institutional Cost-Benefit & ROI Analysis
-
-By consolidating separate software subscriptions, paper printing, and administrative overtime, Smt. CHM College achieves substantial recurring annual savings:
-
-```
-Estimated Annual Recurring Savings for Smt. CHM College:
-┌────────────────────────────────────────────────────────┬───────────────────┐
-│ Expense Category Eliminated                            │ Annual Savings    │
-├────────────────────────────────────────────────────────┼───────────────────┤
-│ Elimination of Third-Party Legacy ERP Vendor Fees      │ ₹ 6,50,000 / year │
-│ Elimination of Bulk SMS Gateway Subscription Costs     │ ₹ 1,80,000 / year │
-│ Paper, Printing, Cartridge & Physical Register Savings │ ₹ 4,20,000 / year │
-│ Outsourced Physical PVC Student Smart ID Card Vendors  │ ₹ 2,50,000 / year │
-│ Administrative Overtime for Manual Data Entry & Audits │ ₹ 3,50,000 / year │
-├────────────────────────────────────────────────────────┼───────────────────┤
-│ TOTAL ESTIMATED ANNUAL RECURRING SAVINGS               │ ₹ 18,50,000 / year│
-└────────────────────────────────────────────────────────┴───────────────────┘
-```
-*Operationally, automating classroom attendance reclaims over **4,500 active faculty teaching hours** each academic year.*
-
----
-
-## 🚀 Running the Project Locally
-
-### Option 1: Built-in Python Server (Recommended)
+### 1. Run Locally with Node.js or Python
 ```bash
-# In the project root directory:
+# Start local live server using npm
+npm run dev
+
+# Or using built-in Python HTTP server
 python -m http.server 8080
 ```
-Then open [http://localhost:8080](http://localhost:8080) in any web browser.
+Open [http://localhost:8080](http://localhost:8080) in your browser.
 
-### Option 2: Docker & Docker Compose
+### 2. Generate Academic Presentation & PDF Report
 ```bash
-# Run with Docker Compose in detached mode:
-docker compose up -d
+# Install python dependencies in virtual environment
+pip install -r scripts/requirements.txt
+
+# Generate 16-Slide Presentation (.pptx) with Speaker Notes
+python scripts/generate_ppt.py
+
+# Generate 13-Page University Project Report (.pdf) with NumberedCanvas
+python scripts/generate_pdf_report.py
 ```
-Access the application at `http://localhost`.
+
+### 3. Run with Docker
+```bash
+docker-compose up -d --build
+```
+Access at [http://localhost:8080](http://localhost:8080).
 
 ---
 
-## 🛠️ Python Automation Scripts
+## 🌐 Cloud Deployment
 
-- **`generate_pdf_report.py`**: Compiles the official 13-page academic project report PDF using ReportLab with dynamic "Page X of Y" NumberedCanvas.
-- **`generate_ppt.py`**: Builds the 14-slide widescreen (16:9) PowerPoint presentation with embedded speaker notes on every slide.
+### GitHub Pages (Configured via `gh-pages` branch)
+1. Go to repository **Settings** -> **Pages**.
+2. Source: **Deploy from a branch** -> **`gh-pages`** / **`/ (root)`**.
+3. Live URL: **[https://satnamsinghvohra20-art.github.io/My-college-website/](https://satnamsinghvohra20-art.github.io/My-college-website/)**
 
-To regenerate both artifacts:
+### Vercel Deployment
 ```bash
-.venv\Scripts\python.exe generate_pdf_report.py
-.venv\Scripts\python.exe generate_ppt.py
+npm run deploy:vercel
 ```
+Or import directly via **[vercel.com/new](https://vercel.com/new)**.
 
 ---
 
-## 📜 License & Copyright
+## 📜 License & Acknowledgments
 
-Designed and developed by **Satnam Singh Vohra** (Roll No: 45, S.Y. B.Sc. Data Science) for **Smt. Chandibhai Himathmal Mansukhani College (CHM College)** under the **Hyderabad (Sind) National Collegiate (HSNC) Board, Mumbai**.
-Licensed under the [MIT License](LICENSE).
+Developed with ❤️ by **Satnam Singh Vohra** (Roll 45, S.Y. B.Sc. Data Science) under the guidance of the Department of Data Science & Information Technology, **Smt. CHM College, Ulhasnagar**. Affiliated to the **University of Mumbai** and governed by the **HSNC Board**.

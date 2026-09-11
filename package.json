@@ -1,0 +1,33 @@
+{
+  "name": "chm-college-enterprise-portal",
+  "version": "6.2.0",
+  "description": "Next-Generation Enterprise Digital Campus Operating System for Smt. CHM College, Ulhasnagar",
+  "main": "index.html",
+  "scripts": {
+    "dev": "npx serve . -l 3000",
+    "start": "npx serve . -l 3000",
+    "serve": "npx serve . -l 8080",
+    "generate:ppt": "python scripts/generate_ppt.py",
+    "generate:pdf": "python scripts/generate_pdf_report.py",
+    "generate:all": "python scripts/generate_ppt.py && python scripts/generate_pdf_report.py",
+    "deploy:vercel": "npx vercel --prod",
+    "deploy:gh-pages": "git push origin main && git push -f origin main:gh-pages"
+  },
+  "keywords": [
+    "education-portal",
+    "college-erp",
+    "chm-college",
+    "pwa",
+    "nep-2020",
+    "naac-iqac",
+    "data-science",
+    "ai-analytics"
+  ],
+  "author": "Department of Data Science & Information Technology | Smt. CHM College",
+  "license": "MIT",
+  "homepage": "https://satnamsinghvohra20-art.github.io/My-college-website/",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/satnamsinghvohra20-art/My-college-website.git"
+  }
+}

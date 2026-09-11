@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Statutory Grievance Redressal, Anti-Ragging Watchdog & ICC POSH Cell - Smt. Chandibhai Himathmal Mansukhani College, Ulhasnagar. UGC 2023 Compliance.">
+  <title>Statutory Grievance & Anti-Ragging Portal | Smt. CHM College Ulhasnagar</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/theme.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    .grv-hero {
+      background: linear-gradient(135deg, rgba(7, 21, 41, 0.96), rgba(30, 58, 138, 0.92)), url('assets/images/slide-campus-2.jpg') center/cover no-repeat;
+      padding: 55px 0 45px;
+      color: #fff;
+      text-align: center;
+    }
+
+    .grv-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 14px;
+      padding: 26px;
+      box-shadow: var(--shadow-sm);
+      transition: all var(--transition-fast);
+    }
+
+    .grv-card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .statutory-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .tag-ugc { background: #eff6ff; color: #1d4ed8; border: 1px solid #bfdbfe; }
+    .tag-posh { background: #fdf2f8; color: #be185d; border: 1px solid #fbcfe8; }
+    .tag-ragging { background: #fef2f2; color: #b91c1c; border: 1px solid #fecaca; }
+
+    .timer-badge {
+      background: #071529;
+      color: #fce089;
+      border: 1px solid #d4af37;
+      padding: 6px 14px;
+      border-radius: 8px;
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .docket-timeline {
+      position: relative;
+      padding-left: 30px;
+      margin: 20px 0;
+    }
+
+    .docket-timeline::before {
+      content: '';
+      position: absolute;
+      left: 10px;
+      top: 5px;
+      bottom: 5px;
+      width: 2px;
+      background: #cbd5e1;
+    }
+
+    .docket-event {
+      position: relative;
+      margin-bottom: 20px;
+    }
+
+    .docket-event::before {
+      content: '';
+      position: absolute;
+      left: -26px;
+      top: 4px;
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: #10b981;
+      border: 3px solid #fff;
+      box-shadow: 0 0 5px rgba(16, 185, 129, 0.5);
+    }
+
+    .docket-event.pending::before {
+      background: #d4af37;
+      box-shadow: 0 0 5px rgba(212, 175, 55, 0.5);
+    }
+
+    .confidential-seal {
+      border: 2px solid #b91c1c;
+      color: #b91c1c;
+      padding: 4px 12px;
+      font-family: var(--font-mono);
+      font-weight: 800;
+      font-size: 0.8rem;
+      letter-spacing: 1px;
+      display: inline-block;
+      transform: rotate(-2deg);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- TOP BAR -->
+  <aside class="top-utility-bar">
+    <div class="container utility-inner">
+      <div class="utility-left">
+        <span class="utility-item">
+          <strong>24x7 Anti-Ragging National Helpline:</strong> 1800-180-5522 (Toll Free) | CHM Campus Security: 0251-2731794
+        </span>
+      </div>
+      <div class="utility-right">
+        <a href="portal.html" class="portal-direct-btn">🔐 Student ERP</a>
+        <a href="pitch-deck.html" class="portal-direct-btn" style="background: linear-gradient(135deg, #d4af37, #aa8010); color: #071529; font-weight: 800;">📊 Board Deck</a>
+      </div>
+    </div>
+  </aside>
+
+  <!-- SITE HEADER -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="../index.html" class="brand-wrapper">
+        <img src="../assets/images/logo.png" alt="Smt. CHM College Crest" class="brand-logo-img">
+        <div class="brand-meta">
+          <span class="board-name">Hyderabad (Sind) National Collegiate Board</span>
+          <h1 class="college-title">Smt. Chandibhai Himathmal Mansukhani College</h1>
+          <p class="college-subtitle">Re-Accredited with 'A' Grade by NAAC | Statutory Grievance & Student Rights Desk</p>
+        </div>
+      </a>
+      <div class="header-badges">
+        <div class="naac-badge-pill" style="border-color: #ef4444;">
+          <span class="naac-label" style="color: #ef4444;">UGC COMPLIANT</span>
+          <span class="naac-grade">ZERO TOLERANCE</span>
+          <span class="naac-sub">Anti-Ragging & POSH</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- NAVIGATION -->
+  <nav class="main-navigation">
+    <div class="container nav-container">
+      <ul class="nav-menu">
+        <li class="nav-item"><a href="../index.html" class="nav-link">Home</a></li>
+        <li class="nav-item"><a href="governance.html" class="nav-link">Governance & CDC</a></li>
+        <li class="nav-item"><a href="grievance.html" class="nav-link active" style="color: var(--chm-gold-bright);">Grievance Redressal</a></li>
+        <li class="nav-item"><a href="railway-concession.html" class="nav-link">Railway Pass</a></li>
+        <li class="nav-item"><a href="naac-iqac.html" class="nav-link">NAAC IQAC</a></li>
+        <li class="nav-item"><a href="portal.html" class="nav-link">Student ERP</a></li>
+        <li class="nav-item"><a href="pitch-deck.html" class="nav-link">Executive Deck</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="grv-hero">
+    <div class="container">
+      <div style="display: inline-flex; align-items: center; gap: 8px; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.25); padding: 6px 16px; border-radius: 20px; font-size: 0.85rem; margin-bottom: 15px;">
+        <i class="fas fa-balance-scale"></i> UGC (Grievance Redressal of Students) Regulations, 2023
+      </div>
+      <h2 style="font-family: var(--font-heading); font-size: 2.3rem; margin-bottom: 12px;">Institutional Grievance & Student Rights Redressal</h2>
+      <p style="max-width: 750px; margin: 0 auto 20px; font-size: 1.05rem; opacity: 0.9;">
+        A transparent, time-bound, and strictly confidential grievance portal for students, faculty, and guardians. Automated 15-day statutory resolution clock with optional anonymous whistleblower reporting.
+      </p>
+      <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
+        <a href="#lodge" class="btn-primary" style="padding: 10px 22px;">
+          <i class="fas fa-edit"></i> File Grievance / Complaint
+        </a>
+        <a href="#track" class="btn-secondary" style="padding: 10px 22px; color: #fff; border-color: #fff;">
+          <i class="fas fa-search"></i> Track Existing Case Docket
+        </a>
+        <a href="#cells" class="btn-secondary" style="padding: 10px 22px; color: #fff; border-color: #fff;">
+          <i class="fas fa-shield-alt"></i> View Statutory Cells
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- MAIN CONTAINER -->
+  <main class="container" style="padding: 40px 15px;">
+
+    <!-- STATUTORY CELLS OVERVIEW -->
+    <section id="cells" style="margin-bottom: 40px;">
+      <h3 style="font-size: 1.35rem; color: var(--primary-navy); margin-bottom: 20px;">
+        <i class="fas fa-gavel text-warning"></i> Statutory Redressal Authorities at Smt. CHM College
+      </h3>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;">
+        <div class="grv-card">
+          <span class="statutory-tag tag-ugc"><i class="fas fa-university"></i> SGRC Cell</span>
+          <h4 style="font-size: 1.15rem; color: #071529; margin-bottom: 8px;">Student Grievance Redressal</h4>
+          <p style="font-size: 0.88rem; color: #64748b; line-height: 1.5; margin-bottom: 12px;">
+            Handles academic irregularities, internal marks verification, examination re-evaluation requests, fee concession disputes, and campus amenities.
+          </p>
+          <div style="font-size: 0.8rem; color: #0f172a; font-weight: 600;">
+            • Chairperson: Principal Dr. Kishori Bhagat<br>
+            • Resolution SLA: 15 Working Days
+          </div>
+        </div>
+
+        <div class="grv-card">
+          <span class="statutory-tag tag-ragging"><i class="fas fa-shield-virus"></i> Supreme Court Mandate</span>
+          <h4 style="font-size: 1.15rem; color: #071529; margin-bottom: 8px;">Anti-Ragging Squad</h4>
+          <p style="font-size: 0.88rem; color: #64748b; line-height: 1.5; margin-bottom: 12px;">
+            Enforces strict zero-tolerance anti-ragging policy per UGC Regulations 2009. Campus under 24x7 CCTV surveillance and surprise squad inspections.
+          </p>
+          <div style="font-size: 0.8rem; color: #0f172a; font-weight: 600;">
+            • Squad Incharge: Vice-Principal (Arts/Science)<br>
+            • Resolution SLA: Immediate / 24 Hours
+          </div>
+        </div>
+
+        <div class="grv-card">
+          <span class="statutory-tag tag-posh"><i class="fas fa-female"></i> POSH Act 2013</span>
+          <h4 style="font-size: 1.15rem; color: #071529; margin-bottom: 8px;">Internal Complaints Committee (ICC)</h4>
+          <p style="font-size: 0.88rem; color: #64748b; line-height: 1.5; margin-bottom: 12px;">
+            Addresses complaints of gender discrimination and sexual harassment. Ensures absolute confidentiality, counseling, and legal support.
+          </p>
+          <div style="font-size: 0.8rem; color: #0f172a; font-weight: 600;">
+            • Presiding Officer: Senior Woman Faculty Member<br>
+            • External Member: Advocate / NGO Representative
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 2: FILE A GRIEVANCE WIZARD -->
+    <section id="lodge" class="grv-card" style="margin-bottom: 40px; padding: 30px;">
+      <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border-color); padding-bottom: 15px; margin-bottom: 20px;">
+        <div>
+          <h3 style="font-size: 1.35rem; color: var(--primary-navy); margin-bottom: 4px;">
+            <i class="fas fa-feather-alt text-primary"></i> File a Formal Grievance / Redressal Request
+          </h3>
+          <p style="font-size: 0.88rem; color: var(--text-muted);">
+            Your petition will be assigned a secure tracking token and placed directly before the respective statutory committee.
+          </p>
+        </div>
+        <span class="confidential-seal">STRICTLY CONFIDENTIAL</span>
+      </div>
+
+      <form id="grievanceForm" onsubmit="handleGrievanceSubmit(event)">
+        <!-- Anonymous Toggle -->
+        <div style="background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 10px; padding: 15px; margin-bottom: 20px; display: flex; align-items: center; justify-content: space-between;">
+          <div style="display: flex; align-items: center; gap: 12px;">
+            <i class="fas fa-user-secret text-success" style="font-size: 1.6rem;"></i>
+            <div>
+              <strong style="color: #166534; font-size: 0.95rem;">Anonymous Whistleblower Mode (Zero-Trace)</strong>
+              <p style="color: #15803d; font-size: 0.82rem; margin-top: 2px;">
+                Enable this to mask your identity, PRN, and contact information from lower scrutiny committees. Only the Principal Desk and Statutory Ombudsperson can view credentials if authorized.
+              </p>
+            </div>
+          </div>
+          <label class="switch" style="position: relative; display: inline-block; width: 50px; height: 26px;">
+            <input type="checkbox" id="anonToggle" onchange="toggleAnonymousMode(this)">
+            <span class="slider round" style="position: absolute; cursor: pointer; inset: 0; background-color: #cbd5e1; border-radius: 26px; transition: 0.3s;"></span>
+          </label>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;">
+          <div class="form-group">
+            <label class="form-label" for="grv-cell"><strong>Target Statutory Authority *</strong></label>
+            <select id="grv-cell" class="form-select" required>
+              <option value="SGRC">Student Grievance Redressal Committee (SGRC)</option>
+              <option value="Anti-Ragging">Anti-Ragging Squad (High Priority)</option>
+              <option value="ICC">Internal Complaints Committee (ICC / POSH)</option>
+              <option value="Equal-Opp">SC/ST/OBC Equal Opportunity Cell</option>
+              <option value="Admin">College Administration & Facilities Desk</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="grv-nature"><strong>Nature of Grievance *</strong></label>
+            <select id="grv-nature" class="form-select" required>
+              <option value="Academics">Academic / Internal Marks / Evaluation Dispute</option>
+              <option value="Fees">Fee Concession / Refund / Scholarship Hold</option>
+              <option value="Conduct">Harassment / Intimidation / Disciplinary Issue</option>
+              <option value="Infrastructure">Library / Computer Lab / Campus Infrastructure</option>
+              <option value="Other">Other Statutory Violation</option>
+            </select>
+          </div>
+
+          <div class="form-group" id="group-name">
+            <label class="form-label" for="grv-name"><strong>Full Name *</strong></label>
+            <input type="text" id="grv-name" class="form-input" placeholder="e.g. Satnam Singh" required>
+          </div>
+
+          <div class="form-group" id="group-prn">
+            <label class="form-label" for="grv-prn"><strong>PRN / Student ID *</strong></label>
+            <input type="text" id="grv-prn" class="form-input" placeholder="e.g. 2023016400921" required>
+          </div>
+
+          <div class="form-group" id="group-phone">
+            <label class="form-label" for="grv-phone"><strong>Mobile Number (For Confidential SMS Updates) *</strong></label>
+            <input type="tel" id="grv-phone" class="form-input" placeholder="e.g. 9820012345" required>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="grv-dept"><strong>Department / Class *</strong></label>
+            <select id="grv-dept" class="form-select" required>
+              <option value="IT">B.Sc. Information Technology</option>
+              <option value="CS">B.Sc. Computer Science</option>
+              <option value="Commerce">B.Com / BAF / BBI</option>
+              <option value="Management">BMS (Management Studies)</option>
+              <option value="Science">B.Sc. Chemistry / Physics / Botany</option>
+              <option value="Arts">BA English / Economics / History</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group" style="margin-top: 15px;">
+          <label class="form-label" for="grv-statement"><strong>Detailed Statement of Grievance (Include dates, locations, persons involved) *</strong></label>
+          <textarea id="grv-statement" class="form-input" rows="4" placeholder="Please describe the incident or concern with specific facts..." required></textarea>
+        </div>
+
+        <div style="display: flex; justify-content: flex-end; gap: 15px; margin-top: 20px;">
+          <button type="reset" class="btn-secondary" style="padding: 10px 24px;">Reset Form</button>
+          <button type="submit" class="btn-primary" style="padding: 10px 30px; font-weight: 700;">
+            <i class="fas fa-lock"></i> Submit Confidential Petition & Generate Token
+          </button>
+        </div>
+      </form>
+    </section>
+
+    <!-- SECTION 3: REAL-TIME DOCKET TRACKER -->
+    <section id="track" class="grv-card" style="padding: 30px;">
+      <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border-color); padding-bottom: 15px; margin-bottom: 20px;">
+        <div>
+          <h3 style="font-size: 1.35rem; color: var(--primary-navy); margin-bottom: 4px;">
+            <i class="fas fa-folder-open text-warning"></i> Case Docket Telemetry & UGC 15-Day Watchdog
+          </h3>
+          <p style="font-size: 0.88rem; color: var(--text-muted);">
+            Track active petition progress, hearing schedules, and committee orders in real time.
+          </p>
+        </div>
+        <div class="timer-badge">
+          <i class="fas fa-stopwatch"></i> UGC SLA: 11d 18h Remaining
+        </div>
+      </div>
+
+      <div style="background: #f8fafc; border: 1px solid var(--border-color); border-radius: 12px; padding: 22px;">
+        <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #e2e8f0; padding-bottom: 12px; margin-bottom: 15px;">
+          <div>
+            <div style="font-size: 0.85rem; color: #64748b;">Active Docket Token:</div>
+            <div style="font-family: var(--font-mono); font-size: 1.25rem; font-weight: 800; color: #071529;" id="docketTokenDisplay">
+              CHM-SGRC-2026-4419
+            </div>
+          </div>
+          <span class="badge" style="background: #dbeafe; color: #1e40af; font-weight: 700; padding: 6px 14px; border-radius: 20px;">
+            ● Fact Finding Committee In Session
+          </span>
+        </div>
+
+        <!-- Timeline -->
+        <div class="docket-timeline">
+          <div class="docket-event">
+            <strong style="color: #071529; font-size: 0.95rem;">Petition Formally Registered</strong>
+            <p style="font-size: 0.85rem; color: #64748b; margin-top: 2px;">
+              Digital acknowledgment dispatched. Case docket assigned to the Student Grievance Redressal Committee.
+            </p>
+            <span style="font-size: 0.75rem; color: #94a3b8;">08-Sep-2026 | 10:14 AM</span>
+          </div>
+
+          <div class="docket-event">
+            <strong style="color: #071529; font-size: 0.95rem;">Preliminary Scrutiny & Jurisdiction Verification</strong>
+            <p style="font-size: 0.85rem; color: #64748b; margin-top: 2px;">
+              Scrutinized under UGC Grievance Regulations 2023. Prima facie merit recognized. Respondent notice issued.
+            </p>
+            <span style="font-size: 0.75rem; color: #94a3b8;">09-Sep-2026 | 03:30 PM</span>
+          </div>
+
+          <div class="docket-event pending">
+            <strong style="color: #b45309; font-size: 0.95rem;">Formal Hearing Scheduled (Room 104, Principal Secretariat)</strong>
+            <p style="font-size: 0.85rem; color: #64748b; margin-top: 2px;">
+              Both parties summoned for evidence presentation before SGRC Committee Members.
+            </p>
+            <span style="font-size: 0.75rem; color: #d4af37; font-weight: 700;">Scheduled: 14-Sep-2026 | 11:30 AM</span>
+          </div>
+        </div>
+
+        <div style="text-align: right; border-top: 1px solid #e2e8f0; padding-top: 15px;">
+          <button type="button" onclick="previewHearingOrder()" class="btn-primary" style="padding: 8px 20px; font-size: 0.88rem;">
+            <i class="fas fa-file-pdf"></i> Download Official Hearing Summon & Interim Order
+          </button>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- MODAL: OFFICIAL HEARING NOTICE & INTERIM ORDER -->
+  <div class="modal-backdrop" id="hearingModal" style="display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.7); z-index: 9999; align-items: center; justify-content: center; padding: 20px; overflow-y: auto;">
+    <div style="max-width: 800px; width: 100%; background: #fff; border-radius: 12px; padding: 30px; box-shadow: 0 25px 50px rgba(0,0,0,0.4); color: #000; font-family: 'Times New Roman', serif;">
+      <div style="display: flex; justify-content: space-between; border-bottom: 2px solid #000; padding-bottom: 12px; margin-bottom: 15px;">
+        <div>
+          <div style="font-size: 1.15rem; font-weight: 800;">SMT. CHANDIBHAI HIMATHMAL MANSUKHANI COLLEGE</div>
+          <div style="font-size: 0.85rem;">Opp. Ulhasnagar Railway Station, Ulhasnagar - 421003 (HSNC Board)</div>
+          <div style="font-size: 0.85rem; font-weight: 700; color: #800000;">OFFICE OF THE STUDENT GRIEVANCE REDRESSAL COMMITTEE (SGRC)</div>
+        </div>
+        <div style="text-align: right;">
+          <div style="font-weight: 700;">CONFIDENTIAL</div>
+          <div style="font-size: 0.85rem;">Date: 10-Sep-2026</div>
+        </div>
+      </div>
+
+      <div style="margin-bottom: 15px;">
+        <strong>Docket Case Ref:</strong> <span id="modalDocketRef">CHM-SGRC-2026-4419</span><br>
+        <strong>Statutory Reference:</strong> UGC Regulations 2023, Clause 5(iii)
+      </div>
+
+      <p style="font-size: 1rem; line-height: 1.6; text-align: justify; margin-bottom: 15px;">
+        <strong>NOTICE OF STATUTORY HEARING</strong><br>
+        In the matter of the grievance petition submitted regarding <strong>Academic / Internal Marks Dispute</strong>, all concerned parties are hereby notified that the Student Grievance Redressal Committee shall convene for a formal hearing on <strong>Monday, 14th September 2026 at 11:30 AM</strong> in the Principal's Conference Room (Room 104).
+      </p>
+
+      <p style="font-size: 0.95rem; line-height: 1.6; text-align: justify; margin-bottom: 25px;">
+        The petitioner and respondent are instructed to appear in person along with all relevant documentary evidence and student identification cards. Failure to attend shall result in ex-parte proceedings as per University of Mumbai statutory rules.
+      </p>
+
+      <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-top: 30px; border-top: 1px solid #000; padding-top: 15px;">
+        <div>
+          <div style="font-size: 0.8rem;">[ SGRC OFFICIAL STAMP ]</div>
+        </div>
+        <div style="text-align: right;">
+          <div style="font-family: 'Cinzel', serif; font-weight: 700; font-size: 1.1rem;">Dr. Kishori Bhagat</div>
+          <div style="font-size: 0.85rem; font-weight: 700;">Principal & Appellate Officer</div>
+          <div style="font-size: 0.8rem;">Smt. CHM College, Ulhasnagar</div>
+        </div>
+      </div>
+
+      <div style="display: flex; justify-content: flex-end; gap: 10px; margin-top: 20px;">
+        <button type="button" onclick="closeHearingModal()" style="padding: 8px 18px; border: 1px solid #cbd5e1; background: #fff; cursor: pointer; border-radius: 6px;">Close</button>
+        <button type="button" onclick="window.print()" style="padding: 8px 20px; background: #071529; color: #fff; border: none; cursor: pointer; border-radius: 6px; font-weight: 700;">🖨️ Print Statutory Order</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container footer-content">
+      <div class="footer-col">
+        <h4 class="footer-heading">Statutory Accountability</h4>
+        <p style="color: rgba(255,255,255,0.7); font-size: 0.9rem; line-height: 1.6;">
+          All student grievance hearings and resolutions are recorded in compliance with UGC Regulations 2023 and submitted annually to the Mumbai University Ombudsperson and NAAC IQAC.
+        </p>
+      </div>
+      <div class="footer-col">
+        <h4 class="footer-heading">Emergency Helplines</h4>
+        <ul class="footer-links">
+          <li>National Anti-Ragging: 1800-180-5522</li>
+          <li>Women's National Helpline: 1091</li>
+          <li>Ulhasnagar Police Station: 0251-2560333</li>
+          <li>CHM Security Desk: 0251-2731794</li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4 class="footer-heading">Governance Links</h4>
+        <ul class="footer-links">
+          <li><a href="governance.html">College Development Committee (CDC)</a></li>
+          <li><a href="naac-iqac.html">NAAC & IQAC Quality Portal</a></li>
+          <li><a href="pitch-deck.html">Executive Boardroom Deck</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container footer-bottom-inner">
+        <p>© 2026 Smt. CHM College, Ulhasnagar. Statutory Redressal Directorate.</p>
+        <p>UGC & University of Mumbai Approved</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="../js/app.js"></script>
+  <script src="../js/persona-switcher.js"></script>
+  <script src="../js/ai-bot.js"></script>
+  <script>
+    function toggleAnonymousMode(checkbox) {
+      const isAnon = checkbox.checked;
+      const nameInput = document.getElementById('grv-name');
+      const prnInput = document.getElementById('grv-prn');
+      const phoneInput = document.getElementById('grv-phone');
+
+      if (isAnon) {
+        nameInput.value = 'CONFIDENTIAL_WHISTLEBLOWER';
+        prnInput.value = 'ANON-SECURE-2026';
+        phoneInput.value = '0000000000';
+        nameInput.disabled = true;
+        prnInput.disabled = true;
+        phoneInput.disabled = true;
+        alert('🔒 Anonymous Whistleblower Mode ACTIVATED.\n\nYour identity will be cryptographically shielded. Scrutiny officers will only review the statement without personally identifying details.');
+      } else {
+        nameInput.value = '';
+        prnInput.value = '';
+        phoneInput.value = '';
+        nameInput.disabled = false;
+        prnInput.disabled = false;
+        phoneInput.disabled = false;
+      }
+    }
+
+    function handleGrievanceSubmit(e) {
+      e.preventDefault();
+      const cell = document.getElementById('grv-cell').value;
+      const nature = document.getElementById('grv-nature').value;
+      const token = 'CHM-' + (cell === 'Anti-Ragging' ? 'RAG' : (cell === 'ICC' ? 'ICC' : 'SGRC')) + '-2026-' + Math.floor(1000 + Math.random() * 9000);
+
+      document.getElementById('docketTokenDisplay').textContent = token;
+      document.getElementById('modalDocketRef').textContent = token;
+
+      alert(`✅ Grievance Petition Formally Registered!\n\nDocket Token: ${token}\nAuthority: ${cell}\nCategory: ${nature}\nStatutory SLA: 15 Working Days (UGC Clock Started)\n\nYou can track hearing notices and committee reports using this token.`);
+      window.location.hash = 'track';
+    }
+
+    function previewHearingOrder() {
+      document.getElementById('hearingModal').style.display = 'flex';
+    }
+
+    function closeHearingModal() {
+      document.getElementById('hearingModal').style.display = 'none';
+    }
+  </script>
+</body>
+</html>
