@@ -126,6 +126,12 @@
 21. **Sports & Gymkhana Complex (`gymkhana.html`)**:
     - Indoor/outdoor sports facilities, university tournament achievements, gymkhana equipment requisition, and annual sports meet schedule.
 
+22. **Data Science & AI Predictive Analytics Hub (`analytics.html`)**:
+    - **Flagship S.Y. Data Science Module**: Interactive machine learning suite featuring Mumbai University Ordinance 0.119 Defaulter Risk Forecaster (Logistic Sigmoid Classifier).
+    - **Multiple Linear Regression SGPA Forecaster**: Predicts semester grade trajectories based on CIA internal tests, practical scores, and study hours.
+    - **Unsupervised K-Means Learning Style Cluster Visualizer**: Live HTML5 2D Canvas scatter plot segmenting cohorts into 4 clusters with real-time centroid recalculation ($k=4$).
+    - **Cross-Stream Academic Telemetry Matrix**: Performance benchmarks comparing Data Science against B.Sc IT, CS, Commerce, and BMS streams.
+
 ---
 
 ## ⚡ Technical Innovation Highlights
