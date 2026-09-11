@@ -32,31 +32,33 @@
 ```
 My-college-website/
 ├── 📄 index.html                     # Flagship College Portal & AI Concierge Hub
-├── 📄 portal.html                    # Unified Student & Faculty ERP Operating System
-├── 📄 analytics.html                 # Data Science & AI Predictive Analytics Hub
-├── 📄 admission.html                 # Paperless 4-Step Admission & Cutoff Predictor
-├── 📄 fee-payment.html               # Digital Fee Desk, Receipt & Ledger Engine
-├── 📄 railway-concession.html        # Central Railway Local Concession Portal
-├── 📄 curriculum-planner.html        # NEP 2020 CBCS Major/Minor Credit Planner
-├── 📄 exams.html                     # Examination Timetables & Hall Ticket Verification
-├── 📄 question-bank.html             # Autonomous Bloom's Taxonomy Question Generator
-├── 📄 assessment-tools.html          # Rubrics & OBE Assessment Matrix
-├── 📄 naac-iqac.html                 # NAAC Criterion 1–7 Compliance & AQAR Vault
-├── 📄 research.html                  # Institutional Research, Patents & Publication Hub
-├── 📄 governance.html                # Statutory Bodies, CDC, RTI & IQAC Portals
-├── 📄 campus-tour.html               # Interactive Campus Map & 360° Virtual Tour
-├── 📄 digital-library.html           # 60,000+ Title Web OPAC & Institutional Repository
-├── 📄 library-kiosk.html             # Self-Checkout Kiosk Simulator
-├── 📄 scholarships.html              # DBT & Merit Government Scholarship Desk
-├── 📄 placement.html                 # Corporate Placement Cell & CTC Stats
-├── 📄 alumni.html                    # Global Alumni Directory & Mentorship Network
-├── 📄 alumni-jobs.html               # Alumni Job Board & Opportunity Exchange
-├── 📄 clubs.html                     # Cultural, DLLE, NSS, NCC & Student Societies
-├── 📄 gymkhana.html                  # Sports, Athletics & Intercollegiate Tournament Hub
-├── 📄 green-campus.html              # Solar, Rainwater & ESG Sustainability Telemetry
-├── 📄 grievance.html                 # ICC, Anti-Ragging & WDC Grievance Escalation
-├── 📄 sindhi-heritage.html           # Linguistic Minority & Sindhi Heritage Archives
-├── 📄 pitch-deck.html                # Interactive Boardroom Strategy & Pitch Deck
+│
+├── 📂 pages/                         # Dedicated Secondary Application Pages
+│   ├── 📄 portal.html                # Unified Student & Faculty ERP Operating System
+│   ├── 📄 analytics.html             # Data Science & AI Predictive Analytics Hub
+│   ├── 📄 admission.html             # Paperless 4-Step Admission & Cutoff Predictor
+│   ├── 📄 fee-payment.html           # Digital Fee Desk, Receipt & Ledger Engine
+│   ├── 📄 railway-concession.html    # Central Railway Local Concession Portal
+│   ├── 📄 curriculum-planner.html    # NEP 2020 CBCS Major/Minor Credit Planner
+│   ├── 📄 exams.html                 # Examination Timetables & Hall Ticket Verification
+│   ├── 📄 question-bank.html         # Autonomous Bloom's Taxonomy Question Generator
+│   ├── 📄 assessment-tools.html      # Rubrics & OBE Assessment Matrix
+│   ├── 📄 naac-iqac.html             # NAAC Criterion 1–7 Compliance & AQAR Vault
+│   ├── 📄 research.html              # Institutional Research, Patents & Publication Hub
+│   ├── 📄 governance.html            # Statutory Bodies, CDC, RTI & IQAC Portals
+│   ├── 📄 campus-tour.html           # Interactive Campus Map & 360° Virtual Tour
+│   ├── 📄 digital-library.html       # 60,000+ Title Web OPAC & Institutional Repository
+│   ├── 📄 library-kiosk.html         # Self-Checkout Kiosk Simulator
+│   ├── 📄 scholarships.html          # DBT & Merit Government Scholarship Desk
+│   ├── 📄 placement.html             # Corporate Placement Cell & CTC Stats
+│   ├── 📄 alumni.html                # Global Alumni Directory & Mentorship Network
+│   ├── 📄 alumni-jobs.html           # Alumni Job Board & Opportunity Exchange
+│   ├── 📄 clubs.html                 # Cultural, DLLE, NSS, NCC & Student Societies
+│   ├── 📄 gymkhana.html              # Sports, Athletics & Intercollegiate Tournament Hub
+│   ├── 📄 green-campus.html          # Solar, Rainwater & ESG Sustainability Telemetry
+│   ├── 📄 grievance.html             # ICC, Anti-Ragging & WDC Grievance Escalation
+│   ├── 📄 sindhi-heritage.html       # Linguistic Minority & Sindhi Heritage Archives
+│   └── 📄 pitch-deck.html            # Interactive Boardroom Strategy & Pitch Deck
 │
 ├── 📂 css/                           # Modular Design System
 │   ├── 🎨 theme.css                  # Color Tokens, Typography & CSS Variables

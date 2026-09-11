@@ -497,9 +497,19 @@
 
     function appendMessage(htmlContent, sender) {
       if (!msgContainer) return;
+      const isSubpage = window.location.pathname.includes('/pages/');
+      let processedHtml = htmlContent;
+      if (sender === 'bot') {
+        if (isSubpage) {
+          processedHtml = processedHtml.replace(/href=['"]index\.html/g, "href='../index.html");
+          processedHtml = processedHtml.replace(/href=['"]pages\//g, "href='");
+        } else {
+          processedHtml = processedHtml.replace(/href=['"](?!pages\/|http|#|mailto|tel|\.\.)([a-zA-Z0-9_\-]+\.html)/g, "href='pages/$1");
+        }
+      }
       const msg = document.createElement('div');
       msg.className = `bot-msg ${sender}`;
-      msg.innerHTML = htmlContent;
+      msg.innerHTML = processedHtml;
       msgContainer.appendChild(msg);
       msgContainer.scrollTop = msgContainer.scrollHeight;
     }

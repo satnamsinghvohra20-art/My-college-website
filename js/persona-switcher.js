@@ -5,6 +5,22 @@
  */
 
 (function () {
+
+  function getResolvedUrl(url) {
+    if (!url || url.startsWith('http') || url.startsWith('mailto:') || url.startsWith('tel:')) return url;
+    const isSubpage = window.location.pathname.includes('/pages/');
+    const isTargetHome = url.startsWith('index.html');
+    
+    if (isSubpage) {
+      if (isTargetHome) return '../' + url;
+      return url.replace(/^pages\//, '');
+    } else {
+      if (isTargetHome) return url;
+      if (url.startsWith('pages/')) return url;
+      return 'pages/' + url;
+    }
+  }
+
   'use strict';
 
   // Prevent multiple injections
@@ -410,7 +426,7 @@
 
       <!-- Quick Launch Bar -->
       <div class="chm-hud-quick-bar">
-        <a href="pitch-deck.html" class="chm-hud-quick-btn btn-gold-action">
+        <a href="${getResolvedUrl(\'pitch-deck.html\')}" class="chm-hud-quick-btn btn-gold-action">
           <i class="fas fa-presentation"></i> Boardroom Deck
         </a>
         <a href="PROPOSAL.md" class="chm-hud-quick-btn btn-outline-action" target="_blank">
