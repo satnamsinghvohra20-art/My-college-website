@@ -73,7 +73,7 @@ class NumberedCanvas(canvas.Canvas):
         self.restoreState()
 
 def build_pdf_report():
-    base_dir = os.path.dirname(os.path.abspath(__file__))
+    base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
     output_pdf = os.path.join(base_dir, "CHM_College_Project_Report.pdf")
     logo_path = os.path.join(base_dir, "assets", "images", "logo.png")
 

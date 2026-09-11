@@ -28,7 +28,7 @@ def create_presentation():
     ROSE = RGBColor(225, 29, 72)
     BLUE = RGBColor(37, 99, 235)
 
-    base_dir = os.path.dirname(os.path.abspath(__file__))
+    base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
     logo_path = os.path.join(base_dir, "assets", "images", "logo.png")
 
     def set_notes(slide, notes_text):
