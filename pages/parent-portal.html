@@ -13,10 +13,17 @@
   <link rel="stylesheet" href="../css/responsive.css">
   <style>
     .parent-hero {
-      background: linear-gradient(135deg, rgba(10,38,71,0.95), rgba(20,82,40,0.92)), url('assets/images/slide-campus-2.jpg') center/cover no-repeat;
+      background: linear-gradient(135deg, rgba(10,38,71,0.95), rgba(20,82,40,0.92)), url('../assets/images/slide-campus-2.jpg') center/cover no-repeat;
       padding: 55px 0 45px;
-      color: var(--white);
+      color: #ffffff;
       text-align: center;
+    }
+    .parent-hero h2 {
+      color: #ffffff !important;
+      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.45);
+    }
+    .parent-hero p {
+      color: rgba(255, 255, 255, 0.92) !important;
     }
     .auth-box {
       background: var(--bg-card);
@@ -194,7 +201,7 @@
           <label style="display: block; font-size: 0.85rem; font-weight: 600; color: var(--primary-navy); margin-bottom: 4px;">Enter OTP (Demo OTP: 1234)</label>
           <input type="text" id="otp-input" placeholder="Enter 4-digit OTP" maxlength="4" style="width: 100%; padding: 8px 12px; border: 1px solid var(--border-color); border-radius: 6px; font-size: 1.1rem; letter-spacing: 4px; text-align: center;">
         </div>
-        <button type="button" id="send-otp-btn" onclick="sendOtp()" class="btn btn-secondary" style="width: 100%; margin-bottom: 10px;">Send Security OTP</button>
+        <button type="button" id="send-otp-btn" onclick="sendOtp()" class="btn btn-secondary" style="width: 100%; margin-bottom: 10px; font-weight: 700; color: #0a351d; background: linear-gradient(135deg, #e8f5e9, #c8e6c9); border: 2px solid #145a32; padding: 11px 18px; font-size: 0.95rem; display: flex; align-items: center; justify-content: center; gap: 8px;">📲 Send Security OTP</button>
         <button type="submit" id="verify-btn" class="btn btn-primary" style="width: 100%; display: none;">Verify & Open Guardian Dashboard</button>
       </form>
     </div>
@@ -391,7 +398,7 @@
   </div>
 
   <!-- Global Footer -->
-  <footer class="footer no-print">
+  <footer class="site-footer footer no-print">
     <div class="container footer__grid">
       <div class="footer__col">
         <img src="../assets/images/logo.png" alt="CHM College Emblem" style="max-height: 55px; margin-bottom: 15px; filter: brightness(0) invert(1);">

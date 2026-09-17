@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Offline Mode | Smt. CHM College Smart Campus OS</title>
+  <link rel="stylesheet" href="../css/theme.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    body {
+      background: #071529;
+      color: #ffffff;
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+      margin: 0;
+    }
+    .offline-box {
+      background: #0f233d;
+      border: 1.5px solid rgba(212, 175, 55, 0.4);
+      border-radius: 18px;
+      padding: 3rem 2rem;
+      max-width: 520px;
+      text-align: center;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+    }
+    .offline-icon {
+      font-size: 3.5rem;
+      color: var(--chm-gold);
+      margin-bottom: 1.5rem;
+      animation: pulseWifi 2s infinite;
+    }
+    @keyframes pulseWifi {
+      0% { opacity: 0.6; transform: scale(0.95); }
+      50% { opacity: 1; transform: scale(1.05); }
+      100% { opacity: 0.6; transform: scale(0.95); }
+    }
+  </style>
+</head>
+<body>
+  <div class="offline-box">
+    <i class="fa fa-wifi-slash offline-icon"></i>
+    <h1 style="font-size: 1.8rem; margin: 0 0 0.5rem;">Offline Campus Mode Active</h1>
+    <p style="color: #94a3b8; font-size: 0.95rem; margin-bottom: 2rem;">
+      You are currently disconnected from the campus network. Cached student profiles, offline digital ID cards, and timetable schedules remain accessible via your PWA Service Worker.
+    </p>
+    <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
+      <a href="../index.html" class="btn btn-primary" style="padding: 0.75rem 1.5rem;">
+        <i class="fa fa-home"></i> View Cached Homepage
+      </a>
+      <button onclick="window.location.reload();" class="btn btn-secondary" style="padding: 0.75rem 1.5rem;">
+        <i class="fa fa-sync"></i> Retry Connection
+      </button>
+    </div>
+  </div>
+</body>
+</html>

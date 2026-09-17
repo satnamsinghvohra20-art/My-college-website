@@ -13,9 +13,9 @@
   <link rel="stylesheet" href="../css/responsive.css">
   <style>
     .tour-hero {
-      background: linear-gradient(135deg, rgba(10,38,71,0.95), rgba(20,82,40,0.92)), url('assets/images/infrastructure.jpg') center/cover no-repeat;
+      background: linear-gradient(135deg, rgba(10,38,71,0.95), rgba(20,82,40,0.92)), url('../assets/images/infrastructure.jpg') center/cover no-repeat;
       padding: 50px 0 40px;
-      color: var(--white);
+      color: #ffffff;
       text-align: center;
     }
     .tour-viewport {
@@ -196,7 +196,7 @@
   <main class="container" style="padding: 30px 15px 60px;">
     
     <!-- 360 Viewport Simulator -->
-    <div class="tour-viewport" id="tour-display" style="background-image: url('assets/images/library.jpg');">
+    <div class="tour-viewport" id="tour-display" style="background-image: url('../assets/images/library.jpg');">
       
       <!-- Interactive Hotspot Pins -->
       <div class="hotspot-pin" style="top: 45%; left: 35%;" onclick="showHotspotInfo('OPAC Digital Terminals', 'Touchscreen OPAC kiosks providing instantaneous search for over 60,000 physical titles, e-books, and INFLIBNET N-LIST research journals.')" title="Click for details">1</div>
@@ -238,7 +238,7 @@
       
       <!-- Location 1 -->
       <div class="loc-card active" onclick="loadTourScene('library', this)">
-        <div class="loc-thumb" style="background-image: url('assets/images/library.jpg');">
+        <div class="loc-thumb" style="background-image: url('../assets/images/library.jpg');">
           <span class="tour-badge" style="position: absolute; bottom: 10px; left: 10px; font-size: 0.75rem;">360° Available</span>
         </div>
         <div class="loc-info">
@@ -249,7 +249,7 @@
 
       <!-- Location 2 -->
       <div class="loc-card" onclick="loadTourScene('labs', this)">
-        <div class="loc-thumb" style="background-image: url('assets/images/infrastructure.jpg');">
+        <div class="loc-thumb" style="background-image: url('../assets/images/infrastructure.jpg');">
           <span class="tour-badge" style="position: absolute; bottom: 10px; left: 10px; font-size: 0.75rem;">360° Available</span>
         </div>
         <div class="loc-info">
@@ -260,7 +260,7 @@
 
       <!-- Location 3 -->
       <div class="loc-card" onclick="loadTourScene('auditorium', this)">
-        <div class="loc-thumb" style="background-image: url('assets/images/slide-campus-2.jpg');">
+        <div class="loc-thumb" style="background-image: url('../assets/images/slide-campus-2.jpg');">
           <span class="tour-badge" style="position: absolute; bottom: 10px; left: 10px; font-size: 0.75rem;">360° Available</span>
         </div>
         <div class="loc-info">
@@ -271,7 +271,7 @@
 
       <!-- Location 4 -->
       <div class="loc-card" onclick="loadTourScene('itcenter', this)">
-        <div class="loc-thumb" style="background-image: url('assets/images/slide-campus-3.jpg');">
+        <div class="loc-thumb" style="background-image: url('../assets/images/slide-campus-3.jpg');">
           <span class="tour-badge" style="position: absolute; bottom: 10px; left: 10px; font-size: 0.75rem;">360° Available</span>
         </div>
         <div class="loc-info">
@@ -282,7 +282,7 @@
 
       <!-- Location 5 -->
       <div class="loc-card" onclick="loadTourScene('sports', this)">
-        <div class="loc-thumb" style="background-image: url('assets/images/slide-campus-4.jpg');">
+        <div class="loc-thumb" style="background-image: url('../assets/images/slide-campus-4.jpg');">
           <span class="tour-badge" style="position: absolute; bottom: 10px; left: 10px; font-size: 0.75rem;">360° Available</span>
         </div>
         <div class="loc-info">
@@ -293,7 +293,7 @@
 
       <!-- Location 6 -->
       <div class="loc-card" onclick="loadTourScene('campus', this)">
-        <div class="loc-thumb" style="background-image: url('assets/images/slide-campus-1.jpg');">
+        <div class="loc-thumb" style="background-image: url('../assets/images/slide-campus-1.jpg');">
           <span class="tour-badge" style="position: absolute; bottom: 10px; left: 10px; font-size: 0.75rem;">360° Available</span>
         </div>
         <div class="loc-info">
@@ -307,7 +307,7 @@
   </main>
 
   <!-- Global Footer -->
-  <footer class="footer">
+  <footer class="site-footer footer">
     <div class="container footer__grid">
       <div class="footer__col">
         <img src="../assets/images/logo.png" alt="CHM College Emblem" style="max-height: 55px; margin-bottom: 15px; filter: brightness(0) invert(1);">

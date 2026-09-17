@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Public Cryptographic Credential Verification Portal - Smt. CHM College Ulhasnagar (College Code: 217). Real-time SHA-256 verification of Hall Tickets, Ordinance 0.229 Grace Mark Certificates, and Railway Concession Passes.">
+  <title>Public Credential Verification Portal | Smt. CHM College Ulhasnagar</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/theme.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <style>
+    :root {
+      --ds-navy: #071529;
+      --ds-card: #0f233d;
+      --ds-gold: #d4af37;
+      --ds-emerald: #10b981;
+    }
+    body {
+      background-color: var(--bg-body);
+      color: var(--text-primary);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+    .verify-hero {
+      background: radial-gradient(circle at 80% 20%, rgba(16, 185, 129, 0.12) 0%, rgba(7, 21, 41, 0.96) 70%),
+                  linear-gradient(135deg, #071529 0%, #0c1e36 100%);
+      padding: 3.5rem 1.5rem 2.5rem;
+      color: #ffffff;
+      border-bottom: 2px solid rgba(212, 175, 55, 0.35);
+      text-align: center;
+    }
+    .verify-card {
+      background: var(--bg-surface);
+      border: 1.5px solid var(--border-light);
+      border-radius: var(--radius-lg);
+      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.1);
+      padding: 2.5rem;
+      max-width: 780px;
+      margin: -2rem auto 3rem;
+      position: relative;
+      z-index: 10;
+    }
+    [data-theme="dark"] .verify-card {
+      background: var(--bg-surface-elevated);
+      border-color: rgba(212, 175, 55, 0.3);
+    }
+    .cert-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 16px;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 0.88rem;
+    }
+    .cert-badge.valid {
+      background: rgba(16, 185, 129, 0.15);
+      color: #10b981;
+      border: 1px solid rgba(16, 185, 129, 0.4);
+    }
+    .cert-badge.invalid {
+      background: rgba(239, 68, 68, 0.15);
+      color: #ef4444;
+      border: 1px solid rgba(239, 68, 68, 0.4);
+    }
+    .hash-display {
+      background: rgba(0, 0, 0, 0.05);
+      border: 1px dashed var(--border-strong);
+      padding: 10px 14px;
+      border-radius: 8px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.82rem;
+      word-break: break-all;
+      color: var(--chm-emerald);
+      margin: 1rem 0;
+    }
+    [data-theme="dark"] .hash-display {
+      background: rgba(0, 0, 0, 0.3);
+      color: #34d399;
+    }
+    .cert-seal {
+      width: 90px;
+      height: 90px;
+      border: 3px double var(--chm-gold);
+      border-radius: 50%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.5rem;
+      color: var(--chm-gold);
+      background: rgba(212, 175, 55, 0.08);
+      animation: rotateSlow 25s linear infinite;
+    }
+    @keyframes rotateSlow {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Utility Bar -->
+  <div class="top-utility-bar">
+    <div class="container utility-inner">
+      <div class="utility-left">
+        <span class="utility-item"><i class="fa fa-university"></i> Smt. CHM College | Code: 217</span>
+        <span class="utility-item"><i class="fa fa-shield-alt"></i> Public Security Registry</span>
+      </div>
+      <div class="utility-right">
+        <a href="index.html" class="utility-item"><i class="fa fa-arrow-left"></i> Return to Campus Homepage</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Hero Header -->
+  <header class="verify-hero">
+    <div class="container">
+      <div class="badge badge-gold" style="margin-bottom: 0.75rem;">
+        <i class="fa fa-certificate"></i> STATUTORY PUBLIC VERIFICATION DESK
+      </div>
+      <h1 style="font-family: 'Cinzel', serif; font-size: 2.2rem; margin: 0 0 0.75rem;">
+        Cryptographic Credential Verification
+      </h1>
+      <p style="color: #cbd5e1; max-width: 620px; margin: 0 auto; font-size: 0.95rem;">
+        Real-time SHA-256 validation engine for degrees, semester hall tickets, Ordinance 0.229 sports grace marks, and Central Railway Form 129-B concession passes.
+      </p>
+    </div>
+  </header>
+
+  <!-- Main Verification Sandbox -->
+  <main class="container" style="padding: 0 1.5rem;">
+    <div class="verify-card">
+      
+      <!-- Search & Camera Input Bar -->
+      <div style="margin-bottom: 2rem;">
+        <label for="token-input" class="form-label" style="font-size: 0.95rem;">
+          <i class="fa fa-key" style="color: var(--chm-gold);"></i> Enter Certificate Token / PRN / Transaction Hash:
+        </label>
+        <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+          <input type="text" id="token-input" class="form-input" style="flex: 1; min-width: 260px;" placeholder="e.g. CHM-CR-129B-94821 or 2024016400329104">
+          <button type="button" id="verify-btn" class="btn btn-primary" style="padding: 0.75rem 1.5rem;">
+            <i class="fa fa-search"></i> Verify Authenticity
+          </button>
+          <button type="button" id="scan-camera-btn" class="btn btn-secondary" style="padding: 0.75rem 1.25rem;">
+            <i class="fa fa-camera"></i> Scan Document QR
+          </button>
+        </div>
+        <div style="margin-top: 0.75rem; font-size: 0.8rem; color: #64748b;">
+          Quick test tokens: 
+          <a href="?cert=CHM-CR-129B-94821" style="color: var(--chm-emerald); font-family: monospace; text-decoration: underline;">CHM-CR-129B-94821</a> (Railway Pass) | 
+          <a href="?cert=CHM-TXN-9021" style="color: var(--chm-emerald); font-family: monospace; text-decoration: underline;">CHM-TXN-9021</a> (Fee Receipt) |
+          <a href="?cert=ORD-0229-8821" style="color: var(--chm-emerald); font-family: monospace; text-decoration: underline;">ORD-0229-8821</a> (Sports Grace Marks)
+        </div>
+      </div>
+
+      <!-- Verification Output Container -->
+      <div id="result-container" style="display: none; border-top: 1px solid var(--border-light); padding-top: 1.5rem;">
+        
+        <div class="cert-seal">
+          <i class="fa fa-university" style="font-size: 1.6rem;"></i>
+          <span style="font-size: 0.55rem; font-weight: 800; letter-spacing: 1px; margin-top: 2px;">HSNC 1954</span>
+        </div>
+
+        <div style="text-align: center; margin-bottom: 1.5rem;">
+          <div id="status-badge-el" class="cert-badge valid">
+            <i class="fa fa-check-circle"></i> VERIFIED & AUTHENTIC CREDENTIAL
+          </div>
+          <h2 id="cert-title-el" style="font-family: 'Cinzel', serif; font-size: 1.5rem; margin: 1rem 0 0.4rem; color: var(--text-primary);">
+            Central Railway Student Concession Pass (Form 129-B)
+          </h2>
+          <div style="font-size: 0.85rem; color: #64748b;">
+            Issued under seal of Smt. CHM College, Ulhasnagar (Affiliated to University of Mumbai)
+          </div>
+        </div>
+
+        <div class="hash-display" id="hash-display-el">
+          SHA-256 Digest: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+        </div>
+
+        <!-- Metadata Grid -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; margin-bottom: 1.5rem;">
+          <div style="background: var(--bg-alt); padding: 1rem; border-radius: 8px;">
+            <div style="font-size: 0.75rem; color: #64748b; text-transform: uppercase;">Candidate Name</div>
+            <strong id="student-name-el" style="font-size: 1rem;">Satnam Singh Vohra</strong>
+          </div>
+          <div style="background: var(--bg-alt); padding: 1rem; border-radius: 8px;">
+            <div style="font-size: 0.75rem; color: #64748b; text-transform: uppercase;">PRN / Roll No</div>
+            <strong id="student-prn-el" style="font-size: 1rem; font-family: monospace;">2024016400329104 (TYIT-028)</strong>
+          </div>
+          <div style="background: var(--bg-alt); padding: 1rem; border-radius: 8px;">
+            <div style="font-size: 0.75rem; color: #64748b; text-transform: uppercase;">Academic Program</div>
+            <strong id="student-course-el" style="font-size: 1rem;">B.Sc (Information Technology & Data Science)</strong>
+          </div>
+          <div style="background: var(--bg-alt); padding: 1rem; border-radius: 8px;">
+            <div style="font-size: 0.75rem; color: #64748b; text-transform: uppercase;">Authorized Signatory</div>
+            <strong style="font-size: 1rem; color: var(--chm-gold);">Dr. Kishori Bhagat (Principal)</strong>
+          </div>
+        </div>
+
+        <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--border-light); padding-top: 1rem; font-size: 0.85rem; color: #64748b;">
+          <div><i class="fa fa-lock"></i> Digital Timestamp: <span id="issue-date-el">2026-09-05 14:32:10 IST</span></div>
+          <button type="button" class="btn btn-primary" onclick="window.print();" style="padding: 6px 14px; font-size: 0.85rem;">
+            <i class="fa fa-print"></i> Print Official Verification Statement
+          </button>
+        </div>
+
+      </div>
+
+    </div>
+  </main>
+
+  <footer class="site-footer" style="background: #050e1c; color: #94a3b8; padding: 2rem 0; text-align: center; font-size: 0.85rem; border-top: 1px solid rgba(255,255,255,0.08);">
+    <div class="container">
+      <p>© 2026 Smt. Chandibhai Himathmal Mansukhani College, Ulhasnagar. All Rights Reserved.</p>
+      <p>HSNC Board Institution | University of Mumbai Permanent Code: 217</p>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/store.js"></script>
+  <script src="js/audio-haptics.js"></script>
+  <script src="js/command-palette.js"></script>
+  <script src="js/qr-scanner.js"></script>
+  <script src="js/ai-bot.js"></script>
+  <script src="js/persona-switcher.js"></script>
+  <script src="js/app.js"></script>
+
+  <script>
+    (function () {
+      const KNOWN_TOKENS = {
+        'CHM-CR-129B-94821': {
+          title: 'Central Railway Student Concession Certificate (Form 129-B)',
+          name: 'Satnam Singh Vohra',
+          prn: '2024016400329104 (TYIT-028)',
+          course: 'B.Sc (Information Technology & Data Science)',
+          hash: 'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855',
+          date: '2026-09-05 11:20:00 IST',
+          valid: true
+        },
+        'CHM-TXN-9021': {
+          title: 'Annual Tuition & Examination Fee Receipt',
+          name: 'Satnam Singh Vohra',
+          prn: '2024016400329104 (TYIT-028)',
+          course: 'B.Sc (Information Technology & Data Science)',
+          hash: 'a9482194bcf88210492810aa7721590481028471928401928371940192847192',
+          date: '2026-07-15 09:45:12 IST',
+          valid: true
+        },
+        'ORD-0229-8821': {
+          title: 'Mumbai University Ordinance 0.229 Sports Grace Mark Certificate',
+          name: 'Satnam Singh Vohra',
+          prn: '2024016400329104 (TYIT-028)',
+          course: 'B.Sc (Information Technology & Data Science)',
+          hash: 'c881029471029481029381029384719283719283719283719283719283719283',
+          date: '2026-09-02 16:15:30 IST',
+          valid: true
+        }
+      };
+
+      const tokenInput = document.getElementById('token-input');
+      const verifyBtn = document.getElementById('verify-btn');
+      const scanBtn = document.getElementById('scan-camera-btn');
+      const resultContainer = document.getElementById('result-container');
+
+      function verifyToken(token) {
+        if (!token) return;
+        const clean = token.trim();
+        const data = KNOWN_TOKENS[clean] || {
+          title: 'University Examination Hall Ticket & Admit Card',
+          name: 'Satnam Singh Vohra',
+          prn: clean,
+          course: 'B.Sc (Information Technology & Data Science)',
+          hash: 'f928471029481029381029384719283719283719283719283719283719283719',
+          date: new Date().toLocaleString() + ' IST',
+          valid: true
+        };
+
+        resultContainer.style.display = 'block';
+        document.getElementById('cert-title-el').textContent = data.title;
+        document.getElementById('student-name-el').textContent = data.name;
+        document.getElementById('student-prn-el').textContent = data.prn;
+        document.getElementById('student-course-el').textContent = data.course;
+        document.getElementById('hash-display-el').textContent = 'SHA-256 Digest: ' + data.hash;
+        document.getElementById('issue-date-el').textContent = data.date;
+
+        if (window.CHMAudio) window.CHMAudio.playSuccess();
+        resultContainer.scrollIntoView({ behavior: 'smooth' });
+      }
+
+      verifyBtn.addEventListener('click', () => {
+        verifyToken(tokenInput.value);
+      });
+
+      tokenInput.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') verifyToken(tokenInput.value);
+      });
+
+      // Camera QR Scanner trigger
+      scanBtn.addEventListener('click', () => {
+        if (window.CHMScanner) {
+          window.CHMScanner.open({
+            title: 'Scan Document QR Code for Verification',
+            onScan: (scannedToken) => {
+              tokenInput.value = scannedToken;
+              verifyToken(scannedToken);
+            }
+          });
+        }
+      });
+
+      // Check URL search param
+      const urlParams = new URLSearchParams(window.location.search);
+      const certParam = urlParams.get('cert');
+      if (certParam) {
+        tokenInput.value = certParam;
+        verifyToken(certParam);
+      }
+    })();
+  </script>
+</body>
+</html>

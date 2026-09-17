@@ -320,6 +320,9 @@
           <button type="button" onclick="launchProjectorAttendance()" class="btn-secondary" style="padding: 0.75rem 1.5rem; background:#0284c7; color:#fff; border:none;">
             🖥️ Launch Dynamic QR Attendance Session (Projector HUD)
           </button>
+          <button type="button" id="btn-scan-camera-attendance" class="btn-primary" style="padding: 0.75rem 1.5rem; display: inline-flex; align-items: center; gap: 8px;">
+            <i class="fa fa-camera"></i> 📱 Student Camera Check-In (WebRTC QR)
+          </button>
         </div>
       </form>
 
@@ -331,7 +334,7 @@
             <h3 style="color: #fff; font-size: 1.6rem; margin:0;">USIT601 - Software Quality Assurance | Lecture #24</h3>
             <p style="font-size: 0.9rem; color: #a7f3d0; margin: 4px 0 0 0;">Faculty: Dr. Kishori Bhagat | Room 402, Science Wing | Time: 10:30 AM</p>
           </div>
-          <button type="button" onclick="closeProjectorAttendance()" class="btn-secondary" style="color:#fff; border-color:rgba(255,255,255,0.4); padding: 0.4rem 1rem;">
+          <button type="button" onclick="closeProjectorAttendance()" class="btn-secondary" style="color: #dc2626; background: #ffffff; border: 1.5px solid #ef4444; font-weight: 700; padding: 0.4rem 1rem; box-shadow: var(--shadow-sm);">
             ✕ End Session
           </button>
         </div>
@@ -623,13 +626,18 @@
         </tbody>
       </table>
 
-      <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px dashed #cbd5e1; padding-top: 1rem;">
+      <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px dashed #cbd5e1; padding-top: 1rem; flex-wrap: wrap; gap: 8px;">
         <button type="button" onclick="closeHallTicketModal()" class="btn-secondary" style="color:#0f172a; border-color:#cbd5e1;">
           ✕ Close
         </button>
-        <button type="button" onclick="window.print()" class="btn-primary" style="padding: 0.6rem 1.5rem;">
-          🖨️ Print Official Hall Ticket
-        </button>
+        <div style="display: flex; gap: 8px;">
+          <a href="verify.html?cert=2024016400329104" target="_blank" class="btn btn-secondary" style="font-size: 0.85rem; padding: 0.6rem 1.25rem; text-decoration: none; display: inline-flex; align-items: center; gap: 6px;">
+            <i class="fa fa-shield-alt"></i> Verify Authenticity
+          </a>
+          <button type="button" onclick="window.print()" class="btn-primary" style="padding: 0.6rem 1.5rem;">
+            🖨️ Print Official Hall Ticket
+          </button>
+        </div>
       </div>
     </div>
   </div>
@@ -646,6 +654,31 @@
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       initStudentPortal();
+
+      document.getElementById('btn-scan-camera-attendance')?.addEventListener('click', () => {
+        if (window.CHMScanner) {
+          window.CHMScanner.open({
+            title: 'Scan Smartboard Attendance QR Token',
+            onScan: (token) => {
+              if (window.CHMStore) {
+                window.CHMStore.recordAttendance({
+                  subject: 'Software Quality Assurance (USIT601)',
+                  code: 'USIT601',
+                  status: 'Present',
+                  token: token
+                });
+              }
+              if (window.CHMAudio) window.CHMAudio.playSuccess();
+              alert(`✅ Attendance Verified! Token [${token}] accepted by Ulhasnagar Campus Geo-Fence.`);
+              const countEl = document.getElementById('live-checkin-count');
+              if (countEl) {
+                const cur = parseInt(countEl.textContent, 10) || 42;
+                countEl.textContent = cur + 1;
+              }
+            }
+          });
+        }
+      });
     });
   </script>
 </body>

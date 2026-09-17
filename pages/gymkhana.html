@@ -13,7 +13,7 @@
   <link rel="stylesheet" href="../css/responsive.css">
   <style>
     .gym-hero {
-      background: linear-gradient(135deg, rgba(15, 23, 42, 0.95), rgba(4, 120, 87, 0.9)), url('assets/images/campus.jpg') center/cover no-repeat;
+      background: linear-gradient(135deg, rgba(15, 23, 42, 0.95), rgba(4, 120, 87, 0.9)), url('../assets/images/campus.jpg') center/cover no-repeat;
       padding: 55px 0 45px;
       color: #ffffff;
       text-align: center;
@@ -296,8 +296,11 @@
             </div>
           </div>
 
-          <div style="text-align: center; margin-top: 20px;">
+          <div style="text-align: center; margin-top: 20px; display: flex; justify-content: center; gap: 10px; flex-wrap: wrap;">
             <button class="btn btn-secondary" onclick="window.print()" style="font-size: 0.8rem; padding: 6px 18px;">🖨️ Print Statutory Certificate</button>
+            <a href="verify.html?cert=ORD-0229-8821" target="_blank" class="btn btn-primary" style="font-size: 0.8rem; padding: 6px 18px; text-decoration: none; display: inline-flex; align-items: center; gap: 6px;">
+              <i class="fa fa-shield-alt"></i> Verify Authenticity
+            </a>
           </div>
         </div>
       </div>
@@ -306,7 +309,7 @@
   </main>
 
   <!-- Footer -->
-  <footer class="footer">
+  <footer class="site-footer footer">
     <div class="container footer__inner">
       <div class="footer__col">
         <h3 class="footer__title">Smt. CHM College</h3>

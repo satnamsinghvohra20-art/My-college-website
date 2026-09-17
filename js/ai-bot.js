@@ -74,6 +74,39 @@
 
   function getBotResponse(userText) {
     const cleanText = userText.toLowerCase();
+
+    // Check reactive campus store for live dynamic user questions
+    if (window.CHMStore) {
+      const state = window.CHMStore.getState();
+      const user = state.user || {};
+
+      if (cleanText.includes('my attendance') || cleanText.includes('attendance percentage') || cleanText.includes('am i defaulter')) {
+        const att = user.overallAttendance || 86.4;
+        const standing = att >= 75 ? '✅ <strong>Good Standing</strong>' : '⚠️ <strong style="color:#ef4444;">Defaulter Warning (<75%)</strong>';
+        return `📊 <strong>Your Live Attendance Record:</strong><br>• Student: <strong>${user.name}</strong> (${user.roll})<br>• Cumulative Attendance: <strong>${att}%</strong> (${standing})<br>• Ordinance 0.119 Status: ${att >= 75 ? 'Eligible for Hall Ticket' : 'Counseling Required'}<br>• Recent Logged Session: USDS601 Smartboard QR check-in.`;
+      }
+
+      if (cleanText.includes('my book') || cleanText.includes('borrowed') || cleanText.includes('library loan') || cleanText.includes('my fine')) {
+        const loans = state.libraryLoans || [];
+        if (loans.length === 0) {
+          return `📚 <strong>Library Records:</strong> You currently have no books borrowed from CHM Central Library.`;
+        }
+        const list = loans.map(b => `• <em>${b.title}</em> (Due: <strong>${b.dueDate}</strong>, Status: <span style="color:${b.status === 'Active' ? '#10b981' : '#ef4444'}">${b.status}</span>${b.fine > 0 ? `, Fine: ₹${b.fine}` : ''})`).join('<br>');
+        return `📚 <strong>Your Active Library Loans:</strong><br>${list}<br>Return books or clear fines touchlessly at the <a href='library-kiosk.html' style='color:#d4af37;text-decoration:underline;'>RFID Kiosk</a>.`;
+      }
+
+      if (cleanText.includes('who am i') || cleanText.includes('my profile') || cleanText.includes('my roll') || cleanText.includes('my prn')) {
+        return `🎓 <strong>Verified Student Profile:</strong><br>• Name: <strong>${user.name}</strong><br>• Roll No: <strong>${user.roll}</strong> | PRN: <code>${user.prn}</code><br>• Course: <strong>${user.course}</strong> (${user.year})<br>• Cumulative CGPA: <strong>${user.cgpa}</strong><br>• APAAR Academic Bank ID: <code>${user.apaarId}</code>`;
+      }
+
+      if (cleanText.includes('fee receipt') || cleanText.includes('my payment') || cleanText.includes('paid fee')) {
+        const rc = (state.feeReceipts && state.feeReceipts[0]) || null;
+        if (rc) {
+          return `💳 <strong>Fee Payment Record:</strong><br>• Receipt No: <code>${rc.id}</code><br>• Program: <strong>${rc.type}</strong><br>• Amount: <strong>₹${rc.amount.toLocaleString('en-IN')}</strong> (${rc.status})<br>• Mode: ${rc.mode} on ${rc.date}<br>Verify authenticity on our <a href='verify.html?cert=${rc.id}' style='color:#d4af37;text-decoration:underline;'>Public Verification Desk</a>.`;
+        }
+      }
+    }
+
     for (const item of KNOWLEDGE_BASE) {
       if (item.keywords.some(kw => cleanText.includes(kw))) {
         return item.response;
@@ -105,11 +138,12 @@
             <div class="bot-profile">
               <div class="bot-avatar-circle">CHM</div>
               <div>
-                <div class="bot-name">ChandiBot AI</div>
+                <div class="bot-name">ChandiBot AI <span style="font-size:0.68rem; font-weight:normal; background:rgba(16,185,129,0.25); color:#a7f3d0; padding:2px 6px; border-radius:10px; border:1px solid rgba(16,185,129,0.4); margin-left:4px;" title="Conversations are automatically preserved across all pages">💾 Auto-Saved</span></div>
                 <div class="bot-status-text">● Voice-Enabled Campus Concierge</div>
               </div>
             </div>
             <div style="display: flex; align-items: center; gap: 6px;">
+              <button type="button" class="bot-voice-btn" id="chandibot-clear-chat" title="Clear saved chat history" style="font-size:0.8rem; padding:4px 7px;">🗑️</button>
               <button type="button" class="bot-voice-btn" id="chandibot-voice-toggle" title="Toggle Voice Audio Reading (Text-to-Speech)">
                 🔈
               </button>
@@ -495,7 +529,30 @@
       micBtn.title = "Voice recognition not supported in this browser";
     }
 
-    function appendMessage(htmlContent, sender) {
+    const STORAGE_KEY = 'chm_chandibot_chat_history';
+
+    function getSavedChats() {
+      try {
+        const data = localStorage.getItem(STORAGE_KEY);
+        return data ? JSON.parse(data) : [];
+      } catch (e) {
+        return [];
+      }
+    }
+
+    function saveChatEntry(sender, htmlContent) {
+      try {
+        const chats = getSavedChats();
+        chats.push({ sender, html: htmlContent, timestamp: Date.now() });
+        // Keep last 50 messages to prevent overflow
+        if (chats.length > 50) chats.splice(0, chats.length - 50);
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(chats));
+      } catch (e) {
+        console.warn('Unable to auto-save chat to localStorage:', e);
+      }
+    }
+
+    function appendMessage(htmlContent, sender, shouldSave = true) {
       if (!msgContainer) return;
       const isSubpage = window.location.pathname.includes('/pages/');
       let processedHtml = htmlContent;
@@ -512,6 +569,40 @@
       msg.innerHTML = processedHtml;
       msgContainer.appendChild(msg);
       msgContainer.scrollTop = msgContainer.scrollHeight;
+
+      if (shouldSave) {
+        saveChatEntry(sender, htmlContent);
+      }
+    }
+
+    // Restore auto-saved chats on initialization
+    function restoreSavedChats() {
+      const saved = getSavedChats();
+      if (saved && saved.length > 0) {
+        // Clear default welcome message and reload conversation
+        msgContainer.innerHTML = '';
+        saved.forEach(entry => {
+          appendMessage(entry.html, entry.sender, false);
+        });
+      }
+    }
+    restoreSavedChats();
+
+    // Clear chat history button handler
+    const clearChatBtn = document.getElementById('chandibot-clear-chat');
+    if (clearChatBtn) {
+      clearChatBtn.onclick = () => {
+        if (confirm('Clear saved ChandiBot chat conversation?')) {
+          try {
+            localStorage.removeItem(STORAGE_KEY);
+          } catch (e) {}
+          msgContainer.innerHTML = `
+            <div class="bot-msg bot">
+              👋 Namaste! I am <strong>ChandiBot</strong>, CHM College's AI assistant. Ask me questions by typing or speaking through the microphone!
+            </div>
+          `;
+        }
+      };
     }
 
     function showTypingIndicator() {

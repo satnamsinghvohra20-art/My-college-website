@@ -143,19 +143,42 @@
     const txnId = 'TXN' + Date.now().toString().substring(3);
     const dateStr = new Date().toLocaleDateString('en-IN', { day: '2-digit', month: 'short', year: 'numeric', hour: '2-digit', minute: '2-digit' });
 
+    // Record into reactive campus store
+    if (window.CHMStore) {
+      window.CHMStore.recordFeePayment({
+        id: receiptId,
+        type: courseName,
+        amount: totalAmount,
+        mode: 'Online UPI Instant',
+        certHash: txnId
+      });
+    }
+
+    if (window.CHMAudio) {
+      window.CHMAudio.playSuccess();
+    }
+
+    const isSubpage = window.location.pathname.includes('/pages/');
+    const verifyUrl = (isSubpage ? 'verify.html' : 'verify.html') + '?cert=' + receiptId;
+
     feeDisplay.innerHTML = `
       <div style="animation: fadeIn 0.5s ease;">
-        <div style="background: #ecfdf5; border: 1px solid #10b981; border-radius: var(--radius-md); padding: 1.25rem; margin-bottom: 1.5rem; display: flex; align-items: center; justify-content: space-between;">
+        <div style="background: #ecfdf5; border: 1px solid #10b981; border-radius: var(--radius-md); padding: 1.25rem; margin-bottom: 1.5rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem;">
           <div style="display: flex; align-items: center; gap: 0.75rem;">
             <span style="font-size: 2rem;">✅</span>
             <div>
               <h4 style="color: #065f46; margin:0;">Payment Confirmed Successfully!</h4>
-              <p style="color: #047857; font-size: 0.85rem; margin:0;">Txn ID: <strong>${txnId}</strong> | Bank Ref: SBI-INB-${Math.floor(1000000000 + Math.random()*9000000000)}</p>
+              <p style="color: #047857; font-size: 0.85rem; margin:0;">Receipt No: <strong>${receiptId}</strong> | Txn: <strong>${txnId}</strong></p>
             </div>
           </div>
-          <button onclick="window.print()" class="btn-primary" style="background: #059669; color: #fff; padding: 0.5rem 1.25rem;">
-            🖨️ Print Receipt
-          </button>
+          <div style="display: flex; gap: 8px;">
+            <a href="${verifyUrl}" target="_blank" class="btn btn-secondary" style="font-size: 0.85rem; padding: 0.5rem 1rem;">
+              <i class="fa fa-shield-alt"></i> Verify Online
+            </a>
+            <button onclick="window.print()" class="btn btn-primary" style="background: #059669; color: #fff; padding: 0.5rem 1.25rem;">
+              🖨️ Print Official Receipt
+            </button>
+          </div>
         </div>
 
         <!-- PRINT READY OFFICIAL RECEIPT -->

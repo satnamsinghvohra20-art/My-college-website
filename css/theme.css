@@ -52,6 +52,33 @@
   --shadow-xl: 0 20px 40px rgba(0, 0, 0, 0.14);
   --shadow-emerald: 0 8px 25px rgba(20, 90, 50, 0.25);
   --shadow-gold: 0 8px 25px rgba(212, 175, 55, 0.25);
+  --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+
+  /* Aliases and Unified Variables for Full Cross-Page Compatibility */
+  --white: #ffffff;
+  --primary-navy: var(--chm-navy);
+  --primary-emerald: var(--chm-emerald);
+  --accent-gold: var(--chm-gold);
+  --accent-emerald: var(--chm-emerald);
+  --accent-rose: var(--chm-crimson);
+  --accent-cyan: var(--chm-accent-blue);
+  --bg-card: var(--bg-surface);
+  --card-bg: var(--bg-surface);
+  --bg-light: var(--bg-alt);
+  --bg-muted: var(--bg-alt);
+  --border-color: var(--border-light);
+  --border-gold: var(--chm-gold);
+  --text-color: var(--text-secondary);
+  --text-main: var(--text-primary);
+  --gold-solid: var(--chm-gold);
+  --gold-gradient: var(--chm-gold-gradient);
+  --rly-gold: var(--chm-gold);
+  --ds-gold: var(--chm-gold);
+  --ds-emerald: var(--chm-emerald);
+  --ds-blue: var(--chm-accent-blue);
+  --ds-purple: #7c3aed;
+  --font-mono: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
+  --slide-transition: all 0.4s ease;
 
   --radius-xs: 4px;
   --radius-sm: 8px;
@@ -100,6 +127,31 @@
   --shadow-xl: 0 24px 50px rgba(0, 0, 0, 0.7);
   --shadow-emerald: 0 8px 30px rgba(52, 211, 153, 0.15);
   --shadow-gold: 0 8px 30px rgba(252, 211, 77, 0.15);
+  --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+
+  /* Dark Mode Aliases */
+  --white: #ffffff;
+  --primary-navy: #f8fafc;
+  --primary-emerald: #34d399;
+  --accent-gold: #fcd34d;
+  --accent-emerald: #34d399;
+  --accent-rose: #f87171;
+  --accent-cyan: #38bdf8;
+  --bg-card: var(--bg-surface);
+  --card-bg: var(--bg-surface);
+  --bg-light: var(--bg-alt);
+  --bg-muted: var(--bg-alt);
+  --border-color: var(--border-light);
+  --border-gold: #fcd34d;
+  --text-color: var(--text-secondary);
+  --text-main: var(--text-primary);
+  --gold-solid: #fcd34d;
+  --gold-gradient: linear-gradient(135deg, #fcd34d 0%, #f59e0b 100%);
+  --rly-gold: #fcd34d;
+  --ds-gold: #fcd34d;
+  --ds-emerald: #34d399;
+  --ds-blue: #38bdf8;
+  --ds-purple: #a78bfa;
 }
 
 /* Accessibility Font Scale Adjustments */

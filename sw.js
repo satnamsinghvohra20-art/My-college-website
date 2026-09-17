@@ -2,11 +2,15 @@
    SMT. CHM COLLEGE - PROGRESSIVE WEB APP SERVICE WORKER (v6.0.0)
    ============================================================================== */
 
-const CACHE_NAME = 'chm-college-cache-v7';
+const CACHE_NAME = 'chm-college-cache-v8';
 const PRECACHE_ASSETS = [
   './',
   'index.html',
+  'verify.html',
+  'offline.html',
   'pages/portal.html',
+  'pages/verify.html',
+  'pages/offline.html',
   'pages/pitch-deck.html',
   'pages/curriculum-planner.html',
   'pages/railway-concession.html',
@@ -36,6 +40,11 @@ const PRECACHE_ASSETS = [
   'css/theme.css',
   'css/components.css',
   'css/responsive.css',
+  'js/store.js',
+  'js/audio-haptics.js',
+  'js/command-palette.js',
+  'js/qr-scanner.js',
+  'js/i18n.js',
   'js/app.js',
   'js/ai-bot.js',
   'js/student-portal.js',
@@ -103,8 +112,8 @@ self.addEventListener('fetch', event => {
         return networkResponse;
       }).catch(() => {
         // Offline fallback for navigation requests
-        if (event.request.headers.get('accept').includes('text/html')) {
-          return caches.match('index.html');
+        if (event.request.headers.get('accept') && event.request.headers.get('accept').includes('text/html')) {
+          return caches.match('offline.html').then(res => res || caches.match('index.html'));
         }
       });
     })

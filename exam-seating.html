@@ -743,6 +743,9 @@
           <button class="btn-action btn-gold" onclick="performSeatSearch()">
             Search Desk
           </button>
+          <button type="button" class="btn-action btn-navy" onclick="scanHallTicketWithCamera()" style="display: inline-flex; align-items: center; gap: 6px;">
+            <i class="fa fa-camera"></i> Scan Ticket QR
+          </button>
         </div>
         <div style="font-size: 0.8rem; color: #94a3b8;">
           <i class="fa-solid fa-circle-info"></i> Interleaving: <strong>Checkerboard Matrix</strong> (0% Adjacent Subject Collision)
@@ -1029,6 +1032,19 @@
         if (node) {
           node.scrollIntoView({ behavior: 'smooth', block: 'center' });
         }
+      }
+    }
+
+    function scanHallTicketWithCamera() {
+      if (window.CHMScanner) {
+        window.CHMScanner.open({
+          title: 'Scan Student Hall Ticket / Admit Card QR',
+          onScan: (token) => {
+            const input = document.getElementById('seat-search-input');
+            if (input) input.value = token;
+            performSeatSearch();
+          }
+        });
       }
     }
 

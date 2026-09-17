@@ -10,6 +10,7 @@
     "generate:ppt": "python scripts/generate_ppt.py",
     "generate:pdf": "python scripts/generate_pdf_report.py",
     "generate:all": "python scripts/generate_ppt.py && python scripts/generate_pdf_report.py",
+    "export:chat": "python scripts/export_antigravity_chat.py",
     "deploy:vercel": "npx vercel --prod",
     "deploy:gh-pages": "git push origin main && git push -f origin main:gh-pages"
   },

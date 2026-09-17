@@ -39,6 +39,7 @@
       links: [
         { label: '📊 Board Pitch Deck', url: 'pitch-deck.html' },
         { label: '📄 Commercial Proposal', url: 'PROPOSAL.md' },
+        { label: '🛡️ Public Credential Verification', url: 'verify.html' },
         { label: '🎯 NEP 2020 Matrix', url: 'curriculum-planner.html' },
         { label: '⚖️ SGRC & Grievance', url: 'grievance.html' },
         { label: '🏛️ Sindhi Heritage Archive', url: 'sindhi-heritage.html' },
@@ -56,6 +57,7 @@
       description: 'Full student lifecycle: 86.4% attendance gauge, 3D flip smart ID, NEP timetable matrix, and digital railway pass.',
       links: [
         { label: '🎓 Student Portal ERP', url: 'portal.html' },
+        { label: '🛡️ Credential Verification Desk', url: 'verify.html' },
         { label: '📚 RFID Library Kiosk', url: 'library-kiosk.html' },
         { label: '🏃 Sports & Gymkhana Hub', url: 'gymkhana.html' },
         { label: '🚆 Central Railway Pass', url: 'railway-concession.html' },
@@ -123,6 +125,7 @@
       description: 'Campus hiring hub: ₹12.5 LPA package metrics, student skill verification, alumni job referral exchange, and interview drive booking.',
       links: [
         { label: '💼 Corporate Placement Hub', url: 'placement.html' },
+        { label: '🛡️ Candidate Degree Verification', url: 'verify.html' },
         { label: '🤝 Alumni Job Referral Board', url: 'alumni-jobs.html' },
         { label: '🌟 Alumni Wall of Fame', url: 'alumni.html' }
       ]
@@ -483,12 +486,17 @@
   function selectPersona(id) {
     activePersonaId = id;
     localStorage.setItem('chm_active_persona', id);
+    if (window.CHMStore) {
+      window.CHMStore.setState(s => { s.settings.activePersona = id; });
+    }
+    if (window.CHMAudio) window.CHMAudio.playClick();
     renderPersonas();
   }
 
   // Toggle Handlers
   toggleBtn.addEventListener('click', () => {
     drawer.classList.toggle('open');
+    if (window.CHMAudio) window.CHMAudio.playClick();
   });
 
   closeBtn.addEventListener('click', (e) => {

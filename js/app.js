@@ -3,6 +3,33 @@
    ========================================================================== */
 
 (function () {
+  'use strict';
+
+  // Auto-inject core next-gen modules if not present in the HTML head
+  function ensureNextGenModules() {
+    const isSubpage = window.location.pathname.includes('/pages/');
+    const prefix = isSubpage ? '../js/' : 'js/';
+
+    const modules = [
+      { name: 'CHMStore', path: 'store.js' },
+      { name: 'CHMAudio', path: 'audio-haptics.js' },
+      { name: 'CHMCommandPalette', path: 'command-palette.js' },
+      { name: 'CHMScanner', path: 'qr-scanner.js' },
+      { name: 'CHMI18n', path: 'i18n.js' }
+    ];
+
+    modules.forEach(mod => {
+      if (!window[mod.name] && !document.querySelector(`script[src*="${mod.path}"]`)) {
+        const s = document.createElement('script');
+        s.src = prefix + mod.path;
+        s.async = false;
+        document.head.appendChild(s);
+      }
+    });
+  }
+
+  ensureNextGenModules();
+
   document.addEventListener('DOMContentLoaded', () => {
     initThemeToggle();
     initFontResizer();
@@ -399,7 +426,8 @@
   // PWA Service Worker Registration
   if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
-      navigator.serviceWorker.register('./sw.js')
+      const swPath = window.location.pathname.includes('/pages/') ? '../sw.js' : './sw.js';
+      navigator.serviceWorker.register(swPath)
         .then(reg => console.log('CHM PWA Service Worker Registered:', reg.scope))
         .catch(err => console.log('Service Worker Registration notice:', err));
     });

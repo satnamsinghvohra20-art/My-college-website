@@ -13,7 +13,7 @@
   <link rel="stylesheet" href="../css/responsive.css">
   <style>
     .kiosk-hero {
-      background: linear-gradient(135deg, rgba(7, 21, 41, 0.95), rgba(15, 42, 74, 0.92)), url('assets/images/library.jpg') center/cover no-repeat;
+      background: linear-gradient(135deg, rgba(7, 21, 41, 0.95), rgba(15, 42, 74, 0.92)), url('../assets/images/library.jpg') center/cover no-repeat;
       padding: 50px 0 40px;
       color: #ffffff;
       text-align: center;
@@ -451,7 +451,7 @@
   </main>
 
   <!-- Footer -->
-  <footer class="footer">
+  <footer class="site-footer footer">
     <div class="container footer__inner">
       <div class="footer__col">
         <h3 class="footer__title">Smt. CHM College</h3>
@@ -524,11 +524,31 @@
     }
 
     function simulateCardScan() {
-      alert("✅ Smart Card Detected via NFC reader!\nPRN: 2024016400984512\nStudent: Satnam Singh (No Active Hold)");
+      if (window.CHMScanner) {
+        window.CHMScanner.open({
+          title: 'Scan Student Smart Card Barcode',
+          onScan: (barcode) => {
+            if (window.CHMAudio) window.CHMAudio.playSuccess();
+            alert(`✅ Smart Card Detected via Camera!\nPRN: 2024016400984512\nStudent: Satnam Singh (No Active Hold)`);
+          }
+        });
+      } else {
+        alert("✅ Smart Card Detected via NFC reader!\nPRN: 2024016400984512\nStudent: Satnam Singh (No Active Hold)");
+      }
     }
 
     function simulateBarcodeScan() {
-      alert("📡 RFID Tag Scanned!\nBook Tag ID verified on RF Tray #3.");
+      if (window.CHMScanner) {
+        window.CHMScanner.open({
+          title: 'Scan Book RFID / Barcode via Camera',
+          onScan: (barcode) => {
+            if (window.CHMAudio) window.CHMAudio.playSuccess();
+            alert(`📡 RFID / Barcode Detected: [${barcode}]\nBook Tag ID verified on RF Tray #3.`);
+          }
+        });
+      } else {
+        alert("📡 RFID Tag Scanned!\nBook Tag ID verified on RF Tray #3.");
+      }
     }
 
     function issueBookAction() {
@@ -539,7 +559,20 @@
       const options = { day: '2-digit', month: 'short', year: 'numeric' };
       document.getElementById('recDateTime').textContent = now.toLocaleDateString('en-GB', options) + ' ' + now.toLocaleTimeString();
       document.getElementById('recDueDate').textContent = dueDate.toLocaleDateString('en-GB', options);
-      document.getElementById('recTxId').textContent = 'CHM-LIB-2026-' + Math.floor(1000 + Math.random() * 9000);
+      const txId = 'CHM-LIB-2026-' + Math.floor(1000 + Math.random() * 9000);
+      document.getElementById('recTxId').textContent = txId;
+
+      // Sync with reactive campus store
+      if (window.CHMStore) {
+        window.CHMStore.addLibraryLoan({
+          title: 'Introduction to Data Mining & Predictive Analytics',
+          author: 'Tan, Steinbach, Kumar',
+          rfidTag: 'RFID-5521-DM',
+          dueDate: dueDate.toISOString().split('T')[0]
+        });
+      }
+
+      if (window.CHMAudio) window.CHMAudio.playSuccess();
       
       alert("🎉 Checkout Successful!\nDigital issue receipt generated.\nPlease collect your printed voucher.");
     }

@@ -20,7 +20,7 @@
     }
 
     .rly-hero {
-      background: linear-gradient(135deg, rgba(7, 21, 41, 0.95), rgba(128, 0, 0, 0.9)), url('assets/images/slide-campus-1.jpg') center/cover no-repeat;
+      background: linear-gradient(135deg, rgba(7, 21, 41, 0.95), rgba(128, 0, 0, 0.9)), url('../assets/images/slide-campus-1.jpg') center/cover no-repeat;
       padding: 55px 0 45px;
       color: #fff;
       text-align: center;
@@ -499,9 +499,12 @@
   <!-- MODAL: PRINTABLE CONCESSION ORDER (FORM 129-B) -->
   <div class="modal-backdrop" id="concessionModal" style="display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.7); z-index: 9999; align-items: center; justify-content: center; padding: 20px; overflow-y: auto;">
     <div style="max-width: 850px; width: 100%; background: transparent;">
-      <div style="text-align: right; margin-bottom: 10px;">
-        <button type="button" onclick="closeConcessionModal()" style="background: #fff; border: none; padding: 8px 16px; border-radius: 6px; font-weight: 700; cursor: pointer;">✕ Close</button>
-        <button type="button" onclick="window.print()" style="background: #d4af37; color: #071529; border: none; padding: 8px 20px; border-radius: 6px; font-weight: 800; cursor: pointer; margin-left: 8px;">🖨️ Print Form 129-B</button>
+      <div style="text-align: right; margin-bottom: 10px; display: flex; justify-content: flex-end; gap: 8px; flex-wrap: wrap;">
+        <button type="button" onclick="closeConcessionModal()" class="btn btn-secondary" style="border: none; padding: 8px 16px; border-radius: 6px; font-weight: 700; cursor: pointer;">✕ Close</button>
+        <a href="verify.html?cert=CHM-CR-129B-94821" target="_blank" class="btn btn-secondary" style="padding: 8px 16px; font-weight: 700; text-decoration: none; display: inline-flex; align-items: center; gap: 6px;">
+          <i class="fa fa-shield-alt"></i> Verify Authenticity
+        </a>
+        <button type="button" onclick="window.print()" class="btn-primary" style="padding: 8px 20px; border: none; font-weight: 800; cursor: pointer;">🖨️ Print Form 129-B</button>
       </div>
 
       <div class="concession-sheet" id="printArea">

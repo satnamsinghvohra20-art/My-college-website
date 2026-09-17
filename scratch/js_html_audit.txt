@@ -1,0 +1,533 @@
+
+=================================================================
+FILE: js\admission.js (found 2 assignments)
+=================================================================
+
+--- Snippet #1 ---
+innerHTML = `
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+        <h4 style="color: var(--text-primary); margin:0;">${course.name}</h4>
+        <span class="ticker-tag ${probability >= 70 ? 'admissions' : 'urgent'}">${probability}% Match</span>
+      </div>
+      <p style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 0.5rem;">
+        Baseline Cutoff Estimate for <strong>${category.toUpperCase()}</strong>: <strong>${threshold}%</strong> | Your Score: <strong>${marks}%</strong>
+      </p>
+      <div class="probability-meter">
+        <div class="probability-fill ${statusClass}" style="width: ${probability}%;"></div>
+      </div>
+      <div style="display: flex; justify-content: space-between; font-size: 0.82rem; margin-top: 0.5rem; font-weight: 600;">
+        <span style="color: ${probability >= 70 ? '#10b981' : '#f59e0b'};">${statusText}</span>
+        <span style="color: var(--chm-emerald);">${roundExpected}</span>
+      </div>
+      <div style="margin-top: 1.25rem; display: flex; gap: 0.75rem; flex-wrap: wrap;">
+        <a href="admission.html?course=${courseKey}" class="btn-primary" style="padding: 0.5rem 1.25rem; font-size: 0.85rem;">
+          Proceed to Digital Application →
+        </a>
+        <a href="fee-payment.html" class="btn-secondary" style="padding: 0.5rem 1.25rem; font-size: 0.85rem; color: var(--text-primary); border-color: var(--border-strong);">
+          View Fee Structure
+        </a>
+      </div>
+    `
+
+--- Snippet #2 ---
+innerHTML = `
+          <div class="admission-slip-card" style="background:#fff; border: 2px solid var(--chm-gold); border-radius: 12px; padding: 2rem; color: #0f172a; box-shadow: var(--shadow-lg);">
+            <div style="text-align: center; border-bottom: 2px solid #145a32; padding-bottom: 1rem; margin-bottom: 1.5rem;">
+              <h3 style="color: #145a32; font-family: var(--font-display); margin-bottom: 4px;">SMT. CHANDIBAI HIMATHMAL MANSUKHANI COLLEGE</h3>
+              <p style="font-size: 0.8rem; color: #64748b;">Opp. Ulhasnagar Railway Station, Ulhasnagar-421003 | Re-Accredited 'A' Grade by NAAC</p>
+              <div style="display:inline-block; margin-top:8px; background: #dcfce7; color: #166534; font-weight:800; font-size:0.85rem; padding: 4px 12px; border-radius: 20px;">
+                PROVISIONAL ADMISSION ACKNOWLEDGMENT 2026-27
+              </div>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; font-size: 0.9rem; margin-bottom: 1.5rem;">
+              <div><strong>Application No:</strong> <span style="color: #145a32; font-family: monospace; font-size: 1.05rem;">${appNumber}</span></div>
+              <div><strong>Date of Submission:</strong> <span>${new Date().toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' })}</span></div>
+              <div><strong>Candidate Name:</strong> <span>${name}</span></div>
+              <div><strong>Program Applied:</strong> <span style="font-weight:700; color:#b45309;">${course}</span></div>
+              <div><strong>Category:</strong> <span>${category}</span></div>
+              <div><strong>Qualifying Marks:</strong> <span>${percentage}%</span></div>
+              <div><strong>Contact Mobile:</strong> <span>${phone}</span></div>
+              <div><strong>Email:</strong> <span>${email}</span></div>
+            </div>
+
+            <div style="background: #f8fafc; border-left: 4px solid var(--chm-gold); padding: 1rem; border-radius: 6px; font-size: 0.85rem; margin-bottom: 1.5rem;">
+              <strong>Important Next Step:</strong> Please report to the CHM College Central Auditorium on <strong>16th June 2026 at 10:30 AM</strong> with 2 self-attested sets of HSC marksheets, Leaving Certificate, and this printed acknowledgment slip for physical document verification.
+            </div>
+
+            <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px dashed #cbd5e1; padding-top: 1rem;">
+              <div style="font-size: 0.75rem; color: #64748b;">
+                Digitally verified by CHM Admission Management System<br>
+                Security Hash: SHA256-${Math.random().toString(36).substring(2, 12).toUpperCase()}
+              </div>
+              <button onclick="window.print()" class="btn-primary" style="padding: 0.6rem 1.25rem; font-size: 0.85rem;">
+                🖨️ Print Official Slip
+              </button>
+            </div>
+          </div>
+        `
+
+=================================================================
+FILE: js\ai-bot.js (found 4 assignments)
+=================================================================
+
+--- Snippet #1 ---
+innerHTML = `
+        <button type="button" class="chandibot-launcher" id="chandibot-launcher" aria-label="Open ChandiBot AI Campus Assistant" title="ChandiBot AI Campus Concierge">
+          <span class="chandibot-online-ping"></span>
+          🤖
+        </button>
+
+        <div class="chandibot-window" id="chandibot-window">
+          <div class="bot-header">
+            <div class="bot-profile">
+              <div class="bot-avatar-circle">CHM</div>
+              <div>
+                <div class="bot-name">ChandiBot AI <span style="font-size:0.68rem; font-weight:normal; background:rgba(16,185,129,0.25); color:#a7f3d0; padding:2px 6px; border-radius:10px; border:1px solid rgba(16,185,129,0.4); margin-left:4px;" title="Conversations are automatically preserved across all pages">💾 Auto-Saved</span></div>
+                <div class="bot-status-text">● Voice-Enabled Campus Concierge</div>
+              </div>
+            </div>
+            <div style="display: flex; align-items: center; gap: 6px;">
+              <button type="button" class="bot-voice-btn" id="chandibot-clear-chat" title="Clear saved chat history" style="font-size:0.8rem; padding:4px 7px;">🗑️</button>
+              <button type="button" class="bot-voice-btn" id="chandibot-voice-toggle" title="Toggle Voice Audio Reading (Text-to-Speech)">
+                🔈
+              </button>
+              <button type="button" class="bot-close-btn" id="chandibot-close" aria-label="Close Assistant">✕</button>
+            </div>
+          </div>
+
+          <div class="bot-messages" id="chandibot-messages">
+            <div class="bot-msg bot">
+              👋 Namaste! I am <strong>ChandiBot</strong>, CHM College's AI assistant. Ask me questions by typing or speaking through the microphone!
+            </div>
+          </div>
+
+          <div class="bot-quick-chips">
+            <button type="button" class="chip-btn" data-prompt="How do I use the Library RFID Self-Checkout Kiosk?">📚 Library RFID</button>
+            <button type="button" class="chip-btn" data-prompt="Tell me about Sindhi Cultural Heritage and Fellowships">🏛️ Sindhi Heritage</button>
+            <button type="button" class="chip-btn" data-prompt="How can I get Ordinance 0.229 Sports Grace Marks?">🏃 Sports & Grace Marks</button>
+            <button type="button" class="chip-btn" data-prompt="How do I get a Central Railway Student Concession Pass?">🚆 Railway Pass</button>
+            <button type="button" class="chip-btn" data-prompt="How do I apply for FYBSc-IT admission?">📝 Admissions 2026</button>
+            <button type="button" class="chip-btn" data-prompt="What are the fee payment options and refund rules?">💳 Fees & Payment</button>
+          </div>
+
+          <div class="bot-input-area">
+            <button type="button" id="chandibot-mic-btn" class="bot-mic-btn" title="Click to Speak (Voice Input)">
+              🎤
+            </button>
+            <input type="text" id="chandibot-input" class="bot-input" placeholder="Type or click 🎤 to speak...">
+            <button type="button" id="chandibot-send" class="bot-send-btn" aria-label="Send query">➤</button>
+          </div>
+        </div>
+      `
+
+--- Snippet #2 ---
+innerHTML = ''
+
+--- Snippet #3 ---
+innerHTML = `
+            <div class="bot-msg bot">
+              👋 Namaste! I am <strong>ChandiBot</strong>, CHM College's AI assistant. Ask me questions by typing or speaking through the microphone!
+            </div>
+          `
+
+--- Snippet #4 ---
+innerHTML = '<span style="font-style:italic;color:#64748b;">ChandiBot is typing...</span>'
+
+=================================================================
+FILE: js\app.js (found 8 assignments)
+=================================================================
+
+--- Snippet #1 ---
+innerHTML = '☀️ Light'
+
+--- Snippet #2 ---
+innerHTML = '🌙 Dark'
+
+--- Snippet #3 ---
+innerHTML = '☀️ Light'
+
+--- Snippet #4 ---
+innerHTML = `
+        <div style="background: var(--bg-surface); border: 1px solid var(--border-light); border-radius: var(--radius-md); padding: 1.25rem; margin-top: 1rem;">
+          <div style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.75rem;">
+            Found <strong>${matches.length}</strong> matching records in CHM Central Library collection:
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+            ${matches.map(b => `
+
+--- Snippet #5 ---
+innerHTML = `
+          <div style="background: #eff6ff; border: 1px solid #3b82f6; border-radius: 8px; padding: 1.25rem; color: #1e3a8a; margin-top: 1rem;">
+            <div style="font-size: 1.1rem; font-weight: 700; margin-bottom: 0.25rem;">✅ Grievance Registered Successfully</div>
+            <p style="font-size: 0.88rem; margin-bottom: 0.5rem;">Your Tracking Token is: <strong style="font-family: monospace; font-size: 1.1rem; color: #1d4ed8;">${token}</strong></p>
+            <p style="font-size: 0.82rem; color: #3b82f6; margin:0;">
+              This grievance has been encrypted and routed confidentially to the <strong>CHM Grievance Redressal Committee & Principal's Cell</strong>. You will receive an update within 48 business hours.
+            </p>
+          </div>
+        `
+
+--- Snippet #6 ---
+innerHTML = 'ज्ञानातून सक्षमीकरण, <span>उज्ज्वल भविष्याची निर्मिती</span>'
+
+--- Snippet #7 ---
+innerHTML = 'Empowering Minds, <span>Inspiring Futures</span> at Smt. CHM College'
+
+--- Snippet #8 ---
+innerHTML = `
+          <div style="animation: fadeIn 0.3s ease;">
+            <span class="ticker-tag admissions" style="margin-bottom: 0.5rem; display:inline-block;">${data.type}</span>
+            <h3 style="color: var(--text-primary); font-size: 1.4rem; margin: 0 0 0.5rem 0;">${data.title}</h3>
+            <p style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 1.25rem;">${data.desc}</p>
+            
+            <div style="margin-bottom: 1.25rem; border-radius: 10px; overflow: hidden; height: 170px;">
+              <img src="${data.img}" alt="${data.title}" style="width: 100%; height: 100%; object-fit: cover;">
+            </div>
+
+            <h4 style="font-size: 0.9rem; color: var(--chm-emerald); margin-bottom: 0.5rem;">Key Facilities & Features:</h4>
+            <ul style="list-style: none; font-size: 0.82rem; display: flex; flex-direction: column; gap: 0.4rem; margin-bottom: 1.25rem;">
+              ${data.specs.map(s => `
+
+=================================================================
+FILE: js\exam-portal.js (found 1 assignments)
+=================================================================
+
+--- Snippet #1 ---
+innerHTML = `
+      <div style="background: #ffffff; color: #0f172a; border: 2px solid #145a32; border-radius: 12px; padding: 2.5rem; max-width: 850px; margin: 2rem auto; box-shadow: var(--shadow-xl); position: relative;">
+        <div style="text-align: center; border-bottom: 2px solid #145a32; padding-bottom: 1rem; margin-bottom: 1.5rem;">
+          <div style="font-size: 0.85rem; font-weight: 700; color: #c59b27;">UNIVERSITY OF MUMBAI & SMT. CHM COLLEGE</div>
+          <h2 style="font-family: var(--font-display); color: #145a32; font-size: 1.5rem; margin: 4px 0;">PROVISIONAL STATEMENT OF MARKS / GRADES</h2>
+          <div style="font-size: 0.82rem; color: #64748b;">${record.course} | ${record.examDate}</div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; font-size: 0.88rem; margin-bottom: 1.5rem; background: #f8fafc; padding: 1rem; border-radius: 8px;">
+          <div><strong>Candidate Name:</strong> <span>${record.name}</span></div>
+          <div><strong>Seat Number:</strong> <span style="color: #145a32; font-weight:700;">${record.seat}</span></div>
+          <div><strong>PRN:</strong> <span>${prn || '2024016400329104'}</span></div>
+          <div><strong>College:</strong> <span>${record.college}</span></div>
+        </div>
+
+        <table style="width: 100%; border-collapse: collapse; font-size: 0.85rem; margin-bottom: 1.5rem;">
+          <thead>
+            <tr style="background: #e2e8f0; text-align: left; border: 1px solid #cbd5e1;">
+              <th style="padding: 0.5rem 0.75rem;">Subject Name</th>
+              <th style="padding: 0.5rem 0.75rem; text-align: center;">Credits</th>
+              <th style="padding: 0.5rem 0.75rem; text-align: center;">Internal (25)</th>
+              <th style="padding: 0.5rem 0.75rem; text-align: center;">External (75)</th>
+              <th style="padding: 0.5rem 0.75rem; text-align: center;">Total (100)</th>
+              <th style="padding: 0.5rem 0.75rem; text-align: center;">Grade Point</th>
+              <th style="padding: 0.5rem 0.75rem; text-align: right;">Credit Point</th>
+            </tr>
+          </thead>
+          <tbody>
+            ${record.marks.map(m => `
+
+=================================================================
+FILE: js\fee-system.js (found 2 assignments)
+=================================================================
+
+--- Snippet #1 ---
+innerHTML = `
+      <div class="fee-card-header" style="background: var(--bg-surface-elevated); border: 2px solid var(--chm-gold); border-radius: var(--radius-lg); padding: 2rem; box-shadow: var(--shadow-lg);">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 1rem; border-bottom: 1px solid var(--border-light); padding-bottom: 1.25rem; margin-bottom: 1.5rem;">
+          <div>
+            <span class="ticker-tag admissions" style="margin-bottom: 0.5rem; display: inline-block;">Fee Voucher 2026-27</span>
+            <h3 style="color: var(--text-primary); margin:0;">${fee.name}</h3>
+            <p style="font-size: 0.88rem; color: var(--text-muted); margin-top: 4px;">Student: <strong>${studentName}</strong> | Roll: <strong>${rollNo}</strong> | PRN: <strong>${prn}</strong></p>
+          </div>
+          <div style="text-align: right;">
+            <div style="font-size: 0.8rem; color: var(--text-muted);">Total Payable Amount</div>
+            <div style="font-family: var(--font-display); font-size: 2.2rem; font-weight: 800; color: var(--chm-emerald);">₹${fee.total.toLocaleString('en-IN')}</div>
+          </div>
+        </div>
+
+        <table style="width: 100%; border-collapse: collapse; font-size: 0.9rem; margin-bottom: 2rem;">
+          <thead>
+            <tr style="background: var(--bg-alt); text-align: left; border-bottom: 2px solid var(--border-strong);">
+              <th style="padding: 0.75rem 1rem;">Particulars / Fee Head</th>
+              <th style="padding: 0.75rem 1rem; text-align: right;">Amount (₹)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="border-bottom: 1px solid var(--border-light);"><td style="padding: 0.65rem 1rem;">Tuition Fees</td><td style="padding: 0.65rem 1rem; text-align: right;">₹${fee.tuition.toLocaleString('en-IN')}</td></tr>
+            <tr style="border-bottom: 1px solid var(--border-light);"><td style="padding: 0.65rem 1rem;">Laboratory & Computer Practical Fees</td><td style="padding: 0.65rem 1rem; text-align: right;">₹${fee.lab.toLocaleString('en-IN')}</td></tr>
+            <tr style="border-bottom: 1px solid var(--border-light);"><td style="padding: 0.65rem 1rem;">Library Caution Deposit & Access</td><td style="padding: 0.65rem 1rem; text-align: right;">₹${fee.library.toLocaleString('en-IN')}</td></tr>
+            <tr style="border-bottom: 1px solid var(--border-light);"><td style="padding: 0.65rem 1rem;">Gymkhana & Sports Activity Fund</td><td style="padding: 0.65rem 1rem; text-align: right;">₹${fee.gymkhana.toLocaleString('en-IN')}</td></tr>
+            <tr style="border-bottom: 1px solid var(--border-light);"><td style="padding: 0.65rem 1rem;">Semester Examination & Marks Sheet Fee</td><td style="padding: 0.65rem 1rem; text-align: right;">₹${fee.exam.toLocaleString('en-IN')}</td></tr>
+            <tr style="border-bottom: 1px solid var(--border-light);"><td style="padding: 0.65rem 1rem;">University Welfare & Disaster Management Fund</td><td style="padding: 0.65rem 1rem; text-align: right;">₹${fee.other.toLocaleString('en-IN')}</td></tr>
+            <tr style="font-weight: 800; background: var(--bg-alt);"><td style="padding: 0.85rem 1rem; color: var(--text-primary);">Total Academic Fees Payable</td><td style="padding: 0.85rem 1rem; text-align: right; color: var(--chm-emerald); font-size: 1.1rem;">₹${fee.total.toLocaleString('en-IN')}</td></tr>
+          </tbody>
+        </table>
+
+        <!-- Payment Mode Selector -->
+        <div style="background: var(--bg-alt); padding: 1.5rem; border-radius: var(--radius-md); margin-bottom: 2rem;">
+          <h4 style="margin-bottom: 1rem; font-size: 1rem;">Select Payment Method</h4>
+          <div style="display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 1.5rem;">
+            <label style="display: inline-flex; align-items: center; gap: 0.5rem; cursor: pointer; background: var(--bg-surface); padding: 0.75rem 1.25rem; border-radius: 8px; border: 1px solid var(--border-strong);">
+              <input type="radio" name="pay-method" value="upi" checked> 📱 Instant UPI (GPay/PhonePe/Paytm)
+            </label>
+            <label style="display: inline-flex; align-items: center; gap: 0.5rem; cursor: pointer; background: var(--bg-surface); padding: 0.75rem 1.25rem; border-radius: 8px; border: 1px solid var(--border-strong);">
+              <input type="radio" name="pay-method" value="card"> 💳 Debit / Credit Card
+            </label>
+            <label style="display: inline-flex; align-items: center; gap: 0.5rem; cursor: pointer; background: var(--bg-surface); padding: 0.75rem 1.25rem; border-radius: 8px; border: 1px solid var(--border-strong);">
+              <input type="radio" name="pay-method" value="netbanking"> 🏦 Net Banking (All Indian Banks)
+            </label>
+          </div>
+
+          <div id="upi-qr-box" style="text-align: center; padding: 1rem; background: #ffffff; border-radius: 8px; max-width: 300px; margin: 0 auto; color: #000; box-shadow: var(--shadow-sm);">
+            <div style="font-size: 0.85rem; font-weight: 700; color: #145a32; margin-bottom: 0.5rem;">Scan & Pay with any UPI App</div>
+            <svg style="width: 170px; height: 170px; margin: 0 auto; display:block;" viewBox="0 0 100 100">
+              <rect width="100" height="100" fill="#ffffff" />
+              <!-- QR Patterns -->
+              <rect x="10" y="10" width="25" height="25" fill="#000" />
+              <rect x="15" y="15" width="15" height="15" fill="#fff" />
+              <rect x="18" y="18" width="9" height="9" fill="#000" />
+              
+              <rect x="65" y="10" width="25" height="25" fill="#000" />
+              <rect x="70" y="15" width="15" height="15" fill="#fff" />
+              <rect x="73" y="18" width="9" height="9" fill="#000" />
+
+              <rect x="10" y="65" width="25" height="25" fill="#000" />
+              <rect x="15" y="70" width="15" height="15" fill="#fff" />
+              <rect x="18" y="73" width="9" height="9" fill="#000" />
+
+              <rect x="45" y="15" width="10" height="10" fill="#000" />
+              <rect x="42" y="35" width="16" height="30" fill="#145a32" />
+              <rect x="65" y="55" width="20" height="35" fill="#000" />
+              <rect x="25" y="45" width="12" height="12" fill="#000" />
+            </svg>
+            <div style="font-size: 0.75rem; color: #64748b; margin-top: 0.5rem;">UPI ID: chmcollege.hsnc@sbi</div>
+          </div>
+        </div>
+
+        <div style="text-align: center;">
+          <button onclick="simulatePaymentSuccess('${studentName}', '${fee.name}', ${fee.total}, '${rollNo}', '${prn}')" class="btn-primary" style="padding: 1rem 2.5rem; font-size: 1.05rem;">
+            Simulate Instant Payment & Generate Official Receipt 🚀
+          </button>
+        </div>
+      </div>
+    `
+
+--- Snippet #2 ---
+innerHTML = `
+      <div style="animation: fadeIn 0.5s ease;">
+        <div style="background: #ecfdf5; border: 1px solid #10b981; border-radius: var(--radius-md); padding: 1.25rem; margin-bottom: 1.5rem; display: flex; align-items: center; justify-content: space-between;">
+          <div style="display: flex; align-items: center; gap: 0.75rem;">
+            <span style="font-size: 2rem;">✅</span>
+            <div>
+              <h4 style="color: #065f46; margin:0;">Payment Confirmed Successfully!</h4>
+              <p style="color: #047857; font-size: 0.85rem; margin:0;">Txn ID: <strong>${txnId}</strong> | Bank Ref: SBI-INB-${Math.floor(1000000000 + Math.random()*9000000000)}</p>
+            </div>
+          </div>
+          <button onclick="window.print()" class="btn-primary" style="background: #059669; color: #fff; padding: 0.5rem 1.25rem;">
+            🖨️ Print Receipt
+          </button>
+        </div>
+
+        <!-- PRINT READY OFFICIAL RECEIPT -->
+        <div id="printable-receipt" style="background: #ffffff; color: #0f172a; border: 3px double #145a32; border-radius: 12px; padding: 2.5rem; max-width: 800px; margin: 0 auto; box-shadow: var(--shadow-xl); position: relative;">
+          
+          <!-- Watermark Background -->
+          <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%) rotate(-30deg); font-size: 5rem; font-weight: 900; color: rgba(20, 90, 50, 0.04); pointer-events: none; white-space: nowrap; font-family: var(--font-display);">
+            CHM COLLEGE PAID
+          </div>
+
+          <div style="text-align: center; border-bottom: 2px solid #145a32; padding-bottom: 1.25rem; margin-bottom: 1.5rem;">
+            <div style="font-size: 0.8rem; font-weight: 700; color: #c59b27; letter-spacing: 0.08em; text-transform: uppercase;">
+              HYDERABAD (SIND) NATIONAL COLLEGIATE BOARD
+            </div>
+            <h2 style="font-family: var(--font-display); color: #145a32; font-size: 1.6rem; margin: 0.25rem 0;">
+              SMT. CHANDIBAI HIMATHMAL MANSUKHANI COLLEGE
+            </h2>
+            <p style="font-size: 0.8rem; color: #64748b; margin: 0;">
+              Opposite Ulhasnagar Railway Station, Ulhasnagar - 421003, Maharashtra<br>
+              Re-Accredited with 'A' Grade by NAAC | Affiliated to University of Mumbai
+            </p>
+            <div style="display: inline-block; margin-top: 0.5rem; background: #145a32; color: #ffffff; font-size: 0.82rem; font-weight: 700; padding: 3px 15px; border-radius: 20px;">
+              OFFICIAL FEE PAYMENT RECEIPT (ACADEMIC YEAR 2026-27)
+            </div>
+          </div>
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; font-size: 0.88rem; margin-bottom: 1.5rem; border-bottom: 1px dashed #cbd5e1; padding-bottom: 1rem;">
+            <div><strong>Receipt No:</strong> <span style="color: #145a32; font-family: monospace;">${receiptId}</span></div>
+            <div><strong>Date & Time:</strong> <span>${dateStr}</span></div>
+            <div><strong>Student Name:</strong> <span>${studentName}</span></div>
+            <div><strong>Course / Class:</strong> <span style="font-weight:700;">${courseName}</span></div>
+            <div><strong>Roll / Form No:</strong> <span>${rollNo}</span></div>
+            <div><strong>PRN:</strong> <span>${prn}</span></div>
+            <div><strong>Payment Mode:</strong> <span>Online UPI / IMPS</span></div>
+            <div><strong>Transaction Reference:</strong> <span style="font-family: monospace;">${txnId}</span></div>
+          </div>
+
+          <table style="width: 100%; border-collapse: collapse; font-size: 0.88rem; margin-bottom: 1.5rem;">
+            <thead>
+              <tr style="background: #f1f5f9; text-align: left; border-top: 1px solid #cbd5e1; border-bottom: 1px solid #cbd5e1;">
+                <th style="padding: 0.5rem 0.75rem;">Sr.</th>
+                <th style="padding: 0.5rem 0.75rem;">Fee Component</th>
+                <th style="padding: 0.5rem 0.75rem; text-align: right;">Amount (INR)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td style="padding: 0.4rem 0.75rem;">1.</td><td style="padding: 0.4rem 0.75rem;">Tuition & Academic Term Fee</td><td style="padding: 0.4rem 0.75rem; text-align: right;">₹${Math.round(totalAmount * 0.55).toLocaleString('en-IN')}</td></tr>
+              <tr><td style="padding: 0.4rem 0.75rem;">2.</td><td style="padding: 0.4rem 0.75rem;">Laboratory, IT Infrastructure & Internet Access</td><td style="padding: 0.4rem 0.75rem; text-align: right;">₹${Math.round(totalAmount * 0.25).toLocaleString('en-IN')}</td></tr>
+              <tr><td style="padding: 0.4rem 0.75rem;">3.</td><td style="padding: 0.4rem 0.75rem;">Library Deposit & E-Resource Access</td><td style="padding: 0.4rem 0.75rem; text-align: right;">₹${Math.round(totalAmount * 0.08).toLocaleString('en-IN')}</td></tr>
+              <tr><td style="padding: 0.4rem 0.75rem;">4.</td><td style="padding: 0.4rem 0.75rem;">Gymkhana, Extracurricular & Cultural Activities</td><td style="padding: 0.4rem 0.75rem; text-align: right;">₹${Math.round(totalAmount * 0.05).toLocaleString('en-IN')}</td></tr>
+              <tr><td style="padding: 0.4rem 0.75rem;">5.</td><td style="padding: 0.4rem 0.75rem;">Examination & University Contribution</td><td style="padding: 0.4rem 0.75rem; text-align: right;">₹${(totalAmount - Math.round(totalAmount*0.55) - Math.round(totalAmount*0.25) - Math.round(totalAmount*0.08) - Math.round(totalAmount*0.05)).toLocaleString('en-IN')}</td></tr>
+              <tr style="background: #f8fafc; font-weight: 800; border-top: 2px solid #145a32; border-bottom: 2px solid #145a32;">
+                <td colspan="2" style="padding: 0.75rem; font-size: 1rem; color: #145a32;">NET AMOUNT RECEIVED (IN WORDS: RUPEES PAID IN FULL)</td>
+                <td style="padding: 0.75rem; text-align: right; color: #145a32; font-size: 1.15rem;">₹${totalAmount.toLocaleString('en-IN')}</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-top: 2rem; padding-top: 1.5rem; border-top: 1px dashed #cbd5e1;">
+            <div style="display: flex; align-items: center; gap: 1rem;">
+              <div style="width: 70px; height: 70px; border: 1px solid #000; padding: 3px;">
+                <svg viewBox="0 0 100 100" style="width:100%; height:100%;">
+                  <rect width="100" height="100" fill="#fff" />
+                  <rect x="5" y="5" width="30" height="30" fill="#000" />
+                  <rect x="65" y="5" width="30" height="30" fill="#000" />
+                  <rect x="5" y="65" width="30" height="30" fill="#000" />
+                  <circle cx="50" cy="50" r="15" fill="#145a32" />
+                </svg>
+              </div>
+              <div style="font-size: 0.72rem; color: #64748b;">
+                Computer generated e-receipt.<br>
+                Valid without physical signature.<br>
+                Scan QR to verify on CHM portal.
+              </div>
+            </div>
+
+            <div style="text-align: center;">
+              <div style="font-family: 'Brush Script MT', cursive; font-size: 1.4rem; color: #145a32;">Dr. Kishori Bhagat</div>
+              <div style="border-top: 1px solid #94a3b8; padding-top: 2px; font-size: 0.75rem; font-weight: 700; color: #334155;">
+                Principal & Accounts Officer<br>Smt. CHM College, Ulhasnagar
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    `
+
+=================================================================
+FILE: js\persona-switcher.js (found 4 assignments)
+=================================================================
+
+--- Snippet #1 ---
+innerHTML = `
+    <!-- Floating Trigger -->
+    <div class="chm-hud-toggle-btn" id="chmHudToggle">
+      <div class="chm-hud-pulse-dot"></div>
+      <span><i class="fas fa-user-tag text-warning"></i> Persona Simulator</span>
+      <span id="chmCurrentPersonaName" style="color: #d4af37; font-weight: 800;">Principal</span>
+    </div>
+
+    <!-- Dropdown / Drawer Modal -->
+    <div class="chm-hud-drawer" id="chmHudDrawer">
+      <div class="chm-hud-header">
+        <div class="chm-hud-title">
+          <i class="fas fa-crown"></i> Boardroom Persona Switcher
+        </div>
+        <button class="chm-hud-close-btn" id="chmHudClose"><i class="fas fa-times"></i></button>
+      </div>
+
+      <!-- Personas Grid -->
+      <div class="chm-personas-grid" id="chmPersonasGrid"></div>
+
+      <!-- Detail Box -->
+      <div class="chm-hud-detail-box" id="chmDetailBox">
+        <div class="chm-hud-desc" id="chmPersonaDesc"></div>
+        <div class="chm-hud-links" id="chmPersonaLinks"></div>
+      </div>
+
+      <!-- Quick Launch Bar -->
+      <div class="chm-hud-quick-bar">
+        <a href="${getResolvedUrl(\'pitch-deck.html\')}" class="chm-hud-quick-btn btn-gold-action">
+          <i class="fas fa-presentation"></i> Boardroom Deck
+        </a>
+        <a href="PROPOSAL.md" class="chm-hud-quick-btn btn-outline-action" target="_blank">
+          <i class="fas fa-file-contract"></i> Proposal (ROI)
+        </a>
+      </div>
+    </div>
+  `
+
+--- Snippet #2 ---
+innerHTML = ''
+
+--- Snippet #3 ---
+innerHTML = `
+        <div class="chm-persona-icon" style="color: ${p.color};">
+          <i class="fas ${p.icon}"></i>
+        </div>
+        <div class="chm-persona-meta">
+          <div class="chm-persona-name">${p.role}</div>
+          <div class="chm-persona-badge">${p.name}</div>
+        </div>
+      `
+
+--- Snippet #4 ---
+innerHTML = ''
+
+=================================================================
+FILE: js\student-portal.js (found 3 assignments)
+=================================================================
+
+--- Snippet #1 ---
+innerHTML = `
+      <div style="position: relative; width: 150px; height: 150px; margin: 0 auto;">
+        <svg viewBox="0 0 36 36" style="width: 100%; height: 100%; transform: rotate(-90deg);">
+          <path d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="3.5" />
+          <path d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="#d4af37" stroke-dasharray="${CURRENT_STUDENT.overallAttendance}, 100" stroke-width="3.5" stroke-linecap="round" />
+        </svg>
+        <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center;">
+          <div style="font-size: 1.6rem; font-weight: 800; color: #fff; line-height: 1;">${CURRENT_STUDENT.overallAttendance}%</div>
+          <div style="font-size: 0.68rem; color: #a7f3d0; font-weight: 700; text-transform: uppercase;">Good Standing</div>
+        </div>
+      </div>
+    `
+
+--- Snippet #2 ---
+innerHTML = `
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.35rem;">
+        <span class="ticker-tag ${cat}">${cat.toUpperCase()}</span>
+        <span style="font-size: 0.75rem; color: var(--text-muted);">Just Now</span>
+      </div>
+      <h4 style="font-size: 1rem; margin-bottom: 0.25rem; color: var(--text-primary);">${title}</h4>
+      <p style="font-size: 0.85rem; color: var(--text-secondary); margin: 0;">${desc}</p>
+    `
+
+--- Snippet #3 ---
+innerHTML = `
+      <div style="background: #ffffff; color: #0f172a; border: 3px double #145a32; border-radius: 12px; padding: 2.5rem; max-width: 800px; margin: 0 auto; box-shadow: var(--shadow-xl); position: relative;">
+        
+        <div style="text-align: center; border-bottom: 2px solid #145a32; padding-bottom: 1.25rem; margin-bottom: 1.5rem;">
+          <div style="font-size: 0.78rem; font-weight: 700; color: #c59b27; text-transform: uppercase;">
+            HYDERABAD (SIND) NATIONAL COLLEGIATE BOARD
+          </div>
+          <h2 style="font-family: var(--font-display); color: #145a32; font-size: 1.6rem; margin: 4px 0;">
+            SMT. CHANDIBAI HIMATHMAL MANSUKHANI COLLEGE
+          </h2>
+          <p style="font-size: 0.8rem; color: #64748b; margin: 0;">
+            Opp. Ulhasnagar Railway Station, Ulhasnagar - 421003, Dist. Thane (Maharashtra)<br>
+            Affiliated to University of Mumbai | NAAC Re-Accredited with 'A' Grade
+          </p>
+          <div style="display: inline-block; margin-top: 0.5rem; background: #145a32; color: #ffffff; font-size: 0.82rem; font-weight: 700; padding: 3px 18px; border-radius: 20px;">
+            ${isRailway ? 'CENTRAL RAILWAY STUDENT CONCESSION BONAFIDE CERTIFICATE' : 'OFFICIAL INSTITUTIONAL BONAFIDE CERTIFICATE'}
+          </div>
+        </div>
+
+        <div style="display: flex; justify-content: space-between; font-size: 0.85rem; margin-bottom: 1.5rem;">
+          <div><strong>Certificate Ref No:</strong> <span style="font-family: monospace; color: #145a32;">${certNumber}</span></div>
+          <div><strong>Date of Issue:</strong> <span>${issueDate}</span></div>
+        </div>
+
+        <div style="font-size: 0.95rem; line-height: 2; color: #1e293b; margin-bottom: 2rem; text-align: justify;">
+          This is to certify that Mr./Ms. <strong><u>Aakash Suresh Lalwani</u></strong> (PRN: <strong>2024016400329104</strong>, Roll No: <strong>TYIT-028</strong>) is a bonafide student of this college studying in the <strong><u>T.Y. B.Sc. (Information Technology)</u></strong> class during the Academic Year <strong>2026-27</strong>.
+          <br><br>
+          ${isRailway ? `
+
+=================================================================
+FILE: sw.js (found 0 assignments)
+=================================================================
